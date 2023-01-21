@@ -94,8 +94,10 @@
 		27F2A5AC297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXGroup;
 			children = (
+				27F2A5DA297C196B00EFD417 /* Models */,
+				27F2A5D9297C195400EFD417 /* Views */,
+				27F2A5D8297C193B00EFD417 /* Network */,
 				27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */,
-				27F2A5AF297C141A00EFD417 /* ContentView.swift */,
 				27F2A5B1297C141B00EFD417 /* Assets.xcassets */,
 				27F2A5B3297C141B00EFD417 /* Preview Content */,
 			);
@@ -125,6 +127,28 @@
 				27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */,
 			);
 			path = PatriotRVUITests;
+			sourceTree = "<group>";
+		};
+		27F2A5D8297C193B00EFD417 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		27F2A5D9297C195400EFD417 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27F2A5AF297C141A00EFD417 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27F2A5DA297C196B00EFD417 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +444,8 @@
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Patriot RV";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +475,8 @@
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Patriot RV";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
