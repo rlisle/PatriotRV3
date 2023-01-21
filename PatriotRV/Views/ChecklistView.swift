@@ -26,7 +26,7 @@ struct ChecklistView: View {
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
 
             GeometryReader { geometry in
 
@@ -104,11 +104,14 @@ struct ChecklistView: View {
                     }
 
                 }//ZStack for sidemenu
-                //.blackNavigation
+                .blackNavigation
                 
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("RV Checklist")
                 .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("RV Checklist")
+                            .foregroundColor(.white)
+                    }
                      ToolbarItem(placement: .navigationBarLeading) {
                          Button(action: {
                              withAnimation {
@@ -118,10 +121,11 @@ struct ChecklistView: View {
                              Image(systemName: "line.horizontal.3")
                                  .imageScale(.large)
                          }
+                         .foregroundColor(.white)
                      }
                 }
             } //GeometryReader
-        }//NavigationView
+        }//NavigationStack
         .accentColor( .black)   // Sets back button color
 
     }
