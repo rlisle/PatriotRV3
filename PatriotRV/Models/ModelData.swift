@@ -12,9 +12,9 @@ final class ModelData: ObservableObject {
     
     @Published var checklist: [ChecklistItem] = []
     
-    let mqtt: MQTTManager!
+    let mqtt: MQTTManagerProtocol!
     
-    init(mqttManager: MQTTManager) {
+    init(mqttManager: MQTTManagerProtocol) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
             //TODO: refactor

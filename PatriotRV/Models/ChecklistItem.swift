@@ -25,7 +25,7 @@ struct ChecklistItem {
     }
     var imageName: String?
 
-    weak var mqtt: MQTTManager?
+    weak var mqtt: MQTTManagerProtocol?
 
     init(id: String, name: String, category: String, order: Int, description: String, imageName: String? = nil) {
         self.id = id

@@ -14,12 +14,13 @@ public enum MQTTError: Error {
     case subscribeError
 }
 
-protocol MQTTManagerProtocol {
+protocol MQTTManagerProtocol: AnyObject {
     var isConnected: Bool { get }
+    var messageHandler: ((String, String) -> Void)? { get set }
     func publish(topic: String, message: String)
 }
 
-class MQTTManager: MQTTSessionDelegate {
+class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
 
     let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
     let port: UInt16 = 1883
@@ -27,7 +28,14 @@ class MQTTManager: MQTTSessionDelegate {
     var clientID: String = ""
 
     var session: MQTTSession?
-    var messageHandler: ((String, String) -> Void)?
+    var messageHandler: ((String, String) -> Void)? {
+        get {
+            return self.messageHandler
+        }
+        set {
+            self.messageHandler = newValue
+        }
+    }
     
     var isSubscribed = false
     

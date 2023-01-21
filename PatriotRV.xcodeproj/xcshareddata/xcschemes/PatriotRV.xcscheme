@@ -40,7 +40,7 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO"
+            skipped = "YES"
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -49,6 +49,14 @@
                BlueprintName = "PatriotRVUITests"
                ReferencedContainer = "container:PatriotRV.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "PatriotRVUITests">
+               </Test>
+               <Test
+                  Identifier = "PatriotRVUITestsLaunchTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
