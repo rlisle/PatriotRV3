@@ -104,7 +104,7 @@ struct ChecklistView: View {
                     }
 
                 }//ZStack for sidemenu
-                .blackNavigation
+                //.blackNavigation
                 
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("RV Checklist")
