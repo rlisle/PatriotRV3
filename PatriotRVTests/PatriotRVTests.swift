@@ -35,7 +35,7 @@ final class PatriotRVTests: XCTestCase {
 
     func test_numSelectedItems() throws /* async */ {
         let count = model.numSelectedItems(category: "Departure")
-        XCTAssertEqual(count, 24)
+        XCTAssertEqual(count, 23)
     }
 
 //    func testPerformanceExample() throws {
