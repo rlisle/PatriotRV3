@@ -54,12 +54,16 @@ final class ModelData: ObservableObject {
     }
     
     // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
-    private func setItem(checklistitem: String, value: String) {
+    func setItem(checklistitem: String, value: String) {
         for index in 0..<checklist.count {
             if checklist[index].id.lowercased() == checklistitem.lowercased() {
                 print("DEBUG: setting checklistitem \(checklistitem) to \(value)")
                 checklist[index].isDone = value != "0"
             }
         }
+    }
+    
+    func getItem(_ checklistitem: String) -> ChecklistItem? {
+        return checklist.filter { $0.id == checklistitem }.first
     }
 }
