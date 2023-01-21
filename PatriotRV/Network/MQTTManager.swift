@@ -28,14 +28,7 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     var clientID: String = ""
 
     var session: MQTTSession?
-    var messageHandler: ((String, String) -> Void)? {
-        get {
-            return self.messageHandler
-        }
-        set {
-            self.messageHandler = newValue
-        }
-    }
+    var messageHandler: ((String, String) -> Void)?
     
     var isSubscribed = false
     
