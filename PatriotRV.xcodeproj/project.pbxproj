@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */; };
+		272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D6297C774D005C6D43 /* ContentView.swift */; };
+		272FC2D9297C774E005C6D43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 272FC2D8297C774E005C6D43 /* Assets.xcassets */; };
+		272FC2DC297C774E005C6D43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 272FC2DB297C774E005C6D43 /* Preview Assets.xcassets */; };
+		272FC2DF297C774E005C6D43 /* PatriotRVWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		276270B8297C1BC700844645 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
 		276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
 		276270BC297C1BD800844645 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ModelData.swift */; };
@@ -29,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		272FC2DD297C774E005C6D43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27F2A5A2297C141A00EFD417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 272FC2D1297C774D005C6D43;
+			remoteInfo = "PatriotRVWatch Watch App";
+		};
 		27F2A5BB297C141B00EFD417 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 27F2A5A2297C141A00EFD417 /* Project object */;
@@ -45,7 +57,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		272FC2E0297C774E005C6D43 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				272FC2DF297C774E005C6D43 /* PatriotRVWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRVWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVWatchApp.swift; sourceTree = "<group>"; };
+		272FC2D6297C774D005C6D43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		272FC2D8297C774E005C6D43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		272FC2DB297C774E005C6D43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		276270B7297C1BC700844645 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		276270B9297C1BD000844645 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		276270BB297C1BD800844645 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -70,6 +101,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		272FC2CF297C774D005C6D43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27F2A5A7297C141A00EFD417 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,6 +133,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */,
+				272FC2D6297C774D005C6D43 /* ContentView.swift */,
+				272FC2D8297C774E005C6D43 /* Assets.xcassets */,
+				272FC2DA297C774E005C6D43 /* Preview Content */,
+			);
+			path = PatriotRVWatchApp;
+			sourceTree = "<group>";
+		};
+		272FC2DA297C774E005C6D43 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				272FC2DB297C774E005C6D43 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		276270C4297C208900844645 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +166,7 @@
 				27F2A5AC297C141A00EFD417 /* PatriotRV */,
 				27F2A5BD297C141B00EFD417 /* PatriotRVTests */,
 				27F2A5C7297C141B00EFD417 /* PatriotRVUITests */,
+				272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */,
 				27F2A5AB297C141A00EFD417 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +177,7 @@
 				27F2A5AA297C141A00EFD417 /* PatriotRV.app */,
 				27F2A5BA297C141B00EFD417 /* PatriotRVTests.xctest */,
 				27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */,
+				272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,6 +256,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 272FC2E3297C774E005C6D43 /* Build configuration list for PBXNativeTarget "PatriotRVWatchApp" */;
+			buildPhases = (
+				272FC2CE297C774D005C6D43 /* Sources */,
+				272FC2CF297C774D005C6D43 /* Frameworks */,
+				272FC2D0297C774D005C6D43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatriotRVWatchApp;
+			productName = "PatriotRVWatch Watch App";
+			productReference = 272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		27F2A5A9297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5CE297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRV" */;
@@ -204,10 +280,12 @@
 				27F2A5A6297C141A00EFD417 /* Sources */,
 				27F2A5A7297C141A00EFD417 /* Frameworks */,
 				27F2A5A8297C141A00EFD417 /* Resources */,
+				272FC2E0297C774E005C6D43 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				272FC2DE297C774E005C6D43 /* PBXTargetDependency */,
 			);
 			name = PatriotRV;
 			packageProductDependencies = (
@@ -263,6 +341,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					272FC2D1297C774D005C6D43 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					27F2A5A9297C141A00EFD417 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -295,11 +376,21 @@
 				27F2A5A9297C141A00EFD417 /* PatriotRV */,
 				27F2A5B9297C141B00EFD417 /* PatriotRVTests */,
 				27F2A5C3297C141B00EFD417 /* PatriotRVUITests */,
+				272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		272FC2D0297C774D005C6D43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				272FC2DC297C774E005C6D43 /* Preview Assets.xcassets in Resources */,
+				272FC2D9297C774E005C6D43 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27F2A5A8297C141A00EFD417 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,6 +417,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		272FC2CE297C774D005C6D43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
+				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27F2A5A6297C141A00EFD417 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,6 +466,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		272FC2DE297C774E005C6D43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */;
+			targetProxy = 272FC2DD297C774E005C6D43 /* PBXContainerItemProxy */;
+		};
 		27F2A5BC297C141B00EFD417 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27F2A5A9297C141A00EFD417 /* PatriotRV */;
@@ -379,6 +484,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		272FC2E1297C774E005C6D43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PatriotRVWatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRVWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = net.lisles.PatriotRV;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		272FC2E2297C774E005C6D43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PatriotRVWatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRVWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = net.lisles.PatriotRV;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 		27F2A5CC297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -496,6 +661,7 @@
 		27F2A5CF297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +693,7 @@
 		27F2A5D0297C141B00EFD417 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -634,6 +801,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		272FC2E3297C774E005C6D43 /* Build configuration list for PBXNativeTarget "PatriotRVWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				272FC2E1297C774E005C6D43 /* Debug */,
+				272FC2E2297C774E005C6D43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		27F2A5A5297C141A00EFD417 /* Build configuration list for PBXProject "PatriotRV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
