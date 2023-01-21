@@ -43,6 +43,7 @@ struct ChecklistView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         .padding(.bottom, 0)
+                        .padding(.top, -12)
                         .background(Color.black)
 
                         // Checklist Section
