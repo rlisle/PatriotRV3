@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276270B8297C1BC700844645 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
+		276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
+		276270BC297C1BD800844645 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ModelData.swift */; };
+		276270BE297C1BEB00844645 /* MQTTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BD297C1BEB00844645 /* MQTTManager.swift */; };
+		276270C0297C1C7200844645 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BF297C1C7200844645 /* ChecklistView.swift */; };
 		27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */; };
-		27F2A5B0297C141A00EFD417 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5AF297C141A00EFD417 /* ContentView.swift */; };
 		27F2A5B2297C141B00EFD417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B1297C141B00EFD417 /* Assets.xcassets */; };
 		27F2A5B5297C141B00EFD417 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */; };
 		27F2A5BF297C141B00EFD417 /* PatriotRVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5BE297C141B00EFD417 /* PatriotRVTests.swift */; };
@@ -34,9 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		276270B7297C1BC700844645 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		276270B9297C1BD000844645 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		276270BB297C1BD800844645 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		276270BD297C1BEB00844645 /* MQTTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTManager.swift; sourceTree = "<group>"; };
+		276270BF297C1C7200844645 /* ChecklistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		27F2A5AA297C141A00EFD417 /* PatriotRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVApp.swift; sourceTree = "<group>"; };
-		27F2A5AF297C141A00EFD417 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		27F2A5B1297C141B00EFD417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27F2A5BA297C141B00EFD417 /* PatriotRVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatriotRVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,10 +102,10 @@
 		27F2A5AC297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXGroup;
 			children = (
+				27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */,
 				27F2A5DA297C196B00EFD417 /* Models */,
 				27F2A5D9297C195400EFD417 /* Views */,
 				27F2A5D8297C193B00EFD417 /* Network */,
-				27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */,
 				27F2A5B1297C141B00EFD417 /* Assets.xcassets */,
 				27F2A5B3297C141B00EFD417 /* Preview Content */,
 			);
@@ -132,6 +140,7 @@
 		27F2A5D8297C193B00EFD417 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				276270BD297C1BEB00844645 /* MQTTManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -139,7 +148,7 @@
 		27F2A5D9297C195400EFD417 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				27F2A5AF297C141A00EFD417 /* ContentView.swift */,
+				276270BF297C1C7200844645 /* ChecklistView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +156,9 @@
 		27F2A5DA297C196B00EFD417 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				276270B7297C1BC700844645 /* Checklist.swift */,
+				276270B9297C1BD000844645 /* ChecklistItem.swift */,
+				276270BB297C1BD800844645 /* ModelData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,8 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F2A5B0297C141A00EFD417 /* ContentView.swift in Sources */,
+				276270BE297C1BEB00844645 /* MQTTManager.swift in Sources */,
 				27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */,
+				276270BC297C1BD800844645 /* ModelData.swift in Sources */,
+				276270B8297C1BC700844645 /* Checklist.swift in Sources */,
+				276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */,
+				276270C0297C1C7200844645 /* ChecklistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
