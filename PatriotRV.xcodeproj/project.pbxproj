@@ -22,7 +22,6 @@
 		276270BC297C1BD800844645 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ModelData.swift */; };
 		276270BE297C1BEB00844645 /* MQTTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BD297C1BEB00844645 /* MQTTManager.swift */; };
 		276270C0297C1C7200844645 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BF297C1C7200844645 /* ChecklistView.swift */; };
-		276270C3297C1E0D00844645 /* SwiftMQTT in Frameworks */ = {isa = PBXBuildFile; productRef = 276270C2297C1E0D00844645 /* SwiftMQTT */; };
 		276270C6297C20A000844645 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270C5297C20A000844645 /* Colors.swift */; };
 		276270C8297C20DD00844645 /* ChecklistHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270C7297C20DD00844645 /* ChecklistHeader.swift */; };
 		276270CA297C20E500844645 /* ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270C9297C20E500844645 /* ChecklistRow.swift */; };
@@ -122,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				276270C3297C1E0D00844645 /* SwiftMQTT in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +302,6 @@
 			);
 			name = PatriotRV;
 			packageProductDependencies = (
-				276270C2297C1E0D00844645 /* SwiftMQTT */,
 			);
 			productName = PatriotRV;
 			productReference = 27F2A5AA297C141A00EFD417 /* PatriotRV.app */;
@@ -382,7 +379,6 @@
 			);
 			mainGroup = 27F2A5A1297C141A00EFD417;
 			packageReferences = (
-				276270C1297C1E0D00844645 /* XCRemoteSwiftPackageReference "SwiftMQTT" */,
 			);
 			productRefGroup = 27F2A5AB297C141A00EFD417 /* Products */;
 			projectDirPath = "";
@@ -867,25 +863,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		276270C1297C1E0D00844645 /* XCRemoteSwiftPackageReference "SwiftMQTT" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aciidb0mb3r/SwiftMQTT";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		276270C2297C1E0D00844645 /* SwiftMQTT */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 276270C1297C1E0D00844645 /* XCRemoteSwiftPackageReference "SwiftMQTT" */;
-			productName = SwiftMQTT;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27F2A5A2297C141A00EFD417 /* Project object */;
 }

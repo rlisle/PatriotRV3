@@ -5,7 +5,7 @@
 //  Created by Ron Lisle on 10/23/21.
 //
 
-import SwiftMQTT
+//import SwiftMQTT
 import Foundation
 
 public enum MQTTError: Error {
@@ -20,6 +20,8 @@ protocol MQTTManagerProtocol: AnyObject {
     func publish(topic: String, message: String)
 }
 
+protocol MQTTSessionDelegate { }
+
 class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
 
     let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
@@ -27,21 +29,25 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     let subscribeTopic = "#"
     var clientID: String = ""
 
-    var session: MQTTSession?
+//    var session: MQTTSession?
     var messageHandler: ((String, String) -> Void)?
     
     var isSubscribed = false
     
     var isConnected: Bool {
         get {
-            return session != nil
+            return false
+//            return session != nil
         }
     }
     
     init() {
+        #if false
         connect()
+        #endif
     }
     
+    #if false
     private func connect() {
         clientID = getClientID()
         session = MQTTSession(host: host, port: port, clientID: clientID, cleanSession: true, keepAlive: 15, useSSL: false)
@@ -57,8 +63,10 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
             }
         }
     }
+    #endif
 
     private func subscribe() {
+        #if false
         print("Subscribing...")
         session?.subscribe(to: subscribeTopic, delivering: .exactlyOnce) { (error) in
             print("Subscribe completed, error: \(error)")
@@ -72,7 +80,9 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
         }
         //debug
         self.requestUpdates()
-
+        #else
+        print("Not subscribing")
+        #endif
     }
 
     private func requestUpdates() {
@@ -81,13 +91,18 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     }
 
     func publish(topic: String, message: String) {
+        #if false
         session?.publish(message.data(using: .utf8)!, in: topic, delivering: .atMostOnce, retain: false) { error in
             if error != .none {
                 print("Error sending MQTT: \(error.description)")
             }
         }
+        #else
+        print("not publishing")
+        #endif
     }
-    
+
+    #if false
     func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
         print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
         if let handler = messageHandler {
@@ -109,6 +124,7 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     func mqttDidAcknowledgePing(from session: MQTTSession) {
 //        print("MQTT deep-alive ping acknowledged.")
     }
+    #endif
 
     // MQTT non-delegate methods
     
