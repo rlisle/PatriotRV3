@@ -29,7 +29,9 @@ struct ChecklistView: View {
         
         NavigationStack {
             
-            NavigationLink(destination: PowerView(), isActive: $showPower) { EmptyView() }
+            NavigationLink(
+                destination: PowerView().environmentObject(modelData),
+                isActive: $showPower) { EmptyView() }
 
             GeometryReader { geometry in
 

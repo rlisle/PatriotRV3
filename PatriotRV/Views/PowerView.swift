@@ -9,39 +9,36 @@ import SwiftUI
 
 struct PowerView: View {
 
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var model: ModelData
 
-    @State private var rv = 5.0
-    @State var tesla = 30.0
-    
     var body: some View {
         VStack {
             Text("Power Usage")
             HStack {
                 VStack {
-                    Gauge(value: rv, in: 0...50) {
+                    Gauge(value: model.power.rv, in: 0...50) {
                         Text("RV")
                     } currentValueLabel: {
-                        Text("\(rv)")
+                        Text(model.power.rv.formatted())
                     } minimumValueLabel: {
                         Text("0")
                     } maximumValueLabel: {
                         Text("50")
                     }
-                    //.gaugeStyle(.accessoryCircular)
                     .gaugeStyle(.accessoryLinearCapacity)
+                    .tint(model.power.rvTint)
                     
-                    Gauge(value: tesla, in: 0...50) {
+                    Gauge(value: model.power.tesla, in: 0...50) {
                         Text("Tesla")
                     } currentValueLabel: {
-                        Text("\(tesla)")
+                        Text(model.power.tesla.formatted())
                     } minimumValueLabel: {
                         Text("0")
                     } maximumValueLabel: {
                         Text("50")
                     }
-                    //.gaugeStyle(.accessoryCircular)
                     .gaugeStyle(.accessoryLinearCapacity)
+                    .tint(model.power.teslaTint)
                 }
             }
             .padding(.horizontal, 32)
@@ -54,5 +51,6 @@ struct PowerView: View {
 struct PowerView_Previews: PreviewProvider {
     static var previews: some View {
         PowerView()
+            .environmentObject(ModelData(mqttManager: MQTTManager()))
     }
 }

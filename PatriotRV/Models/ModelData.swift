@@ -11,6 +11,7 @@ import Combine
 final class ModelData: ObservableObject {
     
     @Published var checklist: [ChecklistItem] = []
+    @Published var power = PowerUsage()
     
     let mqtt: MQTTManagerProtocol!
     
