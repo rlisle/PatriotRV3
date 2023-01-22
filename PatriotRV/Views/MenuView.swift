@@ -16,9 +16,21 @@ struct MenuView: View {
     @Binding var showMenu: Bool
     @Binding var showCompleted: Bool
     @Binding var selection: String?
+    @Binding var isShowingPower: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
+            
+            Section(header: Text("Screens")) {
+                
+                MenuRowView(title: "Power", iconName: "guage", action: {
+                        isShowingPower = true
+                    withAnimation {
+                        showMenu = false
+                    }
+                })
+                .padding(.bottom, 60)
+            }
             
             Section(header: Text("Actions")) {
                 
