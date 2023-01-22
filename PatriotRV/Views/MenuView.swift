@@ -20,11 +20,11 @@ struct MenuView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            
-            Section(header: Text("Screens")) {
+                        
+            Section(header: Text("Actions")) {
                 
-                MenuRowView(title: "Power", iconName: "guage", action: {
-                        isShowingPower = true
+                MenuRowView(title: "Uncheck All", iconName: "square", action: {
+                    modelData.uncheckAll()
                     withAnimation {
                         showMenu = false
                     }
@@ -32,10 +32,10 @@ struct MenuView: View {
                 .padding(.bottom, 60)
             }
             
-            Section(header: Text("Actions")) {
+            Section(header: Text("Other")) {
                 
-                MenuRowView(title: "Uncheck All", iconName: "square", action: {
-                    modelData.uncheckAll()
+                MenuRowView(title: "Power", iconName: "guage", action: {
+                        isShowingPower = true
                     withAnimation {
                         showMenu = false
                     }
@@ -69,7 +69,7 @@ struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView(showMenu: .constant(true),
                  showCompleted: .constant(true),
-                 selection: .constant("None"))
+                 selection: .constant("None"), isShowingPower: .constant(false) )
             .previewLayout(.fixed(width: 180, height: 720))
     }
 }

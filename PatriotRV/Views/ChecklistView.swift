@@ -100,7 +100,7 @@ struct ChecklistView: View {
 
                         MenuView(showMenu: $showMenu,
                                  showCompleted: $showCompleted,
-                                 selection: $menuSelection)
+                                 selection: $menuSelection, isShowingPower: $showPower)
                             .frame(width: geometry.size.width/2)
                             .transition(.move(edge: .leading))
                         .gesture(drag)
