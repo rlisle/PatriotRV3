@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct PowerView: View {
+
+    @EnvironmentObject var modelData: ModelData
+
+    @State private var current = 5.0
+    
     var body: some View {
-        Text("TODO: Show Power")
+        VStack {
+            Text("RV Power Usage")
+            Gauge(value: current, in: 0...50) {
+                Text("Amps")
+            } currentValueLabel: {
+                Text("\(Int(current))")
+            }
+            .gaugeStyle(.accessoryCircular)
+            .padding(.horizontal, 32)
+        }
+        .navigationTitle("Power Usage")
+        .blackNavigation
     }
 }
 
