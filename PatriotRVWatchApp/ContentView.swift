@@ -15,12 +15,15 @@ struct ContentView: View {
         NavigationStack {
             List {
                 NavigationLink("Checklist", value: "checklist")
+                NavigationLink("Lights", value: "lights")
                 NavigationLink("Power", value: "power")
             }
             .navigationDestination(for: String.self) { destination in
                 switch destination {
                 case "checklist":
                     ChecklistView()
+                case "lights":
+                    LightsView()
                 default:
                     PowerView()
                 }

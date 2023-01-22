@@ -16,6 +16,7 @@
 		272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E6297D59BE005C6D43 /* PowerView.swift */; };
 		272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E8297D5B52005C6D43 /* ChecklistView.swift */; };
 		272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2EA297D5BE6005C6D43 /* PowerView.swift */; };
+		272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2EC297D6159005C6D43 /* LightsView.swift */; };
 		276270B8297C1BC700844645 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
 		276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
 		276270BC297C1BD800844645 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ModelData.swift */; };
@@ -85,6 +86,7 @@
 		272FC2E6297D59BE005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
 		272FC2E8297D5B52005C6D43 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		272FC2EA297D5BE6005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
+		272FC2EC297D6159005C6D43 /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
 		276270B7297C1BC700844645 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		276270B9297C1BD000844645 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		276270BB297C1BD800844645 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -147,9 +149,10 @@
 				272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */,
 				272FC2D6297C774D005C6D43 /* ContentView.swift */,
 				272FC2E8297D5B52005C6D43 /* ChecklistView.swift */,
+				272FC2EC297D6159005C6D43 /* LightsView.swift */,
+				272FC2EA297D5BE6005C6D43 /* PowerView.swift */,
 				272FC2D8297C774E005C6D43 /* Assets.xcassets */,
 				272FC2DA297C774E005C6D43 /* Preview Content */,
-				272FC2EA297D5BE6005C6D43 /* PowerView.swift */,
 			);
 			path = PatriotRVWatchApp;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
 				272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
+				272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
