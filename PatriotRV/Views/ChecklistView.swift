@@ -13,6 +13,7 @@ struct ChecklistView: View {
     
     @State private var showCompleted = true
     @State private var showMenu = false
+    @State private var showPower = false
     @State private var menuSelection: String? = nil
     @State private var phase = "Pre-Trip"
     private var phases = ["Pre-Trip", "Departure", "Arrival"]
@@ -26,7 +27,9 @@ struct ChecklistView: View {
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
+            
+            NavigationLink(destination: PowerView(), isActive: $showPower) { EmptyView() }
 
             GeometryReader { geometry in
 
@@ -43,6 +46,7 @@ struct ChecklistView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         .padding(.bottom, 0)
+                        .padding(.top, -12)
                         .background(Color.black)
 
                         // Checklist Section
@@ -104,11 +108,14 @@ struct ChecklistView: View {
                     }
 
                 }//ZStack for sidemenu
-                //.blackNavigation
+                .blackNavigation
                 
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("RV Checklist")
                 .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("RV Checklist")
+                            .foregroundColor(.white)
+                    }
                      ToolbarItem(placement: .navigationBarLeading) {
                          Button(action: {
                              withAnimation {
@@ -118,10 +125,22 @@ struct ChecklistView: View {
                              Image(systemName: "line.horizontal.3")
                                  .imageScale(.large)
                          }
+                         .foregroundColor(.white)
                      }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            withAnimation {
+                                self.showPower.toggle()
+                            }
+                        }) {
+                            Image(systemName: "gauge.low")
+                                .imageScale(.large)
+                        }
+                        .foregroundColor(.white)
+                    }
                 }
             } //GeometryReader
-        }//NavigationView
+        }//NavigationStack
         .accentColor( .black)   // Sets back button color
 
     }
