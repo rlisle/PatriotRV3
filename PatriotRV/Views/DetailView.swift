@@ -56,8 +56,8 @@ struct DetailView: View {
             HTMLStringView(htmlContent: headerString + listItem.description)
         }
         .padding()
-        //.blackNavigation
         .navigationTitle(listItem.name)
+        .blackNavigation
     }
 }
 

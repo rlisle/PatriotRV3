@@ -13,6 +13,7 @@ struct ChecklistView: View {
     
     @State private var showCompleted = true
     @State private var showMenu = false
+    @State private var showPower = false
     @State private var menuSelection: String? = nil
     @State private var phase = "Pre-Trip"
     private var phases = ["Pre-Trip", "Departure", "Arrival"]
@@ -27,6 +28,8 @@ struct ChecklistView: View {
     var body: some View {
         
         NavigationStack {
+            
+            NavigationLink(destination: PowerView(), isActive: $showPower) { EmptyView() }
 
             GeometryReader { geometry in
 
@@ -124,6 +127,17 @@ struct ChecklistView: View {
                          }
                          .foregroundColor(.white)
                      }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            withAnimation {
+                                self.showPower.toggle()
+                            }
+                        }) {
+                            Image(systemName: "gauge.low")
+                                .imageScale(.large)
+                        }
+                        .foregroundColor(.white)
+                    }
                 }
             } //GeometryReader
         }//NavigationStack

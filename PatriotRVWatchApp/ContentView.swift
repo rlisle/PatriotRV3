@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var path: [String] = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                NavigationLink("Checklist", value: "checklist")
+                NavigationLink("Power", value: "power")
+            }
+            .navigationDestination(for: String.self) { destination in
+                switch destination {
+                case "checklist":
+                    ChecklistView()
+                default:
+                    PowerView()
+                }
+            }
         }
-        .padding()
     }
 }
 

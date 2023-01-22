@@ -13,6 +13,9 @@
 		272FC2DC297C774E005C6D43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 272FC2DB297C774E005C6D43 /* Preview Assets.xcassets */; };
 		272FC2DF297C774E005C6D43 /* PatriotRVWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */; };
+		272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E6297D59BE005C6D43 /* PowerView.swift */; };
+		272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E8297D5B52005C6D43 /* ChecklistView.swift */; };
+		272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2EA297D5BE6005C6D43 /* PowerView.swift */; };
 		276270B8297C1BC700844645 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
 		276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
 		276270BC297C1BD800844645 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ModelData.swift */; };
@@ -79,6 +82,9 @@
 		272FC2D8297C774E005C6D43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		272FC2DB297C774E005C6D43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		272FC2E6297D59BE005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
+		272FC2E8297D5B52005C6D43 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		272FC2EA297D5BE6005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
 		276270B7297C1BC700844645 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		276270B9297C1BD000844645 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		276270BB297C1BD800844645 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -140,8 +146,10 @@
 			children = (
 				272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */,
 				272FC2D6297C774D005C6D43 /* ContentView.swift */,
+				272FC2E8297D5B52005C6D43 /* ChecklistView.swift */,
 				272FC2D8297C774E005C6D43 /* Assets.xcassets */,
 				272FC2DA297C774E005C6D43 /* Preview Content */,
+				272FC2EA297D5BE6005C6D43 /* PowerView.swift */,
 			);
 			path = PatriotRVWatchApp;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 				276270D1297C21AF00844645 /* MenuRowView.swift */,
 				276270CF297C213100844645 /* MenuView.swift */,
 				272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */,
+				272FC2E6297D59BE005C6D43 /* PowerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,7 +433,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
+				272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +453,7 @@
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
 				272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */,
+				272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */,
 				276270CA297C20E500844645 /* ChecklistRow.swift in Sources */,
 				276270B8297C1BC700844645 /* Checklist.swift in Sources */,
 				276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */,
