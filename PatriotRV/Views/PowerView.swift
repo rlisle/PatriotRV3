@@ -11,17 +11,39 @@ struct PowerView: View {
 
     @EnvironmentObject var modelData: ModelData
 
-    @State private var current = 5.0
+    @State private var rv = 5.0
+    @State var tesla = 30.0
     
     var body: some View {
         VStack {
-            Text("RV Power Usage")
-            Gauge(value: current, in: 0...50) {
-                Text("Amps")
-            } currentValueLabel: {
-                Text("\(Int(current))")
+            Text("Power Usage")
+            HStack {
+                VStack {
+                    Gauge(value: rv, in: 0...50) {
+                        Text("RV")
+                    } currentValueLabel: {
+                        Text("\(rv)")
+                    } minimumValueLabel: {
+                        Text("0")
+                    } maximumValueLabel: {
+                        Text("50")
+                    }
+                    //.gaugeStyle(.accessoryCircular)
+                    .gaugeStyle(.accessoryLinearCapacity)
+                    
+                    Gauge(value: tesla, in: 0...50) {
+                        Text("Tesla")
+                    } currentValueLabel: {
+                        Text("\(tesla)")
+                    } minimumValueLabel: {
+                        Text("0")
+                    } maximumValueLabel: {
+                        Text("50")
+                    }
+                    //.gaugeStyle(.accessoryCircular)
+                    .gaugeStyle(.accessoryLinearCapacity)
+                }
             }
-            .gaugeStyle(.accessoryCircular)
             .padding(.horizontal, 32)
         }
         .navigationTitle("Power Usage")
