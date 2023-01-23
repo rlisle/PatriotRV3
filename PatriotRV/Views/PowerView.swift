@@ -16,35 +16,56 @@ struct PowerView: View {
             Text("Power Usage")
             HStack {
                 VStack {
-                    Gauge(value: model.power.rv, in: 0...50) {
-                        Text("RV")
-                    } currentValueLabel: {
-                        Text(model.power.rv.formatted())
-                    } minimumValueLabel: {
-                        Text("0")
-                    } maximumValueLabel: {
-                        Text("50")
-                    }
-                    .gaugeStyle(.accessoryLinearCapacity)
-                    .tint(model.power.rvTint)
-                    
-                    Gauge(value: model.power.tesla, in: 0...50) {
-                        Text("Tesla")
-                    } currentValueLabel: {
-                        Text(model.power.tesla.formatted())
-                    } minimumValueLabel: {
-                        Text("0")
-                    } maximumValueLabel: {
-                        Text("50")
-                    }
-                    .gaugeStyle(.accessoryLinearCapacity)
-                    .tint(model.power.teslaTint)
+                    RvPowerView()
+                    TeslaPowerView()
                 }
             }
             .padding(.horizontal, 32)
         }
         .navigationTitle("Power Usage")
         .blackNavigation
+    }
+}
+
+struct RvPowerView: View {
+
+    @EnvironmentObject var model: ModelData
+
+    var body: some View {
+        VStack {
+            Gauge(value: model.power.rv, in: 0...50) {
+                Text("RV")
+            } currentValueLabel: {
+                Text(model.power.rv.formatted())
+            } minimumValueLabel: {
+                Text("0")
+            } maximumValueLabel: {
+                Text("50")
+            }
+            .gaugeStyle(.accessoryLinearCapacity)
+            .tint(model.power.rvTint)
+        }
+    }
+}
+
+struct TeslaPowerView: View {
+
+    @EnvironmentObject var model: ModelData
+
+    var body: some View {
+        VStack {
+            Gauge(value: model.power.tesla, in: 0...50) {
+                Text("Tesla")
+            } currentValueLabel: {
+                Text(model.power.tesla.formatted())
+            } minimumValueLabel: {
+                Text("0")
+            } maximumValueLabel: {
+                Text("50")
+            }
+            .gaugeStyle(.accessoryLinearCapacity)
+            .tint(model.power.teslaTint)
+        }
     }
 }
 

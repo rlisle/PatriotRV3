@@ -32,6 +32,7 @@
 		276270D2297C21AF00844645 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270D1297C21AF00844645 /* MenuRowView.swift */; };
 		276DDFC3297DD559008CEC48 /* PowerUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC2297DD559008CEC48 /* PowerUsage.swift */; };
 		276DDFC4297DD559008CEC48 /* PowerUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC2297DD559008CEC48 /* PowerUsage.swift */; };
+		276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC5297DD8C0008CEC48 /* HomeView.swift */; };
 		27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */; };
 		27F2A5B2297C141B00EFD417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B1297C141B00EFD417 /* Assets.xcassets */; };
 		27F2A5B5297C141B00EFD417 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		276270CF297C213100844645 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		276270D1297C21AF00844645 /* MenuRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
 		276DDFC2297DD559008CEC48 /* PowerUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUsage.swift; sourceTree = "<group>"; };
+		276DDFC5297DD8C0008CEC48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		27F2A5AA297C141A00EFD417 /* PatriotRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVApp.swift; sourceTree = "<group>"; };
 		27F2A5B1297C141B00EFD417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				276270C7297C20DD00844645 /* ChecklistHeader.swift */,
 				276270BF297C1C7200844645 /* ChecklistView.swift */,
 				276270CD297C212A00844645 /* DetailView.swift */,
+				276DDFC5297DD8C0008CEC48 /* HomeView.swift */,
 				276270D1297C21AF00844645 /* MenuRowView.swift */,
 				276270CF297C213100844645 /* MenuView.swift */,
 				272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */,
@@ -458,6 +461,7 @@
 				276270CC297C211600844645 /* Checkmark.swift in Sources */,
 				27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */,
 				276270BC297C1BD800844645 /* ModelData.swift in Sources */,
+				276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */,
 				276270C8297C20DD00844645 /* ChecklistHeader.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
