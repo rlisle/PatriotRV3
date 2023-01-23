@@ -1,5 +1,5 @@
 //
-//  ChecklistHeader.swift
+//  ImageHeader.swift
 //  RvChecklist
 //
 //  Created by Ron Lisle on 2/22/21.
@@ -20,7 +20,7 @@ struct ImageHeader: View {
     }
 }
 
-struct ChecklistHeader_Previews: PreviewProvider {
+struct ImageHeader_Previews: PreviewProvider {
     static var previews: some View {
         ImageHeader(imageName: "rv-truck")
             .previewLayout(.fixed(width: 300, height: 210))
