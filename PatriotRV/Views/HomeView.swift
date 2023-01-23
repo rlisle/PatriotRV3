@@ -10,42 +10,30 @@ import SwiftUI
 struct HomeView: View {
 
     @EnvironmentObject var model: ModelData
-
+    
     var body: some View {
-        GroupBox(label: Label("Power Usage", systemImage: "gauge")) {
-            VStack {
-                HStack {
-                    VStack {
-                        Gauge(value: model.power.rv, in: 0...50) {
-                            Text("RV")
-                        } currentValueLabel: {
-                            Text(model.power.rv.formatted())
-                        } minimumValueLabel: {
-                            Text("0")
-                        } maximumValueLabel: {
-                            Text("50")
-                        }
-                        .gaugeStyle(.accessoryLinearCapacity)
-                        .tint(model.power.rvTint)
-                        
-                        Gauge(value: model.power.tesla, in: 0...50) {
-                            Text("Tesla")
-                        } currentValueLabel: {
-                            Text(model.power.tesla.formatted())
-                        } minimumValueLabel: {
-                            Text("0")
-                        } maximumValueLabel: {
-                            Text("50")
-                        }
-                        .gaugeStyle(.accessoryLinearCapacity)
-                        .tint(model.power.teslaTint)
-                    }
+        TabView {
+            
+            ChecklistView()
+                //.badge()
+                .tabItem {
+                    Label("Checklist", systemImage: "list.clipboard")
                 }
-                .padding(.horizontal, 32)
+            
+            PowerView()
+            //.badge()
+            .tabItem {
+                Label("Power", systemImage: "bolt.fill")
             }
-            Spacer()
+
+            LogView()
+            //.badge()
+            .tabItem {
+                Label("Log", systemImage: "list.dash")
+            }
+
         }
-        .navigationTitle("Power Usage")
+        .navigationTitle("Patriot RV")
         .blackNavigation
     }
 }
