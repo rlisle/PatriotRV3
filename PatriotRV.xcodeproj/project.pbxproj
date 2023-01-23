@@ -258,11 +258,11 @@
 				276270BF297C1C7200844645 /* ChecklistView.swift */,
 				276270CD297C212A00844645 /* DetailView.swift */,
 				276DDFC5297DD8C0008CEC48 /* HomeView.swift */,
+				276DDFC7297EADE3008CEC48 /* LogView.swift */,
 				276270D1297C21AF00844645 /* MenuRowView.swift */,
 				276270CF297C213100844645 /* MenuView.swift */,
 				272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */,
 				272FC2E6297D59BE005C6D43 /* PowerView.swift */,
-				276DDFC7297EADE3008CEC48 /* LogView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -14,7 +14,7 @@ struct PatriotRVApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ChecklistView()
+            HomeView()
                 .environmentObject(modelData)
         }
     }

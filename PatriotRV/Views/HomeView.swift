@@ -118,6 +118,7 @@ struct HomeView: View {
     }//body
 }
 
+// Row views should provide summary information
 struct PowerRowView: View {
     var body: some View {
         VStack {
