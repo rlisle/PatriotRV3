@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct ChecklistHeader: View {
+struct ImageHeader: View {
+    
+    var imageName: String
+    
     var body: some View {
         ZStack(alignment: .topLeading, content: {
-            Image("truck-rv")
+            Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         })
@@ -19,7 +22,7 @@ struct ChecklistHeader: View {
 
 struct ChecklistHeader_Previews: PreviewProvider {
     static var previews: some View {
-        ChecklistHeader()
+        ImageHeader(imageName: "rv-truck")
             .previewLayout(.fixed(width: 300, height: 210))
             .previewDisplayName("ChecklistHeader")
     }

@@ -39,7 +39,7 @@ struct ChecklistView: View {
                     
                     VStack {
                         
-                        ChecklistHeader()
+                        ImageHeader(imageName: "truck-rv")
 
                         Picker(selection: $phase, label: Text("Phase")) {
                             ForEach(phases, id: \.self) {
