@@ -1,22 +1,18 @@
 //
-//  MenuView.swift
-//  RvChecklist
+//  SettingsView.swift
+//  PatriotRV
 //
-//  Side Menu
-//
-//  Created by Ron Lisle on 7/13/21.
+//  Created by Ron Lisle on 1/23/23.
 //
 
 import SwiftUI
 
-struct MenuView: View {
+struct SettingsView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: ModelData
-
-    @Binding var showMenu: Bool
-    @Binding var showCompleted: Bool
-    @Binding var selection: String?
-    @Binding var isShowingPower: Bool
+    
+    @State var showCompleted = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,29 +22,18 @@ struct MenuView: View {
                 MenuRowView(title: "Uncheck All", iconName: "square", action: {
                     modelData.uncheckAll()
                     withAnimation {
-                        showMenu = false
+                        presentationMode.wrappedValue.dismiss()
                     }
                 })
                 .padding(.bottom, 60)
             }
-            
-            Section(header: Text("Other")) {
-                
-                MenuRowView(title: "Power", iconName: "guage", action: {
-                        isShowingPower = true
-                    withAnimation {
-                        showMenu = false
-                    }
-                })
-                .padding(.bottom, 60)
-            }
-            
+                        
             Section(header: Text("Settings")) {
                 
                 MenuRowView(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
                     showCompleted.toggle()
                     withAnimation {
-                        showMenu = false
+                        presentationMode.wrappedValue.dismiss()
                     }
                 })
                 .padding(.bottom, 60)
@@ -65,11 +50,8 @@ struct MenuView: View {
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(showMenu: .constant(true),
-                 showCompleted: .constant(true),
-                 selection: .constant("None"), isShowingPower: .constant(false) )
-            .previewLayout(.fixed(width: 180, height: 720))
+        SettingsView()
     }
 }

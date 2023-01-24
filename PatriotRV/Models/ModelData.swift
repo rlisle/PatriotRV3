@@ -8,16 +8,21 @@
 import Foundation
 import Combine
 
-final class ModelData: ObservableObject {
-    
+class ModelData: ObservableObject {
+
+    // Checklist
     @Published var checklist: [ChecklistItem] = []
-    
+
+    // Power
+    @Published var rv: Float = 0.0
+    @Published var tesla: Float = 0.0
+    internal var linePower: [Float] = [0.0, 0.0]
+
     let mqtt: MQTTManagerProtocol!
     
     init(mqttManager: MQTTManagerProtocol) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
-            //TODO: refactor
             // t: patriot/state/ALL/X/<checklistitem> m:<0|1>
             let lcTopic: String = topic.lowercased()
             if lcTopic.hasPrefix("patriot/state/all/x/") {
@@ -25,6 +30,11 @@ final class ModelData: ObservableObject {
                 if components.count > 4 {
                     self.setItem(checklistitem: components[4], value: message)
                 }
+            // Handle power messages
+            }else if lcTopic == "shellies/em/emeter/0/power" {
+                self.updatePower(line: 0, power: Float(message) ?? 0.0)
+            }else if lcTopic == "shellies/em/emeter/1/power" {
+                self.updatePower(line: 1, power: Float(message) ?? 0.0)
             }
         }
         
