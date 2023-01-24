@@ -30,8 +30,7 @@
 		276270CE297C212A00844645 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CD297C212A00844645 /* DetailView.swift */; };
 		276270D0297C213100844645 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CF297C213100844645 /* MenuView.swift */; };
 		276270D2297C21AF00844645 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270D1297C21AF00844645 /* MenuRowView.swift */; };
-		276DDFC3297DD559008CEC48 /* PowerUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC2297DD559008CEC48 /* PowerUsage.swift */; };
-		276DDFC4297DD559008CEC48 /* PowerUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC2297DD559008CEC48 /* PowerUsage.swift */; };
+		276DDFC3297DD559008CEC48 /* PowerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC2297DD559008CEC48 /* PowerData.swift */; };
 		276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC5297DD8C0008CEC48 /* HomeView.swift */; };
 		276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC7297EADE3008CEC48 /* LogView.swift */; };
 		276DDFCA297EC130008CEC48 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC9297EC130008CEC48 /* SettingsView.swift */; };
@@ -104,7 +103,7 @@
 		276270CD297C212A00844645 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		276270CF297C213100844645 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		276270D1297C21AF00844645 /* MenuRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
-		276DDFC2297DD559008CEC48 /* PowerUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUsage.swift; sourceTree = "<group>"; };
+		276DDFC2297DD559008CEC48 /* PowerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerData.swift; sourceTree = "<group>"; };
 		276DDFC5297DD8C0008CEC48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		276DDFC7297EADE3008CEC48 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		276DDFC9297EC130008CEC48 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -276,7 +275,7 @@
 				276270B7297C1BC700844645 /* Checklist.swift */,
 				276270B9297C1BD000844645 /* ChecklistItem.swift */,
 				276270BB297C1BD800844645 /* ModelData.swift */,
-				276DDFC2297DD559008CEC48 /* PowerUsage.swift */,
+				276DDFC2297DD559008CEC48 /* PowerData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,7 +451,6 @@
 				272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
 				272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */,
-				276DDFC4297DD559008CEC48 /* PowerUsage.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
 				272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */,
 			);
@@ -477,7 +475,7 @@
 				276270CA297C20E500844645 /* ChecklistRow.swift in Sources */,
 				276270B8297C1BC700844645 /* Checklist.swift in Sources */,
 				276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */,
-				276DDFC3297DD559008CEC48 /* PowerUsage.swift in Sources */,
+				276DDFC3297DD559008CEC48 /* PowerData.swift in Sources */,
 				276270C0297C1C7200844645 /* ChecklistView.swift in Sources */,
 				276270D2297C21AF00844645 /* MenuRowView.swift in Sources */,
 				276DDFCA297EC130008CEC48 /* SettingsView.swift in Sources */,

@@ -33,17 +33,17 @@ struct RvPowerView: View {
 
     var body: some View {
         VStack {
-            Gauge(value: model.power.rv, in: 0...50) {
+            Gauge(value: model.rv, in: 0...50) {
                 Text("RV")
             } currentValueLabel: {
-                Text(model.power.rv.formatted())
+                Text(model.rv.formatted())
             } minimumValueLabel: {
                 Text("0")
             } maximumValueLabel: {
                 Text("50")
             }
             .gaugeStyle(.accessoryLinearCapacity)
-            .tint(model.power.rvTint)
+            .tint(model.rvTint)
         }
     }
 }
@@ -54,17 +54,17 @@ struct TeslaPowerView: View {
 
     var body: some View {
         VStack {
-            Gauge(value: model.power.tesla, in: 0...50) {
+            Gauge(value: model.tesla, in: 0...50) {
                 Text("Tesla")
             } currentValueLabel: {
-                Text(model.power.tesla.formatted())
+                Text(model.tesla.formatted())
             } minimumValueLabel: {
                 Text("0")
             } maximumValueLabel: {
                 Text("50")
             }
             .gaugeStyle(.accessoryLinearCapacity)
-            .tint(model.power.teslaTint)
+            .tint(model.teslaTint)
         }
     }
 }
