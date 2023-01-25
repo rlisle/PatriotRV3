@@ -19,7 +19,7 @@ extension ModelData {
                           name: "Change Generator Oil",
                           category: "Maintenance",
                           order: 20,
-                          description: "<p>Change the generator oil every 150 hours or annually</p></ul><li>SAE 15W40 (OnaMax) 10°-100°F </li><li>: SAE 30 above 32°F</li><li>Performance class SJ, SH, or SG</li><li>May be combined with CH-4, CG-4, or CF-4 (eg. SJ/CH-4)</li></ul>"),
+                          description: "<p>Change the generator oil every 150 hours or annually</p></ul><li>SAE 15W40 (OnaMax) 10°-100°F </li><li>SAE 30 above 32°F</li><li>SJ, SH, or SG Performance class</li><li>May be combined with CH-4, CG-4, or CF-4</li><li>eg. SJ/CH-4</li></ul>"),
             ChecklistItem(id: "airFilter",
                           name: "Replace Generator Air Filter",
                           category: "Maintenance",

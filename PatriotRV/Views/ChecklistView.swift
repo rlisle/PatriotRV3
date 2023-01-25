@@ -13,8 +13,8 @@ struct ChecklistView: View {
     
     @State private var showCompleted = true
     @State private var menuSelection: String? = nil
-    @State private var phase = "Pre-Trip"
-    private var phases = ["Pre-Trip", "Departure", "Arrival", "Maintenance"]
+    @State private var phase = "Maintenance"    //TODO: persist
+    private var phases = ["Maintenance", "Pre-Trip", "Departure", "Arrival"]
 
     init() {
         UISegmentedControl.appearance().backgroundColor = .black
