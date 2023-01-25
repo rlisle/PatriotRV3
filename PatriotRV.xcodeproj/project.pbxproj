@@ -34,6 +34,15 @@
 		276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC5297DD8C0008CEC48 /* HomeView.swift */; };
 		276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC7297EADE3008CEC48 /* LogView.swift */; };
 		276DDFCA297EC130008CEC48 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC9297EC130008CEC48 /* SettingsView.swift */; };
+		2771BA5D29816F9A0093FCCB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5C29816F9A0093FCCB /* WidgetKit.framework */; };
+		2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5E29816F9A0093FCCB /* SwiftUI.framework */; };
+		2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */; };
+		2771BA6429816F9A0093FCCB /* PatriotRvWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6329816F9A0093FCCB /* PatriotRvWidgetLiveActivity.swift */; };
+		2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */; };
+		2771BA6929816F9C0093FCCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2771BA6829816F9C0093FCCB /* Assets.xcassets */; };
+		2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
+		2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
+		2771BA6F29816F9C0093FCCB /* PatriotRvWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */; };
 		27F2A5B2297C141B00EFD417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B1297C141B00EFD417 /* Assets.xcassets */; };
 		27F2A5B5297C141B00EFD417 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */; };
@@ -49,6 +58,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 272FC2D1297C774D005C6D43;
 			remoteInfo = "PatriotRVWatch Watch App";
+		};
+		2771BA6D29816F9C0093FCCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27F2A5A2297C141A00EFD417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2771BA5929816F9A0093FCCB;
+			remoteInfo = PatriotRvWidgetExtension;
 		};
 		27F2A5BB297C141B00EFD417 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -76,6 +92,17 @@
 				272FC2DF297C774E005C6D43 /* PatriotRVWatchApp.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2771BA7029816F9C0093FCCB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2771BA6F29816F9C0093FCCB /* PatriotRvWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -107,6 +134,15 @@
 		276DDFC5297DD8C0008CEC48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		276DDFC7297EADE3008CEC48 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		276DDFC9297EC130008CEC48 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatriotRvWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2771BA5C29816F9A0093FCCB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2771BA5E29816F9A0093FCCB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWidgetBundle.swift; sourceTree = "<group>"; };
+		2771BA6329816F9A0093FCCB /* PatriotRvWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWidget.swift; sourceTree = "<group>"; };
+		2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PatriotRvWidget.intentdefinition; sourceTree = "<group>"; };
+		2771BA6829816F9C0093FCCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2771BA6A29816F9C0093FCCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27F2A5AA297C141A00EFD417 /* PatriotRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVApp.swift; sourceTree = "<group>"; };
 		27F2A5B1297C141B00EFD417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +159,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2771BA5729816F9A0093FCCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */,
+				2771BA5D29816F9A0093FCCB /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +226,28 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2771BA5B29816F9A0093FCCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2771BA5C29816F9A0093FCCB /* WidgetKit.framework */,
+				2771BA5E29816F9A0093FCCB /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2771BA6029816F9A0093FCCB /* PatriotRvWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */,
+				2771BA6329816F9A0093FCCB /* PatriotRvWidgetLiveActivity.swift */,
+				2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */,
+				2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */,
+				2771BA6829816F9C0093FCCB /* Assets.xcassets */,
+				2771BA6A29816F9C0093FCCB /* Info.plist */,
+			);
+			path = PatriotRvWidget;
+			sourceTree = "<group>";
+		};
 		27F2A5A1297C141A00EFD417 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +255,8 @@
 				27F2A5BD297C141B00EFD417 /* PatriotRVTests */,
 				27F2A5C7297C141B00EFD417 /* PatriotRVUITests */,
 				272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */,
+				2771BA6029816F9A0093FCCB /* PatriotRvWidget */,
+				2771BA5B29816F9A0093FCCB /* Frameworks */,
 				27F2A5AB297C141A00EFD417 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -199,6 +268,7 @@
 				27F2A5BA297C141B00EFD417 /* PatriotRVTests.xctest */,
 				27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */,
 				272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */,
+				2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,6 +370,23 @@
 			productReference = 272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2771BA7329816F9C0093FCCB /* Build configuration list for PBXNativeTarget "PatriotRvWidgetExtension" */;
+			buildPhases = (
+				2771BA5629816F9A0093FCCB /* Sources */,
+				2771BA5729816F9A0093FCCB /* Frameworks */,
+				2771BA5829816F9A0093FCCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatriotRvWidgetExtension;
+			productName = PatriotRvWidgetExtension;
+			productReference = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		27F2A5A9297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5CE297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRV" */;
@@ -308,11 +395,13 @@
 				27F2A5A7297C141A00EFD417 /* Frameworks */,
 				27F2A5A8297C141A00EFD417 /* Resources */,
 				272FC2E0297C774E005C6D43 /* Embed Watch Content */,
+				2771BA7029816F9C0093FCCB /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				272FC2DE297C774E005C6D43 /* PBXTargetDependency */,
+				2771BA6E29816F9C0093FCCB /* PBXTargetDependency */,
 			);
 			name = PatriotRV;
 			packageProductDependencies = (
@@ -371,6 +460,9 @@
 					272FC2D1297C774D005C6D43 = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					2771BA5929816F9A0093FCCB = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					27F2A5A9297C141A00EFD417 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -404,6 +496,7 @@
 				27F2A5B9297C141B00EFD417 /* PatriotRVTests */,
 				27F2A5C3297C141B00EFD417 /* PatriotRVUITests */,
 				272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */,
+				2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -415,6 +508,14 @@
 			files = (
 				272FC2DC297C774E005C6D43 /* Preview Assets.xcassets in Resources */,
 				272FC2D9297C774E005C6D43 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2771BA5829816F9A0093FCCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2771BA6929816F9C0093FCCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +557,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2771BA5629816F9A0093FCCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
+				2771BA6429816F9A0093FCCB /* PatriotRvWidgetLiveActivity.swift in Sources */,
+				2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */,
+				2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27F2A5A6297C141A00EFD417 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -468,6 +580,7 @@
 				276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */,
 				276270C8297C20DD00844645 /* ImageHeader.swift in Sources */,
 				276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */,
+				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
 				272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */,
@@ -506,6 +619,11 @@
 			isa = PBXTargetDependency;
 			target = 272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */;
 			targetProxy = 272FC2DD297C774E005C6D43 /* PBXContainerItemProxy */;
+		};
+		2771BA6E29816F9C0093FCCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */;
+			targetProxy = 2771BA6D29816F9C0093FCCB /* PBXContainerItemProxy */;
 		};
 		27F2A5BC297C141B00EFD417 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -577,6 +695,60 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		2771BA7129816F9C0093FCCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.PatriotRvWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2771BA7229816F9C0093FCCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.PatriotRvWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -842,6 +1014,15 @@
 			buildConfigurations = (
 				272FC2E1297C774E005C6D43 /* Debug */,
 				272FC2E2297C774E005C6D43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2771BA7329816F9C0093FCCB /* Build configuration list for PBXNativeTarget "PatriotRvWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2771BA7129816F9C0093FCCB /* Debug */,
+				2771BA7229816F9C0093FCCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
