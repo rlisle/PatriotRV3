@@ -8,8 +8,25 @@
 extension ModelData {
     func initializeList() {
         self.checklist = [
+
+            // MAINTENANCE 0-999
+            ChecklistItem(id: "runGen",
+                          name: "Run Generator",
+                          category: "Maintenance",
+                          order: 10,
+                          description: "<p>Periodically run the generator</p><ul><li>Run under load for 20-30 minutes</li></ul>"),
+            ChecklistItem(id: "changeGenOil",
+                          name: "Change Generator Oil",
+                          category: "Maintenance",
+                          order: 20,
+                          description: "<p>Change the generator oil every 150 hours or annually</p></ul><li>SAE 15W40 (OnaMax) 10°-100°F </li><li>SAE 30 above 32°F</li><li>SJ, SH, or SG Performance class</li><li>May be combined with CH-4, CG-4, or CF-4</li><li>eg. SJ/CH-4</li></ul>"),
+            ChecklistItem(id: "airFilter",
+                          name: "Replace Generator Air Filter",
+                          category: "Maintenance",
+                          order: 30,
+                          description: "<p>Change generator air filter every 150 hours</p><p>Change more frequently if dusty environment</p>"),
             
-            // PRE-TRIP
+            // PRE-TRIP 1000-1999
             ChecklistItem(id: "startList",
                           name: "Start Checklist",
                           category: "Pre-Trip",
@@ -61,7 +78,7 @@ extension ModelData {
                           order: 1100,
                           description: "Stow bird feeders and welcome signs"),
 
-            // DEPARTURE
+            // DEPARTURE 2000-2999
             ChecklistItem(id: "tvStrap",
                           name: "Secure TV Strap",
                           category: "Departure",
@@ -185,7 +202,7 @@ extension ModelData {
                           order: 2150,
                           description: "Pray with thanksgiving for the ability to travel, and asking for a safe trip. Ask God to speak to us along our travels and to open our eyes and hears to hear what God has to say to us as we travel."),
 
-            // ARRIVAL
+            // ARRIVAL 3000-3999
             ChecklistItem(id: "positionRV",
                           name: "Position RV",
                           category: "Arrival",
