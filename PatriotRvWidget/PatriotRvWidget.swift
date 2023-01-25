@@ -11,11 +11,11 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), rv: 0, tesla: 0)
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+        let entry = SimpleEntry(date: Date(), configuration: configuration, rv: 0, tesla: 0)
         completion(entry)
     }
 
@@ -26,7 +26,7 @@ struct Provider: IntentTimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
+            let entry = SimpleEntry(date: entryDate, configuration: configuration, rv: 0, tesla: 0)
             entries.append(entry)
         }
 
@@ -50,8 +50,8 @@ struct PatriotRvWidgetEntryView : View {
             Text("Power Usage")
             HStack {
                 VStack {
-                    WidgetRvPowerView()
-                    WidgetTeslaPowerView()
+                    WidgetPowerView(title: "RV", amps: entry.rv, tint: .green)
+                    WidgetPowerView(title: "Tesla", amps: entry.tesla, tint: .green)
                 }
             }
             .padding(.horizontal, 32)
@@ -60,44 +60,25 @@ struct PatriotRvWidgetEntryView : View {
     }
 }
 
-struct WidgetRvPowerView: View {
+struct WidgetPowerView: View {
 
-    var model: WidgetPowerModel
+    var title: String
+    var amps: Int
+    var tint: Color
     
     var body: some View {
         VStack {
-            Gauge(value: model.rv, in: 0...50) {
-                Text("RV")
+            Gauge(value: Float(amps), in: 0...50) {
+                Text(title)
             } currentValueLabel: {
-                Text(model.rv.formatted())
+                Text(amps.formatted())
             } minimumValueLabel: {
                 Text("0")
             } maximumValueLabel: {
                 Text("50")
             }
             .gaugeStyle(.accessoryLinearCapacity)
-            .tint(model.rvTint)
-        }
-    }
-}
-
-struct WidgetTeslaPowerView: View {
-
-    var model: WidgetPowerModel
-    
-    var body: some View {
-        VStack {
-            Gauge(value: model.tesla, in: 0...50) {
-                Text("Tesla")
-            } currentValueLabel: {
-                Text(model.tesla.formatted())
-            } minimumValueLabel: {
-                Text("0")
-            } maximumValueLabel: {
-                Text("50")
-            }
-            .gaugeStyle(.accessoryLinearCapacity)
-            .tint(model.teslaTint)
+            .tint(tint)
         }
     }
 }
@@ -116,7 +97,7 @@ struct PatriotRvWidget: Widget {
 
 struct PatriotRvWidget_Previews: PreviewProvider {
     static var previews: some View {
-        PatriotRvWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        PatriotRvWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), rv: 0, tesla: 0))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
