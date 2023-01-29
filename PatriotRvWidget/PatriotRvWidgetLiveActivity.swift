@@ -16,7 +16,8 @@ import SwiftUI
 struct PatriotRvWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
-        var value: Int
+        var rvAmps: Int
+        var teslaAmps: Int
     }
 
     // Fixed non-changing properties about your activity go here!
@@ -27,32 +28,35 @@ struct PatriotRvWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: PatriotRvWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
-            VStack {
-                Text("Hello")
-            }
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
+            LockScreenLiveActivityView(context: context)
 
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    VStack {
+                        Text("RV")
+                        WidgetCircularPowerView(title: "RV", amps: context.state.rvAmps, tint: .green)
+                    }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    VStack {
+                        Text("Tesla")
+                        WidgetCircularPowerView(title: "Tesla", amps: context.state.teslaAmps, tint: .green)
+                    }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom")
+                    //Text("Bottom")
                     // more content
                 }
             } compactLeading: {
-                Text("L")
+                Text("RV: \(context.state.rvAmps)a")
+                //WidgetCircularPowerView(title: "RV", amps: context.state.rvAmps, tint: .green)
             } compactTrailing: {
-                Text("T")
+                Text("Tesla: \(context.state.rvAmps)a")
             } minimal: {
-                Text("Min")
+                Text("\(context.state.rvAmps)/\(context.state.teslaAmps)")
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
@@ -60,9 +64,47 @@ struct PatriotRvWidgetLiveActivity: Widget {
     }
 }
 
+struct LockScreenLiveActivityView: View {
+    let context: ActivityViewContext<PatriotRvWidgetAttributes>
+    
+    var body: some View {
+        VStack {
+            Text("Power Usage")
+            WidgetPowerView(title: "RV", amps: context.state.rvAmps, tint: .green)
+            WidgetPowerView(title: "Tesla", amps: context.state.teslaAmps, tint: .green)
+        }
+        .padding()
+        .activityBackgroundTint(Color.cyan)
+        .activitySystemActionForegroundColor(Color.black)
+    }
+}
+
+struct WidgetCircularPowerView: View {
+
+    var title: String
+    var amps: Int
+    var tint: Color
+    
+    var body: some View {
+        VStack {
+            Gauge(value: Float(amps), in: 0...50) {
+                Text(title)
+            } currentValueLabel: {
+                Text(amps.formatted())
+            } minimumValueLabel: {
+                Text("0")
+            } maximumValueLabel: {
+                Text("50")
+            }
+            .gaugeStyle(.accessoryCircular)
+            .tint(tint)
+        }
+    }
+}
+
 struct PatriotRvWidgetLiveActivity_Previews: PreviewProvider {
     static let attributes = PatriotRvWidgetAttributes(name: "Me")
-    static let contentState = PatriotRvWidgetAttributes.ContentState(value: 3)
+    static let contentState = PatriotRvWidgetAttributes.ContentState(rvAmps: 3, teslaAmps: 37)
 
     static var previews: some View {
         attributes
