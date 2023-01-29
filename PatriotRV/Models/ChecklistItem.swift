@@ -16,14 +16,14 @@ struct ChecklistItem {
     let description: String // Markdown?
     var isDone: Bool = false {
         didSet {
-            print("didSet \(id) to \(isDone)")
             if oldValue != isDone {
-                print("Value changed, sending MQTT message")
                 mqtt?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
+                date = Date()
             }
         }
     }
     var imageName: String?
+    var date: Date?         // Either completion or due date
 
     weak var mqtt: MQTTManagerProtocol?
 

@@ -2,6 +2,10 @@
 //  PatriotRvWidgetLiveActivity.swift
 //  PatriotRvWidget
 //
+//  LiveActivities are only available on iPhone
+//  Supports Dynamic Island
+//  Use ActivityKit to update
+//
 //  Created by Ron Lisle on 1/25/23.
 //
 

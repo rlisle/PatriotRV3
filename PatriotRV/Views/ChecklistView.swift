@@ -13,6 +13,7 @@ struct ChecklistView: View {
     
     @State private var showCompleted = true
     @State private var menuSelection: String? = nil
+    @State private var showingAddTrip = false
     @State private var phase = "Maintenance"    //TODO: persist
     private var phases = ["Maintenance", "Pre-Trip", "Departure", "Arrival"]
 
@@ -77,6 +78,19 @@ struct ChecklistView: View {
                 
             }//VStack
             .blackNavigation
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showingAddTrip = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    .foregroundColor(.white)
+                }
+            }
+            .navigationDestination(isPresented: $showingAddTrip, destination: {
+                AddTripView()
+            })
                 
         }//NavigationStack
         .accentColor( .black)   // Sets back button color
