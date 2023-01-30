@@ -13,17 +13,18 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct PatriotRvWidgetAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var rvAmps: Int
-        var teslaAmps: Int
-    }
-
-    // Fixed non-changing properties about your activity go here!
-    var name: String
-}
-
+// Moved to WidgetAttributes
+//struct PatriotRvWidgetAttributes: ActivityAttributes {
+//    public struct ContentState: Codable, Hashable {
+//        // Dynamic stateful properties about your activity go here!
+//        var rvAmps: Int
+//        var teslaAmps: Int
+//    }
+//
+//    // Fixed non-changing properties about your activity go here!
+//    var name: String
+//}
+//
 struct PatriotRvWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: PatriotRvWidgetAttributes.self) { context in
@@ -46,9 +47,8 @@ struct PatriotRvWidgetLiveActivity: Widget {
                         WidgetCircularPowerView(title: "Tesla", amps: context.state.teslaAmps, tint: .green)
                     }
                 }
-                DynamicIslandExpandedRegion(.bottom) {
-                    //Text("Bottom")
-                    // more content
+                DynamicIslandExpandedRegion(.center) {
+                    Text("Power Usage")
                 }
             } compactLeading: {
                 Text("RV: \(context.state.rvAmps)a")
@@ -58,7 +58,7 @@ struct PatriotRvWidgetLiveActivity: Widget {
             } minimal: {
                 Text("\(context.state.rvAmps)/\(context.state.teslaAmps)")
             }
-            .widgetURL(URL(string: "http://www.apple.com"))
+            //.widgetURL(URL(string: "http://www.lisles.net"))
             .keylineTint(Color.red)
         }
     }

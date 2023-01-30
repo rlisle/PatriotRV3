@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityKit
 
 extension ModelData {
 
@@ -42,5 +43,33 @@ extension ModelData {
         rv = round(((linePower[0] + linePower[1]) / 120.0) * 10) / 10.0
         //TODO:
         tesla = 40 - rv
+        
+        updatePowerActivity()
     }
+    
+    func startPowerActivity() {
+        if ActivityAuthorizationInfo().areActivitiesEnabled {
+            print("starting activity")
+            let future = Date(timeIntervalSinceNow: 5)
+            let initialContentState = PatriotRvWidgetAttributes.ContentState(rvAmps: 0, teslaAmps:0)
+            let activityAttributes = PatriotRvWidgetAttributes(name: "Power")
+            let activityContent = ActivityContent(state: initialContentState, staleDate: future)
+            // Start the live activity
+            do {
+                powerActivity = try Activity.request(attributes: activityAttributes, content: activityContent)
+                print("Started power monitor live activity: \(String(describing: powerActivity))")
+            } catch (let error) {
+                print("Error starting power monitor Live Activity \(error.localizedDescription).")
+            }
+        }
+    }
+    
+    func updatePowerActivity() {
+        let contentState = PatriotRvWidgetAttributes.ContentState(rvAmps: Int(rv), teslaAmps: Int(tesla))
+        let activityContent = ActivityContent(state: contentState, staleDate: nil)
+        Task {
+            await powerActivity?.update(activityContent)
+        }
+    }
+
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import ActivityKit
 
 class ModelData: ObservableObject {
 
@@ -17,6 +18,7 @@ class ModelData: ObservableObject {
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
     internal var linePower: [Float] = [0.0, 0.0]
+    internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
 
     let mqtt: MQTTManagerProtocol!
     
