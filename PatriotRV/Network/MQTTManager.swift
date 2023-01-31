@@ -89,7 +89,7 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     }
     
     func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
-        print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
+//        print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
         if let handler = messageHandler {
             handler(message.topic, message.stringRepresentation ?? "")
         }

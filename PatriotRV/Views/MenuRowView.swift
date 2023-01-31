@@ -16,7 +16,6 @@ struct MenuRowView: View {
     var body: some View {
         
         Button(action: {
-            print("Invoking \(title)")
             action()
         }) {
             HStack {

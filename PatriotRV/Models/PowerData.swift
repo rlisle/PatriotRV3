@@ -49,7 +49,6 @@ extension ModelData {
     
     func startPowerActivity() {
         if ActivityAuthorizationInfo().areActivitiesEnabled {
-            print("starting activity")
             let future = Date(timeIntervalSinceNow: 5)
             let initialContentState = PatriotRvWidgetAttributes.ContentState(rvAmps: 0, teslaAmps:0)
             let activityAttributes = PatriotRvWidgetAttributes(name: "Power")
@@ -68,6 +67,7 @@ extension ModelData {
         let contentState = PatriotRvWidgetAttributes.ContentState(rvAmps: Int(rv), teslaAmps: Int(tesla))
         let activityContent = ActivityContent(state: contentState, staleDate: nil)
         Task {
+            print("updatePowerActivity: rv: \(rv) tesla: \(tesla)")
             await powerActivity?.update(activityContent)
         }
     }

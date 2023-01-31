@@ -69,7 +69,6 @@ class ModelData: ObservableObject {
     func setItem(checklistitem: String, value: String) {
         for index in 0..<checklist.count {
             if checklist[index].id.lowercased() == checklistitem.lowercased() {
-                print("DEBUG: setting checklistitem \(checklistitem) to \(value)")
                 checklist[index].isDone = value != "0"
             }
         }
