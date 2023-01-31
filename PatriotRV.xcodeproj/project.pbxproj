@@ -43,6 +43,9 @@
 		2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
 		2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
 		2771BA6F29816F9C0093FCCB /* PatriotRvWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
+		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
+		27C1912E29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C37E2985B58C00D34DAC /* AddTripView.swift */; };
 		27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
 		27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
@@ -146,6 +149,7 @@
 		2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PatriotRvWidget.intentdefinition; sourceTree = "<group>"; };
 		2771BA6829816F9C0093FCCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2771BA6A29816F9C0093FCCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
 		27D1C3832987E64D00D34DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 				276270B9297C1BD000844645 /* ChecklistItem.swift */,
 				276270BB297C1BD800844645 /* ModelData.swift */,
 				276DDFC2297DD559008CEC48 /* PowerData.swift */,
+				27C1912B29894390005556F4 /* TripMode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */,
+				27C1912D29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
 				272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
@@ -571,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
+				27C1912E29894390005556F4 /* TripMode.swift in Sources */,
 				2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				2771BA6429816F9A0093FCCB /* PatriotRvWidgetLiveActivity.swift in Sources */,
 				2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */,
@@ -594,6 +601,7 @@
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
+				27C1912C29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */,
 				272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */,
 				276270CA297C20E500844645 /* ChecklistRow.swift in Sources */,

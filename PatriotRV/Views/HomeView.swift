@@ -69,7 +69,7 @@ struct HomeView: View {
                 
         }//navigationstack
         .task {
-            model.startPowerActivity()
+            model.startChecklistActivity()
         }
     }//body
 }

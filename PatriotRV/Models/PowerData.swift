@@ -47,10 +47,18 @@ extension ModelData {
         updatePowerActivity()
     }
     
-    func startPowerActivity() {
+    func startChecklistActivity() {
         if ActivityAuthorizationInfo().areActivitiesEnabled {
             let future = Date(timeIntervalSinceNow: 5)
-            let initialContentState = PatriotRvWidgetAttributes.ContentState(rvAmps: 0, teslaAmps:0)
+            let initialContentState = PatriotRvWidgetAttributes.ContentState(
+                rvAmps: 0,
+                teslaAmps:0,
+                tripMode: .pretrip,
+                numberItems: 10,
+                numberDone: 0,
+                nextItemId: "startList",
+                nextItemName: "Start Checklist"
+            )
             let activityAttributes = PatriotRvWidgetAttributes(name: "Power")
             let activityContent = ActivityContent(state: initialContentState, staleDate: future)
             // Start the live activity
@@ -64,7 +72,15 @@ extension ModelData {
     }
     
     func updatePowerActivity() {
-        let contentState = PatriotRvWidgetAttributes.ContentState(rvAmps: Int(rv), teslaAmps: Int(tesla))
+        let contentState = PatriotRvWidgetAttributes.ContentState(
+            rvAmps: Int(rv),
+            teslaAmps: Int(tesla),
+            tripMode: .pretrip,     //TODO: get this from model
+            numberItems: 10,
+            numberDone: 0,
+            nextItemId: "startList",
+            nextItemName: "Start Checklist"
+        )
         let activityContent = ActivityContent(state: contentState, staleDate: nil)
         Task {
             print("updatePowerActivity: rv: \(rv) tesla: \(tesla)")
