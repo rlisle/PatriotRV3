@@ -11,6 +11,9 @@ import ActivityKit
 
 class ModelData: ObservableObject {
 
+    // Trips
+    @Published var trips: [Trip] = []
+    
     // Checklist
     @Published var checklist: [ChecklistItem] = []
 
@@ -45,6 +48,18 @@ class ModelData: ObservableObject {
         for i in 0..<checklist.count {
             checklist[i].mqtt = self.mqtt
         }
+        
+        // Load trips (for now hardcode a few)
+        trips.append(Trip(
+            date: Date("07/26/22"),
+            destination: "Wildwood RV and Golf Resort",
+            notes: "Summer location, near Windsor, ON",
+            address: "11112 11th Concession Rd, McGregor, ON NOR 1JO",
+            imageName: nil,
+            category: .arrival,
+            sequence: 0,
+            isDone: true,
+            website: "https://www.wildwoodgolfandrvresort.com"))
     }
     
     func checklist(category: String) -> [ChecklistItem] {
@@ -63,6 +78,10 @@ class ModelData: ObservableObject {
     
     func numSelectedItems(category: String) -> Int {
         return checklist(category: category).count
+    }
+    
+    func category() -> TripMode {
+        return .parked
     }
     
     // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>

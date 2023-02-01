@@ -32,6 +32,11 @@ struct HomeView: View {
                             PowerRowView()
                         }
                         NavigationLink {
+                            TripListView()
+                        } label: {
+                            TripRowView()
+                        }
+                        NavigationLink {
                             ChecklistView()
                         } label: {
                             ChecklistRowView()
@@ -75,6 +80,18 @@ struct HomeView: View {
 }
 
 // Row views should provide summary information
+struct TripRowView: View {
+    @EnvironmentObject var model: ModelData
+    var body: some View {
+        VStack {
+            Text("Trip")
+            if let trip = model.trips.last {
+                Text("\(trip.date.mmddyy()) \(trip.destination)")
+            }
+        }
+    }
+}
+
 struct PowerRowView: View {
     var body: some View {
         VStack {
