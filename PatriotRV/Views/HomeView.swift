@@ -103,9 +103,11 @@ struct PowerRowView: View {
 }
 
 struct ChecklistRowView: View {
+    @EnvironmentObject var model: ModelData
     var body: some View {
         VStack {
             Text("Checklist")
+            //if next item...
         }
     }
 }

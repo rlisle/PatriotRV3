@@ -10,19 +10,19 @@ import Combine
 import ActivityKit
 
 class ModelData: ObservableObject {
-
+    
     // Trips
     @Published var trips: [Trip] = []
     
     // Checklist
     @Published var checklist: [ChecklistItem] = []
-
+    
     // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
     internal var linePower: [Float] = [0.0, 0.0]
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
-
+    
     let mqtt: MQTTManagerProtocol!
     
     init(mqttManager: MQTTManagerProtocol) {
@@ -33,9 +33,9 @@ class ModelData: ObservableObject {
             if lcTopic.hasPrefix("patriot/state/all/x/") {
                 let components = lcTopic.components(separatedBy: "/")
                 if components.count > 4 {
-                    self.setItem(checklistitem: components[4], value: message)
+                    self.setDone(checklistitem: components[4], value: message)
                 }
-            // Handle power messages
+                // Handle power messages
             }else if lcTopic == "shellies/em/emeter/0/power" {
                 self.updatePower(line: 0, power: Float(message) ?? 0.0)
             }else if lcTopic == "shellies/em/emeter/1/power" {
@@ -61,9 +61,26 @@ class ModelData: ObservableObject {
             isDone: true,
             website: "https://www.wildwoodgolfandrvresort.com"))
     }
+}
+
+extension ModelData {
     
-    func checklist(category: String) -> [ChecklistItem] {
-        return checklist.filter { $0.category == category }
+    func category() -> TripMode {
+        //TODO:
+        return .parked
+    }
+    
+    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
+    func setDone(checklistitem: String, value: String) {
+        for index in 0..<checklist.count {
+            if checklist[index].id.lowercased() == checklistitem.lowercased() {
+                checklist[index].isDone = value != "0"
+            }
+        }
+    }
+    
+    func item(_ checklistitem: String) -> ChecklistItem? {
+        return checklist.filter { $0.id == checklistitem }.first
     }
     
     func uncheckAll() {
@@ -72,28 +89,29 @@ class ModelData: ObservableObject {
         }
     }
     
-    func numSelectedDone(category: String) -> Int {
-        return checklist(category: category).filter { $0.isDone }.count
+}
+
+extension Array where Element == ChecklistItem {
+
+    func numDone(category: String) -> Int {
+        return inCategory(category).filter { $0.isDone }.count
     }
     
-    func numSelectedItems(category: String) -> Int {
-        return checklist(category: category).count
+    func count(category: String) -> Int {
+        return inCategory(category).count
     }
     
-    func category() -> TripMode {
-        return .parked
+
+    func inCategory(_ category: String) -> [ChecklistItem] {
+        return self.filter { $0.category == category }
     }
-    
-    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
-    func setItem(checklistitem: String, value: String) {
-        for index in 0..<checklist.count {
-            if checklist[index].id.lowercased() == checklistitem.lowercased() {
-                checklist[index].isDone = value != "0"
-            }
+
+    func nextItem(_ category: String?) -> ChecklistItem? {
+        if let category = category {
+            return self.inCategory(category).first
+        } else {
+            return self.first
         }
     }
     
-    func getItem(_ checklistitem: String) -> ChecklistItem? {
-        return checklist.filter { $0.id == checklistitem }.first
-    }
 }

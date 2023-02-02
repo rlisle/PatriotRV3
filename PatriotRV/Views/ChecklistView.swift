@@ -49,16 +49,16 @@ struct ChecklistView: View {
                         HStack {
                             Text(phase)
                             Spacer()
-                        Text("(\(modelData.numSelectedDone(category: phase)) of \(modelData.numSelectedItems(category: phase)) done)")
+                        Text("(\(modelData.checklist.numDone(category: phase)) of \(modelData.checklist.numDone(category: phase)) done)")
                         }
                         .padding(.vertical, 8)
                     ) {
                         
                         
-                        if(modelData.numSelectedItems(category: phase) == 0) {
+                        if(modelData.checklist.numDone(category: phase) == 0) {
                             Text("No \(phase) items found")
                         } else {
-                            ForEach(modelData.checklist(category: phase).filter { isShown(item:$0) }, id: \.self) { item in
+                            ForEach(modelData.checklist.inCategory(phase).filter { isShown(item:$0) }, id: \.self) { item in
                                 
                               NavigationLink(destination: DetailView(listItem: item)) {
                                   ChecklistRow(listItem: item)
