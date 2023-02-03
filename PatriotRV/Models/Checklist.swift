@@ -6,7 +6,7 @@
 //
 
 extension ModelData {
-    func initializeList() {
+    func initializeChecklist() {
         self.checklist = [
 
             // MAINTENANCE 0-999
@@ -304,5 +304,9 @@ extension ModelData {
                           order: 3120,
                           description: "Optionally, connected sewer hose to 1 or both sewer fittings.<p>For shorter stays, may skip this, or just connect the front to allow showers.")
             ]
+        
+        for i in 0..<checklist.count {
+            checklist[i].mqtt = self.mqtt
+        }
     }
 }

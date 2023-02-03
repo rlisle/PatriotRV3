@@ -34,7 +34,7 @@ final class PatriotRVTests: XCTestCase {
     }
 
     func test_messageHandler() {
-        guard let item = model.getItem("fuel") else {
+        guard let item = model.item("fuel") else {
             XCTFail("item before not found")
             return
         }
@@ -42,73 +42,66 @@ final class PatriotRVTests: XCTestCase {
         
         model.mqtt.messageHandler?("patriot/state/all/x/fuel","55")
         
-        guard let item2 = model.getItem("fuel") else {
+        guard let item2 = model.item("fuel") else {
             XCTFail("item after not found")
             return
         }
         XCTAssertTrue(item2.isDone)
     }
     
-    func test_numSelectedItems() throws /* async */ {
-        let count = model.numSelectedItems(category: "Departure")
+    func test_numItemInCategoryDeparture() throws /* async */ {
+        let count = model.checklist.inCategory("Departure").count
         XCTAssertEqual(count, 23)
     }
 
-    func test_checklist_for_pretrip() throws {
-        let count = model.numSelectedItems(category: "Pre-Trip")
+    func test_numItemInCategoryPreTrip() throws {
+        let count = model.checklist.inCategory("Pre-Trip").count
         XCTAssertEqual(count, 10)
     }
 
-    func test_checklist_for_arrival() throws {
-        let count = model.numSelectedItems(category: "Arrival")
+    func test_numItemInCategoryArrival() throws {
+        let count = model.checklist.inCategory("Arrival").count
         XCTAssertEqual(count, 17)
     }
     
-    func test_setItem_and_numSelectedDone_1() {
-        model.setItem(checklistitem: "checkTires", value: "100")
-        let count = model.numSelectedDone(category: "Pre-Trip")
+    func test_setItem_and_numDone_1() {
+        model.setDone(checklistitem: "checkTires", value: "100")
+        let count = model.checklist.numDone(category: "Pre-Trip")
         XCTAssertEqual(count, 1)
     }
 
     func test_setItem_and_numSelectedDone_2() {
-        model.setItem(checklistitem: "iceMachine", value: "100")
-        model.setItem(checklistitem: "rampAwningIn", value: "100")
-        let count = model.numSelectedDone(category: "Departure")
+        model.setDone(checklistitem: "iceMachine", value: "100")
+        model.setDone(checklistitem: "rampAwningIn", value: "100")
+        let count = model.checklist.numDone(category: "Departure")
         XCTAssertEqual(count, 2)
     }
 
     func test_setItem_and_numSelectedDone_1_not3() {
-        model.setItem(checklistitem: "checkRoof", value: "100")
-        model.setItem(checklistitem: "rearCamera", value: "100")
-        model.setItem(checklistitem: "disconnectCables", value: "100")
-        let count = model.numSelectedDone(category: "Arrival")
+        model.setDone(checklistitem: "checkRoof", value: "100")
+        model.setDone(checklistitem: "rearCamera", value: "100")
+        model.setDone(checklistitem: "disconnectCables", value: "100")
+        let count = model.checklist.numDone(category: "Arrival")
         XCTAssertEqual(count, 1)
     }
     
     func test_uncheckAll_2() {
-        model.setItem(checklistitem: "iceMachine", value: "100")
-        model.setItem(checklistitem: "rampAwningIn", value: "100")
+        model.setDone(checklistitem: "iceMachine", value: "100")
+        model.setDone(checklistitem: "rampAwningIn", value: "100")
         model.uncheckAll()
-        let count = model.numSelectedDone(category: "Departure")
+        let count = model.checklist.numDone(category: "Departure")
         XCTAssertEqual(count, 0)
     }
 
     func test_uncheckAll_3() {
-        model.setItem(checklistitem: "checkRoof", value: "100")
-        model.setItem(checklistitem: "rearCamera", value: "100")
-        model.setItem(checklistitem: "disconnectCables", value: "100")
+        model.setDone(checklistitem: "checkRoof", value: "100")
+        model.setDone(checklistitem: "rearCamera", value: "100")
+        model.setDone(checklistitem: "disconnectCables", value: "100")
         model.uncheckAll()
-        let count = model.numSelectedDone(category: "Arrival")
+        let count = model.checklist.numDone(category: "Arrival")
         XCTAssertEqual(count, 0)
     }
     
 
-
-//    func testPerformanceExample() throws {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
 
 }

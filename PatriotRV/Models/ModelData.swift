@@ -43,30 +43,19 @@ class ModelData: ObservableObject {
             }
         }
         
-        // Load items after MQTT is initialized
-        initializeList()
-        for i in 0..<checklist.count {
-            checklist[i].mqtt = self.mqtt
-        }
+        // Load Checklist after MQTT is initialized
+        initializeChecklist()
         
-        // Load trips (for now hardcode a few)
-        trips.append(Trip(
-            date: Date("07/26/22"),
-            destination: "Wildwood RV and Golf Resort",
-            notes: "Summer location, near Windsor, ON",
-            address: "11112 11th Concession Rd, McGregor, ON NOR 1JO",
-            imageName: nil,
-            category: .arrival,
-            sequence: 0,
-            isDone: true,
-            website: "https://www.wildwoodgolfandrvresort.com"))
+        // Load trips
+        initializeTrips()
     }
 }
 
 extension ModelData {
     
     func category() -> TripMode {
-        //TODO:
+        // Identify next upcoming trip within next 2 weeks
+        
         return .parked
     }
     
