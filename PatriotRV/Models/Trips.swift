@@ -9,10 +9,10 @@ import Foundation
 
 extension ModelData {
     
-    func nextTrip(date: Date?) {
+    func nextTrip(date: Date?) -> Trip? {
         let today = date ?? Date()
         
-            
+        return trips.last
     }
     
     func initializeTrips() {

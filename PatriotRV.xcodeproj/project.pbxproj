@@ -47,6 +47,7 @@
 		277CA732298A8CE30000A570 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA731298A8CE30000A570 /* Trip.swift */; };
 		277CA735298A956E0000A570 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA734298A956E0000A570 /* DateExtension.swift */; };
 		277CA737298A98170000A570 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA736298A98170000A570 /* TripListView.swift */; };
+		27BC94AE298D474500642680 /* TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AD298D474500642680 /* TripTests.swift */; };
 		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912E29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
@@ -56,7 +57,7 @@
 		27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */; };
 		27F2A5B2297C141B00EFD417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B1297C141B00EFD417 /* Assets.xcassets */; };
 		27F2A5B5297C141B00EFD417 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */; };
-		27F2A5BF297C141B00EFD417 /* PatriotRVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5BE297C141B00EFD417 /* PatriotRVTests.swift */; };
+		27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */; };
 		27F2A5C9297C141B00EFD417 /* PatriotRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */; };
 		27F2A5CB297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -157,6 +158,7 @@
 		277CA731298A8CE30000A570 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		277CA734298A956E0000A570 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		277CA736298A98170000A570 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
+		27BC94AD298D474500642680 /* TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTests.swift; sourceTree = "<group>"; };
 		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
@@ -166,7 +168,7 @@
 		27F2A5B1297C141B00EFD417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27F2A5BA297C141B00EFD417 /* PatriotRVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatriotRVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27F2A5BE297C141B00EFD417 /* PatriotRVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVTests.swift; sourceTree = "<group>"; };
+		27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistTests.swift; sourceTree = "<group>"; };
 		27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatriotRVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITests.swift; sourceTree = "<group>"; };
 		27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -327,7 +329,8 @@
 		27F2A5BD297C141B00EFD417 /* PatriotRVTests */ = {
 			isa = PBXGroup;
 			children = (
-				27F2A5BE297C141B00EFD417 /* PatriotRVTests.swift */,
+				27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */,
+				27BC94AD298D474500642680 /* TripTests.swift */,
 			);
 			path = PatriotRVTests;
 			sourceTree = "<group>";
@@ -643,7 +646,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F2A5BF297C141B00EFD417 /* PatriotRVTests.swift in Sources */,
+				27BC94AE298D474500642680 /* TripTests.swift in Sources */,
+				27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

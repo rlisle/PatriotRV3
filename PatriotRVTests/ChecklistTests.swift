@@ -22,7 +22,7 @@ final class MockMQTT: MQTTManagerProtocol {
     }
 }
 
-final class PatriotRVTests: XCTestCase {
+final class ChecklistTests: XCTestCase {
 
     var model: ModelData!
     var mockMQTT: MQTTManagerProtocol!
@@ -30,12 +30,11 @@ final class PatriotRVTests: XCTestCase {
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
         model = ModelData(mqttManager: mockMQTT)
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     func test_messageHandler() {
         guard let item = model.item("fuel") else {
-            XCTFail("item before not found")
+            XCTFail("item 'fuel' not found")
             return
         }
         XCTAssertFalse(item.isDone)
@@ -43,7 +42,7 @@ final class PatriotRVTests: XCTestCase {
         model.mqtt.messageHandler?("patriot/state/all/x/fuel","55")
         
         guard let item2 = model.item("fuel") else {
-            XCTFail("item after not found")
+            XCTFail("item 'fuel' not found")
             return
         }
         XCTAssertTrue(item2.isDone)
@@ -70,14 +69,14 @@ final class PatriotRVTests: XCTestCase {
         XCTAssertEqual(count, 1)
     }
 
-    func test_setItem_and_numSelectedDone_2() {
+    func test_setItem_and_numDone_2() {
         model.setDone(checklistitem: "iceMachine", value: "100")
         model.setDone(checklistitem: "rampAwningIn", value: "100")
         let count = model.checklist.numDone(category: "Departure")
         XCTAssertEqual(count, 2)
     }
 
-    func test_setItem_and_numSelectedDone_1_not3() {
+    func test_setItem_and_numDone_1_not3() {
         model.setDone(checklistitem: "checkRoof", value: "100")
         model.setDone(checklistitem: "rearCamera", value: "100")
         model.setDone(checklistitem: "disconnectCables", value: "100")
@@ -101,7 +100,5 @@ final class PatriotRVTests: XCTestCase {
         let count = model.checklist.numDone(category: "Arrival")
         XCTAssertEqual(count, 0)
     }
-    
-
 
 }
