@@ -11,8 +11,8 @@ extension ModelData {
     
     func nextTrip(date: Date?) -> Trip? {
         let today = date ?? Date()
-        
-        return trips.last
+        let tripsAfterDate = trips.filter { $0.date >= today }
+        return tripsAfterDate.first
     }
     
     func initializeTrips() {

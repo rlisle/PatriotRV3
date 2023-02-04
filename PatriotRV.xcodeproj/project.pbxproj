@@ -48,6 +48,7 @@
 		277CA735298A956E0000A570 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA734298A956E0000A570 /* DateExtension.swift */; };
 		277CA737298A98170000A570 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA736298A98170000A570 /* TripListView.swift */; };
 		27BC94AE298D474500642680 /* TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AD298D474500642680 /* TripTests.swift */; };
+		27BC94B0298E8A4B00642680 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */; };
 		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912E29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
@@ -159,6 +160,7 @@
 		277CA734298A956E0000A570 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		277CA736298A98170000A570 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
 		27BC94AD298D474500642680 /* TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTests.swift; sourceTree = "<group>"; };
+		27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */,
+				27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */,
 				27BC94AD298D474500642680 /* TripTests.swift */,
 			);
 			path = PatriotRVTests;
@@ -647,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BC94AE298D474500642680 /* TripTests.swift in Sources */,
+				27BC94B0298E8A4B00642680 /* DateExtensionTests.swift in Sources */,
 				27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
