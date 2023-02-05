@@ -1,5 +1,5 @@
 //
-//  PatriotRVTests.swift
+//  ChecklistTests.swift
 //  PatriotRVTests
 //
 //  Created by Ron Lisle on 1/21/23.
@@ -49,30 +49,30 @@ final class ChecklistTests: XCTestCase {
     }
     
     func test_numItemInCategoryDeparture() throws /* async */ {
-        let count = model.checklist.inCategory("Departure").count
+        let count = model.checklist.category(.departure).count
         XCTAssertEqual(count, 23)
     }
 
     func test_numItemInCategoryPreTrip() throws {
-        let count = model.checklist.inCategory("Pre-Trip").count
+        let count = model.checklist.category(.pretrip).count
         XCTAssertEqual(count, 10)
     }
 
     func test_numItemInCategoryArrival() throws {
-        let count = model.checklist.inCategory("Arrival").count
+        let count = model.checklist.category(.arrival).count
         XCTAssertEqual(count, 17)
     }
     
     func test_setItem_and_numDone_1() {
         model.setDone(checklistitem: "checkTires", value: "100")
-        let count = model.checklist.numDone(category: "Pre-Trip")
+        let count = model.checklist.category(.pretrip).done().count
         XCTAssertEqual(count, 1)
     }
 
     func test_setItem_and_numDone_2() {
         model.setDone(checklistitem: "iceMachine", value: "100")
         model.setDone(checklistitem: "rampAwningIn", value: "100")
-        let count = model.checklist.numDone(category: "Departure")
+        let count = model.checklist.category(.departure).done().count
         XCTAssertEqual(count, 2)
     }
 
@@ -80,7 +80,7 @@ final class ChecklistTests: XCTestCase {
         model.setDone(checklistitem: "checkRoof", value: "100")
         model.setDone(checklistitem: "rearCamera", value: "100")
         model.setDone(checklistitem: "disconnectCables", value: "100")
-        let count = model.checklist.numDone(category: "Arrival")
+        let count = model.checklist.category(.arrival).done().count
         XCTAssertEqual(count, 1)
     }
     
@@ -88,7 +88,7 @@ final class ChecklistTests: XCTestCase {
         model.setDone(checklistitem: "iceMachine", value: "100")
         model.setDone(checklistitem: "rampAwningIn", value: "100")
         model.uncheckAll()
-        let count = model.checklist.numDone(category: "Departure")
+        let count = model.checklist.done().count
         XCTAssertEqual(count, 0)
     }
 
@@ -97,7 +97,7 @@ final class ChecklistTests: XCTestCase {
         model.setDone(checklistitem: "rearCamera", value: "100")
         model.setDone(checklistitem: "disconnectCables", value: "100")
         model.uncheckAll()
-        let count = model.checklist.numDone(category: "Arrival")
+        let count = model.checklist.done().count
         XCTAssertEqual(count, 0)
     }
 

@@ -11,7 +11,7 @@ struct ChecklistItem {
 
     let id: String          // Used by device (eg. RearAwning) MQTT status
     let name: String        // Title
-    let category: String    // Pre-Trip, Departure, Arrival
+    let category: TripMode
     let order: Int          // Display sort order
     let description: String // Markdown?
     var isDone: Bool = false {
@@ -27,7 +27,7 @@ struct ChecklistItem {
 
     weak var mqtt: MQTTManagerProtocol?
 
-    init(id: String, name: String, category: String, order: Int, description: String, imageName: String? = nil) {
+    init(id: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil) {
         self.id = id
         self.name = name
         self.category = category
@@ -35,6 +35,10 @@ struct ChecklistItem {
         self.description = description
         self.imageName = imageName
         isDone = false
+    }
+    
+    mutating func setDone(_ done: Bool) {
+        isDone = done
     }
 }
 

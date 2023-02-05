@@ -14,7 +14,7 @@ struct ChecklistView: View {
     @State private var showCompleted = true
     @State private var menuSelection: String? = nil
     @State private var showingAddTrip = false
-    @State private var phase = "Maintenance"    //TODO: persist
+    @State private var phase: TripMode = .maintenance
     private var phases = ["Maintenance", "Pre-Trip", "Departure", "Arrival"]
 
     init() {
@@ -47,18 +47,18 @@ struct ChecklistView: View {
                     
                     Section(header:
                         HStack {
-                            Text(phase)
+                        Text(phase.rawValue)
                             Spacer()
-                        Text("(\(modelData.checklist.numDone(category: phase)) of \(modelData.checklist.numDone(category: phase)) done)")
+                        Text("(\(modelData.checklist.category(phase).done().count) of \(modelData.checklist.category(phase).done().count) done)")
                         }
                         .padding(.vertical, 8)
                     ) {
                         
                         
-                        if(modelData.checklist.numDone(category: phase) == 0) {
-                            Text("No \(phase) items found")
+                        if(modelData.checklist.category(phase).done().count == 0) {
+                            Text("No \(phase.rawValue) items found")
                         } else {
-                            ForEach(modelData.checklist.inCategory(phase).filter { isShown(item:$0) }, id: \.self) { item in
+                            ForEach(modelData.checklist.category(phase).filter { isShown(item:$0) }, id: \.self) { item in
                                 
                               NavigationLink(destination: DetailView(listItem: item)) {
                                   ChecklistRow(listItem: item)

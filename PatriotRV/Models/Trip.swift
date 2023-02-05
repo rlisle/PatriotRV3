@@ -15,9 +15,6 @@ struct Trip  {
     let notes: String?
     let address: String?
     let imageName: String?
-    let category: TripMode
-    let sequence: Int
-    let isDone: Bool
     let website: String?
 }
 

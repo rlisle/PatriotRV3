@@ -17,6 +17,7 @@
 		272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E8297D5B52005C6D43 /* ChecklistView.swift */; };
 		272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2EA297D5BE6005C6D43 /* PowerView.swift */; };
 		272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2EC297D6159005C6D43 /* LightsView.swift */; };
+		273BEF0E298E8F2000A07284 /* ModelDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BEF0D298E8F2000A07284 /* ModelDataTests.swift */; };
 		276004BB298D373000D26ACF /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276004BA298D373000D26ACF /* Trips.swift */; };
 		276270B8297C1BC700844645 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
 		276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
@@ -130,6 +131,7 @@
 		272FC2E8297D5B52005C6D43 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		272FC2EA297D5BE6005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
 		272FC2EC297D6159005C6D43 /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
+		273BEF0D298E8F2000A07284 /* ModelDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataTests.swift; sourceTree = "<group>"; };
 		276004BA298D373000D26ACF /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		276270B7297C1BC700844645 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		276270B9297C1BD000844645 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */,
 				27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */,
 				27BC94AD298D474500642680 /* TripTests.swift */,
+				273BEF0D298E8F2000A07284 /* ModelDataTests.swift */,
 			);
 			path = PatriotRVTests;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BC94AE298D474500642680 /* TripTests.swift in Sources */,
+				273BEF0E298E8F2000A07284 /* ModelDataTests.swift in Sources */,
 				27BC94B0298E8A4B00642680 /* DateExtensionTests.swift in Sources */,
 				27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */,
 			);

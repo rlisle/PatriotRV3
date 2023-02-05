@@ -54,9 +54,7 @@ class ModelData: ObservableObject {
 extension ModelData {
     
     func category() -> TripMode {
-        // Identify next upcoming trip within next 2 weeks
-        
-        return .parked
+        return nextItem()?.category ?? .parked
     }
     
     // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
@@ -78,29 +76,27 @@ extension ModelData {
         }
     }
     
+    // Use the other funcs to filter first
+    // eg next todo in Departure:
+    //   checklist.category("Departure").nextItem()
+    func nextItem() -> ChecklistItem? {
+        return checklist.todo().first
+    }
+        
 }
 
 extension Array where Element == ChecklistItem {
 
-    func numDone(category: String) -> Int {
-        return inCategory(category).filter { $0.isDone }.count
+    func done() -> [ChecklistItem] {
+        return self.filter { $0.isDone == true }
     }
-    
-    func count(category: String) -> Int {
-        return inCategory(category).count
-    }
-    
 
-    func inCategory(_ category: String) -> [ChecklistItem] {
+    func todo() -> [ChecklistItem] {
+        return self.filter { $0.isDone == false }
+    }
+
+    func category(_ category: TripMode) -> [ChecklistItem] {
         return self.filter { $0.category == category }
     }
 
-    func nextItem(_ category: String?) -> ChecklistItem? {
-        if let category = category {
-            return self.inCategory(category).first
-        } else {
-            return self.first
-        }
-    }
-    
 }
