@@ -11,7 +11,8 @@ extension ModelData {
     
     func nextTrip(date: Date?) -> Trip? {
         let today = date ?? Date()
-        let tripsAfterDate = trips.filter { $0.date >= today }
+        let twoWeeksFromToday = today + 14
+        let tripsAfterDate = trips.filter { $0.date >= today && $0.date <= twoWeeksFromToday}
         return tripsAfterDate.first
     }
     

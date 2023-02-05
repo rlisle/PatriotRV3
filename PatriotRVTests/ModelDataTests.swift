@@ -21,10 +21,13 @@ final class ModelDataTests: XCTestCase {
     // CATEGORY
     func test_category_parked() {
         let expected = TripMode.parked
-        let result = model.category()
+        let date = Date("01/01/19")
+        let result = model.category(date: date)
         XCTAssertEqual(result, expected)
     }
-        
+
+    //TODO: add other category cases
+    
     func test_checklist_nextItem() {
         let expectedId = "iceMachine"
         setAllItemsBefore(order: 2020)
@@ -36,7 +39,7 @@ final class ModelDataTests: XCTestCase {
     
     func setAllItemsBefore(order: Int) {
         model.checklist.indices.forEach {
-            model.checklist[$0].isDone = (model.checklist[$0].order <= order)
+            model.checklist[$0].isDone = (model.checklist[$0].order < order)
         }
     }
     

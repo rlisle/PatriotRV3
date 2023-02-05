@@ -53,7 +53,10 @@ class ModelData: ObservableObject {
 
 extension ModelData {
     
-    func category() -> TripMode {
+    func category(date: Date) -> TripMode {
+        guard nextTrip(date: date) != nil else {
+            return .parked
+        }
         return nextItem()?.category ?? .parked
     }
     
