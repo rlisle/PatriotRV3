@@ -18,12 +18,21 @@ final class TripTests: XCTestCase {
         model = ModelData(mqttManager: mockMQTT)
     }
 
+    func test_nextTrip_nil() throws {
+        let date = Date("01/01/21")
+        let trip = model.nextTrip(date: date)
+        XCTAssertNil(trip)
+    }
+    
     func test_nextTrip_2022() throws {
-        let date = Date("03/12/22")
+        let date = Date("07/14/22")
         let expectedDate = Date("07/26/22")
         let trip = model.nextTrip(date: date)
-        XCTAssertNotNil(trip)
-        XCTAssertEqual(trip!.date, expectedDate )
+        if let trip = trip {
+            XCTAssertEqual(trip.date, expectedDate )
+        } else {
+            XCTFail("nextTrip should not be nil")
+        }
     }
     
     func test_nextTrip_2023() throws {
