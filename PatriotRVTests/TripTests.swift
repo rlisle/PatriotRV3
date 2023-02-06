@@ -1,6 +1,6 @@
 //
 //  TripTests.swift
-//  PatriotRVTests
+//  TripTests
 //
 //  Created by Ron Lisle on 2/3/23.
 //
@@ -39,16 +39,22 @@ final class TripTests: XCTestCase {
         let date = Date("01/30/23")
         let expectedDate = Date("02/03/23")
         let trip = model.nextTrip(date: date)
-        XCTAssertNotNil(trip)
-        XCTAssertEqual(trip!.date, expectedDate )
+        if let trip = trip {
+            XCTAssertEqual(trip.date, expectedDate )
+        } else {
+            XCTFail("nextTrip should not be nil")
+        }
     }
 
     func test_nextTrip_same_day() throws {
         let date = Date("02/03/23")
         let expectedDate = Date("02/03/23")
         let trip = model.nextTrip(date: date)
-        XCTAssertNotNil(trip)
-        XCTAssertEqual(trip!.date, expectedDate )
+        if let trip = trip {
+            XCTAssertEqual(trip.date, expectedDate )
+        } else {
+            XCTFail("nextTrip should not be nil")
+        }
     }
 
 }

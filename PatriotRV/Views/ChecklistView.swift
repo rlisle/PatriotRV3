@@ -14,8 +14,8 @@ struct ChecklistView: View {
     @State private var showCompleted = true
     @State private var menuSelection: String? = nil
     @State private var showingAddTrip = false
-    @State private var phase: TripMode = .maintenance
-    private var phases = ["Maintenance", "Pre-Trip", "Departure", "Arrival"]
+    @State private var phase: TripMode = .pretrip
+    private var phases = ["Pre-Trip", "Departure", "Arrival"]
 
     init() {
         UISegmentedControl.appearance().backgroundColor = .black
@@ -32,7 +32,7 @@ struct ChecklistView: View {
                 
                 ImageHeader(imageName: "truck-rv")
 
-                Picker(selection: $phase, label: Text("Phase")) {
+                Picker("Phase", selection: $phase) {
                     ForEach(phases, id: \.self) {
                         Text($0)
                     }
@@ -94,6 +94,9 @@ struct ChecklistView: View {
                 
         }//NavigationStack
         .accentColor( .black)   // Sets back button color
+        .task {
+            let currentPhase = modelData.category(date: Date())
+        }
     }
         
     func isShown(item: ChecklistItem) -> Bool {

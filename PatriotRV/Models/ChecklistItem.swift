@@ -27,14 +27,14 @@ struct ChecklistItem {
 
     weak var mqtt: MQTTManagerProtocol?
 
-    init(id: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil) {
+    init(id: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil, isDone: Bool = false) {
         self.id = id
         self.name = name
         self.category = category
         self.order = order
         self.description = description
         self.imageName = imageName
-        isDone = false
+        self.isDone = isDone
     }
     
     mutating func setDone(_ done: Bool) {
