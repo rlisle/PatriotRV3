@@ -7,6 +7,7 @@
 
 extension ModelData {
     func initializeChecklist() {
+        print("initializeChecklist")
         self.checklist = [
 
             // MAINTENANCE 0-999
@@ -315,5 +316,6 @@ extension ModelData {
         for i in 0..<checklist.count {
             checklist[i].mqtt = self.mqtt
         }
+        print("\(checklist.count) checklist items")
     }
 }

@@ -38,10 +38,12 @@ struct ChecklistView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.bottom, 0)
-                .padding(.top, -12)
+                .padding(.top, -14)
                 .background(Color.black)
 
                 ChecklistItemsView()
+                
+                Text("\(modelData.checklist.count) items total")
             }
             .blackNavigation
             .toolbar {
@@ -65,27 +67,25 @@ struct ChecklistView: View {
 
 struct ChecklistItemsView: View {
     
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var model: ModelData
 
-    @State private var showCompleted = true
-    
     var body: some View {
         List {
 
             Section(header:
                 HStack {
-                Text(modelData.checklistPhase.rawValue)
+                Text(model.checklistPhase.rawValue)
                     Spacer()
-                Text("(\(modelData.checklist.category(modelData.checklistPhase).done().count) of \(modelData.checklist.category(modelData.checklistPhase).done().count) done)")
+                Text("(\(model.checklist.category(model.checklistPhase).done().count) of \(model.checklist.category(model.checklistPhase).done().count) done)")
                 }
                 .padding(.vertical, 8)
             ) {
 
 
-                if(modelData.checklist.category(modelData.checklistPhase).done().count == 0) {
-                    Text("No \(modelData.checklistPhase.rawValue) items found")
+                if(model.checklistDisplayItems().count == 0) {
+                    Text("No \(model.checklistPhase.rawValue) items found")
                 } else {
-                    ForEach(modelData.checklist.category(modelData.checklistPhase).filter { isShown(item:$0) }, id: \.self) { item in
+                    ForEach(model.checklistDisplayItems(), id: \.self) { item in
 
                       NavigationLink(destination: DetailView(listItem: item)) {
                           ChecklistRow(listItem: item)
@@ -103,11 +103,6 @@ struct ChecklistItemsView: View {
         //.animation(.easeInOut)
 
     }
-    
-    func isShown(item: ChecklistItem) -> Bool {
-        return showCompleted == true || item.isDone == false
-    }
-
 }
 
 struct ContentView_Previews: PreviewProvider {

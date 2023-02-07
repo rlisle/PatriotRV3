@@ -17,6 +17,7 @@ class ModelData: ObservableObject {
     // Checklist
     @Published var checklist: [ChecklistItem] = []
     @Published var checklistPhase: TripMode = .pretrip
+    @Published var showCompleted = true     //TODO: persist
     
     // Power
     @Published var rv: Float = 0.0
@@ -54,7 +55,7 @@ class ModelData: ObservableObject {
 
 extension ModelData {
     
-    func category(date: Date) -> TripMode {
+    func currentPhase(date: Date) -> TripMode {
         guard nextTrip(date: date) != nil else {
             return .parked
         }
@@ -86,6 +87,14 @@ extension ModelData {
     func nextItem() -> ChecklistItem? {
         return checklist.todo().first
     }
+    
+    func checklistDisplayItems() -> [ChecklistItem] {
+        if showCompleted == true {
+            return checklist.category(checklistPhase)
+        } else {
+            return checklist.category(checklistPhase).todo()
+        }
+    }
         
 }
 
@@ -102,5 +111,4 @@ extension Array where Element == ChecklistItem {
     func category(_ category: TripMode) -> [ChecklistItem] {
         return self.filter { $0.category == category }
     }
-
 }
