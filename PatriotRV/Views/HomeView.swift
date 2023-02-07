@@ -14,69 +14,73 @@ struct HomeView: View {
     @State private var showCompleted = true
     @State private var showSettings = false
 
+    enum Screen {
+        case settings
+        case power
+        case checklists
+        case trips
+    }
+    @State private var selection: Screen?
+    
     var body: some View {
         NavigationStack {
-            
-            NavigationLink(
-                destination: SettingsView(),
-                isActive: $showSettings) { EmptyView() }
+            VStack {
                 
-                VStack {
-                    
-                    ImageHeader(imageName: "truck-rv")
-
-                    List {
-                        NavigationLink {
-                            PowerView()
-                        } label: {
-                            PowerRowView()
-                        }
-                        NavigationLink {
-                            TripListView()
-                        } label: {
-                            TripRowView()
-                        }
-                        NavigationLink {
-                            ChecklistView()
-                        } label: {
-                            ChecklistRowView()
-                        }
-                        NavigationLink {
-                            LogView()
-                        } label: {
-                            LogRowView()
-                        }
-                    }//list
-                    .padding(.top, -8)
-                }//vstack
-                    
-                .navigationTitle("Summary")
-                .blackNavigation
-
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("RV Checklist")
-                            .foregroundColor(.white)
+                ImageHeader(imageName: "truck-rv")
+                
+                
+                List {
+                    NavigationLink {
+                        PowerView()
+                    } label: {
+                        PowerRowView()
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            withAnimation {
-                                self.showSettings.toggle()
-                            }
-                        }) {
-                            Image(systemName: "gearshape")
-                                .imageScale(.large)
-                        }
+                    NavigationLink {
+                        TripListView()
+                    } label: {
+                        TripRowView()
+                    }
+                    NavigationLink {
+                        ChecklistView()
+                    } label: {
+                        ChecklistRowView()
+                    }
+                    NavigationLink {
+                        LogView()
+                    } label: {
+                        LogRowView()
+                    }
+                }//list
+                .padding(.top, -8)
+            } //vstack
+            .navigationTitle("Summary")
+            .blackNavigation
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("RV Checklist")
                         .foregroundColor(.white)
-                    }
                 }
-
-                
-        }//navigationstack
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            self.showSettings.toggle()
+                        }
+                    }) {
+                        Image(systemName: "gearshape")
+                            .imageScale(.large)
+                    }
+                    .foregroundColor(.white)
+                }
+            } //toolbar
+            .navigationDestination(isPresented: $showSettings,
+                                   destination: {
+                SettingsView()
+            })
+        } //navigationstack
         .task {
             model.startChecklistActivity()
         }
-    }//body
+    } //body
 }
 
 // Row views should provide summary information
