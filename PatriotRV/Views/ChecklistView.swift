@@ -13,7 +13,7 @@ struct ChecklistView: View {
     
     @State private var menuSelection: String? = nil
     @State private var showingAddTrip = false
-    @State private var phase: TripMode = .pretrip
+    
     private var phases: [TripMode] = [.pretrip, .departure,.arrival]
     
     init() {
@@ -21,7 +21,6 @@ struct ChecklistView: View {
         UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        let currentPhase = modelData.category(date: Date())
     }
     
     var body: some View {
@@ -32,7 +31,7 @@ struct ChecklistView: View {
                 
                 ImageHeader(imageName: "truck-rv")
 
-                Picker("Phase", selection: $phase) {
+                Picker("Phase", selection: $modelData.checklistPhase) {
                     ForEach(phases, id: \.self) {
                         Text($0.rawValue)
                     }
@@ -42,7 +41,7 @@ struct ChecklistView: View {
                 .padding(.top, -12)
                 .background(Color.black)
 
-                ChecklistItemsView(phase: phase)
+                ChecklistItemsView()
             }
             .blackNavigation
             .toolbar {
@@ -70,25 +69,23 @@ struct ChecklistItemsView: View {
 
     @State private var showCompleted = true
     
-    var phase: TripMode
-    
     var body: some View {
         List {
 
             Section(header:
                 HStack {
-                Text(phase.rawValue)
+                Text(modelData.checklistPhase.rawValue)
                     Spacer()
-                Text("(\(modelData.checklist.category(phase).done().count) of \(modelData.checklist.category(phase).done().count) done)")
+                Text("(\(modelData.checklist.category(modelData.checklistPhase).done().count) of \(modelData.checklist.category(modelData.checklistPhase).done().count) done)")
                 }
                 .padding(.vertical, 8)
             ) {
 
 
-                if(modelData.checklist.category(phase).done().count == 0) {
-                    Text("No \(phase.rawValue) items found")
+                if(modelData.checklist.category(modelData.checklistPhase).done().count == 0) {
+                    Text("No \(modelData.checklistPhase.rawValue) items found")
                 } else {
-                    ForEach(modelData.checklist.category(phase).filter { isShown(item:$0) }, id: \.self) { item in
+                    ForEach(modelData.checklist.category(modelData.checklistPhase).filter { isShown(item:$0) }, id: \.self) { item in
 
                       NavigationLink(destination: DetailView(listItem: item)) {
                           ChecklistRow(listItem: item)
@@ -114,6 +111,7 @@ struct ChecklistItemsView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in

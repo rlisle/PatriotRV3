@@ -16,6 +16,7 @@ class ModelData: ObservableObject {
     
     // Checklist
     @Published var checklist: [ChecklistItem] = []
+    @Published var checklistPhase: TripMode = .pretrip
     
     // Power
     @Published var rv: Float = 0.0
