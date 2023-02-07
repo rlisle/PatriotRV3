@@ -42,8 +42,6 @@ struct ChecklistView: View {
                 .background(Color.black)
 
                 ChecklistItemsView()
-                
-                Text("\(modelData.checklist.count) items total")
             }
             .blackNavigation
             .toolbar {

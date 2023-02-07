@@ -52,9 +52,6 @@ struct HomeView: View {
                     }
                 }//list
                 .padding(.top, -8)
-                
-                Text("\(model.checklist.count) items total")
-                
             } //vstack
             .navigationTitle("Summary")
             .blackNavigation
