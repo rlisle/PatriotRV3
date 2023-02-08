@@ -19,10 +19,10 @@ final class ModelDataTests: XCTestCase {
     }
     
     // CATEGORY
-    func test_category_parked() {
+    func test_currentPhase_parked() {
         let expected = TripMode.parked
         let date = Date("01/01/19")
-        let result = model.category(date: date)
+        let result = model.currentPhase(date: date)
         XCTAssertEqual(result, expected)
     }
 
