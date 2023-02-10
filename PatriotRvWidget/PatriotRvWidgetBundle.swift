@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct PatriotRvWidgetBundle: WidgetBundle {
     var body: some Widget {
-        PatriotRvWidget()
+        ChecklistWidget()
         PowerWidgetLiveActivity()
     }
 }

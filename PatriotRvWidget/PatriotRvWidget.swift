@@ -10,23 +10,23 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), rv: 0, tesla: 0)
+    func placeholder(in context: Context) -> ChecklistEntry {
+        ChecklistEntry(date: Date(), configuration: ConfigurationIntent(), nextTrip: "Canada", nextItem: "Plan Trip")
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration, rv: 0, tesla: 0)
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (ChecklistEntry) -> ()) {
+        let entry = ChecklistEntry(date: Date(), configuration: configuration, nextTrip: "Canada", nextItem: "Plan Trip")
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        var entries: [ChecklistEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration, rv: 0, tesla: 0)
+            let entry = ChecklistEntry(date: entryDate, configuration: configuration, nextTrip: "Rockport", nextItem: "Check Roof")
             entries.append(entry)
         }
 
@@ -35,69 +35,40 @@ struct Provider: IntentTimelineProvider {
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct ChecklistEntry: TimelineEntry {
     var date: Date
     let configuration: ConfigurationIntent
-    let rv: Int
-    let tesla: Int
+    let nextTrip: String
+    let nextItem: String
 }
 
-struct PatriotRvWidgetEntryView : View {
+struct ChecklistWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
         VStack {
-            Text("Power Usage")
-            HStack {
-                VStack {
-                    WidgetPowerView(title: "RV", amps: entry.rv, tint: .green)
-                    WidgetPowerView(title: "Tesla", amps: entry.tesla, tint: .green)
-                }
-            }
+            Text("Next Trip: \(entry.nextTrip)")
+            Text("Next item: \(entry.nextItem)")
             .padding(.horizontal, 32)
         }
-        //Text(entry.date, style: .time)
     }
 }
 
-struct WidgetPowerView: View {
-
-    var title: String
-    var amps: Int
-    var tint: Color
-    
-    var body: some View {
-        VStack {
-            Gauge(value: Float(amps), in: 0...50) {
-                Text(title)
-            } currentValueLabel: {
-                Text(amps.formatted())
-            } minimumValueLabel: {
-                Text("0")
-            } maximumValueLabel: {
-                Text("50")
-            }
-            .gaugeStyle(.accessoryLinearCapacity)
-            .tint(tint)
-        }
-    }
-}
-
-struct PatriotRvWidget: Widget {
-    let kind: String = "PatriotRvWidget"
+struct ChecklistWidget: Widget {
+    let kind: String = "ChecklistWidget"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            PatriotRvWidgetEntryView(entry: entry)
+            ChecklistWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Checklist")
         .description("RV Trip Checklist")
     }
 }
 
-struct PatriotRvWidget_Previews: PreviewProvider {
+struct ChecklistWidget_Previews: PreviewProvider {
     static var previews: some View {
-        PatriotRvWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), rv: 0, tesla: 0))
+        ChecklistWidgetEntryView(entry: ChecklistEntry(date: Date(), configuration: ConfigurationIntent(), nextTrip: "Canada", nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
