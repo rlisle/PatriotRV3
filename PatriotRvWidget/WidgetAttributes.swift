@@ -13,9 +13,12 @@ struct PatriotRvWidgetAttributes: ActivityAttributes {
         
         // Power Usage changes too frequently to be displayed realtime
         var rvAmps: Int
-        var teslaAmps: Int
+        var teslaAmps: Int      // 0 if not charging, -1 if disconnected
+        var battery: Int        // Battery charge percentage 0-100
         
         // Checklist - changes slowly, but want to see on dynamic island
+        var daysUntilNextTrip: Int
+        var nextTripName: String
         var tripMode: TripMode
         var numberItems: Int
         var numberDone: Int

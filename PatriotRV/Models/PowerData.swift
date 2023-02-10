@@ -53,6 +53,9 @@ extension ModelData {
             let initialContentState = PatriotRvWidgetAttributes.ContentState(
                 rvAmps: 0,
                 teslaAmps:0,
+                battery: 90,
+                daysUntilNextTrip: 0,
+                nextTripName: "None",
                 tripMode: .pretrip,
                 numberItems: 10,
                 numberDone: 0,
@@ -75,7 +78,10 @@ extension ModelData {
         let contentState = PatriotRvWidgetAttributes.ContentState(
             rvAmps: Int(rv),
             teslaAmps: Int(tesla),
-            tripMode: .pretrip,     //TODO: get this from model
+            battery: 80,            //TODO: get this from model
+            daysUntilNextTrip: 0,   // "
+            nextTripName: "?",      // "
+            tripMode: .pretrip,     // "
             numberItems: 10,
             numberDone: 0,
             nextItemId: "startList",

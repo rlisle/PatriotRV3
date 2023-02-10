@@ -9,10 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var path: [String] = []
+    @State private var path: [String] = []  // ???
     
     var body: some View {
         NavigationStack {
+            HStack {
+                Text("Next trip: ")
+                Spacer()
+            }
             List {
                 NavigationLink("Checklist", value: "checklist")
                 NavigationLink("Lights", value: "lights")

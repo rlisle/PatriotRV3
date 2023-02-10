@@ -90,8 +90,8 @@ struct PatriotRvWidget: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             PatriotRvWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("RV Checklist")
+        .description("RV Trip Checklist")
     }
 }
 

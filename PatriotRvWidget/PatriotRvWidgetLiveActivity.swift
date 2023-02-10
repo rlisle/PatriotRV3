@@ -50,6 +50,7 @@ struct PatriotRvWidgetLiveActivity: Widget {
     }
 }
 
+// Display Tesla charging & level on dynamic island left side
 struct LockScreenLiveActivityView: View {
     let context: ActivityViewContext<PatriotRvWidgetAttributes>
     
@@ -93,6 +94,9 @@ struct PatriotRvWidgetLiveActivity_Previews: PreviewProvider {
     static let contentState = PatriotRvWidgetAttributes.ContentState(
         rvAmps: 3,
         teslaAmps: 37,
+        battery: 90,
+        daysUntilNextTrip: 5,
+        nextTripName: "Rockport",
         tripMode: .pretrip,
         numberItems: 14,
         numberDone: 3,
