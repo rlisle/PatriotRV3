@@ -38,10 +38,17 @@ struct PowerWidgetLiveActivity: Widget {
                     }
                 }
                 DynamicIslandExpandedRegion(.center) {
-                    WidgetCircularPowerView(
-                        title: "RV Power Usage",
-                        amps: context.state.rvAmps,
-                        tint: powerTint(context.state.rvAmps))
+                    HStack {
+                        WidgetCircularPowerView(
+                            title: "RV Power Usage",
+                            amps: context.state.rvAmps,
+                            tint: powerTint(context.state.rvAmps))
+                        .padding(.trailing,16)
+                        WidgetCircularPowerView(
+                            title: "Tesla Charging",
+                            amps: context.state.teslaAmps,
+                            tint: chargingTint(context.state.teslaAmps))
+                    }
                 }
             } compactLeading: {
                 Text(rvAmps(context.state.rvAmps))
@@ -75,6 +82,20 @@ struct PowerWidgetLiveActivity: Widget {
         }
         return color
     }
+    
+    func chargingTint(_ amps: Int) -> Color {
+        var color: Color
+        switch amps {
+        case 0...5:
+            color = .white
+        case 6...24:
+            color = .green
+        default:
+            color = .cyan
+        }
+        return color
+    }
+
 }
 
 struct LockScreenLiveActivityView: View {
