@@ -25,7 +25,7 @@ struct ChecklistItem {
     var imageName: String?
     var date: Date?         // Either completion or due date
 
-    weak var mqtt: MQTTManagerProtocol?
+    weak var mqtt: Publishing?
 
     init(id: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil, isDone: Bool = false) {
         self.id = id

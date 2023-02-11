@@ -7,13 +7,7 @@
 
 import Foundation
 
-protocol MQTTManagerProtocol: AnyObject {
-    var isConnected: Bool { get }
-    var messageHandler: ((String, String) -> Void)? { get set }
-    func publish(topic: String, message: String)
-}
-
-final class MockMQTT: MQTTManagerProtocol {
+final class MockMQTT: Publishing {
     
     var isConnected = true
     var messageHandler: ((String, String) -> Void)?

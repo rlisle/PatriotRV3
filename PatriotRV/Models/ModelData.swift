@@ -25,9 +25,9 @@ class ModelData: ObservableObject {
     internal var linePower: [Float] = [0.0, 0.0]
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
-    let mqtt: MQTTManagerProtocol!
+    let mqtt: Publishing!
     
-    init(mqttManager: any MQTTManagerProtocol) {
+    init(mqttManager: any Publishing) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
             // t: patriot/state/ALL/X/<checklistitem> m:<0|1>

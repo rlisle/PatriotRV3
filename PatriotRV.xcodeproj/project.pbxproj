@@ -54,6 +54,9 @@
 		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912E29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B512997BD8900EF9DB5 /* MockMQTT.swift */; };
+		27C50B562997C67500EF9DB5 /* Publishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B552997C67500EF9DB5 /* Publishing.swift */; };
+		27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B552997C67500EF9DB5 /* Publishing.swift */; };
+		27C50B582997C67500EF9DB5 /* Publishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B552997C67500EF9DB5 /* Publishing.swift */; };
 		27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C37E2985B58C00D34DAC /* AddTripView.swift */; };
 		27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
 		27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
@@ -169,6 +172,7 @@
 		27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRV.entitlements; sourceTree = "<group>"; };
 		27C50B502997B52300EF9DB5 /* PatriotRVWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRVWatchApp.entitlements; sourceTree = "<group>"; };
 		27C50B512997BD8900EF9DB5 /* MockMQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMQTT.swift; sourceTree = "<group>"; };
+		27C50B552997C67500EF9DB5 /* Publishing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishing.swift; sourceTree = "<group>"; };
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
 		27D1C3832987E64D00D34DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -287,6 +291,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		27C50B542997C62700EF9DB5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				27C50B552997C67500EF9DB5 /* Publishing.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		27F2A5A1297C141A00EFD417 = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +328,7 @@
 		27F2A5AC297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXGroup;
 			children = (
+				27C50B542997C62700EF9DB5 /* Protocols */,
 				27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */,
 				27D1C3832987E64D00D34DAC /* Info.plist */,
 				27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */,
@@ -604,6 +617,7 @@
 				272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */,
 				27C1912D29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
+				27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */,
 				272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
 				272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */,
@@ -617,6 +631,7 @@
 				27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
 				27C1912E29894390005556F4 /* TripMode.swift in Sources */,
 				2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
+				27C50B582997C67500EF9DB5 /* Publishing.swift in Sources */,
 				2771BA6429816F9A0093FCCB /* PowerWidgetLiveActivity.swift in Sources */,
 				2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */,
 				2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */,
@@ -633,6 +648,7 @@
 				27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */,
 				27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
 				276004BB298D373000D26ACF /* Trips.swift in Sources */,
+				27C50B562997C67500EF9DB5 /* Publishing.swift in Sources */,
 				276270BC297C1BD800844645 /* ModelData.swift in Sources */,
 				276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */,
 				276270C8297C20DD00844645 /* ImageHeader.swift in Sources */,
