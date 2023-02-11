@@ -53,6 +53,7 @@
 		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912E29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
+		27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B512997BD8900EF9DB5 /* MockMQTT.swift */; };
 		27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C37E2985B58C00D34DAC /* AddTripView.swift */; };
 		27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
 		27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
@@ -164,6 +165,10 @@
 		27BC94AD298D474500642680 /* TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTests.swift; sourceTree = "<group>"; };
 		27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
+		27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWidgetExtension.entitlements; sourceTree = "<group>"; };
+		27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRV.entitlements; sourceTree = "<group>"; };
+		27C50B502997B52300EF9DB5 /* PatriotRVWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRVWatchApp.entitlements; sourceTree = "<group>"; };
+		27C50B512997BD8900EF9DB5 /* MockMQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMQTT.swift; sourceTree = "<group>"; };
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
 		27D1C3832987E64D00D34DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -223,6 +228,7 @@
 		272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */ = {
 			isa = PBXGroup;
 			children = (
+				27C50B502997B52300EF9DB5 /* PatriotRVWatchApp.entitlements */,
 				272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */,
 				272FC2D6297C774D005C6D43 /* ContentView.swift */,
 				272FC2E8297D5B52005C6D43 /* ChecklistView.swift */,
@@ -284,6 +290,7 @@
 		27F2A5A1297C141A00EFD417 = {
 			isa = PBXGroup;
 			children = (
+				27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */,
 				27F2A5AC297C141A00EFD417 /* PatriotRV */,
 				27F2A5BD297C141B00EFD417 /* PatriotRVTests */,
 				27F2A5C7297C141B00EFD417 /* PatriotRVUITests */,
@@ -309,6 +316,7 @@
 		27F2A5AC297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXGroup;
 			children = (
+				27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */,
 				27D1C3832987E64D00D34DAC /* Info.plist */,
 				27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */,
 				27F2A5DA297C196B00EFD417 /* Models */,
@@ -337,6 +345,7 @@
 				27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */,
 				27BC94AD298D474500642680 /* TripTests.swift */,
 				273BEF0D298E8F2000A07284 /* ModelDataTests.swift */,
+				27C50B512997BD8900EF9DB5 /* MockMQTT.swift */,
 			);
 			path = PatriotRVTests;
 			sourceTree = "<group>";
@@ -629,6 +638,7 @@
 				276270C8297C20DD00844645 /* ImageHeader.swift in Sources */,
 				276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */,
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
+				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				277CA735298A956E0000A570 /* DateExtension.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
@@ -699,6 +709,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRVWatchApp/Preview Content\"";
@@ -729,6 +740,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRVWatchApp/Preview Content\"";
@@ -759,6 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
@@ -786,6 +799,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
@@ -928,6 +942,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRV/Preview Content\"";
@@ -962,6 +977,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRV/Preview Content\"";

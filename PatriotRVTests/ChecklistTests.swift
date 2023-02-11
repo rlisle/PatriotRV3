@@ -8,20 +8,6 @@
 import XCTest
 @testable import PatriotRV
 
-final class MockMQTT: MQTTManagerProtocol {
-    
-    var isConnected = true
-    var messageHandler: ((String, String) -> Void)?
-    
-    var publishedTopic = ""
-    var publishedMessage = ""
-    
-    func publish(topic: String, message: String) {
-        publishedTopic = topic
-        publishedMessage = message
-    }
-}
-
 final class ChecklistTests: XCTestCase {
 
     var model: ModelData!

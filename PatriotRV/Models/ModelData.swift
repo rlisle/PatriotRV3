@@ -27,7 +27,7 @@ class ModelData: ObservableObject {
     
     let mqtt: MQTTManagerProtocol!
     
-    init(mqttManager: MQTTManagerProtocol) {
+    init(mqttManager: any MQTTManagerProtocol) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
             // t: patriot/state/ALL/X/<checklistitem> m:<0|1>

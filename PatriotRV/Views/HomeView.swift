@@ -31,11 +31,6 @@ struct HomeView: View {
                 
                 List {
                     NavigationLink {
-                        PowerView()
-                    } label: {
-                        PowerRowView()
-                    }
-                    NavigationLink {
                         TripListView()
                     } label: {
                         TripRowView()
@@ -44,6 +39,11 @@ struct HomeView: View {
                         ChecklistView()
                     } label: {
                         ChecklistRowView()
+                    }
+                    NavigationLink {
+                        PowerView()
+                    } label: {
+                        PowerRowView()
                     }
                     NavigationLink {
                         LogView()
