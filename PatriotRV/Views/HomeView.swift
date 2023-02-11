@@ -87,11 +87,19 @@ struct HomeView: View {
 struct TripRowView: View {
     @EnvironmentObject var model: ModelData
     var body: some View {
-        VStack {
-            Text("Trip")
-            if let trip = model.trips.last {
-                Text("\(trip.date.mmddyy()) \(trip.destination)")
+        if let trip = model.trips.last {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Next Trip")
+                        .font(.headline)
+                    Spacer()
+                    Text(trip.date.mmddyy())
+                }
+                Text(trip.destination)
             }
+        } else {
+            Text("Add a New Trip")
+                .font(.headline)
         }
     }
 }
