@@ -46,7 +46,10 @@ class ModelData: ObservableObject {
         }
         
         // Load Checklist after MQTT is initialized
-        initializeChecklist()
+        checklist = Checklist.initialChecklist
+        for i in 0..<checklist.count {
+            checklist[i].delegate = self.mqtt
+        }
         
         // Load trips
         initializeTrips()
@@ -95,6 +98,17 @@ extension ModelData {
             return checklist.category(checklistPhase).todo()
         }
     }
+    
+    // For now persisting to UserDefaults
+    func saveChecklist() {
+        let tripMode = currentPhase(date: Date()).rawValue
+        UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(tripMode, forKey: "TripMode")
+        
+        if let item = nextItem() {
+            UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(item.name, forKey: "NextItem")
+        }
+    }
+
         
 }
 

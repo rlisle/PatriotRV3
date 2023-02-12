@@ -17,7 +17,7 @@ struct ChecklistItem {
     var isDone: Bool = false {
         didSet {
             if oldValue != isDone {
-                mqtt?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
+                delegate?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
                 date = Date()
             }
         }
@@ -25,7 +25,7 @@ struct ChecklistItem {
     var imageName: String?
     var date: Date?         // Either completion or due date
 
-    weak var mqtt: Publishing?
+    weak var delegate: Publishing?
 
     init(id: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil, isDone: Bool = false) {
         self.id = id

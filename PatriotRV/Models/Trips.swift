@@ -47,6 +47,15 @@ extension ModelData {
             address: "3677 IH35 Rockport, TX 78382",
             imageName: nil,
             website: "https://www.hilton.com/en/hotels/rpttxhx-hampton-suites-rockport-fulton/"))
-
+        
+        saveTrips()
+    }
+    
+    // For now persisting to UserDefaults
+    func saveTrips() {
+        if let trip = nextTrip(date: Date()) {
+            UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(trip.destination, forKey: "NextTrip")
+            UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(trip.destination, forKey: "NextItem")
+        }
     }
 }

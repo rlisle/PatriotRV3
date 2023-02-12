@@ -15,14 +15,21 @@ struct Provider: IntentTimelineProvider {
         ChecklistEntry(date: Date(),
 //                       configuration: ConfigurationIntent(),
                        nextTrip: "Who knows?",
+                       tripMode: "Parked",
                        nextItem: "Choose destination")
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (ChecklistEntry) -> ()) {
+        
+        let nextTrip = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextTrip")
+        let tripMode = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "TripMode")
+        let nextItem = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextItem")
+
         let entry = ChecklistEntry(date: Date(),
 //                                   configuration: configuration,
-                                   nextTrip: "Canada",
-                                   nextItem: "Plan Trip")
+                                   nextTrip: nextTrip ?? "No trip",
+                                   tripMode: tripMode ?? "Parked",
+                                   nextItem: nextItem ?? "None")
         completion(entry)
     }
 
@@ -30,6 +37,7 @@ struct Provider: IntentTimelineProvider {
         let entries = [
             ChecklistEntry(date: Date(),
                            nextTrip: "Rockport",
+                           tripMode: "Parked",
                            nextItem: "Plan Trip"
                           )
             ]
@@ -42,6 +50,7 @@ struct ChecklistEntry: TimelineEntry {
     var date: Date
     //let configuration: ConfigurationIntent
     let nextTrip: String
+    let tripMode: String
     let nextItem: String
 }
 
@@ -49,10 +58,10 @@ struct ChecklistWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Next Trip: \(entry.nextTrip)")
-            Text("Next item: \(entry.nextItem)")
-            .padding(.horizontal, 32)
+        VStack(alignment: .leading) {
+            Text("Trip: \(entry.nextTrip)")
+            Text(entry.tripMode)
+            Text("Next: \(entry.nextItem)")
         }
     }
 }
@@ -76,6 +85,7 @@ struct ChecklistWidget_Previews: PreviewProvider {
                 date: Date(),
                 //configuration: ConfigurationIntent(),
                 nextTrip: "Canada",
+                tripMode: "Parked",
                 nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
