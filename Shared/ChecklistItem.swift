@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ChecklistItem {
 
-    let id: String          // Used by device (eg. RearAwning) MQTT status
+    let id: Int             // Todo and display sort order (1 - #items)
+    let key: String         // Used by device (eg. RearAwning) MQTT status    let key: String
     let name: String        // Title
     let category: TripMode
-    let order: Int          // Display sort order
     let description: String // Markdown?
     var isDone: Bool = false {
         didSet {
             print("ChecklistItem.didSet")
-            delegate?.publish(id: order, isDone: isDone)
+            delegate?.publish(id: id, isDone: isDone)
             date = Date()
         }
     }
@@ -26,11 +26,11 @@ struct ChecklistItem {
 
     weak var delegate: Publishing?
 
-    init(id: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil, isDone: Bool = false) {
-        self.id = id
+    init(key: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil, isDone: Bool = false) {
+        self.key = key
         self.name = name
         self.category = category
-        self.order = order
+        self.id = order
         self.description = description
         self.imageName = imageName
         self.isDone = isDone
@@ -43,7 +43,7 @@ struct ChecklistItem {
 
 extension ChecklistItem: Identifiable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.key == rhs.key
         && lhs.name == rhs.name
         && lhs.category == rhs.category
     }
@@ -51,7 +51,7 @@ extension ChecklistItem: Identifiable {
 
 extension ChecklistItem: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(key)
         hasher.combine(name)
         hasher.combine(category)
     }

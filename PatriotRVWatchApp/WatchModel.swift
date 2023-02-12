@@ -31,18 +31,18 @@ class WatchModel: NSObject, ObservableObject {
         WCSession.default.activate()
     }
 
-    func itemIndex(order: Int) -> Int {
+    func itemIndex(id: Int) -> Int {        // index s/b id-1
         for index in 0..<checklist.count {
-            if checklist[index].order == order {
+            if checklist[index].id == id {
                 return index
             }
         }
-        print("itemIndex order not found")
+        print("itemIndex id not found")
         return 0    // Shouldn't happen
     }
 
     func setDone(order: Int, value: Bool) {
-        let index = itemIndex(order: order)
+        let index = itemIndex(id: order)
         checklist[index].isDone = value
         updateApp()
     }
@@ -50,14 +50,14 @@ class WatchModel: NSObject, ObservableObject {
     func setDoneIds(doneIds: [Int]) {
         var updatedChecklist = checklist
         for index in 0..<updatedChecklist.count {
-            updatedChecklist[index].isDone = doneIds.contains(updatedChecklist[index].order)
+            updatedChecklist[index].isDone = doneIds.contains(updatedChecklist[index].id)
         }
         checklist = updatedChecklist
     }
     
     func updateApp() {
         print("Updating app from watch")
-        Connectivity.shared.send(doneIds: doneOrders())
+        Connectivity.shared.send(doneIds: doneIds())
     }
     
     func uncheckAll() {
@@ -66,8 +66,8 @@ class WatchModel: NSObject, ObservableObject {
         }
     }
 
-    func doneOrders() -> [Int] {
-        return checklist.done().map { $0.order }
+    func doneIds() -> [Int] {
+        return checklist.done().map { $0.id }
     }
     
     // Use the other funcs to filter first

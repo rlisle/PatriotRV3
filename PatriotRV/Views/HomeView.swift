@@ -127,7 +127,7 @@ struct ChecklistRowView: View {
                 Text("6 of \(model.checklist.count) done")
             }
             HStack {
-                Text("#\(model.nextItem()?.order ?? 0):")
+                Text("#\(model.nextItem()?.id ?? 0):")
                 Text(model.nextItem()?.name ?? "")
             }
         }

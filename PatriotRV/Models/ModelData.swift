@@ -75,7 +75,7 @@ extension ModelData {
     // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
     func setDone(checklistitem: String, value: String) {
         for index in 0..<checklist.count {
-            if checklist[index].id.lowercased() == checklistitem.lowercased() {
+            if checklist[index].key.lowercased() == checklistitem.lowercased() {
                 checklist[index].isDone = value != "0"
             }
         }
@@ -84,11 +84,11 @@ extension ModelData {
     
     func updateWatch() {
         print("Updating watch")
-        Connectivity.shared.send(doneIds: doneOrders())
+        Connectivity.shared.send(doneIds: doneIds())
     }
     
     func item(_ checklistitem: String) -> ChecklistItem? {
-        return checklist.filter { $0.id == checklistitem }.first
+        return checklist.filter { $0.key == checklistitem }.first
     }
     
     func uncheckAll() {
@@ -97,8 +97,8 @@ extension ModelData {
         }
     }
     
-    func doneOrders() -> [Int] {
-        return checklist.done().map { $0.order }
+    func doneIds() -> [Int] {
+        return checklist.done().map { $0.id }
     }
     
     // Use the other funcs to filter first
