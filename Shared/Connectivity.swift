@@ -31,7 +31,10 @@ final class Connectivity: NSObject, ObservableObject {
     }
     
     public func send(doneIds: [Int]) {
-        guard canSendToPeer() else { return }
+        guard canSendToPeer() else {
+            print("Can't sent to peer")
+            return
+        }
         
         let userInfo: [String: [Int]] = [
           ConnectivityUserInfoKey.done.rawValue: doneIds
