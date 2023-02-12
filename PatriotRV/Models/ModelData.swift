@@ -58,6 +58,7 @@ class ModelData: ObservableObject {
 extension ModelData: Publishing {
     func publish(id: Int, isDone: Bool) {
         mqtt.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
+        checklistPhase = currentPhase(date: Date())
         updateWatch()
     }
 }

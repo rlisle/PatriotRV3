@@ -118,13 +118,16 @@ struct ChecklistRowView: View {
     @EnvironmentObject var model: ModelData
     var body: some View {
         VStack(alignment: .leading) {
+            Text("Checklist")
+                .font(.headline)
             HStack {
                 Text(model.currentPhase(date: Date()).rawValue)
+                    .font(.caption)
                 Spacer()
-                Text("0 of 0 done")
+                Text("6 of \(model.checklist.count) done")
             }
             HStack {
-                Text("#6:")
+                Text("#\(model.nextItem()?.order ?? 0):")
                 Text(model.nextItem()?.name ?? "")
             }
         }
