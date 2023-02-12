@@ -15,7 +15,12 @@ struct ContentView: View {
         NavigationStack {
             HStack {
                 Text("Next trip: ")
+                    .font(.caption2)
+                Text(model.nextTrip)
+                    .font(.headline)
                 Spacer()
+                Text(model.nextTripDate?.mmddyy() ?? "?")
+                    .font(.caption2)
             }
             List {
                 NavigationLink("Checklist", value: "checklist")

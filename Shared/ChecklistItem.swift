@@ -18,10 +18,7 @@ struct ChecklistItem {
         didSet {
             print("ChecklistItem.didSet")
             delegate?.publish(id: order, isDone: isDone)
-//            if oldValue != isDone { //TODO: needed?
-//                delegate?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
-                date = Date()
-//            }
+            date = Date()
         }
     }
     var imageName: String?

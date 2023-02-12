@@ -70,6 +70,7 @@
 		27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */; };
 		27C50B6D29992D2B00EF9DB5 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */; };
 		27C50B6E29992D2B00EF9DB5 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */; };
+		27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA734298A956E0000A570 /* DateExtension.swift */; };
 		27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C37E2985B58C00D34DAC /* AddTripView.swift */; };
 		27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
 		27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
@@ -306,7 +307,6 @@
 		277CA733298A954A0000A570 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				277CA734298A956E0000A570 /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,6 +327,7 @@
 				276270CB297C211600844645 /* Checkmark.swift */,
 				27C50B5F29984FB700EF9DB5 /* Connectivity.swift */,
 				27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */,
+				277CA734298A956E0000A570 /* DateExtension.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -657,6 +658,7 @@
 				27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */,
 				27C50B6729991C7600EF9DB5 /* WatchChecklistRow.swift in Sources */,
 				27C50B6129984FB700EF9DB5 /* Connectivity.swift in Sources */,
+				27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
 				27C50B5B2997CA3200EF9DB5 /* ChecklistItem.swift in Sources */,
 				272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */,

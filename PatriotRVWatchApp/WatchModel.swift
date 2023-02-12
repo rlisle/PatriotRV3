@@ -11,6 +11,8 @@ import WatchConnectivity
 class WatchModel: NSObject, ObservableObject {
     
     @Published var checklist: [ChecklistItem] = []
+    @Published var nextTrip: String = "Canada"
+    @Published var nextTripDate: Date? = Date("05/01/23")
 
     override init() {
         super.init()
