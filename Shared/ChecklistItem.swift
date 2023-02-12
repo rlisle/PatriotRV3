@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChecklistItem {
 
-    let id: Int             // Todo and display sort order (1 - #items)
+    var id: Int             // Todo and display sort order (1 - #items)
     let key: String         // Used by device (eg. RearAwning) MQTT status    let key: String
     let name: String        // Title
     let category: TripMode
@@ -26,11 +26,11 @@ struct ChecklistItem {
 
     weak var delegate: Publishing?
 
-    init(key: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil, isDone: Bool = false) {
+    init(id: Int, key: String, name: String, category: TripMode, description: String, imageName: String? = nil, isDone: Bool = false) {
+        self.id = id
         self.key = key
         self.name = name
         self.category = category
-        self.id = order
         self.description = description
         self.imageName = imageName
         self.isDone = isDone

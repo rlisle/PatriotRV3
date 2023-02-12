@@ -323,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */,
+				276270B7297C1BC700844645 /* Checklist.swift */,
 				276270B9297C1BD000844645 /* ChecklistItem.swift */,
 				276270CB297C211600844645 /* Checkmark.swift */,
 				27C50B5F29984FB700EF9DB5 /* Connectivity.swift */,
@@ -437,7 +438,6 @@
 		27F2A5DA297C196B00EFD417 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				276270B7297C1BC700844645 /* Checklist.swift */,
 				276270BB297C1BD800844645 /* ModelData.swift */,
 				276DDFC2297DD559008CEC48 /* PowerData.swift */,
 				27C1912B29894390005556F4 /* TripMode.swift */,

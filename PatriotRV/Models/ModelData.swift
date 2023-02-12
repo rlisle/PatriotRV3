@@ -47,6 +47,7 @@ class ModelData: ObservableObject {
         
         checklist = Checklist.initialChecklist
         for i in 0..<checklist.count {
+            checklist[i].id = i+1
             checklist[i].delegate = self
         }
         

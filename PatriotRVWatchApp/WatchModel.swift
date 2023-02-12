@@ -21,6 +21,7 @@ class WatchModel: NSObject, ObservableObject {
         checklist = Checklist.initialChecklist
         for i in 0..<checklist.count {
             checklist[i].delegate = self
+            checklist[i].id = i+1
         }
         #if !os(watchOS)
         guard WCSession.isSupported() else {
