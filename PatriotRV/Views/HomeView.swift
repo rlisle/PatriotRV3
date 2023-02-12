@@ -117,9 +117,16 @@ struct PowerRowView: View {
 struct ChecklistRowView: View {
     @EnvironmentObject var model: ModelData
     var body: some View {
-        VStack {
-            Text("Checklist")
-            //if next item...
+        VStack(alignment: .leading) {
+            HStack {
+                Text(model.currentPhase(date: Date()).rawValue)
+                Spacer()
+                Text("0 of 0 done")
+            }
+            HStack {
+                Text("#6:")
+                Text(model.nextItem()?.name ?? "")
+            }
         }
     }
 }
