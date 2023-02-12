@@ -66,6 +66,8 @@
 		27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B62299919EB00EF9DB5 /* WatchModel.swift */; };
 		27C50B6729991C7600EF9DB5 /* WatchChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */; };
 		27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CB297C211600844645 /* Checkmark.swift */; };
+		27C50B6A2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */; };
+		27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */; };
 		27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C37E2985B58C00D34DAC /* AddTripView.swift */; };
 		27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
 		27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
@@ -185,6 +187,7 @@
 		27C50B5F29984FB700EF9DB5 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		27C50B62299919EB00EF9DB5 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
 		27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchChecklistRow.swift; sourceTree = "<group>"; };
+		27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUserInfoKey.swift; sourceTree = "<group>"; };
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
 		27D1C3832987E64D00D34DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 			children = (
 				276270CB297C211600844645 /* Checkmark.swift */,
 				27C50B5F29984FB700EF9DB5 /* Connectivity.swift */,
+				27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -641,6 +645,7 @@
 				272FC2E9297D5B52005C6D43 /* WatchChecklistView.swift in Sources */,
 				27C1912D29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
+				27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */,
 				27C50B5A2997C91000EF9DB5 /* Checklist.swift in Sources */,
 				27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */,
@@ -685,6 +690,7 @@
 				276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */,
 				276270C8297C20DD00844645 /* ImageHeader.swift in Sources */,
 				276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */,
+				27C50B6A2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,

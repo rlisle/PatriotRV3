@@ -33,7 +33,10 @@ final class Connectivity: NSObject, ObservableObject {
     public func send(doneIds: [Int]) {
         guard canSendToPeer() else { return }
         
-        
+        let userInfo: [String: [Int]] = [
+          ConnectivityUserInfoKey.done.rawValue: doneIds
+        ]
+        WCSession.default.transferUserInfo(userInfo)
     }
     
     private func canSendToPeer() -> Bool {
@@ -73,4 +76,17 @@ extension Connectivity: WCSessionDelegate {
         WCSession.default.activate()
     }
     #endif
+    
+    func session(_ session: WCSession,
+                 didReceiveUserInfo userInfo: [String: Any] = [:]
+                ) {
+        let key = ConnectivityUserInfoKey.done.rawValue
+        guard let ids = userInfo[key] as? [Int] else {
+            print("key not found")
+            return
+        }
+        print("Setting done IDs")
+        self.doneIds = ids
+    }
+
 }
