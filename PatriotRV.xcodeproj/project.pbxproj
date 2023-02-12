@@ -14,9 +14,11 @@
 		272FC2DF297C774E005C6D43 /* PatriotRVWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */; };
 		272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E6297D59BE005C6D43 /* PowerView.swift */; };
-		272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E8297D5B52005C6D43 /* ChecklistView.swift */; };
+		272FC2E9297D5B52005C6D43 /* WatchChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E8297D5B52005C6D43 /* WatchChecklistView.swift */; };
 		272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2EA297D5BE6005C6D43 /* PowerView.swift */; };
 		272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2EC297D6159005C6D43 /* LightsView.swift */; };
+		273BEF0E298E8F2000A07284 /* ModelDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BEF0D298E8F2000A07284 /* ModelDataTests.swift */; };
+		276004BB298D373000D26ACF /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276004BA298D373000D26ACF /* Trips.swift */; };
 		276270B8297C1BC700844645 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
 		276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
 		276270BC297C1BD800844645 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ModelData.swift */; };
@@ -34,10 +36,48 @@
 		276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC5297DD8C0008CEC48 /* HomeView.swift */; };
 		276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC7297EADE3008CEC48 /* LogView.swift */; };
 		276DDFCA297EC130008CEC48 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC9297EC130008CEC48 /* SettingsView.swift */; };
+		2771BA5D29816F9A0093FCCB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5C29816F9A0093FCCB /* WidgetKit.framework */; };
+		2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5E29816F9A0093FCCB /* SwiftUI.framework */; };
+		2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */; };
+		2771BA6429816F9A0093FCCB /* PowerWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */; };
+		2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */; };
+		2771BA6929816F9C0093FCCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2771BA6829816F9C0093FCCB /* Assets.xcassets */; };
+		2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
+		2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
+		2771BA6F29816F9C0093FCCB /* PatriotRvWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		277CA732298A8CE30000A570 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA731298A8CE30000A570 /* Trip.swift */; };
+		277CA735298A956E0000A570 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA734298A956E0000A570 /* DateExtension.swift */; };
+		277CA737298A98170000A570 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA736298A98170000A570 /* TripListView.swift */; };
+		27BC94AE298D474500642680 /* TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AD298D474500642680 /* TripTests.swift */; };
+		27BC94B0298E8A4B00642680 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */; };
+		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
+		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
+		27C1912E29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
+		27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B512997BD8900EF9DB5 /* MockMQTT.swift */; };
+		27C50B562997C67500EF9DB5 /* Publishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B552997C67500EF9DB5 /* Publishing.swift */; };
+		27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B552997C67500EF9DB5 /* Publishing.swift */; };
+		27C50B582997C67500EF9DB5 /* Publishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B552997C67500EF9DB5 /* Publishing.swift */; };
+		27C50B5A2997C91000EF9DB5 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
+		27C50B5B2997CA3200EF9DB5 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
+		27C50B5C2997CB6900EF9DB5 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA731298A8CE30000A570 /* Trip.swift */; };
+		27C50B5D2997CB6A00EF9DB5 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA731298A8CE30000A570 /* Trip.swift */; };
+		27C50B6029984FB700EF9DB5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B5F29984FB700EF9DB5 /* Connectivity.swift */; };
+		27C50B6129984FB700EF9DB5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B5F29984FB700EF9DB5 /* Connectivity.swift */; };
+		27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B62299919EB00EF9DB5 /* WatchModel.swift */; };
+		27C50B6729991C7600EF9DB5 /* WatchChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */; };
+		27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CB297C211600844645 /* Checkmark.swift */; };
+		27C50B6A2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */; };
+		27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */; };
+		27C50B6D29992D2B00EF9DB5 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */; };
+		27C50B6E29992D2B00EF9DB5 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */; };
+		27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA734298A956E0000A570 /* DateExtension.swift */; };
+		27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C37E2985B58C00D34DAC /* AddTripView.swift */; };
+		27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
+		27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
 		27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */; };
 		27F2A5B2297C141B00EFD417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B1297C141B00EFD417 /* Assets.xcassets */; };
 		27F2A5B5297C141B00EFD417 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */; };
-		27F2A5BF297C141B00EFD417 /* PatriotRVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5BE297C141B00EFD417 /* PatriotRVTests.swift */; };
+		27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */; };
 		27F2A5C9297C141B00EFD417 /* PatriotRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */; };
 		27F2A5CB297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +89,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 272FC2D1297C774D005C6D43;
 			remoteInfo = "PatriotRVWatch Watch App";
+		};
+		2771BA6D29816F9C0093FCCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27F2A5A2297C141A00EFD417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2771BA5929816F9A0093FCCB;
+			remoteInfo = PatriotRvWidgetExtension;
 		};
 		27F2A5BB297C141B00EFD417 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -78,6 +125,17 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2771BA7029816F9C0093FCCB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2771BA6F29816F9C0093FCCB /* PatriotRvWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -88,9 +146,11 @@
 		272FC2DB297C774E005C6D43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		272FC2E6297D59BE005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
-		272FC2E8297D5B52005C6D43 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		272FC2E8297D5B52005C6D43 /* WatchChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchChecklistView.swift; sourceTree = "<group>"; };
 		272FC2EA297D5BE6005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
 		272FC2EC297D6159005C6D43 /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
+		273BEF0D298E8F2000A07284 /* ModelDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataTests.swift; sourceTree = "<group>"; };
+		276004BA298D373000D26ACF /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		276270B7297C1BC700844645 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		276270B9297C1BD000844645 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		276270BB297C1BD800844645 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -107,12 +167,40 @@
 		276DDFC5297DD8C0008CEC48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		276DDFC7297EADE3008CEC48 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		276DDFC9297EC130008CEC48 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatriotRvWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2771BA5C29816F9A0093FCCB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2771BA5E29816F9A0093FCCB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWidgetBundle.swift; sourceTree = "<group>"; };
+		2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWidget.swift; sourceTree = "<group>"; };
+		2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PatriotRvWidget.intentdefinition; sourceTree = "<group>"; };
+		2771BA6829816F9C0093FCCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2771BA6A29816F9C0093FCCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		277CA731298A8CE30000A570 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		277CA734298A956E0000A570 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		277CA736298A98170000A570 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
+		27BC94AD298D474500642680 /* TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTests.swift; sourceTree = "<group>"; };
+		27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
+		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
+		27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWidgetExtension.entitlements; sourceTree = "<group>"; };
+		27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRV.entitlements; sourceTree = "<group>"; };
+		27C50B502997B52300EF9DB5 /* PatriotRVWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRVWatchApp.entitlements; sourceTree = "<group>"; };
+		27C50B512997BD8900EF9DB5 /* MockMQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMQTT.swift; sourceTree = "<group>"; };
+		27C50B552997C67500EF9DB5 /* Publishing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishing.swift; sourceTree = "<group>"; };
+		27C50B5F29984FB700EF9DB5 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		27C50B62299919EB00EF9DB5 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
+		27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchChecklistRow.swift; sourceTree = "<group>"; };
+		27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityUserInfoKey.swift; sourceTree = "<group>"; };
+		27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
+		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
+		27D1C3832987E64D00D34DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		27F2A5AA297C141A00EFD417 /* PatriotRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVApp.swift; sourceTree = "<group>"; };
 		27F2A5B1297C141B00EFD417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27F2A5BA297C141B00EFD417 /* PatriotRVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatriotRVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27F2A5BE297C141B00EFD417 /* PatriotRVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVTests.swift; sourceTree = "<group>"; };
+		27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistTests.swift; sourceTree = "<group>"; };
 		27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatriotRVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITests.swift; sourceTree = "<group>"; };
 		27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -123,6 +211,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2771BA5729816F9A0093FCCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */,
+				2771BA5D29816F9A0093FCCB /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,11 +251,14 @@
 		272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */ = {
 			isa = PBXGroup;
 			children = (
+				27C50B502997B52300EF9DB5 /* PatriotRVWatchApp.entitlements */,
 				272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */,
 				272FC2D6297C774D005C6D43 /* ContentView.swift */,
-				272FC2E8297D5B52005C6D43 /* ChecklistView.swift */,
+				272FC2E8297D5B52005C6D43 /* WatchChecklistView.swift */,
 				272FC2EC297D6159005C6D43 /* LightsView.swift */,
 				272FC2EA297D5BE6005C6D43 /* PowerView.swift */,
+				27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */,
+				27C50B62299919EB00EF9DB5 /* WatchModel.swift */,
 				272FC2D8297C774E005C6D43 /* Assets.xcassets */,
 				272FC2DA297C774E005C6D43 /* Preview Content */,
 			);
@@ -181,13 +281,68 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2771BA5B29816F9A0093FCCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2771BA5C29816F9A0093FCCB /* WidgetKit.framework */,
+				2771BA5E29816F9A0093FCCB /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2771BA6029816F9A0093FCCB /* PatriotRvWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */,
+				2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */,
+				2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */,
+				27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */,
+				2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */,
+				2771BA6829816F9C0093FCCB /* Assets.xcassets */,
+				2771BA6A29816F9C0093FCCB /* Info.plist */,
+			);
+			path = PatriotRvWidget;
+			sourceTree = "<group>";
+		};
+		277CA733298A954A0000A570 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27C50B542997C62700EF9DB5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				27C50B552997C67500EF9DB5 /* Publishing.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		27C50B5E29984F8D00EF9DB5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */,
+				276270B9297C1BD000844645 /* ChecklistItem.swift */,
+				276270CB297C211600844645 /* Checkmark.swift */,
+				27C50B5F29984FB700EF9DB5 /* Connectivity.swift */,
+				27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */,
+				277CA734298A956E0000A570 /* DateExtension.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		27F2A5A1297C141A00EFD417 = {
 			isa = PBXGroup;
 			children = (
+				27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */,
 				27F2A5AC297C141A00EFD417 /* PatriotRV */,
 				27F2A5BD297C141B00EFD417 /* PatriotRVTests */,
 				27F2A5C7297C141B00EFD417 /* PatriotRVUITests */,
+				27C50B5E29984F8D00EF9DB5 /* Shared */,
 				272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */,
+				2771BA6029816F9A0093FCCB /* PatriotRvWidget */,
+				2771BA5B29816F9A0093FCCB /* Frameworks */,
 				27F2A5AB297C141A00EFD417 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -199,6 +354,7 @@
 				27F2A5BA297C141B00EFD417 /* PatriotRVTests.xctest */,
 				27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */,
 				272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */,
+				2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,11 +362,15 @@
 		27F2A5AC297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXGroup;
 			children = (
+				27C50B542997C62700EF9DB5 /* Protocols */,
+				27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */,
+				27D1C3832987E64D00D34DAC /* Info.plist */,
 				27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */,
 				27F2A5DA297C196B00EFD417 /* Models */,
 				276270C4297C208900844645 /* Resources */,
 				27F2A5D9297C195400EFD417 /* Views */,
 				27F2A5D8297C193B00EFD417 /* Network */,
+				277CA733298A954A0000A570 /* Extensions */,
 				27F2A5B1297C141B00EFD417 /* Assets.xcassets */,
 				27F2A5B3297C141B00EFD417 /* Preview Content */,
 			);
@@ -228,7 +388,11 @@
 		27F2A5BD297C141B00EFD417 /* PatriotRVTests */ = {
 			isa = PBXGroup;
 			children = (
-				27F2A5BE297C141B00EFD417 /* PatriotRVTests.swift */,
+				27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */,
+				27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */,
+				27BC94AD298D474500642680 /* TripTests.swift */,
+				273BEF0D298E8F2000A07284 /* ModelDataTests.swift */,
+				27C50B512997BD8900EF9DB5 /* MockMQTT.swift */,
 			);
 			path = PatriotRVTests;
 			sourceTree = "<group>";
@@ -253,7 +417,7 @@
 		27F2A5D9297C195400EFD417 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				276270CB297C211600844645 /* Checkmark.swift */,
+				27D1C37E2985B58C00D34DAC /* AddTripView.swift */,
 				276270C9297C20E500844645 /* ChecklistRow.swift */,
 				276270C7297C20DD00844645 /* ImageHeader.swift */,
 				276270BF297C1C7200844645 /* ChecklistView.swift */,
@@ -265,6 +429,7 @@
 				272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */,
 				272FC2E6297D59BE005C6D43 /* PowerView.swift */,
 				276DDFC9297EC130008CEC48 /* SettingsView.swift */,
+				277CA736298A98170000A570 /* TripListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,9 +438,11 @@
 			isa = PBXGroup;
 			children = (
 				276270B7297C1BC700844645 /* Checklist.swift */,
-				276270B9297C1BD000844645 /* ChecklistItem.swift */,
 				276270BB297C1BD800844645 /* ModelData.swift */,
 				276DDFC2297DD559008CEC48 /* PowerData.swift */,
+				27C1912B29894390005556F4 /* TripMode.swift */,
+				277CA731298A8CE30000A570 /* Trip.swift */,
+				276004BA298D373000D26ACF /* Trips.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -300,6 +467,23 @@
 			productReference = 272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2771BA7329816F9C0093FCCB /* Build configuration list for PBXNativeTarget "PatriotRvWidgetExtension" */;
+			buildPhases = (
+				2771BA5629816F9A0093FCCB /* Sources */,
+				2771BA5729816F9A0093FCCB /* Frameworks */,
+				2771BA5829816F9A0093FCCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatriotRvWidgetExtension;
+			productName = PatriotRvWidgetExtension;
+			productReference = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		27F2A5A9297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5CE297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRV" */;
@@ -308,11 +492,13 @@
 				27F2A5A7297C141A00EFD417 /* Frameworks */,
 				27F2A5A8297C141A00EFD417 /* Resources */,
 				272FC2E0297C774E005C6D43 /* Embed Watch Content */,
+				2771BA7029816F9C0093FCCB /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				272FC2DE297C774E005C6D43 /* PBXTargetDependency */,
+				2771BA6E29816F9C0093FCCB /* PBXTargetDependency */,
 			);
 			name = PatriotRV;
 			packageProductDependencies = (
@@ -371,6 +557,9 @@
 					272FC2D1297C774D005C6D43 = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					2771BA5929816F9A0093FCCB = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					27F2A5A9297C141A00EFD417 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -404,6 +593,7 @@
 				27F2A5B9297C141B00EFD417 /* PatriotRVTests */,
 				27F2A5C3297C141B00EFD417 /* PatriotRVUITests */,
 				272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */,
+				2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -415,6 +605,14 @@
 			files = (
 				272FC2DC297C774E005C6D43 /* Preview Assets.xcassets in Resources */,
 				272FC2D9297C774E005C6D43 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2771BA5829816F9A0093FCCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2771BA6929816F9C0093FCCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,11 +646,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				272FC2E9297D5B52005C6D43 /* ChecklistView.swift in Sources */,
+				27C50B5C2997CB6900EF9DB5 /* Trip.swift in Sources */,
+				272FC2E9297D5B52005C6D43 /* WatchChecklistView.swift in Sources */,
+				27C1912D29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* ContentView.swift in Sources */,
+				27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
+				27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27C50B5A2997C91000EF9DB5 /* Checklist.swift in Sources */,
+				27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */,
 				272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */,
+				27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */,
+				27C50B6729991C7600EF9DB5 /* WatchChecklistRow.swift in Sources */,
+				27C50B6129984FB700EF9DB5 /* Connectivity.swift in Sources */,
+				27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
+				27C50B5B2997CA3200EF9DB5 /* ChecklistItem.swift in Sources */,
 				272FC2ED297D6159005C6D43 /* LightsView.swift in Sources */,
+				27C50B6E29992D2B00EF9DB5 /* ArrayExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2771BA5629816F9A0093FCCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
+				27C1912E29894390005556F4 /* TripMode.swift in Sources */,
+				2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
+				27C50B582997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27C50B5D2997CB6A00EF9DB5 /* Trip.swift in Sources */,
+				2771BA6429816F9A0093FCCB /* PowerWidgetLiveActivity.swift in Sources */,
+				2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */,
+				2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,23 +687,36 @@
 			files = (
 				276270BE297C1BEB00844645 /* MQTTManager.swift in Sources */,
 				276270D0297C213100844645 /* MenuView.swift in Sources */,
+				27C50B6029984FB700EF9DB5 /* Connectivity.swift in Sources */,
 				276270CC297C211600844645 /* Checkmark.swift in Sources */,
 				27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */,
+				27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
+				276004BB298D373000D26ACF /* Trips.swift in Sources */,
+				27C50B562997C67500EF9DB5 /* Publishing.swift in Sources */,
 				276270BC297C1BD800844645 /* ModelData.swift in Sources */,
 				276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */,
 				276270C8297C20DD00844645 /* ImageHeader.swift in Sources */,
 				276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */,
+				27C50B6A2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
+				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
+				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
+				277CA735298A956E0000A570 /* DateExtension.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
+				277CA732298A8CE30000A570 /* Trip.swift in Sources */,
+				27C1912C29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */,
 				272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */,
 				276270CA297C20E500844645 /* ChecklistRow.swift in Sources */,
 				276270B8297C1BC700844645 /* Checklist.swift in Sources */,
 				276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */,
 				276DDFC3297DD559008CEC48 /* PowerData.swift in Sources */,
+				277CA737298A98170000A570 /* TripListView.swift in Sources */,
+				27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */,
 				276270C0297C1C7200844645 /* ChecklistView.swift in Sources */,
 				276270D2297C21AF00844645 /* MenuRowView.swift in Sources */,
 				276DDFCA297EC130008CEC48 /* SettingsView.swift in Sources */,
+				27C50B6D29992D2B00EF9DB5 /* ArrayExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +724,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F2A5BF297C141B00EFD417 /* PatriotRVTests.swift in Sources */,
+				27BC94AE298D474500642680 /* TripTests.swift in Sources */,
+				273BEF0E298E8F2000A07284 /* ModelDataTests.swift in Sources */,
+				27BC94B0298E8A4B00642680 /* DateExtensionTests.swift in Sources */,
+				27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +748,11 @@
 			target = 272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */;
 			targetProxy = 272FC2DD297C774E005C6D43 /* PBXContainerItemProxy */;
 		};
+		2771BA6E29816F9C0093FCCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */;
+			targetProxy = 2771BA6D29816F9C0093FCCB /* PBXContainerItemProxy */;
+		};
 		27F2A5BC297C141B00EFD417 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27F2A5A9297C141A00EFD417 /* PatriotRV */;
@@ -525,6 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRVWatchApp/Preview Content\"";
@@ -555,6 +802,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRVWatchApp/Preview Content\"";
@@ -577,6 +825,62 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		2771BA7129816F9C0093FCCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.PatriotRvWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2771BA7229816F9C0093FCCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.PatriotRvWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -700,12 +1004,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRV/Preview Content\"";
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRV/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Patriot RV";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -713,6 +1019,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -732,12 +1039,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PatriotRV/Preview Content\"";
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRV/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Patriot RV";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -745,6 +1054,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -842,6 +1152,15 @@
 			buildConfigurations = (
 				272FC2E1297C774E005C6D43 /* Debug */,
 				272FC2E2297C774E005C6D43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2771BA7329816F9C0093FCCB /* Build configuration list for PBXNativeTarget "PatriotRvWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2771BA7129816F9C0093FCCB /* Debug */,
+				2771BA7229816F9C0093FCCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

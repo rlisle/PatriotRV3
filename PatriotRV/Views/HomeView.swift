@@ -14,64 +14,96 @@ struct HomeView: View {
     @State private var showCompleted = true
     @State private var showSettings = false
 
+    enum Screen {
+        case settings
+        case power
+        case checklists
+        case trips
+    }
+    @State private var selection: Screen?
+    
     var body: some View {
         NavigationStack {
-            
-            NavigationLink(
-                destination: SettingsView(),
-                isActive: $showSettings) { EmptyView() }
+            VStack {
                 
-                VStack {
-                    
-                    ImageHeader(imageName: "truck-rv")
-
-                    List {
-                        NavigationLink {
-                            PowerView()
-                        } label: {
-                            PowerRowView()
-                        }
-                        NavigationLink {
-                            ChecklistView()
-                        } label: {
-                            ChecklistRowView()
-                        }
-                        NavigationLink {
-                            LogView()
-                        } label: {
-                            LogRowView()
-                        }
-                    }//list
-                    .padding(.top, -8)
-                }//vstack
-                    
-                .navigationTitle("Summary")
-                .blackNavigation
-
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("RV Checklist")
-                            .foregroundColor(.white)
+                ImageHeader(imageName: "truck-rv")
+                
+                
+                List {
+                    NavigationLink {
+                        TripListView()
+                    } label: {
+                        TripRowView()
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            withAnimation {
-                                self.showSettings.toggle()
-                            }
-                        }) {
-                            Image(systemName: "gearshape")
-                                .imageScale(.large)
-                        }
+                    NavigationLink {
+                        ChecklistView()
+                    } label: {
+                        ChecklistRowView()
+                    }
+                    NavigationLink {
+                        PowerView()
+                    } label: {
+                        PowerRowView()
+                    }
+                    NavigationLink {
+                        LogView()
+                    } label: {
+                        LogRowView()
+                    }
+                }//list
+                .padding(.top, -8)
+            } //vstack
+            .navigationTitle("Summary")
+            .blackNavigation
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("RV Checklist")
                         .foregroundColor(.white)
-                    }
                 }
-
-                
-        }//navigationstack
-    }//body
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            self.showSettings.toggle()
+                        }
+                    }) {
+                        Image(systemName: "gearshape")
+                            .imageScale(.large)
+                    }
+                    .foregroundColor(.white)
+                }
+            } //toolbar
+            .navigationDestination(isPresented: $showSettings,
+                                   destination: {
+                SettingsView()
+            })
+        } //navigationstack
+        .task {
+            model.startChecklistActivity()
+        }
+    } //body
 }
 
 // Row views should provide summary information
+struct TripRowView: View {
+    @EnvironmentObject var model: ModelData
+    var body: some View {
+        if let trip = model.trips.last {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Next Trip")
+                        .font(.headline)
+                    Spacer()
+                    Text(trip.date.mmddyy())
+                }
+                Text(trip.destination)
+            }
+        } else {
+            Text("Add a New Trip")
+                .font(.headline)
+        }
+    }
+}
+
 struct PowerRowView: View {
     var body: some View {
         VStack {
@@ -83,9 +115,21 @@ struct PowerRowView: View {
 }
 
 struct ChecklistRowView: View {
+    @EnvironmentObject var model: ModelData
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Checklist")
+                .font(.headline)
+            HStack {
+                Text(model.currentPhase(date: Date()).rawValue)
+                    .font(.caption)
+                Spacer()
+                Text("6 of \(model.checklist.count) done")
+            }
+            HStack {
+                Text("#\(model.nextItem()?.order ?? 0):")
+                Text(model.nextItem()?.name ?? "")
+            }
         }
     }
 }

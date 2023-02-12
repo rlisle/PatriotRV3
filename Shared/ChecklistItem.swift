@@ -11,30 +11,33 @@ struct ChecklistItem {
 
     let id: String          // Used by device (eg. RearAwning) MQTT status
     let name: String        // Title
-    let category: String    // Pre-Trip, Departure, Arrival
+    let category: TripMode
     let order: Int          // Display sort order
     let description: String // Markdown?
     var isDone: Bool = false {
         didSet {
-            print("didSet \(id) to \(isDone)")
-            if oldValue != isDone {
-                print("Value changed, sending MQTT message")
-                mqtt?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
-            }
+            print("ChecklistItem.didSet")
+            delegate?.publish(id: order, isDone: isDone)
+            date = Date()
         }
     }
     var imageName: String?
+    var date: Date?         // Either completion or due date
 
-    weak var mqtt: MQTTManagerProtocol?
+    weak var delegate: Publishing?
 
-    init(id: String, name: String, category: String, order: Int, description: String, imageName: String? = nil) {
+    init(id: String, name: String, category: TripMode, order: Int, description: String, imageName: String? = nil, isDone: Bool = false) {
         self.id = id
         self.name = name
         self.category = category
         self.order = order
         self.description = description
         self.imageName = imageName
-        isDone = false
+        self.isDone = isDone
+    }
+    
+    mutating func setDone(_ done: Bool) {
+        isDone = done
     }
 }
 

@@ -14,13 +14,7 @@ public enum MQTTError: Error {
     case subscribeError
 }
 
-protocol MQTTManagerProtocol: AnyObject {
-    var isConnected: Bool { get }
-    var messageHandler: ((String, String) -> Void)? { get set }
-    func publish(topic: String, message: String)
-}
-
-class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
+class MQTTManager: MQTTSessionDelegate {
 
     let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
     let port: UInt16 = 1883
@@ -89,7 +83,7 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     }
     
     func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
-        print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
+//        print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
         if let handler = messageHandler {
             handler(message.topic, message.stringRepresentation ?? "")
         }

@@ -9,10 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var path: [String] = []
-    
+    @EnvironmentObject var model: WatchModel
+
     var body: some View {
         NavigationStack {
+            HStack {
+                Text("Next trip: ")
+                    .font(.caption2)
+                Text(model.nextTrip)
+                    .font(.headline)
+                Spacer()
+                Text(model.nextTripDate?.mmddyy() ?? "?")
+                    .font(.caption2)
+            }
+            HStack {
+                Text("Trip Phase: ")
+                Spacer()
+                Text(model.checklistPhase.rawValue)
+            }
+            HStack {
+                Text("Next: ")
+                Spacer()
+                Text(model.nextItem()?.name ?? "?")
+            }
             List {
                 NavigationLink("Checklist", value: "checklist")
                 NavigationLink("Lights", value: "lights")
@@ -21,7 +40,7 @@ struct ContentView: View {
             .navigationDestination(for: String.self) { destination in
                 switch destination {
                 case "checklist":
-                    ChecklistView()
+                    WatchChecklistView()
                 case "lights":
                     LightsView()
                 default:
@@ -35,5 +54,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(WatchModel())
     }
 }

@@ -11,11 +11,11 @@ struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
     
-    @State private var showCompleted = true
     @State private var menuSelection: String? = nil
-    @State private var phase = "Maintenance"    //TODO: persist
-    private var phases = ["Maintenance", "Pre-Trip", "Departure", "Arrival"]
-
+    @State private var showingAddTrip = false
+    
+    private var phases: [TripMode] = [.pretrip, .departure,.arrival]
+    
     init() {
         UISegmentedControl.appearance().backgroundColor = .black
         UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
@@ -31,65 +31,80 @@ struct ChecklistView: View {
                 
                 ImageHeader(imageName: "truck-rv")
 
-                Picker(selection: $phase, label: Text("Phase")) {
+                Picker("Phase", selection: $modelData.checklistPhase) {
                     ForEach(phases, id: \.self) {
-                        Text($0)
+                        Text($0.rawValue)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.bottom, 0)
-                .padding(.top, -12)
+                .padding(.top, -14)
                 .background(Color.black)
 
-                // Checklist Section
-                List {
-                    
-                    Section(header:
-                        HStack {
-                            Text(phase)
-                            Spacer()
-                        Text("(\(modelData.numSelectedDone(category: phase)) of \(modelData.numSelectedItems(category: phase)) done)")
-                        }
-                        .padding(.vertical, 8)
-                    ) {
-                        
-                        
-                        if(modelData.numSelectedItems(category: phase) == 0) {
-                            Text("No \(phase) items found")
-                        } else {
-                            ForEach(modelData.checklist(category: phase).filter { isShown(item:$0) }, id: \.self) { item in
-                                
-                              NavigationLink(destination: DetailView(listItem: item)) {
-                                  ChecklistRow(listItem: item)
-                              }
-                            }
-                        }
-
-                    }
-                    .textCase(nil)
-                    
-
-                } // List
-                .padding(.top, -8)
-                .listStyle(PlainListStyle())    // Changed from GroupedListStyle
-                //.animation(.easeInOut)
-
-                
-            }//VStack
+                ChecklistItemsView()
+            }
             .blackNavigation
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showingAddTrip = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    .foregroundColor(.white)
+                }
+            }
+            .navigationDestination(isPresented: $showingAddTrip, destination: {
+                AddTripView()
+            })
                 
-        }//NavigationStack
-        .accentColor( .black)   // Sets back button color
+        } //NavigationStack
+        .accentColor(.black)   // Sets back button color
     }
-        
-    func isShown(item: ChecklistItem) -> Bool {
-        return showCompleted == true || item.isDone == false
-    }
+}
+
+struct ChecklistItemsView: View {
+    
+    @EnvironmentObject var model: ModelData
+
+    var body: some View {
+        List {
+
+            Section(header:
+                HStack {
+                Text(model.checklistPhase.rawValue)
+                    Spacer()
+                Text("(\(model.checklist.category(model.checklistPhase).done().count) of \(model.checklist.category(model.checklistPhase).done().count) done)")
+                }
+                .padding(.vertical, 8)
+            ) {
 
 
+                if(model.checklistDisplayItems().count == 0) {
+                    Text("No \(model.checklistPhase.rawValue) items found")
+                } else {
+                    ForEach(model.checklistDisplayItems(), id: \.self) { item in
+
+                      NavigationLink(destination: DetailView(listItem: item)) {
+                          ChecklistRow(listItem: item)
+                      }
+                    }
+                }
+
+            }
+            .textCase(nil)
+
+
+        } // List
+        .padding(.top, -8)
+        .listStyle(PlainListStyle())    // Changed from GroupedListStyle
+        //.animation(.easeInOut)
+
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in
