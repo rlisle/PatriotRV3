@@ -10,6 +10,7 @@ import SwiftUI
 struct ChecklistRow: View {
     
     @EnvironmentObject var modelData: ModelData
+    
     var listItem: ChecklistItem
 
     var listItemIndex: Int {

@@ -72,6 +72,12 @@ extension ModelData {
                 checklist[index].isDone = value != "0"
             }
         }
+        updateWatch()
+    }
+    
+    func updateWatch() {
+        print("Updating watch")
+        Connectivity.shared.send(doneIds: doneOrders())
     }
     
     func item(_ checklistitem: String) -> ChecklistItem? {
@@ -82,6 +88,10 @@ extension ModelData {
         for index in 0..<checklist.count {
             checklist[index].isDone = false
         }
+    }
+    
+    func doneOrders() -> [Int] {
+        return checklist.done().map { $0.order }
     }
     
     // Use the other funcs to filter first
@@ -110,19 +120,4 @@ extension ModelData {
     }
 
         
-}
-
-extension Array where Element == ChecklistItem {
-
-    func done() -> [ChecklistItem] {
-        return self.filter { $0.isDone == true }
-    }
-
-    func todo() -> [ChecklistItem] {
-        return self.filter { $0.isDone == false }
-    }
-
-    func category(_ category: TripMode) -> [ChecklistItem] {
-        return self.filter { $0.category == category }
-    }
 }

@@ -28,6 +28,15 @@ class WatchModel: ObservableObject {
     func setDone(order: Int, value: Bool) {
         let index = itemIndex(order: order)
         checklist[index].isDone = value
+        updateApp()
     }
     
+    func updateApp() {
+        print("Updating app from watch")
+        Connectivity.shared.send(doneIds: doneOrders())
+    }
+    
+    func doneOrders() -> [Int] {
+        return checklist.done().map { $0.order }
+    }
 }

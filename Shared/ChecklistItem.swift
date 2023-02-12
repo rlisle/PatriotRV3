@@ -16,7 +16,8 @@ struct ChecklistItem {
     let description: String // Markdown?
     var isDone: Bool = false {
         didSet {
-            if oldValue != isDone {
+            print("ChecklistItem.didSet")
+            if oldValue != isDone { //TODO: needed?
                 delegate?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
                 date = Date()
             }
