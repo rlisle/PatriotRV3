@@ -22,6 +22,16 @@ struct ContentView: View {
                 Text(model.nextTripDate?.mmddyy() ?? "?")
                     .font(.caption2)
             }
+            HStack {
+                Text("Trip Phase: ")
+                Spacer()
+                Text(model.checklistPhase.rawValue)
+            }
+            HStack {
+                Text("Next: ")
+                Spacer()
+                Text(model.nextItem()?.name ?? "?")
+            }
             List {
                 NavigationLink("Checklist", value: "checklist")
                 NavigationLink("Lights", value: "lights")

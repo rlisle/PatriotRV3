@@ -13,6 +13,7 @@ class WatchModel: NSObject, ObservableObject {
     @Published var checklist: [ChecklistItem] = []
     @Published var nextTrip: String = "Canada"
     @Published var nextTripDate: Date? = Date("05/01/23")
+    @Published var checklistPhase: TripMode = .pretrip
 
     override init() {
         super.init()
@@ -68,6 +69,14 @@ class WatchModel: NSObject, ObservableObject {
     func doneOrders() -> [Int] {
         return checklist.done().map { $0.order }
     }
+    
+    // Use the other funcs to filter first
+    // eg next todo in Departure:
+    //   checklist.category("Departure").nextItem()
+    func nextItem() -> ChecklistItem? {
+        return checklist.todo().first
+    }
+
 }
 
 // WatchConnectivity

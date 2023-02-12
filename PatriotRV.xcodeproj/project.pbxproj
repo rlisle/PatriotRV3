@@ -257,10 +257,10 @@
 				272FC2E8297D5B52005C6D43 /* WatchChecklistView.swift */,
 				272FC2EC297D6159005C6D43 /* LightsView.swift */,
 				272FC2EA297D5BE6005C6D43 /* PowerView.swift */,
+				27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */,
+				27C50B62299919EB00EF9DB5 /* WatchModel.swift */,
 				272FC2D8297C774E005C6D43 /* Assets.xcassets */,
 				272FC2DA297C774E005C6D43 /* Preview Content */,
-				27C50B62299919EB00EF9DB5 /* WatchModel.swift */,
-				27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */,
 			);
 			path = PatriotRVWatchApp;
 			sourceTree = "<group>";
