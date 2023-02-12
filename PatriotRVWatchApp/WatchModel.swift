@@ -13,6 +13,9 @@ class WatchModel: ObservableObject {
 
     init() {
         checklist = Checklist.initialChecklist
+        for i in 0..<checklist.count {
+            checklist[i].delegate = self
+        }
     }
 
     func itemIndex(order: Int) -> Int {
@@ -40,3 +43,10 @@ class WatchModel: ObservableObject {
         return checklist.done().map { $0.order }
     }
 }
+
+extension WatchModel: Publishing {
+    func publish(id: Int, isDone: Bool) {
+        updateApp()
+    }
+}
+

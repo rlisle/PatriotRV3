@@ -25,9 +25,9 @@ class ModelData: ObservableObject {
     internal var linePower: [Float] = [0.0, 0.0]
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
-    let mqtt: Publishing!
+    let mqtt: MQTTManager
     
-    init(mqttManager: any Publishing) {
+    init(mqttManager: MQTTManager) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
             // t: patriot/state/ALL/X/<checklistitem> m:<0|1>
@@ -45,14 +45,20 @@ class ModelData: ObservableObject {
             }
         }
         
-        // Load Checklist after MQTT is initialized
         checklist = Checklist.initialChecklist
         for i in 0..<checklist.count {
-            checklist[i].delegate = self.mqtt
+            checklist[i].delegate = self
         }
         
         // Load trips
         initializeTrips()
+    }
+}
+
+extension ModelData: Publishing {
+    func publish(id: Int, isDone: Bool) {
+        mqtt.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
+        updateWatch()
     }
 }
 

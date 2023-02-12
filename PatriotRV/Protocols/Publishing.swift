@@ -8,7 +8,8 @@
 import Foundation
 
 protocol Publishing: AnyObject {
-    var isConnected: Bool { get }
-    var messageHandler: ((String, String) -> Void)? { get set }
-    func publish(topic: String, message: String)
+//    var isConnected: Bool { get }
+//    var messageHandler: ((String, String) -> Void)? { get set }
+//    func publish(topic: String, message: String)
+    func publish(id: Int, isDone: Bool)
 }

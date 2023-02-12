@@ -7,15 +7,15 @@
 
 import Foundation
 
-final class MockMQTT: Publishing {
+final class MockMQTT: MQTTManager {
     
-    var isConnected = true
-    var messageHandler: ((String, String) -> Void)?
+//    isConnected = true
+//    var messageHandler: ((String, String) -> Void)?
     
     var publishedTopic = ""
     var publishedMessage = ""
     
-    func publish(topic: String, message: String) {
+    override func publish(topic: String, message: String) {
         publishedTopic = topic
         publishedMessage = message
     }

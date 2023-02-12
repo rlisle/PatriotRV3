@@ -14,7 +14,7 @@ public enum MQTTError: Error {
     case subscribeError
 }
 
-class MQTTManager: Publishing, MQTTSessionDelegate {
+class MQTTManager: MQTTSessionDelegate {
 
     let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
     let port: UInt16 = 1883

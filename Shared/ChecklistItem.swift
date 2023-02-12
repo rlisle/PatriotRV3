@@ -17,10 +17,11 @@ struct ChecklistItem {
     var isDone: Bool = false {
         didSet {
             print("ChecklistItem.didSet")
-            if oldValue != isDone { //TODO: needed?
-                delegate?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
+            delegate?.publish(id: order, isDone: isDone)
+//            if oldValue != isDone { //TODO: needed?
+//                delegate?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
                 date = Date()
-            }
+//            }
         }
     }
     var imageName: String?
