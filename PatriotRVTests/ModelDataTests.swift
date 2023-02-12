@@ -11,7 +11,7 @@ import XCTest
 final class ModelDataTests: XCTestCase {
 
     var model: ModelData!
-    var mockMQTT: Publishing!
+    var mockMQTT: MQTTManager!
     
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
