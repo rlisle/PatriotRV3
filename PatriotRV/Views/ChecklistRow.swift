@@ -9,21 +9,25 @@ import SwiftUI
 
 struct ChecklistRow: View {
     
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var model: ModelData
     
     var listItem: ChecklistItem
-
-    var listItemIndex: Int {
-        modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
-    }
 
     var body: some View {
 
         HStack {
             Text(listItem.name).strikethrough(listItem.isDone)
             Spacer()
-            Checkmark(isDone: $modelData.checklist[listItemIndex].isDone)
+            Checkmark(isDone: $model.checklist[index()].isDone)
         }
+    }
+    
+    func index() -> Int {
+        guard listItem.id - 1 > 0 && listItem.id < model.checklist.count else {
+            print("Invalid checklistItem index")
+            return 0
+        }
+        return listItem.id - 1
     }
 }
 

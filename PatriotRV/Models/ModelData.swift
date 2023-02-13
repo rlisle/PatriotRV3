@@ -68,6 +68,7 @@ extension ModelData {
     
     func currentPhase(date: Date) -> TripMode {
         guard nextTrip(date: date) != nil else {
+            print("currentPhase = .parked because nextTrip = nil")
             return .parked
         }
         return nextItem()?.category ?? .parked
