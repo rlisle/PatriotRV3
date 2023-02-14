@@ -62,7 +62,6 @@
 		27C50B5C2997CB6900EF9DB5 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA731298A8CE30000A570 /* Trip.swift */; };
 		27C50B5D2997CB6A00EF9DB5 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA731298A8CE30000A570 /* Trip.swift */; };
 		27C50B6029984FB700EF9DB5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B5F29984FB700EF9DB5 /* Connectivity.swift */; };
-		27C50B6129984FB700EF9DB5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B5F29984FB700EF9DB5 /* Connectivity.swift */; };
 		27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B62299919EB00EF9DB5 /* WatchModel.swift */; };
 		27C50B6729991C7600EF9DB5 /* WatchChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B6629991C7600EF9DB5 /* WatchChecklistRow.swift */; };
 		27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CB297C211600844645 /* Checkmark.swift */; };
@@ -323,9 +322,9 @@
 			isa = PBXGroup;
 			children = (
 				27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */,
+				276270B7297C1BC700844645 /* Checklist.swift */,
 				276270B9297C1BD000844645 /* ChecklistItem.swift */,
 				276270CB297C211600844645 /* Checkmark.swift */,
-				27C50B5F29984FB700EF9DB5 /* Connectivity.swift */,
 				27C50B692999231900EF9DB5 /* ConnectivityUserInfoKey.swift */,
 				277CA734298A956E0000A570 /* DateExtension.swift */,
 			);
@@ -437,7 +436,7 @@
 		27F2A5DA297C196B00EFD417 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				276270B7297C1BC700844645 /* Checklist.swift */,
+				27C50B5F29984FB700EF9DB5 /* Connectivity.swift */,
 				276270BB297C1BD800844645 /* ModelData.swift */,
 				276DDFC2297DD559008CEC48 /* PowerData.swift */,
 				27C1912B29894390005556F4 /* TripMode.swift */,
@@ -657,7 +656,6 @@
 				272FC2EB297D5BE6005C6D43 /* PowerView.swift in Sources */,
 				27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */,
 				27C50B6729991C7600EF9DB5 /* WatchChecklistRow.swift in Sources */,
-				27C50B6129984FB700EF9DB5 /* Connectivity.swift in Sources */,
 				27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
 				27C50B5B2997CA3200EF9DB5 /* ChecklistItem.swift in Sources */,

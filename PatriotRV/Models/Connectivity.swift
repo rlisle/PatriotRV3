@@ -2,7 +2,7 @@
 //  Connectivity.swift
 //  PatriotRV
 //
-//  This file is shared between iOS and watchOS
+//  This file is currently not shared between iOS and watchOS
 //
 //  Created by Ron Lisle on 2/11/23.
 //
@@ -88,7 +88,7 @@ extension Connectivity: WCSessionDelegate {
             print("key not found")
             return
         }
-        print("Setting done IDs")
+        print("App setting done IDs from watch")
         self.doneIds = ids
     }
 

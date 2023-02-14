@@ -11,10 +11,7 @@ extension ModelData {
     
     func nextTrip(date: Date?) -> Trip? {
         let today = date ?? Date()
-        guard let twoWeeksFromToday = Calendar.current.date(byAdding: .weekOfYear, value: 2, to: today) else {
-            return nil
-        }
-        let tripsAfterDate = trips.filter { $0.date >= today && $0.date <= twoWeeksFromToday}
+        let tripsAfterDate = trips.filter { $0.date >= today }
         return tripsAfterDate.first
     }
     
@@ -47,6 +44,14 @@ extension ModelData {
             address: "3677 IH35 Rockport, TX 78382",
             imageName: nil,
             website: "https://www.hilton.com/en/hotels/rpttxhx-hampton-suites-rockport-fulton/"))
+        
+        trips.append(Trip(
+            date: Date("06/24/23"),
+            destination: "Wildwood RV and Golf Resort",
+            notes: "Summer location, near Windsor, ON. Leave after baby born. Arrive before 4th of July traffic.",
+            address: "11112 11th Concession Rd, McGregor, ON NOR 1JO",
+            imageName: nil,
+            website: "https://www.wildwoodgolfandrvresort.com"))
         
         saveTrips()
     }

@@ -21,28 +21,30 @@ class WatchModel: NSObject, ObservableObject {
         checklist = Checklist.initialChecklist
         for i in 0..<checklist.count {
             checklist[i].delegate = self
+            checklist[i].id = i+1
         }
-        #if !os(watchOS)
-        guard WCSession.isSupported() else {
-            return
-        }
-        #endif
+//        #if !os(watchOS)
+//        guard WCSession.isSupported() else {
+//            print("WCSession not supported")
+//            return
+//        }
+//        #endif
         WCSession.default.delegate = self
         WCSession.default.activate()
     }
 
-    func itemIndex(order: Int) -> Int {
+    func itemIndex(id: Int) -> Int {        // index s/b id-1
         for index in 0..<checklist.count {
-            if checklist[index].order == order {
+            if checklist[index].id == id {
                 return index
             }
         }
-        print("itemIndex order not found")
+        print("itemIndex id not found")
         return 0    // Shouldn't happen
     }
 
     func setDone(order: Int, value: Bool) {
-        let index = itemIndex(order: order)
+        let index = itemIndex(id: order)
         checklist[index].isDone = value
         updateApp()
     }
@@ -50,14 +52,15 @@ class WatchModel: NSObject, ObservableObject {
     func setDoneIds(doneIds: [Int]) {
         var updatedChecklist = checklist
         for index in 0..<updatedChecklist.count {
-            updatedChecklist[index].isDone = doneIds.contains(updatedChecklist[index].order)
+            updatedChecklist[index].isDone = doneIds.contains(updatedChecklist[index].id)
         }
+        print("Setting updatedChecklist")
         checklist = updatedChecklist
     }
     
     func updateApp() {
         print("Updating app from watch")
-        Connectivity.shared.send(doneIds: doneOrders())
+        send(doneIds: doneIds())
     }
     
     func uncheckAll() {
@@ -66,8 +69,8 @@ class WatchModel: NSObject, ObservableObject {
         }
     }
 
-    func doneOrders() -> [Int] {
-        return checklist.done().map { $0.order }
+    func doneIds() -> [Int] {
+        return checklist.done().map { $0.id }
     }
     
     // Use the other funcs to filter first
@@ -119,16 +122,16 @@ extension WatchModel: WCSessionDelegate {
                  error: Error?) {
     }
     
-    #if os(iOS)
-    func sessionDidBecomeInactive(_ session: WCSession) {
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-        // If the person has more than one watch, and they switch,
-        // reactivate their session on the new device.
-        WCSession.default.activate()
-    }
-    #endif
+//    #if os(iOS)
+//    func sessionDidBecomeInactive(_ session: WCSession) {
+//    }
+//    
+//    func sessionDidDeactivate(_ session: WCSession) {
+//        // If the person has more than one watch, and they switch,
+//        // reactivate their session on the new device.
+//        WCSession.default.activate()
+//    }
+//    #endif
     
     func session(_ session: WCSession,
                  didReceiveUserInfo userInfo: [String: Any] = [:]
@@ -138,7 +141,7 @@ extension WatchModel: WCSessionDelegate {
             print("key not found")
             return
         }
-        print("Setting done IDs")
+        print("Watch setting done IDs from app")
         setDoneIds(doneIds: ids)
     }
 }

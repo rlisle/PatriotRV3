@@ -11,7 +11,7 @@ import XCTest
 final class ModelDataTests: XCTestCase {
 
     var model: ModelData!
-    var mockMQTT: Publishing!
+    var mockMQTT: MQTTManager!
     
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
@@ -32,14 +32,14 @@ final class ModelDataTests: XCTestCase {
         let expectedId = "iceMachine"
         setAllItemsBefore(order: 2020)
         let result = model.nextItem()
-        XCTAssertEqual(result?.id, expectedId)
+        XCTAssertEqual(result?.key, expectedId)
     }
     
     // Helpers
     
     func setAllItemsBefore(order: Int) {
         model.checklist.indices.forEach {
-            model.checklist[$0].isDone = (model.checklist[$0].order < order)
+            model.checklist[$0].isDone = (model.checklist[$0].id < order)
         }
     }
     
