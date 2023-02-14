@@ -23,11 +23,12 @@ class WatchModel: NSObject, ObservableObject {
             checklist[i].delegate = self
             checklist[i].id = i+1
         }
-        #if !os(watchOS)
-        guard WCSession.isSupported() else {
-            return
-        }
-        #endif
+//        #if !os(watchOS)
+//        guard WCSession.isSupported() else {
+//            print("WCSession not supported")
+//            return
+//        }
+//        #endif
         WCSession.default.delegate = self
         WCSession.default.activate()
     }
@@ -53,12 +54,13 @@ class WatchModel: NSObject, ObservableObject {
         for index in 0..<updatedChecklist.count {
             updatedChecklist[index].isDone = doneIds.contains(updatedChecklist[index].id)
         }
+        print("Setting updatedChecklist")
         checklist = updatedChecklist
     }
     
     func updateApp() {
         print("Updating app from watch")
-        Connectivity.shared.send(doneIds: doneIds())
+        send(doneIds: doneIds())
     }
     
     func uncheckAll() {
@@ -120,16 +122,16 @@ extension WatchModel: WCSessionDelegate {
                  error: Error?) {
     }
     
-    #if os(iOS)
-    func sessionDidBecomeInactive(_ session: WCSession) {
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-        // If the person has more than one watch, and they switch,
-        // reactivate their session on the new device.
-        WCSession.default.activate()
-    }
-    #endif
+//    #if os(iOS)
+//    func sessionDidBecomeInactive(_ session: WCSession) {
+//    }
+//    
+//    func sessionDidDeactivate(_ session: WCSession) {
+//        // If the person has more than one watch, and they switch,
+//        // reactivate their session on the new device.
+//        WCSession.default.activate()
+//    }
+//    #endif
     
     func session(_ session: WCSession,
                  didReceiveUserInfo userInfo: [String: Any] = [:]
@@ -139,7 +141,7 @@ extension WatchModel: WCSessionDelegate {
             print("key not found")
             return
         }
-        print("Setting done IDs")
+        print("Watch setting done IDs from app")
         setDoneIds(doneIds: ids)
     }
 }

@@ -16,6 +16,13 @@ struct Trip  {
     let address: String?
     let imageName: String?
     let website: String?
+    
+    func isWithin2weeks(today: Date) -> Bool {
+        guard let twoWeeksFromToday = Calendar.current.date(byAdding: .weekOfYear, value: 2, to: today) else {
+            return false
+        }
+        return date <= twoWeeksFromToday
+    }
 }
 
 extension Trip: Equatable {
