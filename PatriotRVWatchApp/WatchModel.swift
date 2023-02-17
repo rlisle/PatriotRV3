@@ -10,19 +10,15 @@ import WatchConnectivity
 
 class WatchModel: NSObject, ObservableObject {
     
-    @Published var checklist: [ChecklistItem] = []
     @Published var nextTrip: String = "Canada"
     @Published var nextTripDate: Date? = Date("05/01/23")
-    @Published var checklistPhase: TripMode = .pretrip
+    @Published var phase: TripMode = .pretrip
+    @Published var nextItem: String = "Waiting on app..."
+    @Published var nextItemId: Int = 0
 
     override init() {
         super.init()
         
-        checklist = Checklist.initialChecklist
-        for i in 0..<checklist.count {
-            checklist[i].delegate = self
-            checklist[i].id = i+1
-        }
 //        #if !os(watchOS)
 //        guard WCSession.isSupported() else {
 //            print("WCSession not supported")
@@ -33,65 +29,22 @@ class WatchModel: NSObject, ObservableObject {
         WCSession.default.activate()
     }
 
-    func itemIndex(id: Int) -> Int {        // index s/b id-1
-        for index in 0..<checklist.count {
-            if checklist[index].id == id {
-                return index
-            }
-        }
-        print("itemIndex id not found")
-        return 0    // Shouldn't happen
-    }
-
     func setDone(order: Int, value: Bool) {
-        let index = itemIndex(id: order)
-        checklist[index].isDone = value
-        updateApp()
+        print("Watch sending done \(nextItemId) to app")
+        send(doneId: nextItemId)
     }
-    
-    func setDoneIds(doneIds: [Int]) {
-        var updatedChecklist = checklist
-        for index in 0..<updatedChecklist.count {
-            updatedChecklist[index].isDone = doneIds.contains(updatedChecklist[index].id)
-        }
-        print("Setting updatedChecklist")
-        checklist = updatedChecklist
-    }
-    
-    func updateApp() {
-        print("Updating app from watch")
-        send(doneIds: doneIds())
-    }
-    
-    func uncheckAll() {
-        for index in 0..<checklist.count {
-            checklist[index].isDone = false
-        }
-    }
-
-    func doneIds() -> [Int] {
-        return checklist.done().map { $0.id }
-    }
-    
-    // Use the other funcs to filter first
-    // eg next todo in Departure:
-    //   checklist.category("Departure").nextItem()
-    func nextItem() -> ChecklistItem? {
-        return checklist.todo().first
-    }
-
 }
 
 // WatchConnectivity
 extension WatchModel {
-    public func send(doneIds: [Int]) {
+    public func send(doneId: Int) {
         guard canSendToPeer() else {
             print("Can't sent to peer")
             return
         }
         
-        let userInfo: [String: [Int]] = [
-            ConnectivityUserInfoKey.done.rawValue: doneIds
+        let userInfo: [String: Int] = [
+            ConnectivityUserInfoKey.nextItemId.rawValue: doneId
         ]
         WCSession.default.transferUserInfo(userInfo)
     }
@@ -136,19 +89,28 @@ extension WatchModel: WCSessionDelegate {
     func session(_ session: WCSession,
                  didReceiveUserInfo userInfo: [String: Any] = [:]
                 ) {
-        let key = ConnectivityUserInfoKey.done.rawValue
-        guard let ids = userInfo[key] as? [Int] else {
+        
+        guard let nextItem = userInfo[ConnectivityUserInfoKey.nextItem.rawValue] as? String,
+        let nextItemId = userInfo[ConnectivityUserInfoKey.nextItemId.rawValue] as? Int,
+              let nextTrip = userInfo[ConnectivityUserInfoKey.nextTrip.rawValue] as? String,
+              let nextTripDate = userInfo[ConnectivityUserInfoKey.nextTripDate.rawValue] as? Date,
+              let phase = userInfo[ConnectivityUserInfoKey.phase.rawValue] as? TripMode
+        else {
             print("key not found")
             return
         }
-        print("Watch setting done IDs from app")
-        setDoneIds(doneIds: ids)
+        print("Watch setting values from app, next ID \(nextItemId)")
+        self.nextTrip = nextTrip
+        self.nextTripDate = nextTripDate
+        self.phase = phase
+        self.nextItemId = nextItemId
+        self.nextItem = nextItem
     }
 }
 
 extension WatchModel: Publishing {
     func publish(id: Int, isDone: Bool) {
-        updateApp()
+        //Nothing to do now
     }
 }
 

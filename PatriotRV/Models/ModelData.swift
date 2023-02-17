@@ -16,7 +16,11 @@ class ModelData: ObservableObject {
     
     // Checklist
     @Published var checklist: [ChecklistItem] = []
+    
+    //TODO: Can these be eliminated and derived directly from checklist?
     @Published var checklistPhase: TripMode = .pretrip
+//    @Published var phaseCompletedItems = 0
+
     @Published var showCompleted = true     //TODO: persist
     
     // Power
@@ -25,9 +29,12 @@ class ModelData: ObservableObject {
     internal var linePower: [Float] = [0.0, 0.0]
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
-    let mqtt: MQTTManager
+    var mqtt: MQTTManagerProtocol
     
-    init(mqttManager: MQTTManager) {
+    private var cancellable: Set<AnyCancellable> = []
+
+    // Previews and tests will pass a MockMQTTManager
+    init(mqttManager: MQTTManagerProtocol) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
             // t: patriot/state/ALL/X/<checklistitem> m:<0|1>
@@ -45,6 +52,8 @@ class ModelData: ObservableObject {
             }
         }
         
+        //TODO: convert delegate to Combine
+        // or pass mqtt to the checklist
         checklist = Checklist.initialChecklist
         for i in 0..<checklist.count {
             checklist[i].id = i+1
@@ -53,26 +62,41 @@ class ModelData: ObservableObject {
         
         // Load trips
         initializeTrips()
+        
+        
+//        Connectivity.shared.$lastDoneId
+//            .dropFirst()
+//            .receive(on: DispatchQueue.main)
+//            //.assign(to: \.lastCompleted, on: self)
+//            .sink(receiveValue: {
+//                guard (0...self.checklist.count).contains($0) else {
+//                    print("Invalid lastDoneId received")
+//                    return
+//                }
+//                self.checklist[$0].isDone = true
+//            })
+//            .store(in: &cancellable)
+
     }
 }
 
 extension ModelData: Publishing {
     func publish(id: Int, isDone: Bool) {
         mqtt.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
-        checklistPhase = currentPhase(date: Date())
-        updateWatch()
+//        checklistPhase = currentPhase(date: Date())
+        updateWatchNextItem()
     }
 }
 
 extension ModelData {
     
-    func currentPhase(date: Date) -> TripMode {
-        guard nextTrip(date: date) != nil else {
-            print("currentPhase = .parked because nextTrip = nil")
-            return .parked
-        }
-        return nextItem()?.category ?? .parked
-    }
+//    func currentPhase(date: Date) -> TripMode {
+//        guard nextTrip(date: date) != nil else {
+//            print("currentPhase = .parked because nextTrip = nil")
+//            return .parked
+//        }
+//        return nextItem()?.category ?? .parked
+//    }
     
     // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
     func setDone(checklistitem: String, value: String) {
@@ -81,12 +105,13 @@ extension ModelData {
                 checklist[index].isDone = value != "0"
             }
         }
-        updateWatch()
+        updateWatchNextItem()
     }
     
-    func updateWatch() {
-        print("Updating watch")
-        Connectivity.shared.send(doneIds: doneIds())
+    func updateWatchNextItem() {
+        print("Updating watch nextItem")
+        let nextItemId = checklist.todo().first?.id ?? 0
+        Connectivity.shared.send(nextItemId: nextItemId)
     }
     
     func item(_ checklistitem: String) -> ChecklistItem? {
@@ -99,34 +124,34 @@ extension ModelData {
         }
     }
     
-    func doneIds() -> [Int] {
-        return checklist.done().map { $0.id }
-    }
+//    func doneIds() -> [Int] {
+//        return checklist.done().map { $0.id }
+//    }
     
     // Use the other funcs to filter first
     // eg next todo in Departure:
     //   checklist.category("Departure").nextItem()
-    func nextItem() -> ChecklistItem? {
-        return checklist.todo().first
-    }
+//    func nextItem() -> ChecklistItem? {
+//        return checklist.todo().first
+//    }
     
-    func checklistDisplayItems() -> [ChecklistItem] {
-        if showCompleted == true {
-            return checklist.category(checklistPhase)
-        } else {
-            return checklist.category(checklistPhase).todo()
-        }
-    }
-    
-    // For now persisting to UserDefaults
-    func saveChecklist() {
-        let tripMode = currentPhase(date: Date()).rawValue
-        UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(tripMode, forKey: "TripMode")
-        
-        if let item = nextItem() {
-            UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(item.name, forKey: "NextItem")
-        }
-    }
+//    func checklistDisplayItems() -> [ChecklistItem] {
+//        if showCompleted == true {
+//            return checklist.category(checklistPhase)
+//        } else {
+//            return checklist.category(checklistPhase).todo()
+//        }
+//    }
+//
+//    // For now persisting to UserDefaults
+//    func saveChecklist() {
+//        let tripMode = currentPhase(date: Date()).rawValue
+//        UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(tripMode, forKey: "TripMode")
+//
+//        if let item = nextItem() {
+//            UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(item.name, forKey: "NextItem")
+//        }
+//    }
 
         
 }

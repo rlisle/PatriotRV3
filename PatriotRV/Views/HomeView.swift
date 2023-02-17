@@ -30,27 +30,36 @@ struct HomeView: View {
                 
                 
                 List {
-                    NavigationLink {
-                        TripListView()
-                    } label: {
-                        TripRowView()
+                    Section("Next Trip") {
+                        NavigationLink {
+                            TripListView()
+                        } label: {
+                            TripRowView()
+                        }
                     }
-                    NavigationLink {
-                        ChecklistView()
-                    } label: {
-                        ChecklistRowView()
+                    Section("Checklist") {
+                        NavigationLink {
+                            ChecklistView()
+                        } label: {
+                            HomeChecklistRowView()
+                        }
                     }
-                    NavigationLink {
-                        PowerView()
-                    } label: {
-                        PowerRowView()
+                    Section("Power") {
+                        NavigationLink {
+                            PowerView()
+                        } label: {
+                            PowerRowView()
+                        }
                     }
-                    NavigationLink {
-                        LogView()
-                    } label: {
-                        LogRowView()
+                    Section("Log") {
+                        NavigationLink {
+                            LogView()
+                        } label: {
+                            LogRowView()
+                        }
                     }
-                }//list
+                }
+                .listStyle(.grouped)
                 .padding(.top, -8)
             } //vstack
             .navigationTitle("Summary")
@@ -83,67 +92,10 @@ struct HomeView: View {
     } //body
 }
 
-// Row views should provide summary information
-struct TripRowView: View {
-    @EnvironmentObject var model: ModelData
-    var body: some View {
-        if let trip = model.trips.last {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Next Trip")
-                        .font(.headline)
-                    Spacer()
-                    Text(trip.date.mmddyy())
-                }
-                Text(trip.destination)
-            }
-        } else {
-            Text("Add a New Trip")
-                .font(.headline)
-        }
-    }
-}
-
-struct PowerRowView: View {
-    var body: some View {
-        VStack {
-            Text("Power")
-            RvPowerView()
-            TeslaPowerView()
-        }
-    }
-}
-
-struct ChecklistRowView: View {
-    @EnvironmentObject var model: ModelData
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Checklist")
-                .font(.headline)
-            HStack {
-                Text(model.currentPhase(date: Date()).rawValue)
-                    .font(.caption)
-                Spacer()
-                Text("6 of \(model.checklist.count) done")
-            }
-            HStack {
-                Text("#\(model.nextItem()?.id ?? 0):")
-                Text(model.nextItem()?.name ?? "")
-            }
-        }
-    }
-}
-
-struct LogRowView: View {
-    var body: some View {
-        Text("Log")
-    }
-}
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(ModelData(mqttManager: MQTTManager()))
+            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
     }
 }

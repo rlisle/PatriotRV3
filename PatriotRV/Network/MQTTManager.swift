@@ -14,7 +14,12 @@ public enum MQTTError: Error {
     case subscribeError
 }
 
-class MQTTManager: MQTTSessionDelegate {
+protocol MQTTManagerProtocol {
+    func publish(topic: String, message: String)
+    var messageHandler: ((String, String) -> Void)? { get set }
+}
+
+class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
 
     let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
     let port: UInt16 = 1883
@@ -128,4 +133,14 @@ class MQTTManager: MQTTSessionDelegate {
       let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
       return String((0..<length).map{ _ in letters.randomElement()! })
     }
+}
+
+class MockMQTTManager: MQTTManagerProtocol {
+    
+    var messageHandler: ((String, String) -> Void)?
+
+    func publish(topic: String, message: String) {
+        print("MQTTManager: publish(\(topic): \(message)")
+    }
+    
 }

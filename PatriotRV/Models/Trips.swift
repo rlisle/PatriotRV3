@@ -15,10 +15,6 @@ extension ModelData {
         return tripsAfterDate.first
     }
     
-    func nextChecklistItem() -> ChecklistItem? {
-        return(checklist.first)
-    }
-    
     func initializeTrips() {
         // Load trips (for now hardcode a few)
         trips.append(Trip(

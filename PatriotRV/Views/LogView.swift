@@ -9,12 +9,13 @@ import SwiftUI
 
 struct LogView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("TODO: show logs")
     }
 }
 
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {
         LogView()
+            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
     }
 }

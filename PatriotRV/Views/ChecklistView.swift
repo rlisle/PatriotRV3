@@ -80,13 +80,13 @@ struct ChecklistItemsView: View {
             ) {
 
 
-                if(model.checklistDisplayItems().count == 0) {
+                if(model.checklist.todo().count == 0) {
                     Text("No \(model.checklistPhase.rawValue) items found")
                 } else {
-                    ForEach(model.checklistDisplayItems(), id: \.self) { item in
+                    ForEach(model.checklist.todo(), id: \.self) { item in
 
                       NavigationLink(destination: DetailView(listItem: item)) {
-                          ChecklistRow(listItem: item)
+                          ChecklistRowView(listItem: item)
                       }
                     }
                 }
@@ -109,7 +109,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in
                 ChecklistView()
-                    .environmentObject(ModelData(mqttManager: MQTTManager()))
+                    .environmentObject(ModelData(mqttManager: MockMQTTManager()))
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }

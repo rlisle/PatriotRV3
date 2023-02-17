@@ -176,7 +176,7 @@ struct PowerWidgetLiveActivity_Previews: PreviewProvider {
         battery: 79,
         daysUntilNextTrip: 5,
         nextTripName: "Rockport",
-        tripMode: .pretrip,
+        tripMode: TripMode.pretrip,
         numberItems: 14,
         numberDone: 3,
         nextItemId: "fuel",

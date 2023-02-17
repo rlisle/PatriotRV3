@@ -70,6 +70,7 @@ struct MenuView_Previews: PreviewProvider {
         MenuView(showMenu: .constant(true),
                  showCompleted: .constant(true),
                  selection: .constant("None"), isShowingPower: .constant(false) )
+        .environmentObject(ModelData(mqttManager: MockMQTTManager()))
             .previewLayout(.fixed(width: 180, height: 720))
     }
 }

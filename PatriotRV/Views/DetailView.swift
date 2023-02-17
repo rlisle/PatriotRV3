@@ -10,11 +10,11 @@ import SwiftUI
 
 struct HTMLStringView: UIViewRepresentable {
     let htmlContent: String
-
+    
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
-
+    
     func updateUIView(_ uiView: WKWebView, context: Context) {
         uiView.loadHTMLString(htmlContent, baseURL: nil)
     }
@@ -41,7 +41,7 @@ struct DetailView: View {
     }
     
     var body: some View {
-
+        
         VStack {
             
             Text("Description")                   // Title (was listItem.name)
@@ -62,11 +62,11 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static let modelData = ModelData(mqttManager: MQTTManager())
-
-  static var previews: some View {
-    DetailView(listItem: modelData.checklist[4])
-        .environmentObject(modelData)
-  }
+    static let modelData = ModelData(mqttManager: MockMQTTManager())
+    
+    static var previews: some View {
+        DetailView(listItem: modelData.checklist[4])
+            .environmentObject(modelData)
+    }
 }
 
