@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct WatchHome: View {
     
     @EnvironmentObject var model: WatchModel
 
@@ -25,35 +25,20 @@ struct ContentView: View {
             HStack {
                 Text("Trip Phase: ")
                 Spacer()
-                Text(model.checklistPhase.rawValue)
+                Text(model.phase.rawValue)
             }
             HStack {
                 Text("Next: ")
                 Spacer()
-                Text(model.nextItem()?.name ?? "?")
-            }
-            List {
-                NavigationLink("Checklist", value: "checklist")
-                NavigationLink("Lights", value: "lights")
-                NavigationLink("Power", value: "power")
-            }
-            .navigationDestination(for: String.self) { destination in
-                switch destination {
-                case "checklist":
-                    WatchChecklistView()
-                case "lights":
-                    LightsView()
-                default:
-                    PowerView()
-                }
+                Text(model.nextItem)
             }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct WatchHome_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WatchHome()
             .environmentObject(WatchModel())
     }
 }

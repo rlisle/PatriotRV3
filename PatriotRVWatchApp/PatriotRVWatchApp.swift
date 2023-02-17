@@ -14,7 +14,7 @@ struct PatriotRVWatchApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WatchHome()
                 .environmentObject(model)
         }
     }

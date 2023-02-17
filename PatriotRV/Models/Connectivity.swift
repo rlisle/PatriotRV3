@@ -8,11 +8,12 @@
 //
 
 import Foundation
+import Combine
 import WatchConnectivity
 
 final class Connectivity: NSObject, ObservableObject {
     
-    @Published var doneIds: [Int] = []   // actually order
+    @Published var lastDoneId: Int = 0   // 0 means none
 
     static let shared = Connectivity()
 
@@ -30,14 +31,27 @@ final class Connectivity: NSObject, ObservableObject {
         WCSession.default.activate()
     }
     
-    public func send(doneIds: [Int]) {
+    public func send(nextItemId: Int) {
         guard canSendToPeer() else {
-            print("Can't sent to peer")
+            print("Can't send nextItem to peer")
             return
         }
         
-        let userInfo: [String: [Int]] = [
-          ConnectivityUserInfoKey.done.rawValue: doneIds
+        let userInfo: [String: Any] = [
+            ConnectivityUserInfoKey.nextItemId.rawValue: nextItemId
+        ]
+        WCSession.default.transferUserInfo(userInfo)
+    }
+    
+    public func sendNextTrip(_ trip: Trip) {
+        guard canSendToPeer() else {
+            print("Can't send nextTrip to peer")
+            return
+        }
+        
+        let userInfo: [String: Any] = [
+            ConnectivityUserInfoKey.nextTrip.rawValue: trip.destination,
+            ConnectivityUserInfoKey.nextTripDate.rawValue: trip.date
         ]
         WCSession.default.transferUserInfo(userInfo)
     }
@@ -83,13 +97,14 @@ extension Connectivity: WCSessionDelegate {
     func session(_ session: WCSession,
                  didReceiveUserInfo userInfo: [String: Any] = [:]
                 ) {
-        let key = ConnectivityUserInfoKey.done.rawValue
-        guard let ids = userInfo[key] as? [Int] else {
+        // Receiving nextItem indicates it is 'Done'
+        let key = ConnectivityUserInfoKey.nextItem.rawValue
+        guard let id = userInfo[key] as? Int else {
             print("key not found")
             return
         }
-        print("App setting done IDs from watch")
-        self.doneIds = ids
+        print("App setting done ID done from watch")
+        self.lastDoneId = id
     }
 
 }
