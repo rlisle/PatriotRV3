@@ -86,7 +86,7 @@ struct ChecklistItemsView: View {
                     ForEach(model.checklist.todo(), id: \.self) { item in
 
                       NavigationLink(destination: DetailView(listItem: item)) {
-                          ChecklistRow(listItem: item)
+                          ChecklistRowView(listItem: item)
                       }
                     }
                 }

@@ -1,5 +1,5 @@
 //
-//  ChecklistRowView.swift
+//  HomeChecklistRowView.swift
 //  PatriotRV
 //
 //  Created by Ron Lisle on 2/17/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChecklistRowView: View {
+struct HomeChecklistRowView: View {
     
     @EnvironmentObject var model: ModelData
     
@@ -28,9 +28,11 @@ struct ChecklistRowView: View {
     }
 }
 
-struct ChecklistRowView_Previews: PreviewProvider {
+struct HomeChecklistRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ChecklistRowView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        List {
+            HomeChecklistRowView()
+                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        }
     }
 }

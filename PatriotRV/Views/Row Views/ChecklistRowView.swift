@@ -1,5 +1,5 @@
 //
-//  ChecklistRow.swift
+//  ChecklistRowView.swift
 //  RvChecklist
 //
 //  Created by Ron Lisle on 2/22/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChecklistRow: View {
+struct ChecklistRowView: View {
     
     @EnvironmentObject var model: ModelData
     
@@ -31,11 +31,11 @@ struct ChecklistRow: View {
     }
 }
 
-struct ChecklistRow_Previews: PreviewProvider {
+struct ChecklistRowView_Previews: PreviewProvider {
     static let modelData = ModelData(mqttManager: MockMQTTManager())
     static var previews: some View {
         List {
-            ChecklistRow(listItem: modelData.checklist[0])
+            ChecklistRowView(listItem: modelData.checklist.todo().first!)
                 .environmentObject(modelData)
         }
     }

@@ -41,7 +41,7 @@ struct HomeView: View {
                         NavigationLink {
                             ChecklistView()
                         } label: {
-                            ChecklistRowView()
+                            HomeChecklistRowView()
                         }
                     }
                     Section("Power") {
