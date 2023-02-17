@@ -29,7 +29,9 @@ struct TripRowView: View {
 
 struct TripRowView_Previews: PreviewProvider {
     static var previews: some View {
-        TripRowView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        List {
+            TripRowView()
+                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        }
     }
 }

@@ -15,9 +15,9 @@ struct LogRowView: View {
 
 struct LogRowView_Previews: PreviewProvider {
     static var previews: some View {
-        LogRowView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
-            .previewLayout(.fixed(width: 320, height: 60))
-            .previewDisplayName("Log")
+        List {
+            LogRowView()
+                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        }
     }
 }

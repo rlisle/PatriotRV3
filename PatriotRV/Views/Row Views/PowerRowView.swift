@@ -19,9 +19,9 @@ struct PowerRowView: View {
 
 struct PowerRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PowerRowView()
-            .previewLayout(.sizeThatFits)
-            .previewDisplayName("Power Row")
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        List {
+            PowerRowView()
+                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        }
     }
 }

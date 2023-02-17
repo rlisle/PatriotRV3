@@ -32,12 +32,11 @@ struct ChecklistRow: View {
 }
 
 struct ChecklistRow_Previews: PreviewProvider {
-    static let modelData = ModelData(mqttManager: MQTTManager())
+    static let modelData = ModelData(mqttManager: MockMQTTManager())
     static var previews: some View {
-        ChecklistRow(listItem: modelData.checklist[0])
-            .environmentObject(modelData)
-            .previewLayout(.fixed(width: 300, height: 40))
-            .previewDisplayName("ChecklistRow")
-
+        List {
+            ChecklistRow(listItem: modelData.checklist[0])
+                .environmentObject(modelData)
+        }
     }
 }

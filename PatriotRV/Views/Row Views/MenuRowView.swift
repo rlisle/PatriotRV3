@@ -35,10 +35,10 @@ struct MenuRowView: View {
 
 struct MenuRow_Previews: PreviewProvider {
     static var previews: some View {
-        MenuRowView(title: "Menu Item", iconName: "person", action: {
-            print("Action tapped")
-        })
-        .previewLayout(.fixed(width: 320, height: 60))
-        .previewDisplayName("Checkmark")
+        List {
+            MenuRowView(title: "Menu Item", iconName: "person", action: {
+                print("Action tapped")
+            })
+        }
     }
 }
