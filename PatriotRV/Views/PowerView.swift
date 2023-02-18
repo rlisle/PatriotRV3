@@ -17,6 +17,7 @@ struct PowerView: View {
             HStack {
                 VStack {
                     RvPowerView()
+                        .padding(.vertical, 8)
                     TeslaPowerView()
                 }
             }
@@ -34,13 +35,13 @@ struct RvPowerView: View {
     var body: some View {
         VStack {
             Gauge(value: model.rv, in: 0...50) {
-                Text("RV")
+                Text("RV").font(.caption)
             } currentValueLabel: {
-                Text(model.rv.formatted())
+                Text("\(model.rv, specifier: "%.1f")").font(.title)
             } minimumValueLabel: {
-                Text("0")
+                Text("0").font(.caption)
             } maximumValueLabel: {
-                Text("50")
+                Text("50").font(.caption)
             }
             .gaugeStyle(.accessoryLinearCapacity)
             .tint(model.rvTint)
@@ -55,13 +56,13 @@ struct TeslaPowerView: View {
     var body: some View {
         VStack {
             Gauge(value: model.tesla, in: 0...50) {
-                Text("Tesla")
+                Text("Tesla").font(.caption)
             } currentValueLabel: {
-                Text(model.tesla.formatted())
+                Text("\(model.tesla, specifier: "%.1f")").font(.title)
             } minimumValueLabel: {
-                Text("0")
+                Text("0").font(.caption)
             } maximumValueLabel: {
-                Text("50")
+                Text("50").font(.caption)
             }
             .gaugeStyle(.accessoryLinearCapacity)
             .tint(model.teslaTint)
@@ -72,6 +73,6 @@ struct TeslaPowerView: View {
 struct PowerView_Previews: PreviewProvider {
     static var previews: some View {
         PowerView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+            .environmentObject(ModelData())
     }
 }

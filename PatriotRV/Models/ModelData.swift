@@ -11,29 +11,29 @@ import ActivityKit
 
 class ModelData: ObservableObject {
     
-    // Trips
     @Published var trips: [Trip] = []
-    
-    // Checklist
     @Published var checklist: [ChecklistItem] = []
-    
-    //TODO: Can these be eliminated and derived directly from checklist?
-    @Published var checklistPhase: TripMode = .pretrip
-//    @Published var phaseCompletedItems = 0
-
-    @Published var showCompleted = true     //TODO: persist
+    @Published var checklistPhase: TripMode = .pretrip  // Selected for display
+    @Published var showCompleted = true                 //TODO: persist
     
     // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
-    internal var linePower: [Float] = [0.0, 0.0]
+    internal var linePower: [Float] = [0.0, 0.0]        // Amps
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
     var mqtt: MQTTManagerProtocol
     
     private var cancellable: Set<AnyCancellable> = []
 
-    // Previews and tests will pass a MockMQTTManager
+    // For use with previews and tests
+    convenience init() {
+        let mqttManager = MockMQTTManager()
+        self.init(mqttManager: mqttManager)
+        self.updatePower(line: 0, power: 480.0)
+        self.updatePower(line: 1, power: 2880.0)
+    }
+    
     init(mqttManager: MQTTManagerProtocol) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in

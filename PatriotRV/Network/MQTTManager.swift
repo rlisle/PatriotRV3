@@ -134,13 +134,3 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
       return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
-
-class MockMQTTManager: MQTTManagerProtocol {
-    
-    var messageHandler: ((String, String) -> Void)?
-
-    func publish(topic: String, message: String) {
-        print("MQTTManager: publish(\(topic): \(message)")
-    }
-    
-}

@@ -21,7 +21,7 @@ struct PowerRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             PowerRowView()
-                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+                .environmentObject(ModelData())
         }
     }
 }
