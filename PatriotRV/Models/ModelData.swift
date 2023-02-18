@@ -13,7 +13,13 @@ class ModelData: ObservableObject {
     
     @Published var trips: [Trip] = []
     @Published var checklist: [ChecklistItem] = []
+    
     @Published var checklistPhase: TripMode = .pretrip  // Selected for display
+    {
+        didSet {
+            print("checklistPhase = \(checklistPhase)")
+        }
+    }
     @Published var showCompleted = true                 //TODO: persist
     
     // Power
@@ -24,7 +30,7 @@ class ModelData: ObservableObject {
     
     var mqtt: MQTTManagerProtocol
     
-    private var cancellable: Set<AnyCancellable> = []
+    private var cancellable: AnyCancellable?
 
     // For use with previews and tests
     convenience init() {
@@ -63,7 +69,11 @@ class ModelData: ObservableObject {
         // Load trips
         initializeTrips()
         
-        
+        cancellable = $checklist
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { newChecklist in
+                  print("Number done = \(newChecklist.todo().count)")
+            })
 //        Connectivity.shared.$lastDoneId
 //            .dropFirst()
 //            .receive(on: DispatchQueue.main)
@@ -76,7 +86,6 @@ class ModelData: ObservableObject {
 //                self.checklist[$0].isDone = true
 //            })
 //            .store(in: &cancellable)
-
     }
 }
 
@@ -89,6 +98,10 @@ extension ModelData: Publishing {
 }
 
 extension ModelData {
+
+    func nextItemCategory() -> TripMode {
+        return checklist.todo().first?.category ?? .parked
+    }
     
 //    func currentPhase(date: Date) -> TripMode {
 //        guard nextTrip(date: date) != nil else {

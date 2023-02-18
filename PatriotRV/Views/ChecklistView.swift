@@ -11,7 +11,6 @@ struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
     
-    @State private var menuSelection: String? = nil
     @State private var showingAddTrip = false
     
     private var phases: [TripMode] = [.pretrip, .departure,.arrival]
@@ -41,7 +40,7 @@ struct ChecklistView: View {
                 .padding(.top, -14)
                 .background(Color.black)
 
-                ChecklistItemsView()
+                ChecklistItemsListView()
             }
             .blackNavigation
             .toolbar {
@@ -63,47 +62,7 @@ struct ChecklistView: View {
     }
 }
 
-struct ChecklistItemsView: View {
-    
-    @EnvironmentObject var model: ModelData
-
-    var body: some View {
-        List {
-
-            Section(header:
-                HStack {
-                Text(model.checklistPhase.rawValue)
-                    Spacer()
-                Text("(\(model.checklist.category(model.checklistPhase).done().count) of \(model.checklist.category(model.checklistPhase).done().count) done)")
-                }
-                .padding(.vertical, 8)
-            ) {
-
-
-                if(model.checklist.todo().count == 0) {
-                    Text("No \(model.checklistPhase.rawValue) items found")
-                } else {
-                    ForEach(model.checklist.todo(), id: \.self) { item in
-
-                      NavigationLink(destination: DetailView(listItem: item)) {
-                          ChecklistRowView(listItem: item)
-                      }
-                    }
-                }
-
-            }
-            .textCase(nil)
-
-
-        } // List
-        .padding(.top, -8)
-        .listStyle(PlainListStyle())    // Changed from GroupedListStyle
-        //.animation(.easeInOut)
-
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct ChecklistView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
