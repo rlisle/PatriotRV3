@@ -67,7 +67,7 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("RV Checklist")
-                        .foregroundColor(.white)
+//                        .foregroundColor(.header)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {

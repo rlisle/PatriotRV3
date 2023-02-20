@@ -34,7 +34,6 @@ struct ChecklistItemsListView: View {
                       }
                     }
                 }
-
             }
             .textCase(nil)
 
