@@ -79,14 +79,80 @@ struct ChecklistWidget: Widget {
 }
 
 struct ChecklistWidget_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ChecklistWidgetEntryView(
-            entry: ChecklistEntry(
-                date: Date(),
-                //configuration: ConfigurationIntent(),
-                nextTrip: "Canada",
-                tripMode: "Parked",
-                nextItem: "Plan Trip"))
+        //TODO: use a foreach WidgetFamiliy (doesn't seem to work)
+        Group {
+            
+            ChecklistWidgetEntryView(
+                entry: ChecklistEntry(
+                    date: Date(),
+                    //configuration: ConfigurationIntent(),
+                    nextTrip: "Canada",
+                    tripMode: "Parked",
+                    nextItem: "Plan Trip"))
+            .previewContext(WidgetPreviewContext(family: .accessoryCircular))
+            .previewDisplayName("Circular")
+            
+            ChecklistWidgetEntryView(
+                entry: ChecklistEntry(
+                    date: Date(),
+                    //configuration: ConfigurationIntent(),
+                    nextTrip: "Canada",
+                    tripMode: "Parked",
+                    nextItem: "Plan Trip"))
+            .previewContext(WidgetPreviewContext(family: .accessoryInline))
+            .previewDisplayName("Inline")
+            
+            ChecklistWidgetEntryView(
+                entry: ChecklistEntry(
+                    date: Date(),
+                    //configuration: ConfigurationIntent(),
+                    nextTrip: "Canada",
+                    tripMode: "Parked",
+                    nextItem: "Plan Trip"))
+            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+            .previewDisplayName("Rectangular")
+            
+            ChecklistWidgetEntryView(
+                entry: ChecklistEntry(
+                    date: Date(),
+                    //configuration: ConfigurationIntent(),
+                    nextTrip: "Canada",
+                    tripMode: "Parked",
+                    nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewDisplayName("Small")
+
+            ChecklistWidgetEntryView(
+                entry: ChecklistEntry(
+                    date: Date(),
+                    //configuration: ConfigurationIntent(),
+                    nextTrip: "Canada",
+                    tripMode: "Parked",
+                    nextItem: "Plan Trip"))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDisplayName("Medium")
+
+            ChecklistWidgetEntryView(
+                entry: ChecklistEntry(
+                    date: Date(),
+                    //configuration: ConfigurationIntent(),
+                    nextTrip: "Canada",
+                    tripMode: "Parked",
+                    nextItem: "Plan Trip"))
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
+            .previewDisplayName("Large")
+
+            ChecklistWidgetEntryView(
+                entry: ChecklistEntry(
+                    date: Date(),
+                    //configuration: ConfigurationIntent(),
+                    nextTrip: "Canada",
+                    tripMode: "Parked",
+                    nextItem: "Plan Trip"))
+            .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
+            .previewDisplayName("ExtraLarge")
+        }
     }
 }
