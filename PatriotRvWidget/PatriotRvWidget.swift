@@ -16,6 +16,8 @@ struct Provider: IntentTimelineProvider {
 //                       configuration: ConfigurationIntent(),
                        nextTrip: "Who knows?",
                        tripMode: "Parked",
+                       doneCount: 0,
+                       totalCount: 13,
                        nextItem: "Choose destination")
     }
 
@@ -23,12 +25,16 @@ struct Provider: IntentTimelineProvider {
         
         let nextTrip = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextTrip")
         let tripMode = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "TripMode")
+        let doneCount = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.integer(forKey: "doneCount")
+        let totalCount = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.integer(forKey: "TotalCount")
         let nextItem = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextItem")
 
         let entry = ChecklistEntry(date: Date(),
 //                                   configuration: configuration,
                                    nextTrip: nextTrip ?? "No trip",
                                    tripMode: tripMode ?? "Parked",
+                                   doneCount: doneCount,
+                                   totalCount: totalCount,
                                    nextItem: nextItem ?? "None")
         completion(entry)
     }
@@ -38,6 +44,8 @@ struct Provider: IntentTimelineProvider {
             ChecklistEntry(date: Date(),
                            nextTrip: "Rockport",
                            tripMode: "Parked",
+                           doneCount: 0,
+                           totalCount: 13,
                            nextItem: "Plan Trip"
                           )
             ]
@@ -51,17 +59,49 @@ struct ChecklistEntry: TimelineEntry {
     //let configuration: ConfigurationIntent
     let nextTrip: String
     let tripMode: String
+    let doneCount: Int
+    let totalCount: Int
     let nextItem: String
 }
 
+// This is the Widget View
 struct ChecklistWidgetEntryView : View {
+    @Environment(\.widgetFamily) var family
+    
     var entry: Provider.Entry
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Trip: \(entry.nextTrip)")
-            Text(entry.tripMode)
-            Text("Next: \(entry.nextItem)")
+        
+        switch family {
+        case .accessoryCircular:
+            //TODO: add counts to ChecklistEntry
+            Gauge(value: 3, in: 0...13) {
+                Text("Not displayed").font(.caption)
+            } currentValueLabel: {
+                Text(entry.tripMode).font(.title)
+            } minimumValueLabel: {
+                Text(String(entry.doneCount)).font(.caption)
+            } maximumValueLabel: {
+                Text(String(entry.totalCount)).font(.caption)
+            }
+            .gaugeStyle(.accessoryCircular)
+
+        case .accessoryInline:
+            Text("\(entry.nextTrip): \(entry.tripMode)")
+
+        case .accessoryRectangular:
+            VStack(alignment: .leading) {
+                Text("Trip: \(entry.nextTrip)")
+                Text("\(entry.tripMode): \(entry.doneCount) of \(entry.totalCount)")
+                Text("Next: \(entry.nextItem)")
+            }
+
+        default:
+            VStack(alignment: .leading) {
+                Text("Trip: \(entry.nextTrip)")
+                Text(entry.tripMode)
+                Text("Next: \(entry.nextItem)")
+            }
         }
     }
 }
@@ -90,6 +130,8 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
+                    doneCount: 3,
+                    totalCount: 15,
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .accessoryCircular))
             .previewDisplayName("Circular")
@@ -100,6 +142,8 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
+                    doneCount: 3,
+                    totalCount: 15,
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .accessoryInline))
             .previewDisplayName("Inline")
@@ -110,6 +154,8 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
+                    doneCount: 3,
+                    totalCount: 15,
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
             .previewDisplayName("Rectangular")
@@ -120,6 +166,8 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
+                    doneCount: 3,
+                    totalCount: 15,
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("Small")
@@ -130,6 +178,8 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
+                    doneCount: 3,
+                    totalCount: 15,
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("Medium")
@@ -140,6 +190,8 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
+                    doneCount: 3,
+                    totalCount: 15,
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .previewDisplayName("Large")
@@ -150,6 +202,8 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
+                    doneCount: 3,
+                    totalCount: 15,
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
             .previewDisplayName("ExtraLarge")
