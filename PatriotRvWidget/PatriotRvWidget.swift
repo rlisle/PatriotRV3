@@ -9,6 +9,18 @@ import WidgetKit
 import SwiftUI
 import Intents
 
+//TODO: move to shared file
+extension UserDefaults {
+    static let group = UserDefaults(suiteName: "group.net.lisles.rvchecklist")!
+    enum Keys: String {
+        case nextTrip = "NextTrip"
+        case tripMode = "TripMode"
+        case doneCount = "DoneCount"
+        case totalCount = "TotalCount"
+        case nextItem = "NextItem"
+    }
+}
+
 struct Provider: TimelineProvider {
     
     typealias Entry = ChecklistEntry
@@ -22,20 +34,28 @@ struct Provider: TimelineProvider {
            nextItem: "Choose destination")
     }
 
+    func loadString(_ key: UserDefaults.Keys) -> String {
+        return UserDefaults.group.string(forKey: key.rawValue) ?? "Not found"
+    }
+    
+    func loadInt(_ key: UserDefaults.Keys) -> Int {
+        return UserDefaults.group.integer(forKey: key.rawValue)
+    }
+
     func getSnapshot(in context: Context, completion: @escaping (ChecklistEntry) -> ()) {
         
-        let nextTrip = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextTrip")
-        let tripMode = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "TripMode")
-        let doneCount = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.integer(forKey: "doneCount")
-        let totalCount = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.integer(forKey: "TotalCount")
-        let nextItem = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextItem")
+        let nextTrip = loadString(.nextTrip)
+        let tripMode = loadString(.tripMode)
+        let doneCount = loadInt(.doneCount)
+        let totalCount = loadInt(.totalCount)
+        let nextItem = loadString(.nextItem)
 
         let entry = ChecklistEntry(
-               nextTrip: nextTrip ?? "No trip",
-               tripMode: tripMode ?? "Parked",
+               nextTrip: nextTrip,
+               tripMode: tripMode,
                doneCount: doneCount,
                totalCount: totalCount,
-               nextItem: nextItem ?? "None")
+               nextItem: nextItem)
         completion(entry)
     }
 

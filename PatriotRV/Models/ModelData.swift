@@ -93,7 +93,7 @@ extension ModelData: Publishing {
     func publish(id: Int, isDone: Bool) {
         mqtt.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
 //        checklistPhase = currentPhase(date: Date())
-        updateWatchNextItem()
+        updateWidgetNextItem()
     }
 }
 
@@ -118,12 +118,23 @@ extension ModelData {
                 checklist[index].isDone = value != "0"
             }
         }
-        updateWatchNextItem()
+        updateWidgetNextItem()
     }
     
-    func updateWatchNextItem() {
-        print("Updating watch nextItem")
-        let nextItemId = checklist.todo().first?.id ?? 0
+    func updateWidgetNextItem() {
+        guard let nextItem = checklist.todo().first else {
+            print("updateWidgetNextItem: no next item")
+            return
+        }
+        print("Updating widget nextItem")
+        let doneCount = checklist.category(nextItem.category).done().count
+        let totalCount = checklist.category(nextItem.category).count
+        UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem)
+        UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount)
+        UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount)
+        
+        //TODO: still needed, or use the above instead?
+        let nextItemId = nextItem.id
         Connectivity.shared.send(nextItemId: nextItemId)
     }
     
@@ -167,4 +178,16 @@ extension ModelData {
 //    }
 
         
+}
+
+//TODO: move to shared file
+extension UserDefaults {
+    static let group = UserDefaults(suiteName: "group.net.lisles.rvchecklist")!
+    struct Keys {
+        static let nextTrip = "NextTrip"
+        static let tripMode = "TripMode"
+        static let doneCount = "DoneCount"
+        static let totalCount = "TotalCount"
+        static let nextItem = "NextItem"
+    }
 }
