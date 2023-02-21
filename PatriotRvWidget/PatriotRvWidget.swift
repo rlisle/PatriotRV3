@@ -9,19 +9,20 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-struct Provider: IntentTimelineProvider {
+struct Provider: TimelineProvider {
+    
+    typealias Entry = ChecklistEntry
     
     func placeholder(in context: Context) -> ChecklistEntry {
-        ChecklistEntry(date: Date(),
-//                       configuration: ConfigurationIntent(),
-                       nextTrip: "Who knows?",
-                       tripMode: "Parked",
-                       doneCount: 0,
-                       totalCount: 13,
-                       nextItem: "Choose destination")
+        ChecklistEntry(
+           nextTrip: "Who knows?",
+           tripMode: "Parked",
+           doneCount: 0,
+           totalCount: 13,
+           nextItem: "Choose destination")
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (ChecklistEntry) -> ()) {
+    func getSnapshot(in context: Context, completion: @escaping (ChecklistEntry) -> ()) {
         
         let nextTrip = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextTrip")
         let tripMode = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "TripMode")
@@ -29,25 +30,24 @@ struct Provider: IntentTimelineProvider {
         let totalCount = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.integer(forKey: "TotalCount")
         let nextItem = UserDefaults(suiteName: "group.net.lisles.patriotrv")!.string(forKey: "NextItem")
 
-        let entry = ChecklistEntry(date: Date(),
-//                                   configuration: configuration,
-                                   nextTrip: nextTrip ?? "No trip",
-                                   tripMode: tripMode ?? "Parked",
-                                   doneCount: doneCount,
-                                   totalCount: totalCount,
-                                   nextItem: nextItem ?? "None")
+        let entry = ChecklistEntry(
+               nextTrip: nextTrip ?? "No trip",
+               tripMode: tripMode ?? "Parked",
+               doneCount: doneCount,
+               totalCount: totalCount,
+               nextItem: nextItem ?? "None")
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let entries = [
-            ChecklistEntry(date: Date(),
-                           nextTrip: "Rockport",
-                           tripMode: "Parked",
-                           doneCount: 0,
-                           totalCount: 13,
-                           nextItem: "Plan Trip"
-                          )
+            ChecklistEntry(
+               nextTrip: "Rockport",
+               tripMode: "Parked",
+               doneCount: 0,
+               totalCount: 13,
+               nextItem: "Plan Trip"
+            )
             ]
         let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
@@ -55,8 +55,7 @@ struct Provider: IntentTimelineProvider {
 }
 
 struct ChecklistEntry: TimelineEntry {
-    var date: Date
-    //let configuration: ConfigurationIntent
+    let date = Date()
     let nextTrip: String
     let tripMode: String
     let doneCount: Int
@@ -110,7 +109,8 @@ struct ChecklistWidget: Widget {
     let kind: String = "ChecklistWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind,
+                            provider: Provider()) { entry in
             ChecklistWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Checklist")
@@ -126,8 +126,6 @@ struct ChecklistWidget_Previews: PreviewProvider {
             
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
-                    date: Date(),
-                    //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
                     doneCount: 3,
@@ -138,8 +136,6 @@ struct ChecklistWidget_Previews: PreviewProvider {
             
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
-                    date: Date(),
-                    //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
                     doneCount: 3,
@@ -150,8 +146,6 @@ struct ChecklistWidget_Previews: PreviewProvider {
             
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
-                    date: Date(),
-                    //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
                     doneCount: 3,
@@ -162,8 +156,6 @@ struct ChecklistWidget_Previews: PreviewProvider {
             
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
-                    date: Date(),
-                    //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
                     doneCount: 3,
@@ -174,8 +166,6 @@ struct ChecklistWidget_Previews: PreviewProvider {
 
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
-                    date: Date(),
-                    //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
                     doneCount: 3,
@@ -186,8 +176,6 @@ struct ChecklistWidget_Previews: PreviewProvider {
 
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
-                    date: Date(),
-                    //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
                     doneCount: 3,
@@ -198,8 +186,6 @@ struct ChecklistWidget_Previews: PreviewProvider {
 
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
-                    date: Date(),
-                    //configuration: ConfigurationIntent(),
                     nextTrip: "Canada",
                     tripMode: "Parked",
                     doneCount: 3,
