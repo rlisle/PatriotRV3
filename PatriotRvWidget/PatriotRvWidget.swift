@@ -131,7 +131,7 @@ struct ChecklistWidgetEntryView : View {
 
         default:
             ZStack {
-                Color(.gray)
+                Color("WidgetBackground")
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Trip: ")
