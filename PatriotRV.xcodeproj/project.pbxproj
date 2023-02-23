@@ -36,6 +36,9 @@
 		276270CE297C212A00844645 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CD297C212A00844645 /* DetailView.swift */; };
 		276270D0297C213100844645 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CF297C213100844645 /* MenuView.swift */; };
 		276270D2297C21AF00844645 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270D1297C21AF00844645 /* MenuRowView.swift */; };
+		27696BC929A643670053466A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
+		27696BCA29A643670053466A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
+		27696BCB29A643670053466A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
 		276DDFC3297DD559008CEC48 /* PowerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC2297DD559008CEC48 /* PowerData.swift */; };
 		276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC5297DD8C0008CEC48 /* HomeView.swift */; };
 		276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC7297EADE3008CEC48 /* LogView.swift */; };
@@ -164,6 +167,7 @@
 		276270CD297C212A00844645 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		276270CF297C213100844645 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		276270D1297C21AF00844645 /* MenuRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
+		27696BC829A643670053466A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		276DDFC2297DD559008CEC48 /* PowerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerData.swift; sourceTree = "<group>"; };
 		276DDFC5297DD8C0008CEC48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		276DDFC7297EADE3008CEC48 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 				277CA734298A956E0000A570 /* DateExtension.swift */,
 				277CA731298A8CE30000A570 /* Trip.swift */,
 				27C1912B29894390005556F4 /* TripMode.swift */,
+				27696BC829A643670053466A /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -669,6 +674,7 @@
 				272FC2D7297C774D005C6D43 /* WatchHome.swift in Sources */,
 				27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27696BCA29A643670053466A /* Constants.swift in Sources */,
 				27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */,
 				27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */,
 				27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */,
@@ -688,6 +694,7 @@
 				2736E294299BC1510044F681 /* TripMode.swift in Sources */,
 				2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */,
 				2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */,
+				27696BCB29A643670053466A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +722,7 @@
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				274DBC4B299F9F98007866BD /* HomeChecklistRowView.swift in Sources */,
 				277CA735298A956E0000A570 /* DateExtension.swift in Sources */,
+				27696BC929A643670053466A /* Constants.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
 				277CA732298A8CE30000A570 /* Trip.swift in Sources */,
 				27C1912C29894390005556F4 /* TripMode.swift in Sources */,

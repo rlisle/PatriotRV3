@@ -26,12 +26,7 @@ struct Provider: TimelineProvider {
     typealias Entry = ChecklistEntry
     
     func placeholder(in context: Context) -> ChecklistEntry {
-        ChecklistEntry(
-           nextTrip: "Who knows?",
-           tripMode: "Parked",
-           doneCount: 0,
-           totalCount: 13,
-           nextItem: "Choose destination")
+        return populatedChecklistEntry()
     }
 
     func loadString(_ key: UserDefaults.Keys) -> String {
@@ -42,33 +37,39 @@ struct Provider: TimelineProvider {
         return UserDefaults.group.integer(forKey: key.rawValue)
     }
 
+    func populatedChecklistEntry() -> ChecklistEntry {
+        //TODO: persist this instead of reloading every time
+        var nextTrip = "Loading..."
+        var tripMode: String = TripMode.parked.rawValue
+        var doneCount = 0
+        var totalCount = 0
+        var nextItem = "Loading..."
+
+        nextTrip = loadString(.nextTrip)
+        tripMode = loadString(.tripMode)
+        doneCount = loadInt(.doneCount)
+        totalCount = loadInt(.totalCount)
+        nextItem = loadString(.nextItem)
+
+        return ChecklistEntry(
+           nextTrip: nextTrip,
+           tripMode: tripMode,
+           doneCount: doneCount,
+           totalCount: totalCount,
+           nextItem: nextItem)
+    }
+    
     func getSnapshot(in context: Context, completion: @escaping (ChecklistEntry) -> ()) {
         
-        let nextTrip = loadString(.nextTrip)
-        let tripMode = loadString(.tripMode)
-        let doneCount = loadInt(.doneCount)
-        let totalCount = loadInt(.totalCount)
-        let nextItem = loadString(.nextItem)
-
-        let entry = ChecklistEntry(
-               nextTrip: nextTrip,
-               tripMode: tripMode,
-               doneCount: doneCount,
-               totalCount: totalCount,
-               nextItem: nextItem)
-        completion(entry)
+        print("Widget: getSnapshot")
+        
+        completion(populatedChecklistEntry())
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let entries = [
-            ChecklistEntry(
-               nextTrip: "Rockport",
-               tripMode: "Parked",
-               doneCount: 0,
-               totalCount: 13,
-               nextItem: "Plan Trip"
-            )
-            ]
+            populatedChecklistEntry()
+        ]
         let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
@@ -93,9 +94,8 @@ struct ChecklistWidgetEntryView : View {
         
         switch family {
         case .accessoryCircular:
-            //TODO: add counts to ChecklistEntry
             Gauge(value: 3, in: 0...13) {
-                Text("Not displayed").font(.caption)
+                Text("Not displayed")
             } currentValueLabel: {
                 Text(entry.tripMode).font(.title)
             } minimumValueLabel: {
@@ -106,27 +106,57 @@ struct ChecklistWidgetEntryView : View {
             .gaugeStyle(.accessoryCircular)
 
         case .accessoryInline:
-            Text("\(entry.nextTrip): \(entry.tripMode)")
-
-        case .accessoryRectangular:
-            VStack(alignment: .leading) {
-                Text("Trip: \(entry.nextTrip)")
-                Text("\(entry.tripMode): \(entry.doneCount) of \(entry.totalCount)")
-                Text("Next: \(entry.nextItem)")
-            }
+            Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
+            
+        case .systemLarge:
+//            ZStack {
+//                VStack(alignment: .leading) {
+//                    HStack {
+//                        Text("Trip: ")
+//                        Spacer()
+//                        Text(entry.nextTrip)
+//                    }
+//                    HStack {
+//                        Text(entry.tripMode)
+//                        Spacer()
+//                        Text("\(entry.doneCount) of \(entry.totalCount)")
+//                    }
+//                    HStack {
+//                        Text("Next: ")
+//                        Spacer()
+//                        Text(entry.nextItem)
+//                    }
+//                }
+//                .background(.clear)
+//                .padding(8)
+                Image("truck-rv")
+                .resizable()
+//            }
 
         default:
             VStack(alignment: .leading) {
-                Text("Trip: \(entry.nextTrip)")
-                Text(entry.tripMode)
-                Text("Next: \(entry.nextItem)")
-            }
+                HStack {
+                    Text("Trip: ")
+                    Spacer()
+                    Text(entry.nextTrip)
+                }
+                HStack {
+                    Text(entry.tripMode)
+                    Spacer()
+                    Text("\(entry.doneCount) of \(entry.totalCount)")
+                }
+                HStack {
+                    Text("Next: ")
+                    Spacer()
+                    Text(entry.nextItem)
+                }
+            }.padding(8)
         }
     }
 }
 
 struct ChecklistWidget: Widget {
-    let kind: String = "ChecklistWidget"
+    let kind: String = Constants.kind
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import ActivityKit
+import WidgetKit
 
 class ModelData: ObservableObject {
     
@@ -132,6 +133,7 @@ extension ModelData {
         UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem)
         UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount)
         UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount)
+        WidgetCenter.shared.reloadTimelines(ofKind: Constants.kind)
         
         //TODO: still needed, or use the above instead?
         let nextItemId = nextItem.id
