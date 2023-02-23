@@ -36,7 +36,7 @@ struct WatchHome: View {
             }
             .background(
                 Image("truck-rv")
-                    .resizable()
+//                    .resizable()
             )
         }
     }
