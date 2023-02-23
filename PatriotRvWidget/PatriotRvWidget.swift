@@ -109,48 +109,48 @@ struct ChecklistWidgetEntryView : View {
             Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
             
         case .systemLarge:
-//            ZStack {
-//                VStack(alignment: .leading) {
-//                    HStack {
-//                        Text("Trip: ")
-//                        Spacer()
-//                        Text(entry.nextTrip)
-//                    }
-//                    HStack {
-//                        Text(entry.tripMode)
-//                        Spacer()
-//                        Text("\(entry.doneCount) of \(entry.totalCount)")
-//                    }
-//                    HStack {
-//                        Text("Next: ")
-//                        Spacer()
-//                        Text(entry.nextItem)
-//                    }
-//                }
-//                .background(.clear)
-//                .padding(8)
-                Image("truck-rv")
-                .resizable()
-//            }
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Trip: ")
+                        Spacer()
+                        Text(entry.nextTrip)
+                    }
+                    HStack {
+                        Text(entry.tripMode)
+                        Spacer()
+                        Text("\(entry.doneCount) of \(entry.totalCount)")
+                    }
+                    HStack {
+                        Text("Next: ")
+                        Spacer()
+                        Text(entry.nextItem)
+                    }
+                }
+                .background(Image("truck-rv"))
+                .padding(8)
 
         default:
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Trip: ")
-                    Spacer()
-                    Text(entry.nextTrip)
+            ZStack {
+                Color(.gray)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Trip: ")
+                        Spacer()
+                        Text(entry.nextTrip)
+                    }
+                    HStack {
+                        Text(entry.tripMode)
+                        Spacer()
+                        Text("\(entry.doneCount) of \(entry.totalCount)")
+                    }
+                    HStack {
+                        Text("Next: ")
+                        Spacer()
+                        Text(entry.nextItem)
+                    }
                 }
-                HStack {
-                    Text(entry.tripMode)
-                    Spacer()
-                    Text("\(entry.doneCount) of \(entry.totalCount)")
-                }
-                HStack {
-                    Text("Next: ")
-                    Spacer()
-                    Text(entry.nextItem)
-                }
-            }.padding(8)
+                .padding(8)
+            }
         }
     }
 }
