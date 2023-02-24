@@ -23,11 +23,13 @@ final class Connectivity: NSObject, ObservableObject {
         
         #if !os(watchOS)
         guard WCSession.isSupported() else {
-          return
+            print("WCSession not supported")
+            return
         }
         #endif
         
         WCSession.default.delegate = self
+        print("Connectivity activate")
         WCSession.default.activate()
     }
     
@@ -58,20 +60,24 @@ final class Connectivity: NSObject, ObservableObject {
     
     private func canSendToPeer() -> Bool {
       guard WCSession.default.activationState == .activated else {
-        return false
+          print("canSendToPeer not .activated")
+          return false
       }
 
       #if os(watchOS)
       guard WCSession.default.isCompanionAppInstalled else {
-        return false
+          print("canSendToPeer companion app not installed")
+          return false
       }
       #else
-      guard WCSession.default.isWatchAppInstalled else {
-        return false
-      }
+          guard WCSession.default.isWatchAppInstalled else {
+              print("canSendToPeer watch app not installed")
+              return false
+          }
       #endif
 
-      return true
+        print("canSendToPeer true")
+        return true
     }
 
 }
@@ -81,15 +87,18 @@ extension Connectivity: WCSessionDelegate {
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?) {
+        print("ActivationDidCompleteWith state: \(activationState), error: \(error)")
     }
     
     #if os(iOS)
     func sessionDidBecomeInactive(_ session: WCSession) {
+        print("sessionDidBecomeInactive")
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
         // If the person has more than one watch, and they switch,
         // reactivate their session on the new device.
+        print("sessionDidDeactivate")
         WCSession.default.activate()
     }
     #endif

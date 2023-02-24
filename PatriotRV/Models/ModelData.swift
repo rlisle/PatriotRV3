@@ -35,7 +35,7 @@ class ModelData: ObservableObject {
 
     // For use with previews and tests
     convenience init() {
-        let mqttManager = MockMQTTManager()
+        let mqttManager = MockMQTTManager() //TODO: switch to protocol or mock
         self.init(mqttManager: mqttManager)
         self.updatePower(line: 0, power: 480.0)
         self.updatePower(line: 1, power: 2880.0)
@@ -61,17 +61,19 @@ class ModelData: ObservableObject {
         
         //TODO: convert delegate to Combine
         // or pass mqtt to the checklist
-        checklist = Checklist.initialChecklist
-        for i in 0..<checklist.count {
-            checklist[i].id = i+1
-            checklist[i].delegate = self
+        var tchecklist = Checklist.initialChecklist
+        for i in 0..<tchecklist.count {
+            tchecklist[i].id = i+1
+            tchecklist[i].delegate = self
         }
+        checklist = tchecklist
         
         // Load trips
         initializeTrips()
         
         cancellable = $checklist
             .receive(on: DispatchQueue.main)
+            //.print("Combine: checklist changed\n")
             .sink(receiveValue: { newChecklist in
                   print("Number done = \(newChecklist.todo().count)")
             })
@@ -127,9 +129,9 @@ extension ModelData {
             print("updateWidgetNextItem: no next item")
             return
         }
-        print("Updating widget nextItem")
         let doneCount = checklist.category(nextItem.category).done().count
         let totalCount = checklist.category(nextItem.category).count
+        print("Updating widget nextItem: \(nextItem.name) \(doneCount) of \(totalCount)")
         UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem)
         UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount)
         UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount)

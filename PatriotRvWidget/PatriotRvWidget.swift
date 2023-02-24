@@ -63,6 +63,7 @@ struct Provider: TimelineProvider {
         
         print("Widget: getSnapshot")
         
+        // Use sample data if context.isPreview == true
         completion(populatedChecklistEntry())
     }
 
@@ -165,6 +166,8 @@ struct ChecklistWidget: Widget {
         }
         .configurationDisplayName("RV Checklist")
         .description("RV Trip Checklist")
+        .supportedFamilies([.accessoryRectangular, .accessoryInline, .accessoryCircular, .systemLarge, .systemMedium, .systemSmall])
+        // What about .accessoryCorner?
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 
 @main
 struct PatriotRvWidgetBundle: WidgetBundle {
+    //@WidgetBundleBuilder ?
     var body: some Widget {
         ChecklistWidget()
         PowerWidgetLiveActivity()
