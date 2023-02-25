@@ -227,7 +227,6 @@
 		27BC94AD298D474500642680 /* TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTests.swift; sourceTree = "<group>"; };
 		27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatriotRvWatchWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		27BFA4BE29A96B7100D5FAEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEntry.swift; sourceTree = "<group>"; };
 		27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEntryProvider.swift; sourceTree = "<group>"; };
@@ -388,14 +387,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		27BFA4B829A96B7000D5FAEE /* PatriotRvWatchWidget */ = {
-			isa = PBXGroup;
-			children = (
-				27BFA4BE29A96B7100D5FAEE /* Info.plist */,
-			);
-			path = PatriotRvWatchWidget;
-			sourceTree = "<group>";
-		};
 		27C50B542997C62700EF9DB5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,7 +421,6 @@
 				27C50B5E29984F8D00EF9DB5 /* Shared */,
 				272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */,
 				2771BA6029816F9A0093FCCB /* PatriotRvWidget */,
-				27BFA4B829A96B7000D5FAEE /* PatriotRvWatchWidget */,
 				2771BA5B29816F9A0093FCCB /* Frameworks */,
 				27F2A5AB297C141A00EFD417 /* Products */,
 			);
@@ -1049,7 +1039,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PatriotRvWatchWidget/Info.plist;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWatchWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1079,7 +1069,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PatriotRvWatchWidget/Info.plist;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWatchWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
