@@ -10,7 +10,6 @@ import SwiftUI
 import Intents
 
 
-// This is the Widget View
 struct ChecklistWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
@@ -105,81 +104,27 @@ struct ChecklistWidget: Widget {
 
 struct ChecklistWidget_Previews: PreviewProvider {
     
+    #if os(watchOS)
+    static let families: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner]
+    #else
+    static let families: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .systemLarge, .systemMedium, .systemSmall]
+    #endif
+
     static var previews: some View {
-        //TODO: use a foreach WidgetFamiliy (doesn't seem to work)
         Group {
-            
-            ChecklistWidgetEntryView(
-                entry: ChecklistEntry(
-                    nextTrip: "Canada",
-                    tripMode: "Parked",
-                    doneCount: 3,
-                    totalCount: 15,
-                    nextItem: "Plan Trip"))
-            .previewContext(WidgetPreviewContext(family: .accessoryCircular))
-            .previewDisplayName("Circular")
-            
-            ChecklistWidgetEntryView(
-                entry: ChecklistEntry(
-                    nextTrip: "Canada",
-                    tripMode: "Parked",
-                    doneCount: 3,
-                    totalCount: 15,
-                    nextItem: "Plan Trip"))
-            .previewContext(WidgetPreviewContext(family: .accessoryInline))
-            .previewDisplayName("Inline")
-            
-            ChecklistWidgetEntryView(
-                entry: ChecklistEntry(
-                    nextTrip: "Canada",
-                    tripMode: "Parked",
-                    doneCount: 3,
-                    totalCount: 15,
-                    nextItem: "Plan Trip"))
-            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
-            .previewDisplayName("Rectangular")
-            
-            #if !os(watchOS)
-            ChecklistWidgetEntryView(
-                entry: ChecklistEntry(
-                    nextTrip: "Canada",
-                    tripMode: "Parked",
-                    doneCount: 3,
-                    totalCount: 15,
-                    nextItem: "Plan Trip"))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .previewDisplayName("Small")
-
-            ChecklistWidgetEntryView(
-                entry: ChecklistEntry(
-                    nextTrip: "Canada",
-                    tripMode: "Parked",
-                    doneCount: 3,
-                    totalCount: 15,
-                    nextItem: "Plan Trip"))
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-            .previewDisplayName("Medium")
-
-            ChecklistWidgetEntryView(
-                entry: ChecklistEntry(
-                    nextTrip: "Canada",
-                    tripMode: "Parked",
-                    doneCount: 3,
-                    totalCount: 15,
-                    nextItem: "Plan Trip"))
-            .previewContext(WidgetPreviewContext(family: .systemLarge))
-            .previewDisplayName("Large")
-
-            ChecklistWidgetEntryView(
-                entry: ChecklistEntry(
-                    nextTrip: "Canada",
-                    tripMode: "Parked",
-                    doneCount: 3,
-                    totalCount: 15,
-                    nextItem: "Plan Trip"))
-            .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
-            .previewDisplayName("ExtraLarge")
-            #endif
+            ForEach(families,
+                id: \.self) { family in
+                
+                ChecklistWidgetEntryView(
+                    entry: ChecklistEntry(
+                        nextTrip: "Canada",
+                        tripMode: "Parked",
+                        doneCount: 3,
+                        totalCount: 15,
+                        nextItem: "Plan Trip"))
+                .previewContext(WidgetPreviewContext(family: family))
+                .previewDisplayName("Circular")
+            }
         }
     }
 }
