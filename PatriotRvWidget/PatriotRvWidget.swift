@@ -59,7 +59,7 @@ struct ChecklistWidgetEntryView : View {
 
         default:
             ZStack {
-                Color("WidgetBackground")
+                //Color("WidgetBackground")
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Trip: ")
@@ -85,26 +85,21 @@ struct ChecklistWidgetEntryView : View {
 
 struct ChecklistWidget: Widget {
     let kind: String = Constants.kind
-
+    
+    #if os(watchOS)
+    let accessories: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner]
+    #else
+    let accessories: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .systemLarge, .systemMedium, .systemSmall]
+    #endif
+    
     var body: some WidgetConfiguration {
-        #if os(watchOS)
         StaticConfiguration(kind: kind,
                             provider: Provider()) { entry in
             ChecklistWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Checklist")
         .description("RV Trip Checklist")
-        .supportedFamilies([.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner])
-        // What about .accessoryCorner?
-        #else
-        StaticConfiguration(kind: kind,
-                            provider: Provider()) { entry in
-            ChecklistWidgetEntryView(entry: entry)
-        }
-        .configurationDisplayName("RV Checklist")
-        .description("RV Trip Checklist")
-        .supportedFamilies([.accessoryRectangular, .accessoryInline, .accessoryCircular, .systemLarge, .systemMedium, .systemSmall])
-        #endif
+        .supportedFamilies(accessories)
     }
 }
 

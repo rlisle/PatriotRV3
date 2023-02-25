@@ -78,6 +78,7 @@
 		27BFA4DB29AA3EA600D5FAEE /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
 		27BFA4DD29AA3F6400D5FAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2771BA6829816F9C0093FCCB /* Assets.xcassets */; };
 		27BFA4DE29AA40D500D5FAEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
+		27BFA4E029AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4DF29AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift */; };
 		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B512997BD8900EF9DB5 /* MockMQTT.swift */; };
@@ -230,6 +231,7 @@
 		27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEntry.swift; sourceTree = "<group>"; };
 		27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEntryProvider.swift; sourceTree = "<group>"; };
+		27BFA4DF29AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistWidgetLiveActivity.swift; sourceTree = "<group>"; };
 		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
 		27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWidgetExtension.entitlements; sourceTree = "<group>"; };
 		27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRV.entitlements; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */,
+				27BFA4DF29AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift */,
 				2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */,
 				2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */,
 				27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */,
@@ -791,6 +794,7 @@
 				27BFA4D329AA346300D5FAEE /* ChecklistEntryProvider.swift in Sources */,
 				2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				27C50B582997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27BFA4E029AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift in Sources */,
 				27C50B5D2997CB6A00EF9DB5 /* Trip.swift in Sources */,
 				2771BA6429816F9A0093FCCB /* PowerWidgetLiveActivity.swift in Sources */,
 				2736E294299BC1510044F681 /* TripMode.swift in Sources */,
