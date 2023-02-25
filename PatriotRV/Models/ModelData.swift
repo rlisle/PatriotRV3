@@ -132,9 +132,9 @@ extension ModelData {
         let doneCount = checklist.category(nextItem.category).done().count
         let totalCount = checklist.category(nextItem.category).count
         print("Updating widget nextItem: \(nextItem.name) \(doneCount) of \(totalCount)")
-        UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem)
-        UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount)
-        UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount)
+        UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem.rawValue)
+        UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount.rawValue)
+        UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount.rawValue)
         WidgetCenter.shared.reloadTimelines(ofKind: Constants.kind)
         
         //TODO: still needed, or use the above instead?
@@ -182,16 +182,4 @@ extension ModelData {
 //    }
 
         
-}
-
-//TODO: move to shared file
-extension UserDefaults {
-    static let group = UserDefaults(suiteName: "group.net.lisles.rvchecklist")!
-    struct Keys {
-        static let nextTrip = "NextTrip"
-        static let tripMode = "TripMode"
-        static let doneCount = "DoneCount"
-        static let totalCount = "TotalCount"
-        static let nextItem = "NextItem"
-    }
 }

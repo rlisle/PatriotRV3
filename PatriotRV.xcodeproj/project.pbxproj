@@ -57,6 +57,21 @@
 		277CA737298A98170000A570 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA736298A98170000A570 /* TripListView.swift */; };
 		27BC94AE298D474500642680 /* TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AD298D474500642680 /* TripTests.swift */; };
 		27BC94B0298E8A4B00642680 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */; };
+		27BFA4B629A96B7000D5FAEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5C29816F9A0093FCCB /* WidgetKit.framework */; };
+		27BFA4B729A96B7000D5FAEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5E29816F9A0093FCCB /* SwiftUI.framework */; };
+		27BFA4BA29A96B7000D5FAEE /* PatriotRvWatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4B929A96B7000D5FAEE /* PatriotRvWatchWidget.swift */; };
+		27BFA4BD29A96B7100D5FAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27BFA4BC29A96B7100D5FAEE /* Assets.xcassets */; };
+		27BFA4BF29A96B7100D5FAEE /* PatriotRvWatchWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4BB29A96B7000D5FAEE /* PatriotRvWatchWidget.intentdefinition */; };
+		27BFA4C029A96B7100D5FAEE /* PatriotRvWatchWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4BB29A96B7000D5FAEE /* PatriotRvWatchWidget.intentdefinition */; };
+		27BFA4C329A96B7100D5FAEE /* PatriotRvWatchWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		27BFA4C929AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CA29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CB29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CC29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CE29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
+		27BFA4CF29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
+		27BFA4D029AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
+		27BFA4D129AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
 		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B512997BD8900EF9DB5 /* MockMQTT.swift */; };
@@ -98,6 +113,13 @@
 			remoteGlobalIDString = 2771BA5929816F9A0093FCCB;
 			remoteInfo = PatriotRvWidgetExtension;
 		};
+		27BFA4C129A96B7100D5FAEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27F2A5A2297C141A00EFD417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27BFA4B429A96B7000D5FAEE;
+			remoteInfo = PatriotRvWatchWidgetExtension;
+		};
 		27F2A5BB297C141B00EFD417 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 27F2A5A2297C141A00EFD417 /* Project object */;
@@ -133,6 +155,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				2771BA6F29816F9C0093FCCB /* PatriotRvWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BFA4C429A96B7100D5FAEE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				27BFA4C329A96B7100D5FAEE /* PatriotRvWatchWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +219,13 @@
 		277CA736298A98170000A570 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
 		27BC94AD298D474500642680 /* TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTests.swift; sourceTree = "<group>"; };
 		27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
+		27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatriotRvWatchWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		27BFA4B929A96B7000D5FAEE /* PatriotRvWatchWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWatchWidget.swift; sourceTree = "<group>"; };
+		27BFA4BB29A96B7000D5FAEE /* PatriotRvWatchWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PatriotRvWatchWidget.intentdefinition; sourceTree = "<group>"; };
+		27BFA4BC29A96B7100D5FAEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27BFA4BE29A96B7100D5FAEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEntry.swift; sourceTree = "<group>"; };
 		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
 		27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWidgetExtension.entitlements; sourceTree = "<group>"; };
 		27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRV.entitlements; sourceTree = "<group>"; };
@@ -224,6 +264,15 @@
 			files = (
 				2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */,
 				2771BA5D29816F9A0093FCCB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BFA4B229A96B7000D5FAEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BFA4B729A96B7000D5FAEE /* SwiftUI.framework in Frameworks */,
+				27BFA4B629A96B7000D5FAEE /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +381,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		27BFA4B829A96B7000D5FAEE /* PatriotRvWatchWidget */ = {
+			isa = PBXGroup;
+			children = (
+				27BFA4B929A96B7000D5FAEE /* PatriotRvWatchWidget.swift */,
+				27BFA4BB29A96B7000D5FAEE /* PatriotRvWatchWidget.intentdefinition */,
+				27BFA4BC29A96B7100D5FAEE /* Assets.xcassets */,
+				27BFA4BE29A96B7100D5FAEE /* Info.plist */,
+			);
+			path = PatriotRvWatchWidget;
+			sourceTree = "<group>";
+		};
 		27C50B542997C62700EF9DB5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +409,8 @@
 				277CA731298A8CE30000A570 /* Trip.swift */,
 				27C1912B29894390005556F4 /* TripMode.swift */,
 				27696BC829A643670053466A /* Constants.swift */,
+				27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */,
+				27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -363,6 +425,7 @@
 				27C50B5E29984F8D00EF9DB5 /* Shared */,
 				272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */,
 				2771BA6029816F9A0093FCCB /* PatriotRvWidget */,
+				27BFA4B829A96B7000D5FAEE /* PatriotRvWatchWidget */,
 				2771BA5B29816F9A0093FCCB /* Frameworks */,
 				27F2A5AB297C141A00EFD417 /* Products */,
 			);
@@ -376,6 +439,7 @@
 				27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */,
 				272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */,
 				2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */,
+				27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -480,10 +544,12 @@
 				272FC2CE297C774D005C6D43 /* Sources */,
 				272FC2CF297C774D005C6D43 /* Frameworks */,
 				272FC2D0297C774D005C6D43 /* Resources */,
+				27BFA4C429A96B7100D5FAEE /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				27BFA4C229A96B7100D5FAEE /* PBXTargetDependency */,
 			);
 			name = PatriotRVWatchApp;
 			productName = "PatriotRVWatch Watch App";
@@ -505,6 +571,23 @@
 			name = PatriotRvWidgetExtension;
 			productName = PatriotRvWidgetExtension;
 			productReference = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		27BFA4B429A96B7000D5FAEE /* PatriotRvWatchWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27BFA4C729A96B7100D5FAEE /* Build configuration list for PBXNativeTarget "PatriotRvWatchWidgetExtension" */;
+			buildPhases = (
+				27BFA4B129A96B7000D5FAEE /* Sources */,
+				27BFA4B229A96B7000D5FAEE /* Frameworks */,
+				27BFA4B329A96B7000D5FAEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatriotRvWatchWidgetExtension;
+			productName = PatriotRvWatchWidgetExtension;
+			productReference = 27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		27F2A5A9297C141A00EFD417 /* PatriotRV */ = {
@@ -583,6 +666,9 @@
 					2771BA5929816F9A0093FCCB = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					27BFA4B429A96B7000D5FAEE = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					27F2A5A9297C141A00EFD417 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -617,6 +703,7 @@
 				27F2A5C3297C141B00EFD417 /* PatriotRVUITests */,
 				272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */,
 				2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */,
+				27BFA4B429A96B7000D5FAEE /* PatriotRvWatchWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -636,6 +723,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2771BA6929816F9C0093FCCB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BFA4B329A96B7000D5FAEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BFA4BD29A96B7100D5FAEE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,12 +767,15 @@
 				27C50B5C2997CB6900EF9DB5 /* Trip.swift in Sources */,
 				27C1912D29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* WatchHome.swift in Sources */,
+				27BFA4CF29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
 				27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */,
 				27696BCA29A643670053466A /* Constants.swift in Sources */,
 				27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */,
 				27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */,
 				27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */,
+				27BFA4C029A96B7100D5FAEE /* PatriotRvWatchWidget.intentdefinition in Sources */,
+				27BFA4CA29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,6 +784,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27BFA4CB29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
 				27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
 				2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				27C50B582997C67500EF9DB5 /* Publishing.swift in Sources */,
@@ -695,6 +794,18 @@
 				2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */,
 				2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */,
 				27696BCB29A643670053466A /* Constants.swift in Sources */,
+				27BFA4D029AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BFA4B129A96B7000D5FAEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BFA4BF29A96B7100D5FAEE /* PatriotRvWatchWidget.intentdefinition in Sources */,
+				27BFA4CC29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
+				27BFA4BA29A96B7000D5FAEE /* PatriotRvWatchWidget.swift in Sources */,
+				27BFA4D129AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +823,7 @@
 				276004BB298D373000D26ACF /* Trips.swift in Sources */,
 				274DBC4F299FAAD2007866BD /* LogRowView.swift in Sources */,
 				27C50B562997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27BFA4C929AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
 				276270BC297C1BD800844645 /* ModelData.swift in Sources */,
 				276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */,
 				276270C8297C20DD00844645 /* ImageHeader.swift in Sources */,
@@ -720,6 +832,7 @@
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
+				27BFA4CE29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
 				274DBC4B299F9F98007866BD /* HomeChecklistRowView.swift in Sources */,
 				277CA735298A956E0000A570 /* DateExtension.swift in Sources */,
 				27696BC929A643670053466A /* Constants.swift in Sources */,
@@ -777,6 +890,11 @@
 			target = 2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */;
 			targetProxy = 2771BA6D29816F9C0093FCCB /* PBXContainerItemProxy */;
 		};
+		27BFA4C229A96B7100D5FAEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27BFA4B429A96B7000D5FAEE /* PatriotRvWatchWidgetExtension */;
+			targetProxy = 27BFA4C129A96B7100D5FAEE /* PBXContainerItemProxy */;
+		};
 		27F2A5BC297C141B00EFD417 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27F2A5A9297C141A00EFD417 /* PatriotRV */;
@@ -793,6 +911,7 @@
 		272FC2E1297C774E005C6D43 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
@@ -824,6 +943,7 @@
 		272FC2E2297C774E005C6D43 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
@@ -905,6 +1025,66 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		27BFA4C529A96B7100D5FAEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWatchWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWatchWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.watchkitapp.PatriotRvWatchWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		27BFA4C629A96B7100D5FAEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWatchWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWatchWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.watchkitapp.PatriotRvWatchWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Release;
 		};
@@ -1185,6 +1365,15 @@
 			buildConfigurations = (
 				2771BA7129816F9C0093FCCB /* Debug */,
 				2771BA7229816F9C0093FCCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27BFA4C729A96B7100D5FAEE /* Build configuration list for PBXNativeTarget "PatriotRvWatchWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27BFA4C529A96B7100D5FAEE /* Debug */,
+				27BFA4C629A96B7100D5FAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

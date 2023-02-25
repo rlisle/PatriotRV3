@@ -9,18 +9,6 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-//TODO: move to shared file
-extension UserDefaults {
-    static let group = UserDefaults(suiteName: "group.net.lisles.rvchecklist")!
-    enum Keys: String {
-        case nextTrip = "NextTrip"
-        case tripMode = "TripMode"
-        case doneCount = "DoneCount"
-        case totalCount = "TotalCount"
-        case nextItem = "NextItem"
-    }
-}
-
 struct Provider: TimelineProvider {
     
     typealias Entry = ChecklistEntry
@@ -74,15 +62,6 @@ struct Provider: TimelineProvider {
         let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
-}
-
-struct ChecklistEntry: TimelineEntry {
-    let date = Date()
-    let nextTrip: String
-    let tripMode: String
-    let doneCount: Int
-    let totalCount: Int
-    let nextItem: String
 }
 
 // This is the Widget View
