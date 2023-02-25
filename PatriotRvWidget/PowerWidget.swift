@@ -1,8 +1,8 @@
 //
-//  PatriotRvWidget.swift
-//  PatriotRvWidget
+//  PowerWidget.swift
+//  PatriotRV
 //
-//  Created by Ron Lisle on 1/25/23.
+//  Created by Ron Lisle on 2/25/23.
 //
 
 import WidgetKit
@@ -10,7 +10,7 @@ import SwiftUI
 import Intents
 
 
-struct ChecklistWidgetEntryView : View {
+struct PowerWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var entry: Provider.Entry
@@ -19,16 +19,7 @@ struct ChecklistWidgetEntryView : View {
         
         switch family {
         case .accessoryCircular:
-            Gauge(value: 3, in: 0...13) {
-                Text("Not displayed")
-            } currentValueLabel: {
-                Text(entry.tripMode).font(.title)
-            } minimumValueLabel: {
-                Text(String(entry.doneCount)).font(.caption)
-            } maximumValueLabel: {
-                Text(String(entry.totalCount)).font(.caption)
-            }
-            .gaugeStyle(.accessoryCircular)
+            CircularPowerView(tripMode: entry.tripMode, doneCount: entry.doneCount, totalCount: entry.totalCount)
 
         case .accessoryInline:
             Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
@@ -82,7 +73,7 @@ struct ChecklistWidgetEntryView : View {
     }
 }
 
-struct ChecklistWidget: Widget {
+struct PowerWidget: Widget {
     let kind: String = Constants.kind
     
     #if os(watchOS)
@@ -102,7 +93,7 @@ struct ChecklistWidget: Widget {
     }
 }
 
-struct ChecklistWidget_Previews: PreviewProvider {
+struct PowerWidget_Previews: PreviewProvider {
     
     #if os(watchOS)
     static let families: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner]

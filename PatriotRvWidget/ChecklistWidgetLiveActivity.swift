@@ -93,28 +93,6 @@ struct LockScreenChecklistLiveActivityView: View {
     }
 }
 
-struct WidgetCircularChecklistView: View {
-
-    var tripMode: String
-    var doneCount: Int
-    var totalCount: Int
-
-    var body: some View {
-        VStack {
-            Gauge(value: 3, in: 0...13) {
-                Text("Not displayed")
-            } currentValueLabel: {
-                Text(tripMode).font(.title)
-            } minimumValueLabel: {
-                Text(String(doneCount)).font(.caption)
-            } maximumValueLabel: {
-                Text(String(totalCount)).font(.caption)
-            }
-            .gaugeStyle(.accessoryCircular)
-        }
-    }
-}
-
 struct ChecklistWidgetLiveActivity_Previews: PreviewProvider {
     static let attributes = PatriotRvWidgetAttributes(name: "Me")
     static let contentState = PatriotRvWidgetAttributes.ContentState(
