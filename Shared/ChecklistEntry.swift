@@ -7,6 +7,7 @@
 
 import Foundation
 import WidgetKit
+import Intents
 
 struct ChecklistEntry: TimelineEntry {
     let date = Date()

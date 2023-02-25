@@ -9,60 +9,6 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-struct Provider: TimelineProvider {
-    
-    typealias Entry = ChecklistEntry
-    
-    func placeholder(in context: Context) -> ChecklistEntry {
-        return populatedChecklistEntry()
-    }
-
-    func loadString(_ key: UserDefaults.Keys) -> String {
-        return UserDefaults.group.string(forKey: key.rawValue) ?? "Not found"
-    }
-    
-    func loadInt(_ key: UserDefaults.Keys) -> Int {
-        return UserDefaults.group.integer(forKey: key.rawValue)
-    }
-
-    func populatedChecklistEntry() -> ChecklistEntry {
-        //TODO: persist this instead of reloading every time
-        var nextTrip = "Loading..."
-        var tripMode: String = TripMode.parked.rawValue
-        var doneCount = 0
-        var totalCount = 0
-        var nextItem = "Loading..."
-
-        nextTrip = loadString(.nextTrip)
-        tripMode = loadString(.tripMode)
-        doneCount = loadInt(.doneCount)
-        totalCount = loadInt(.totalCount)
-        nextItem = loadString(.nextItem)
-
-        return ChecklistEntry(
-           nextTrip: nextTrip,
-           tripMode: tripMode,
-           doneCount: doneCount,
-           totalCount: totalCount,
-           nextItem: nextItem)
-    }
-    
-    func getSnapshot(in context: Context, completion: @escaping (ChecklistEntry) -> ()) {
-        
-        print("Widget: getSnapshot")
-        
-        // Use sample data if context.isPreview == true
-        completion(populatedChecklistEntry())
-    }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let entries = [
-            populatedChecklistEntry()
-        ]
-        let timeline = Timeline(entries: entries, policy: .never)
-        completion(timeline)
-    }
-}
 
 // This is the Widget View
 struct ChecklistWidgetEntryView : View {
@@ -88,6 +34,7 @@ struct ChecklistWidgetEntryView : View {
         case .accessoryInline:
             Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
             
+        #if !os(watchOS)
         case .systemLarge:
                 VStack(alignment: .leading) {
                     HStack {
@@ -108,6 +55,7 @@ struct ChecklistWidgetEntryView : View {
                 }
                 .background(Image("truck-rv"))
                 .padding(8)
+            #endif
 
         default:
             ZStack {
@@ -139,6 +87,16 @@ struct ChecklistWidget: Widget {
     let kind: String = Constants.kind
 
     var body: some WidgetConfiguration {
+        #if os(watchOS)
+        StaticConfiguration(kind: kind,
+                            provider: Provider()) { entry in
+            ChecklistWidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("RV Checklist")
+        .description("RV Trip Checklist")
+        .supportedFamilies([.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner])
+        // What about .accessoryCorner?
+        #else
         StaticConfiguration(kind: kind,
                             provider: Provider()) { entry in
             ChecklistWidgetEntryView(entry: entry)
@@ -146,7 +104,7 @@ struct ChecklistWidget: Widget {
         .configurationDisplayName("RV Checklist")
         .description("RV Trip Checklist")
         .supportedFamilies([.accessoryRectangular, .accessoryInline, .accessoryCircular, .systemLarge, .systemMedium, .systemSmall])
-        // What about .accessoryCorner?
+        #endif
     }
 }
 
@@ -186,6 +144,7 @@ struct ChecklistWidget_Previews: PreviewProvider {
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
             .previewDisplayName("Rectangular")
             
+            #if !os(watchOS)
             ChecklistWidgetEntryView(
                 entry: ChecklistEntry(
                     nextTrip: "Canada",
@@ -225,6 +184,7 @@ struct ChecklistWidget_Previews: PreviewProvider {
                     nextItem: "Plan Trip"))
             .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
             .previewDisplayName("ExtraLarge")
+            #endif
         }
     }
 }
