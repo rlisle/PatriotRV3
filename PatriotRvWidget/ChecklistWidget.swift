@@ -33,7 +33,7 @@ struct ChecklistWidgetEntryView : View {
         case .accessoryInline:
             Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
             
-        #if !os(watchOS)
+#if !os(watchOS)
         case .systemLarge:
                 VStack(alignment: .leading) {
                     HStack {
@@ -54,7 +54,13 @@ struct ChecklistWidgetEntryView : View {
                 }
                 .background(Image("truck-rv"))
                 .padding(8)
-            #endif
+            
+        case .accessoryCorner:
+            ZStack {
+                Image(systemName: "checkmark.square")
+//                widgetLabel("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
+            }
+#endif
 
         default:
             ZStack {
