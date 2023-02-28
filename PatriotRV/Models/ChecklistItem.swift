@@ -16,7 +16,6 @@ struct ChecklistItem {
     let description: String // Markdown?
     var isDone: Bool = false {
         didSet {
-            print("ChecklistItem.didSet")
             delegate?.publish(id: id, isDone: isDone)
             date = Date()
         }

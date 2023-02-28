@@ -75,7 +75,7 @@ class ModelData: ObservableObject {
             .receive(on: DispatchQueue.main)
             //.print("Combine: checklist changed\n")
             .sink(receiveValue: { newChecklist in
-                  print("Number done = \(newChecklist.todo().count)")
+                  print("TODO: update widgets and watch")
             })
 //        Connectivity.shared.$lastDoneId
 //            .dropFirst()
@@ -94,9 +94,12 @@ class ModelData: ObservableObject {
 
 extension ModelData: Publishing {
     func publish(id: Int, isDone: Bool) {
-        mqtt.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
-//        checklistPhase = currentPhase(date: Date())
-        updateWidgetNextItem()
+        //TODO: this should be the checklist.key
+        if let checklistItem = item(id: id) {
+            mqtt.publish(topic: "patriot/\(checklistItem.key)/set", message: isDone ? "100" : "0")
+            // checklistPhase = currentPhase(date: Date())
+            updateWidgetNextItem()
+        }
     }
 }
 
@@ -122,6 +125,10 @@ extension ModelData {
             }
         }
         updateWidgetNextItem()
+    }
+
+    func item(id: Int) -> ChecklistItem? {
+        return checklist.first(where: { $0.id == id })
     }
     
     func updateWidgetNextItem() {
