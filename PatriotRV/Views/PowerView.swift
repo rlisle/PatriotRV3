@@ -34,13 +34,14 @@ struct PowerGaugeView: View {
     
     var title: String
     var value: Float
+    var font: Font = .title
 
     var body: some View {
         VStack {
-            Gauge(value: model.rv, in: 0...50) {
+            Gauge(value: value, in: 0...50) {
                 Text(title).font(.caption)
             } currentValueLabel: {
-                Text("\(value, specifier: "%.1f")").font(.title)
+                Text("\(value, specifier: "%.1f")").font(font)
             } minimumValueLabel: {
                 Text("0").font(.caption)
             } maximumValueLabel: {

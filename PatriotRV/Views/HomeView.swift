@@ -48,7 +48,7 @@ struct HomeView: View {
                         NavigationLink {
                             PowerView()
                         } label: {
-                            PowerRowView()
+                            PowerRowView(font: .body)
                         }
                     }
                     Section("Log") {

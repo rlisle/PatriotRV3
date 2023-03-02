@@ -11,9 +11,11 @@ struct PowerRowView: View {
     
     @EnvironmentObject var model: ModelData
     
+    var font: Font = .title
+    
     var body: some View {
         VStack {
-            PowerGaugeView(title: "Power Usage", value: model.rv)
+            PowerGaugeView(title: "Power Usage", value: model.rv, font: font)
         }
     }
 }
