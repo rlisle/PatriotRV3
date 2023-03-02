@@ -16,9 +16,9 @@ struct PowerView: View {
             Text("Power Usage")
             HStack {
                 VStack {
-                    RvPowerView()
+                    PowerGaugeView(title: "RV", value: model.rv)
                         .padding(.vertical, 8)
-                    TeslaPowerView()
+                    PowerGaugeView(title: "Tesla", value: model.tesla)
                 }
             }
             .padding(.horizontal, 32)
@@ -28,16 +28,19 @@ struct PowerView: View {
     }
 }
 
-struct RvPowerView: View {
+struct PowerGaugeView: View {
 
     @EnvironmentObject var model: ModelData
+    
+    var title: String
+    var value: Float
 
     var body: some View {
         VStack {
             Gauge(value: model.rv, in: 0...50) {
-                Text("RV").font(.caption)
+                Text(title).font(.caption)
             } currentValueLabel: {
-                Text("\(model.rv, specifier: "%.1f")").font(.title)
+                Text("\(value, specifier: "%.1f")").font(.title)
             } minimumValueLabel: {
                 Text("0").font(.caption)
             } maximumValueLabel: {
@@ -45,27 +48,6 @@ struct RvPowerView: View {
             }
             .gaugeStyle(.accessoryLinearCapacity)
             .tint(model.rvTint)
-        }
-    }
-}
-
-struct TeslaPowerView: View {
-
-    @EnvironmentObject var model: ModelData
-
-    var body: some View {
-        VStack {
-            Gauge(value: model.tesla, in: 0...50) {
-                Text("Tesla").font(.caption)
-            } currentValueLabel: {
-                Text("\(model.tesla, specifier: "%.1f")").font(.title)
-            } minimumValueLabel: {
-                Text("0").font(.caption)
-            } maximumValueLabel: {
-                Text("50").font(.caption)
-            }
-            .gaugeStyle(.accessoryLinearCapacity)
-            .tint(model.teslaTint)
         }
     }
 }

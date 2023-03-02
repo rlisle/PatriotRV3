@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PowerRowView: View {
+    
+    @EnvironmentObject var model: ModelData
+    
     var body: some View {
         VStack {
-            Text("Power")
-            RvPowerView()
-            TeslaPowerView()
+            PowerGaugeView(title: "Power Usage", value: model.rv)
         }
     }
 }
