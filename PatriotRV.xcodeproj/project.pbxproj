@@ -250,6 +250,7 @@
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
 		27D1C3832987E64D00D34DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		27E27E2B29B612070022C972 /* PatriotRvWatchWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWatchWidgetExtension.entitlements; sourceTree = "<group>"; };
 		27F2A5AA297C141A00EFD417 /* PatriotRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVApp.swift; sourceTree = "<group>"; };
 		27F2A5B1297C141B00EFD417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -422,6 +423,7 @@
 		27F2A5A1297C141A00EFD417 = {
 			isa = PBXGroup;
 			children = (
+				27E27E2B29B612070022C972 /* PatriotRvWatchWidgetExtension.entitlements */,
 				27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */,
 				27F2A5AC297C141A00EFD417 /* PatriotRV */,
 				27F2A5BD297C141B00EFD417 /* PatriotRVTests */,
@@ -1047,6 +1049,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWatchWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
@@ -1077,6 +1080,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWatchWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;

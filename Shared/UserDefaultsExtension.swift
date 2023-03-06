@@ -8,7 +8,7 @@
 import Foundation
 
 extension UserDefaults {
-    static let group = UserDefaults(suiteName: "group.net.lisles.rvchecklist")!
+    static let group = UserDefaults(suiteName: "group.net.lisles.patriotrv")!
     enum Keys: String {
         case nextTrip = "NextTrip"
         case tripMode = "TripMode"
