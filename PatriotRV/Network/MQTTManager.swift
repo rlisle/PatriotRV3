@@ -24,21 +24,22 @@ protocol MQTTManagerProtocol {
     var messageHandler: ((String, String) -> Void)? { get set }
 }
 
-class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
-
+class MQTTManager: MQTTManagerProtocol {
+    
     let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
     let port: UInt16 = 1883
     let subscribeTopic = "#"
     var clientID: String = ""
 
-    var session: MQTTSession?
+    var mqtt: CocoaMQTT!            // For some reason CocoaMQTT5 not found
+    
     var messageHandler: ((String, String) -> Void)?
     
     var isSubscribed = false
     
     var isConnected: Bool {
         get {
-            return session != nil
+            return mqtt != nil
         }
     }
     
@@ -48,35 +49,15 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     
     private func connect() {
         clientID = getClientID()
-        session = MQTTSession(host: host, port: port, clientID: clientID, cleanSession: true, keepAlive: 15, useSSL: false)
-        session!.delegate = self
-        session!.connect { [self] (error) in
-            if error == .none {
-                print("MQTT connected on clientID: \(String(describing: clientID))")
-                self.subscribe()
-            } else {
-                print("MQTT error occurred during connection:")
-                print(error.description)
-                session = nil
-            }
-        }
+        mqtt = CocoaMQTT(clientID: clientID, host: host, port: port)
+        mqtt.delegate = self
+        mqtt.connect()
     }
 
     private func subscribe() {
-        print("Subscribing...")
-        session?.subscribe(to: subscribeTopic, delivering: .exactlyOnce) { (error) in
-            print("Subscribe completed, error: \(error)")
-            if error == .none {
-                self.isSubscribed = true
-//                self.requestUpdates()
-            } else {
-                print("MQTT subscription error:")
-                print(error.description)
-            }
-        }
-        //debug
-        self.requestUpdates()
-
+        mqtt.subscribe(subscribeTopic)
+        isSubscribed = true
+        requestUpdates()
     }
 
     private func requestUpdates() {
@@ -85,39 +66,10 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     }
 
     func publish(topic: String, message: String) {
-        session?.publish(message.data(using: .utf8)!, in: topic, delivering: .atMostOnce, retain: false) { error in
-            if error != .none {
-                print("Error sending MQTT: \(error.description)")
-            }
-        }
-    }
-    
-    func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
-//        print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
-        if let handler = messageHandler {
-            handler(message.topic, message.stringRepresentation ?? "")
-        }
+        mqtt.publish(topic, withString: message)
     }
 
-    func mqttDidDisconnect(session: MQTTSession, error: MQTTSessionError) {
-        print("MQTT session disconnected.")
-        if error != .none {
-            print(error.description)
-        }
-        self.session = nil
-        //TODO: try to reconnect
-        //print("MQTT Reconnecting")
-        //connect()     //TODO: implement retry counter
-    }
-
-    func mqttDidAcknowledgePing(from session: MQTTSession) {
-//        print("MQTT deep-alive ping acknowledged.")
-    }
-
-    // MQTT non-delegate methods
-    
     private func getClientID() -> String {
-
         let userDefaults = UserDefaults.standard
         let clientIDPersistenceKey = "clientID"
         let clientID: String
@@ -129,7 +81,6 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
             userDefaults.set(clientID, forKey: clientIDPersistenceKey)
             userDefaults.synchronize()
         }
-        
         return clientID
     }
     
@@ -137,5 +88,49 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     private func randomString(length: Int) -> String {
       let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
       return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+}
+
+extension MQTTManager: CocoaMQTTDelegate {
+
+    func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {
+        print("didDisconnect")
+    }
+    
+    
+    func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
+        print("didConnectAck")
+        subscribe()
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {
+        print("didPublishMessage")
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {
+        print("didPublishAck")
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16 ) {
+        print("didReceiveMessage")
+        if let handler = messageHandler {
+            handler(message.topic, message.string ?? "")
+        }
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topics: [String]) {
+        print("didSubscribeTopic")
+    }
+    
+    func mqttDidPing(_ mqtt: CocoaMQTT) {
+        print("ping)")
+    }
+    
+    func mqttDidReceivePong(_ mqtt: CocoaMQTT) {
+        print("pong")
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {
+        print("didUnsubscribe")
     }
 }
