@@ -245,6 +245,7 @@
 		27BFA4E229AA9AB600D5FAEE /* PowerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerWidget.swift; sourceTree = "<group>"; };
 		27BFA4E529AA9BBA00D5FAEE /* CircularPowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularPowerView.swift; sourceTree = "<group>"; };
 		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
+		27C498F729B8C17100E9B74B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWidgetExtension.entitlements; sourceTree = "<group>"; };
 		27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRV.entitlements; sourceTree = "<group>"; };
 		27C50B502997B52300EF9DB5 /* PatriotRVWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRVWatchApp.entitlements; sourceTree = "<group>"; };
@@ -457,6 +458,7 @@
 		27F2A5A1297C141A00EFD417 = {
 			isa = PBXGroup;
 			children = (
+				27C498F729B8C17100E9B74B /* Podfile */,
 				27E27E2B29B612070022C972 /* PatriotRvWatchWidgetExtension.entitlements */,
 				27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */,
 				27F2A5AC297C141A00EFD417 /* PatriotRV */,
@@ -590,7 +592,6 @@
 				8E9A9953893B147F9AC149AB /* Pods-PatriotRvWidgetExtension.debug.xcconfig */,
 				C1254F874AEFA40BEEE72332 /* Pods-PatriotRvWidgetExtension.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1459,7 +1460,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D45F495A63193EEF3A64DA6 /* Pods-PatriotRV.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
@@ -1495,7 +1496,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4545AC3EE467484FF1551E14 /* Pods-PatriotRV.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
@@ -1531,7 +1532,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E960C493F1BAD1AC7316553 /* Pods-PatriotRVTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1552,7 +1553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 952EEAC144395E28460214F0 /* Pods-PatriotRVTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1573,7 +1574,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8542DBD5AB56526437A9389A /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
@@ -1592,7 +1593,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;

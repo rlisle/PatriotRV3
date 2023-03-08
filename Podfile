@@ -1,12 +1,11 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
 
 target 'PatriotRV' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  platform :ios, '16.2'
   use_frameworks!
 
   # Pods for PatriotRV
-  pod 'SwiftMQTT'
+  pod 'CocoaMQTT'
 
   target 'PatriotRVTests' do
     inherit! :search_paths
@@ -20,7 +19,7 @@ target 'PatriotRV' do
 end
 
 target 'PatriotRVWatchApp' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  platform :watchos, '9.1'
   use_frameworks!
 
   # Pods for PatriotRVWatchApp
@@ -28,7 +27,7 @@ target 'PatriotRVWatchApp' do
 end
 
 target 'PatriotRvWatchWidgetExtension' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  platform :watchos, '9.1'
   use_frameworks!
 
   # Pods for PatriotRvWatchWidgetExtension
@@ -36,7 +35,7 @@ target 'PatriotRvWatchWidgetExtension' do
 end
 
 target 'PatriotRvWidgetExtension' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  platform :ios, '16.2'
   use_frameworks!
 
   # Pods for PatriotRvWidgetExtension

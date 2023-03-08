@@ -1,16 +1,20 @@
 PODS:
-  - SwiftMQTT (3.0.1)
+  - CocoaAsyncSocket (7.6.5)
+  - CocoaMQTT (1.2.5):
+    - CocoaAsyncSocket (~> 7.6.3)
 
 DEPENDENCIES:
-  - SwiftMQTT
+  - CocoaMQTT
 
 SPEC REPOS:
   trunk:
-    - SwiftMQTT
+    - CocoaAsyncSocket
+    - CocoaMQTT
 
 SPEC CHECKSUMS:
-  SwiftMQTT: 983eeb29e8c8173ed953e0238d2f99b79ff3ccd2
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  CocoaMQTT: a61490ed3b328011c5d75169a77781983e2bb221
 
-PODFILE CHECKSUM: dd48d129cd868847dee854305eddd58e5b5671f3
+PODFILE CHECKSUM: c4bf2596b3d6c6e7684164d4c6a95165e82a8c0d
 
 COCOAPODS: 1.12.0

@@ -2,13 +2,16 @@
 //  MQTTManager.swift
 //  RvChecklist
 //
+//  Currently using CocoaMQTT because it supports MQTT 5
+//  Was using SwiftMQTT but it doesn't support MQTT5
+//  Was using Swift Package install, but it broke previews
+//  so reverted back to CocoaPods installation
+//
 //  Created by Ron Lisle on 10/23/21.
 //
 
-#if !os(watchOS)
-import SwiftMQTT
-#endif
 import Foundation
+import CocoaMQTT
 
 public enum MQTTError: Error {
     case connectionError
