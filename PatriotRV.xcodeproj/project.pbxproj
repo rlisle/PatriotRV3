@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */; };
 		272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */; };
 		272FC2D7297C774D005C6D43 /* WatchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D6297C774D005C6D43 /* WatchHome.swift */; };
 		272FC2D9297C774E005C6D43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 272FC2D8297C774E005C6D43 /* Assets.xcassets */; };
@@ -106,6 +107,11 @@
 		27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */; };
 		27F2A5C9297C141B00EFD417 /* PatriotRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */; };
 		27F2A5CB297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */; };
+		4FB8A2FF9332797BD86C58E1 /* Pods_PatriotRvWatchWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51FD4D45A2D9E175BDC9DC9 /* Pods_PatriotRvWatchWidgetExtension.framework */; };
+		737B0F761EF74D11D3E175F4 /* Pods_PatriotRV_PatriotRVUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BD6DF61F751C72806DEEBB /* Pods_PatriotRV_PatriotRVUITests.framework */; };
+		B2277C40178E5AE388A90ABD /* Pods_PatriotRVWatchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ADF432B7106583AFB07A07 /* Pods_PatriotRVWatchApp.framework */; };
+		BDFB50CEB7C02AC9EDCFFD55 /* Pods_PatriotRvWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CA73AD5DFF0CA379C30A92 /* Pods_PatriotRvWidgetExtension.framework */; };
+		F6A4265977845B8763AB6770 /* Pods_PatriotRVTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F97529E35DC1B0F9B355F4 /* Pods_PatriotRVTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +189,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; path = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; sourceTree = "<group>"; };
+		175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRVWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVWatchApp.swift; sourceTree = "<group>"; };
 		272FC2D6297C774D005C6D43 /* WatchHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHome.swift; sourceTree = "<group>"; };
@@ -259,6 +267,22 @@
 		27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatriotRVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITests.swift; sourceTree = "<group>"; };
 		27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3348D7438F7FF4B335150B34 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWatchWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		33ADF432B7106583AFB07A07 /* Pods_PatriotRVWatchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRVWatchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4545AC3EE467484FF1551E14 /* Pods-PatriotRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV.release.xcconfig"; path = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV.release.xcconfig"; sourceTree = "<group>"; };
+		4D74259EC148EFD73DD84C9C /* Pods-PatriotRVWatchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVWatchApp.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7E960C493F1BAD1AC7316553 /* Pods-PatriotRVTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVTests.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8542DBD5AB56526437A9389A /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV-PatriotRVUITests.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		89BD6DF61F751C72806DEEBB /* Pods_PatriotRV_PatriotRVUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV_PatriotRVUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D45F495A63193EEF3A64DA6 /* Pods-PatriotRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV.debug.xcconfig"; sourceTree = "<group>"; };
+		8E9A9953893B147F9AC149AB /* Pods-PatriotRvWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		952EEAC144395E28460214F0 /* Pods-PatriotRVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVTests.release.xcconfig"; path = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests.release.xcconfig"; sourceTree = "<group>"; };
+		B6F97529E35DC1B0F9B355F4 /* Pods_PatriotRVTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRVTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1254F874AEFA40BEEE72332 /* Pods-PatriotRvWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		DD8DD4FE6DCDB73A739EAFAF /* Pods-PatriotRVWatchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVWatchApp.release.xcconfig"; path = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp.release.xcconfig"; sourceTree = "<group>"; };
+		E2CA73AD5DFF0CA379C30A92 /* Pods_PatriotRvWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRvWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C8E87900FA7C75058416CF /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWatchWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		F51FD4D45A2D9E175BDC9DC9 /* Pods_PatriotRvWatchWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRvWatchWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2277C40178E5AE388A90ABD /* Pods_PatriotRVWatchApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +300,7 @@
 			files = (
 				2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */,
 				2771BA5D29816F9A0093FCCB /* WidgetKit.framework in Frameworks */,
+				BDFB50CEB7C02AC9EDCFFD55 /* Pods_PatriotRvWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +310,7 @@
 			files = (
 				27BFA4B729A96B7000D5FAEE /* SwiftUI.framework in Frameworks */,
 				27BFA4B629A96B7000D5FAEE /* WidgetKit.framework in Frameworks */,
+				4FB8A2FF9332797BD86C58E1 /* Pods_PatriotRvWatchWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +318,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6A4265977845B8763AB6770 /* Pods_PatriotRVTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +334,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737B0F761EF74D11D3E175F4 /* Pods_PatriotRV_PatriotRVUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +396,12 @@
 			children = (
 				2771BA5C29816F9A0093FCCB /* WidgetKit.framework */,
 				2771BA5E29816F9A0093FCCB /* SwiftUI.framework */,
+				175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */,
+				89BD6DF61F751C72806DEEBB /* Pods_PatriotRV_PatriotRVUITests.framework */,
+				B6F97529E35DC1B0F9B355F4 /* Pods_PatriotRVTests.framework */,
+				33ADF432B7106583AFB07A07 /* Pods_PatriotRVWatchApp.framework */,
+				F51FD4D45A2D9E175BDC9DC9 /* Pods_PatriotRvWatchWidgetExtension.framework */,
+				E2CA73AD5DFF0CA379C30A92 /* Pods_PatriotRvWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -431,6 +467,7 @@
 				2771BA6029816F9A0093FCCB /* PatriotRvWidget */,
 				2771BA5B29816F9A0093FCCB /* Frameworks */,
 				27F2A5AB297C141A00EFD417 /* Products */,
+				3B813B812670CA6AA186CF72 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -537,6 +574,26 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		3B813B812670CA6AA186CF72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D45F495A63193EEF3A64DA6 /* Pods-PatriotRV.debug.xcconfig */,
+				4545AC3EE467484FF1551E14 /* Pods-PatriotRV.release.xcconfig */,
+				8542DBD5AB56526437A9389A /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */,
+				131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */,
+				7E960C493F1BAD1AC7316553 /* Pods-PatriotRVTests.debug.xcconfig */,
+				952EEAC144395E28460214F0 /* Pods-PatriotRVTests.release.xcconfig */,
+				4D74259EC148EFD73DD84C9C /* Pods-PatriotRVWatchApp.debug.xcconfig */,
+				DD8DD4FE6DCDB73A739EAFAF /* Pods-PatriotRVWatchApp.release.xcconfig */,
+				3348D7438F7FF4B335150B34 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */,
+				E6C8E87900FA7C75058416CF /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */,
+				8E9A9953893B147F9AC149AB /* Pods-PatriotRvWidgetExtension.debug.xcconfig */,
+				C1254F874AEFA40BEEE72332 /* Pods-PatriotRvWidgetExtension.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -544,6 +601,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 272FC2E3297C774E005C6D43 /* Build configuration list for PBXNativeTarget "PatriotRVWatchApp" */;
 			buildPhases = (
+				F7DC4889E9A3592FE0A20C03 /* [CP] Check Pods Manifest.lock */,
 				272FC2CE297C774D005C6D43 /* Sources */,
 				272FC2CF297C774D005C6D43 /* Frameworks */,
 				272FC2D0297C774D005C6D43 /* Resources */,
@@ -563,6 +621,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2771BA7329816F9C0093FCCB /* Build configuration list for PBXNativeTarget "PatriotRvWidgetExtension" */;
 			buildPhases = (
+				8C6825DE76D395E147C70748 /* [CP] Check Pods Manifest.lock */,
 				2771BA5629816F9A0093FCCB /* Sources */,
 				2771BA5729816F9A0093FCCB /* Frameworks */,
 				2771BA5829816F9A0093FCCB /* Resources */,
@@ -580,6 +639,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27BFA4C729A96B7100D5FAEE /* Build configuration list for PBXNativeTarget "PatriotRvWatchWidgetExtension" */;
 			buildPhases = (
+				B0BEC56C4BD7D90BCFC352A9 /* [CP] Check Pods Manifest.lock */,
 				27BFA4B129A96B7000D5FAEE /* Sources */,
 				27BFA4B229A96B7000D5FAEE /* Frameworks */,
 				27BFA4B329A96B7000D5FAEE /* Resources */,
@@ -597,11 +657,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5CE297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRV" */;
 			buildPhases = (
+				1ACF418FF1F61A4E0005735F /* [CP] Check Pods Manifest.lock */,
 				27F2A5A6297C141A00EFD417 /* Sources */,
 				27F2A5A7297C141A00EFD417 /* Frameworks */,
 				27F2A5A8297C141A00EFD417 /* Resources */,
 				272FC2E0297C774E005C6D43 /* Embed Watch Content */,
 				2771BA7029816F9C0093FCCB /* Embed Foundation Extensions */,
+				D20D43D6D380B517591E2155 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -610,8 +672,6 @@
 				2771BA6E29816F9C0093FCCB /* PBXTargetDependency */,
 			);
 			name = PatriotRV;
-			packageProductDependencies = (
-			);
 			productName = PatriotRV;
 			productReference = 27F2A5AA297C141A00EFD417 /* PatriotRV.app */;
 			productType = "com.apple.product-type.application";
@@ -620,6 +680,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5D1297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRVTests" */;
 			buildPhases = (
+				4592ED214F938B7989532956 /* [CP] Check Pods Manifest.lock */,
 				27F2A5B6297C141B00EFD417 /* Sources */,
 				27F2A5B7297C141B00EFD417 /* Frameworks */,
 				27F2A5B8297C141B00EFD417 /* Resources */,
@@ -638,9 +699,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5D4297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRVUITests" */;
 			buildPhases = (
+				142C57E56ECE49BA62DBDD4F /* [CP] Check Pods Manifest.lock */,
 				27F2A5C0297C141B00EFD417 /* Sources */,
 				27F2A5C1297C141B00EFD417 /* Frameworks */,
 				27F2A5C2297C141B00EFD417 /* Resources */,
+				0598064AE6CCCE3962E4BB64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -760,6 +823,175 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0598064AE6CCCE3962E4BB64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		142C57E56ECE49BA62DBDD4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRV-PatriotRVUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1ACF418FF1F61A4E0005735F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4592ED214F938B7989532956 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRVTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C6825DE76D395E147C70748 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRvWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0BEC56C4BD7D90BCFC352A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRvWatchWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D20D43D6D380B517591E2155 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV/Pods-PatriotRV-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV/Pods-PatriotRV-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PatriotRV/Pods-PatriotRV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7DC4889E9A3592FE0A20C03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRVWatchApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		272FC2CE297C774D005C6D43 /* Sources */ = {
@@ -923,6 +1155,7 @@
 /* Begin XCBuildConfiguration section */
 		272FC2E1297C774E005C6D43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D74259EC148EFD73DD84C9C /* Pods-PatriotRVWatchApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -955,6 +1188,7 @@
 		};
 		272FC2E2297C774E005C6D43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD8DD4FE6DCDB73A739EAFAF /* Pods-PatriotRVWatchApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -987,6 +1221,7 @@
 		};
 		2771BA7129816F9C0093FCCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E9A9953893B147F9AC149AB /* Pods-PatriotRvWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1015,6 +1250,7 @@
 		};
 		2771BA7229816F9C0093FCCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1254F874AEFA40BEEE72332 /* Pods-PatriotRvWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1043,6 +1279,7 @@
 		};
 		27BFA4C529A96B7100D5FAEE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3348D7438F7FF4B335150B34 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1074,6 +1311,7 @@
 		};
 		27BFA4C629A96B7100D5FAEE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6C8E87900FA7C75058416CF /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1219,6 +1457,7 @@
 		};
 		27F2A5CF297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D45F495A63193EEF3A64DA6 /* Pods-PatriotRV.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1254,6 +1493,7 @@
 		};
 		27F2A5D0297C141B00EFD417 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4545AC3EE467484FF1551E14 /* Pods-PatriotRV.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1289,6 +1529,7 @@
 		};
 		27F2A5D2297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E960C493F1BAD1AC7316553 /* Pods-PatriotRVTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1309,6 +1550,7 @@
 		};
 		27F2A5D3297C141B00EFD417 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 952EEAC144395E28460214F0 /* Pods-PatriotRVTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1329,6 +1571,7 @@
 		};
 		27F2A5D5297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8542DBD5AB56526437A9389A /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1347,6 +1590,7 @@
 		};
 		27F2A5D6297C141B00EFD417 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

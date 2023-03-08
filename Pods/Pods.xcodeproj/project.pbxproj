@@ -1,0 +1,1544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		143F8676B5E1631CCF008DBC9E0B66D3 /* Pods-PatriotRV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8A48954A5204F4DEE1C59E1A2A41B7 /* Pods-PatriotRV-dummy.m */; };
+		1D3CD74AB2A3B14C2FAF5165EC8CDB0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE35B7430FD7C91E8CC808A3540CF2E /* Foundation.framework */; };
+		2450C0A21C1B6AFAFEF3E429D55813FF /* MQTTDisconnectPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF508BB0B764BC7B2E53E138D4DF5DB /* MQTTDisconnectPacket.swift */; };
+		2A01953238F33F268D14027EA989CE30 /* MQTTPublishPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE28D3635687E001AA2D7CB6FB948B /* MQTTPublishPacket.swift */; };
+		2A14FE25D597A6B378CFBC9FBF7E91C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */; };
+		3BD563690E366B5B244D8B06BCE4B941 /* MQTTUnSubAckPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCD0BE4008C1EE42516E87816BE650D /* MQTTUnSubAckPacket.swift */; };
+		3D90A1216F1D03FDB3C6EA8E1363549A /* SwiftMQTT-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AC5C28EB557E3B4DDE9B350AD38FA5 /* SwiftMQTT-dummy.m */; };
+		400151BFFE42316C9EA771D9AD79630B /* MQTTStreamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DB4A37EAC962BB62D1E2F147AD4D46 /* MQTTStreamable.swift */; };
+		416446D75358DD4027D2D608CB62CF67 /* MQTTSessionStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A59DE094F601AEA20F7F034BE33BCC /* MQTTSessionStream.swift */; };
+		4201123A3234678B35B8DF2721A16BC7 /* MQTTPacketFixedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B495EC90958A683CF34C88274571447 /* MQTTPacketFixedHeader.swift */; };
+		4708961551BCA41E234CA732A5BE3499 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */; };
+		499216040EE3BFE824FF9DA125800286 /* Pods-PatriotRV-PatriotRVUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A063CB088487DFF6113DFA9F7744C71 /* Pods-PatriotRV-PatriotRVUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EDA635979DFA03FA60165AED1A9E9A4 /* MQTTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946FC5C5B4FC5A02902267DE1AD6889C /* MQTTMessage.swift */; };
+		63C01C75E6B8C27E799A45E80AAB2A51 /* Pods-PatriotRV-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 83687B7491DAF6A9328CA2691FE43DCD /* Pods-PatriotRV-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64113BDFE5D8B87C6D49F9C07C9D56CA /* Pods-PatriotRvWatchWidgetExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D7323751F288575CD69430DF7339F /* Pods-PatriotRvWatchWidgetExtension-dummy.m */; };
+		6488E8732CB65C6C4D96DA96427005B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */; };
+		67E3CAC5BB54BD944B6AE76AA08469DD /* Pods-PatriotRVWatchApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A15BD850D6E189AD02C872DE2FD61107 /* Pods-PatriotRVWatchApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E451F30C2949C858394CB7DB5448C6A /* MQTTPubMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96859367BEC6BD53928D85E49B1DE7BB /* MQTTPubMsg.swift */; };
+		6F23F3C2F8EBED2D860885D55B6059DE /* SwiftMQTT-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C68D54EE369B3AAD34347279AF77C9 /* SwiftMQTT-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		712A7061A4160E30D3D7A5198F6B4F66 /* Pods-PatriotRvWatchWidgetExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8B5F9DC9EFA37F7B0D53EF503427E8 /* Pods-PatriotRvWatchWidgetExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75B373D3EC6E33B87FDF2608E72DE5C3 /* MQTTPingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B802081A8522B1AA0C78C032B7FED0 /* MQTTPingPacket.swift */; };
+		79B991554D4D30AD28EB959EE18F5D46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE35B7430FD7C91E8CC808A3540CF2E /* Foundation.framework */; };
+		79C65D86D9BFD30CC568E2AFE0922B6F /* Pods-PatriotRvWidgetExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C7519088BF155BA815634C0468A6A /* Pods-PatriotRvWidgetExtension-dummy.m */; };
+		7C20E53333CDB013CA2CBDD55273EDDC /* MQTTUnsubPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E0AC95F0BAB05850A65BC33A23B7E2 /* MQTTUnsubPacket.swift */; };
+		7E72DD38A8389C0B2DF5EB6BBC5C6C3B /* MQTTExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13A702189C880D60D7E9128292D6CC /* MQTTExtensions.swift */; };
+		8395F0B1A8E0A7A9C6463F21C5889231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */; };
+		8AE54B78C3D187C1912CB21389CCBE5B /* MQTTSubPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7955E470E7653691BF106CCF20111 /* MQTTSubPacket.swift */; };
+		A31D4E3A68BAFEFD6F79ECBDA67C2DAC /* MQTTSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD32CB539302DF962CD02E59A74E9E /* MQTTSession.swift */; };
+		A57774E58776DDB38ADA4FC884CEA5CA /* Pods-PatriotRV-PatriotRVUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FE623334E0B75F58D25F69D6E297F1 /* Pods-PatriotRV-PatriotRVUITests-dummy.m */; };
+		A594E5B508165B54F37015B7A73B2191 /* MQTTSubAckPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391934D32A76204F9FE037A7378425CC /* MQTTSubAckPacket.swift */; };
+		BEBCD8A44924D37A18CEA1575289A563 /* MQTTConnectPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C187BD6EFAC637E8F2B44543FB764 /* MQTTConnectPacket.swift */; };
+		BECA2602EF560318AA4F2A17501896C7 /* Pods-PatriotRvWidgetExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E312F17FE4B404A1E287977435FC0663 /* Pods-PatriotRvWidgetExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C096ACFC90EBF0599945CD3739770303 /* Pods-PatriotRVWatchApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 329691ACBCB1D67A987AD9EE8E9E09BB /* Pods-PatriotRVWatchApp-dummy.m */; };
+		C1922F8ABA8E74E124489378AD07269B /* Pods-PatriotRVTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6FBD952BE32341D8D4363F58F0950 /* Pods-PatriotRVTests-dummy.m */; };
+		C6BA11DD406702E955E0E6BFD0198EE4 /* MQTTPacketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0C87F167C68F17D3B937075BFBD06 /* MQTTPacketFactory.swift */; };
+		CA356AF43BC1E82CB67457C9CB498AE1 /* MQTTConnAckPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55DAFD287B10553018AAD5F35D8E12 /* MQTTConnAckPacket.swift */; };
+		CF473A21B8AA2CEE9FB32EF88C1EC421 /* MQTTPingResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF84FE1B63C52ACD1BA8AFA4BB31C420 /* MQTTPingResp.swift */; };
+		D8F8A11D9FA83E2FC0C7732E5619DCA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */; };
+		D9FBED307A5016347ADF5CD759171730 /* Pods-PatriotRVTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92D30A8DB5F953D117D8D12FB02C2F13 /* Pods-PatriotRVTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9A9B344797E89887F8B7980DFFF84D1 /* MQTTPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906F8DA82980F5865D6B4426718A8E3E /* MQTTPacket.swift */; };
+		FF20B8ED79F0130DBFA46CD79D8E6686 /* MQTTPubAck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43CBBD8C61F06961DCC1AB4E06B077 /* MQTTPubAck.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		62186EB4737F141A731AC5141EE7E3EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7B93C1CDFEE5595AD51E6E355B71A1B;
+			remoteInfo = SwiftMQTT;
+		};
+		B9D5455B6368B6DFA887F6F0A0ACCC05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B322C156DD7B921CF1564DADFFE1A9F3;
+			remoteInfo = "Pods-PatriotRV";
+		};
+		EFB7FCF90F1913A7BE0B19D050F81930 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7B93C1CDFEE5595AD51E6E355B71A1B;
+			remoteInfo = SwiftMQTT;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00EE71BC75E4DA53595924CAFB2F4509 /* Pods-PatriotRvWatchWidgetExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRvWatchWidgetExtension-Info.plist"; sourceTree = "<group>"; };
+		01BF8B3767DAEBD065A5A90DB87235E0 /* Pods-PatriotRvWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRvWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		04F2CFC64DDA6363313B8032E11334C9 /* Pods-PatriotRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRV.release.xcconfig"; sourceTree = "<group>"; };
+		05B764C54BAB1456A329B684AD0D08CE /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0A063CB088487DFF6113DFA9F7744C71 /* Pods-PatriotRV-PatriotRVUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PatriotRV-PatriotRVUITests-umbrella.h"; sourceTree = "<group>"; };
+		0FB9D2F792A967F75180368F1EDBC387 /* Pods-PatriotRvWatchWidgetExtension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatriotRvWatchWidgetExtension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1129E1AF73F4E160F26B125E1D44F6A9 /* Pods-PatriotRV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatriotRV.modulemap"; sourceTree = "<group>"; };
+		18D4A57DC459F85C38FAD458955C11F8 /* Pods-PatriotRvWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRvWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		1A55DAFD287B10553018AAD5F35D8E12 /* MQTTConnAckPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTConnAckPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTConnAckPacket.swift; sourceTree = "<group>"; };
+		1FF508BB0B764BC7B2E53E138D4DF5DB /* MQTTDisconnectPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTDisconnectPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTDisconnectPacket.swift; sourceTree = "<group>"; };
+		20C55E6A652A700616F32A05C4EFABAE /* Pods-PatriotRVWatchApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatriotRVWatchApp.modulemap"; sourceTree = "<group>"; };
+		23A59DE094F601AEA20F7F034BE33BCC /* MQTTSessionStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTSessionStream.swift; path = SwiftMQTT/SwiftMQTT/MQTTSessionStream.swift; sourceTree = "<group>"; };
+		24092F45D0B4236F6FA497ACDC7F95FF /* Pods-PatriotRvWatchWidgetExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatriotRvWatchWidgetExtension.modulemap"; sourceTree = "<group>"; };
+		24DD32CB539302DF962CD02E59A74E9E /* MQTTSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTSession.swift; path = SwiftMQTT/SwiftMQTT/MQTTSession.swift; sourceTree = "<group>"; };
+		2532F7CDF0CA459DCD667909E0F0676A /* Pods-PatriotRvWidgetExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatriotRvWidgetExtension.modulemap"; sourceTree = "<group>"; };
+		2985DAA9E00894F310F78535313ED564 /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRvWatchWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		2AAEB5C6942505D37DF695CE8B4C3A62 /* Pods-PatriotRvWatchWidgetExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PatriotRvWatchWidgetExtension"; path = Pods_PatriotRvWatchWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D34B40C1F11EF3F23357AD3768B0AF2 /* Pods-PatriotRV-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatriotRV-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2EE6FBD952BE32341D8D4363F58F0950 /* Pods-PatriotRVTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PatriotRVTests-dummy.m"; sourceTree = "<group>"; };
+		3126C498008CC2AA135C6EE42CBFEC90 /* Pods-PatriotRVWatchApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PatriotRVWatchApp"; path = Pods_PatriotRVWatchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		329691ACBCB1D67A987AD9EE8E9E09BB /* Pods-PatriotRVWatchApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PatriotRVWatchApp-dummy.m"; sourceTree = "<group>"; };
+		33CBD36948095E432541B7AB2C16A9D1 /* Pods-PatriotRVTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatriotRVTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		352116EF371BABF590286185F38C837F /* Pods-PatriotRV */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PatriotRV"; path = Pods_PatriotRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38E0AC95F0BAB05850A65BC33A23B7E2 /* MQTTUnsubPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTUnsubPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTUnsubPacket.swift; sourceTree = "<group>"; };
+		391934D32A76204F9FE037A7378425CC /* MQTTSubAckPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTSubAckPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTSubAckPacket.swift; sourceTree = "<group>"; };
+		39C68D54EE369B3AAD34347279AF77C9 /* SwiftMQTT-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftMQTT-umbrella.h"; sourceTree = "<group>"; };
+		3A44F51710C954F18E60CE969C29592B /* Pods-PatriotRvWatchWidgetExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRvWatchWidgetExtension-acknowledgements.plist"; sourceTree = "<group>"; };
+		3B43CBBD8C61F06961DCC1AB4E06B077 /* MQTTPubAck.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPubAck.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPubAck.swift; sourceTree = "<group>"; };
+		3BCD0BE4008C1EE42516E87816BE650D /* MQTTUnSubAckPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTUnSubAckPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTUnSubAckPacket.swift; sourceTree = "<group>"; };
+		3C6AF8941EBE01DFD786F38907561CF1 /* SwiftMQTT.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftMQTT.modulemap; sourceTree = "<group>"; };
+		3EF8803F6453BF40EE1E36D0D1ABF74A /* Pods-PatriotRvWidgetExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRvWidgetExtension-Info.plist"; sourceTree = "<group>"; };
+		4077A6940E8A78AB92629A281A4683F8 /* Pods-PatriotRVTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PatriotRVTests"; path = Pods_PatriotRVTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46E3DF4CF7992B5307848CD46CA3C6BC /* SwiftMQTT */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftMQTT; path = SwiftMQTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C13A702189C880D60D7E9128292D6CC /* MQTTExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTExtensions.swift; path = SwiftMQTT/SwiftMQTT/MQTTExtensions.swift; sourceTree = "<group>"; };
+		5A6C7519088BF155BA815634C0468A6A /* Pods-PatriotRvWidgetExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PatriotRvWidgetExtension-dummy.m"; sourceTree = "<group>"; };
+		5BD308E317D9D92C89134E36E0661F30 /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRV-PatriotRVUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		650F7B93F51C8C86F40718CD0AACB4A0 /* Pods-PatriotRV-PatriotRVUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PatriotRV-PatriotRVUITests-frameworks.sh"; sourceTree = "<group>"; };
+		65694519130900C1F81F87EA27CDA78E /* Pods-PatriotRVWatchApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRVWatchApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		6B495EC90958A683CF34C88274571447 /* MQTTPacketFixedHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPacketFixedHeader.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPacketFixedHeader.swift; sourceTree = "<group>"; };
+		6DE71BD02E9B32B6A83C8DA01BB18D19 /* Pods-PatriotRV-PatriotRVUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatriotRV-PatriotRVUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		71FE28D3635687E001AA2D7CB6FB948B /* MQTTPublishPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPublishPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPublishPacket.swift; sourceTree = "<group>"; };
+		7853D916A93B1E8E690E70CC76AFCB99 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRvWatchWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		7A5D7323751F288575CD69430DF7339F /* Pods-PatriotRvWatchWidgetExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PatriotRvWatchWidgetExtension-dummy.m"; sourceTree = "<group>"; };
+		83687B7491DAF6A9328CA2691FE43DCD /* Pods-PatriotRV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PatriotRV-umbrella.h"; sourceTree = "<group>"; };
+		8438E445A1ABA3E95D434CEBB5B1A4CB /* Pods-PatriotRVTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRVTests-Info.plist"; sourceTree = "<group>"; };
+		855F808ACEBFEA397D9509F5A0DAA5DE /* Pods-PatriotRVTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRVTests.debug.xcconfig"; sourceTree = "<group>"; };
+		85AC5C28EB557E3B4DDE9B350AD38FA5 /* SwiftMQTT-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftMQTT-dummy.m"; sourceTree = "<group>"; };
+		8A62A07F356AD173A69188DFE805F40B /* Pods-PatriotRV-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRV-acknowledgements.plist"; sourceTree = "<group>"; };
+		8B44AF682801AFE2B0DA34074EAD878D /* Pods-PatriotRVWatchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRVWatchApp.release.xcconfig"; sourceTree = "<group>"; };
+		906F8DA82980F5865D6B4426718A8E3E /* MQTTPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPacket.swift; sourceTree = "<group>"; };
+		92D30A8DB5F953D117D8D12FB02C2F13 /* Pods-PatriotRVTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PatriotRVTests-umbrella.h"; sourceTree = "<group>"; };
+		946FC5C5B4FC5A02902267DE1AD6889C /* MQTTMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTMessage.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTMessage.swift; sourceTree = "<group>"; };
+		96859367BEC6BD53928D85E49B1DE7BB /* MQTTPubMsg.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPubMsg.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPubMsg.swift; sourceTree = "<group>"; };
+		9C59E78D3DECCA044FE5765940633540 /* Pods-PatriotRV-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRV-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A15BD850D6E189AD02C872DE2FD61107 /* Pods-PatriotRVWatchApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PatriotRVWatchApp-umbrella.h"; sourceTree = "<group>"; };
+		A3626C35EB7CFE09E99EE8546FB9E385 /* SwiftMQTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftMQTT.release.xcconfig; sourceTree = "<group>"; };
+		A8C0C87F167C68F17D3B937075BFBD06 /* MQTTPacketFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPacketFactory.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPacketFactory.swift; sourceTree = "<group>"; };
+		AB49E18C18409C5F5DF9B940F52B7E3E /* Pods-PatriotRvWidgetExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PatriotRvWidgetExtension"; path = Pods_PatriotRvWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B495568688F3BF218CAE6830AA2008E1 /* SwiftMQTT-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftMQTT-prefix.pch"; sourceTree = "<group>"; };
+		B4CD233B855E74A57797F2E2C5A72FA8 /* Pods-PatriotRV-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PatriotRV-frameworks.sh"; sourceTree = "<group>"; };
+		B779F9B7C55C22FB4EF73A8E913BF6AE /* Pods-PatriotRV-PatriotRVUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatriotRV-PatriotRVUITests.modulemap"; sourceTree = "<group>"; };
+		B7B802081A8522B1AA0C78C032B7FED0 /* MQTTPingPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPingPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPingPacket.swift; sourceTree = "<group>"; };
+		B83D22343E3CC41ADA6988843A5FEB98 /* Pods-PatriotRVWatchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRVWatchApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C1F2EC20CD3F571620CE869BE28D9140 /* Pods-PatriotRVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRVTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3EF729CE10B6199780ABDC94F29CE56 /* Pods-PatriotRVWatchApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRVWatchApp-Info.plist"; sourceTree = "<group>"; };
+		C4281FDC008D5F059B9449AF590769CE /* Pods-PatriotRvWidgetExtension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatriotRvWidgetExtension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CA7253D1B9EEAACEFD30E136EDD73DA6 /* Pods-PatriotRV-PatriotRVUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRV-PatriotRVUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CB739A9696D9C001D5D28C8625FF4C79 /* Pods-PatriotRVTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatriotRVTests.modulemap"; sourceTree = "<group>"; };
+		CF0E95E1615B6AFAEFD4783E48020F08 /* SwiftMQTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftMQTT.debug.xcconfig; sourceTree = "<group>"; };
+		CF8C187BD6EFAC637E8F2B44543FB764 /* MQTTConnectPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTConnectPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTConnectPacket.swift; sourceTree = "<group>"; };
+		D14E9B858C3A995E73CC8CE9B4C73B9D /* Pods-PatriotRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatriotRV.debug.xcconfig"; sourceTree = "<group>"; };
+		D1C3FF8B00950CEFCD440ACCF18C95D4 /* Pods-PatriotRVTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRVTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D1E7955E470E7653691BF106CCF20111 /* MQTTSubPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTSubPacket.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTSubPacket.swift; sourceTree = "<group>"; };
+		DE8A48954A5204F4DEE1C59E1A2A41B7 /* Pods-PatriotRV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PatriotRV-dummy.m"; sourceTree = "<group>"; };
+		E1DB4A37EAC962BB62D1E2F147AD4D46 /* MQTTStreamable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTStreamable.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTStreamable.swift; sourceTree = "<group>"; };
+		E2ABE00A092D1051A75A8B26C2D903DF /* Pods-PatriotRV-PatriotRVUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PatriotRV-PatriotRVUITests"; path = Pods_PatriotRV_PatriotRVUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E312F17FE4B404A1E287977435FC0663 /* Pods-PatriotRvWidgetExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PatriotRvWidgetExtension-umbrella.h"; sourceTree = "<group>"; };
+		E3955029D6024EF5020A5A423D69EE20 /* Pods-PatriotRV-PatriotRVUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRV-PatriotRVUITests-Info.plist"; sourceTree = "<group>"; };
+		EC8B5F9DC9EFA37F7B0D53EF503427E8 /* Pods-PatriotRvWatchWidgetExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PatriotRvWatchWidgetExtension-umbrella.h"; sourceTree = "<group>"; };
+		EE10562AFFB35F589A28BD0595E2DBEE /* Pods-PatriotRvWidgetExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatriotRvWidgetExtension-acknowledgements.plist"; sourceTree = "<group>"; };
+		EF84FE1B63C52ACD1BA8AFA4BB31C420 /* MQTTPingResp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MQTTPingResp.swift; path = SwiftMQTT/SwiftMQTT/Models/MQTTPingResp.swift; sourceTree = "<group>"; };
+		F0FE623334E0B75F58D25F69D6E297F1 /* Pods-PatriotRV-PatriotRVUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PatriotRV-PatriotRVUITests-dummy.m"; sourceTree = "<group>"; };
+		FA493DA160C34C33C806DDFA8F4FE91B /* Pods-PatriotRVWatchApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatriotRVWatchApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FC8522367FF97683B17E502717D5401A /* SwiftMQTT-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftMQTT-Info.plist"; sourceTree = "<group>"; };
+		FCE35B7430FD7C91E8CC808A3540CF2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A224CF3C16A93D23D3FB28682706167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79B991554D4D30AD28EB959EE18F5D46 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A7B0CCFD56D2204C7F5A8F21804AC84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F8A11D9FA83E2FC0C7732E5619DCA0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A28A5556D433A8AE2272EB0DF1A2C099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8395F0B1A8E0A7A9C6463F21C5889231 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6192EF89779D6D97BE53DA01D7458C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6488E8732CB65C6C4D96DA96427005B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3317DE40D6CFB8B2271D42CD9E9716 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A14FE25D597A6B378CFBC9FBF7E91C9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6E4732A70D39C5397D4BB2A8DA1BAFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4708961551BCA41E234CA732A5BE3499 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F744BBF9FFD7097D724E11F64079A23D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D3CD74AB2A3B14C2FAF5165EC8CDB0F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03FBABE5ACCBF0D21AB61D364299D310 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		139C85BFE1F1DB6799D27917AE9C7595 /* Pods-PatriotRV */ = {
+			isa = PBXGroup;
+			children = (
+				1129E1AF73F4E160F26B125E1D44F6A9 /* Pods-PatriotRV.modulemap */,
+				2D34B40C1F11EF3F23357AD3768B0AF2 /* Pods-PatriotRV-acknowledgements.markdown */,
+				8A62A07F356AD173A69188DFE805F40B /* Pods-PatriotRV-acknowledgements.plist */,
+				DE8A48954A5204F4DEE1C59E1A2A41B7 /* Pods-PatriotRV-dummy.m */,
+				B4CD233B855E74A57797F2E2C5A72FA8 /* Pods-PatriotRV-frameworks.sh */,
+				9C59E78D3DECCA044FE5765940633540 /* Pods-PatriotRV-Info.plist */,
+				83687B7491DAF6A9328CA2691FE43DCD /* Pods-PatriotRV-umbrella.h */,
+				D14E9B858C3A995E73CC8CE9B4C73B9D /* Pods-PatriotRV.debug.xcconfig */,
+				04F2CFC64DDA6363313B8032E11334C9 /* Pods-PatriotRV.release.xcconfig */,
+			);
+			name = "Pods-PatriotRV";
+			path = "Target Support Files/Pods-PatriotRV";
+			sourceTree = "<group>";
+		};
+		54CCD06893F300F5B2C02DAFD57093E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03FBABE5ACCBF0D21AB61D364299D310 /* iOS */,
+				8B063FB5829CC11F1F48DAAF9305FCB4 /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60D5383254A74FA23AB98B05DD71CBD3 /* SwiftMQTT */ = {
+			isa = PBXGroup;
+			children = (
+				1A55DAFD287B10553018AAD5F35D8E12 /* MQTTConnAckPacket.swift */,
+				CF8C187BD6EFAC637E8F2B44543FB764 /* MQTTConnectPacket.swift */,
+				1FF508BB0B764BC7B2E53E138D4DF5DB /* MQTTDisconnectPacket.swift */,
+				4C13A702189C880D60D7E9128292D6CC /* MQTTExtensions.swift */,
+				946FC5C5B4FC5A02902267DE1AD6889C /* MQTTMessage.swift */,
+				906F8DA82980F5865D6B4426718A8E3E /* MQTTPacket.swift */,
+				A8C0C87F167C68F17D3B937075BFBD06 /* MQTTPacketFactory.swift */,
+				6B495EC90958A683CF34C88274571447 /* MQTTPacketFixedHeader.swift */,
+				B7B802081A8522B1AA0C78C032B7FED0 /* MQTTPingPacket.swift */,
+				EF84FE1B63C52ACD1BA8AFA4BB31C420 /* MQTTPingResp.swift */,
+				3B43CBBD8C61F06961DCC1AB4E06B077 /* MQTTPubAck.swift */,
+				71FE28D3635687E001AA2D7CB6FB948B /* MQTTPublishPacket.swift */,
+				96859367BEC6BD53928D85E49B1DE7BB /* MQTTPubMsg.swift */,
+				24DD32CB539302DF962CD02E59A74E9E /* MQTTSession.swift */,
+				23A59DE094F601AEA20F7F034BE33BCC /* MQTTSessionStream.swift */,
+				E1DB4A37EAC962BB62D1E2F147AD4D46 /* MQTTStreamable.swift */,
+				391934D32A76204F9FE037A7378425CC /* MQTTSubAckPacket.swift */,
+				D1E7955E470E7653691BF106CCF20111 /* MQTTSubPacket.swift */,
+				3BCD0BE4008C1EE42516E87816BE650D /* MQTTUnSubAckPacket.swift */,
+				38E0AC95F0BAB05850A65BC33A23B7E2 /* MQTTUnsubPacket.swift */,
+				C26CA0F2B7ABED1C5501196CDE4109E7 /* Support Files */,
+			);
+			name = SwiftMQTT;
+			path = SwiftMQTT;
+			sourceTree = "<group>";
+		};
+		7A0FD7E8F12F5C02BEBBF9529ADE5602 /* Pods-PatriotRV-PatriotRVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B779F9B7C55C22FB4EF73A8E913BF6AE /* Pods-PatriotRV-PatriotRVUITests.modulemap */,
+				6DE71BD02E9B32B6A83C8DA01BB18D19 /* Pods-PatriotRV-PatriotRVUITests-acknowledgements.markdown */,
+				CA7253D1B9EEAACEFD30E136EDD73DA6 /* Pods-PatriotRV-PatriotRVUITests-acknowledgements.plist */,
+				F0FE623334E0B75F58D25F69D6E297F1 /* Pods-PatriotRV-PatriotRVUITests-dummy.m */,
+				650F7B93F51C8C86F40718CD0AACB4A0 /* Pods-PatriotRV-PatriotRVUITests-frameworks.sh */,
+				E3955029D6024EF5020A5A423D69EE20 /* Pods-PatriotRV-PatriotRVUITests-Info.plist */,
+				0A063CB088487DFF6113DFA9F7744C71 /* Pods-PatriotRV-PatriotRVUITests-umbrella.h */,
+				5BD308E317D9D92C89134E36E0661F30 /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */,
+				05B764C54BAB1456A329B684AD0D08CE /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */,
+			);
+			name = "Pods-PatriotRV-PatriotRVUITests";
+			path = "Target Support Files/Pods-PatriotRV-PatriotRVUITests";
+			sourceTree = "<group>";
+		};
+		86C7F05027D9CA31D85293916AAA786C /* Pods-PatriotRvWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				2532F7CDF0CA459DCD667909E0F0676A /* Pods-PatriotRvWidgetExtension.modulemap */,
+				C4281FDC008D5F059B9449AF590769CE /* Pods-PatriotRvWidgetExtension-acknowledgements.markdown */,
+				EE10562AFFB35F589A28BD0595E2DBEE /* Pods-PatriotRvWidgetExtension-acknowledgements.plist */,
+				5A6C7519088BF155BA815634C0468A6A /* Pods-PatriotRvWidgetExtension-dummy.m */,
+				3EF8803F6453BF40EE1E36D0D1ABF74A /* Pods-PatriotRvWidgetExtension-Info.plist */,
+				E312F17FE4B404A1E287977435FC0663 /* Pods-PatriotRvWidgetExtension-umbrella.h */,
+				01BF8B3767DAEBD065A5A90DB87235E0 /* Pods-PatriotRvWidgetExtension.debug.xcconfig */,
+				18D4A57DC459F85C38FAD458955C11F8 /* Pods-PatriotRvWidgetExtension.release.xcconfig */,
+			);
+			name = "Pods-PatriotRvWidgetExtension";
+			path = "Target Support Files/Pods-PatriotRvWidgetExtension";
+			sourceTree = "<group>";
+		};
+		89C456A0374E8CD66A49B65F18179C5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				352116EF371BABF590286185F38C837F /* Pods-PatriotRV */,
+				E2ABE00A092D1051A75A8B26C2D903DF /* Pods-PatriotRV-PatriotRVUITests */,
+				4077A6940E8A78AB92629A281A4683F8 /* Pods-PatriotRVTests */,
+				3126C498008CC2AA135C6EE42CBFEC90 /* Pods-PatriotRVWatchApp */,
+				2AAEB5C6942505D37DF695CE8B4C3A62 /* Pods-PatriotRvWatchWidgetExtension */,
+				AB49E18C18409C5F5DF9B940F52B7E3E /* Pods-PatriotRvWidgetExtension */,
+				46E3DF4CF7992B5307848CD46CA3C6BC /* SwiftMQTT */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B063FB5829CC11F1F48DAAF9305FCB4 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				FCE35B7430FD7C91E8CC808A3540CF2E /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+		93407C17DDE8BEEDFC52EE710E7527CF /* Pods-PatriotRVTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB739A9696D9C001D5D28C8625FF4C79 /* Pods-PatriotRVTests.modulemap */,
+				33CBD36948095E432541B7AB2C16A9D1 /* Pods-PatriotRVTests-acknowledgements.markdown */,
+				D1C3FF8B00950CEFCD440ACCF18C95D4 /* Pods-PatriotRVTests-acknowledgements.plist */,
+				2EE6FBD952BE32341D8D4363F58F0950 /* Pods-PatriotRVTests-dummy.m */,
+				8438E445A1ABA3E95D434CEBB5B1A4CB /* Pods-PatriotRVTests-Info.plist */,
+				92D30A8DB5F953D117D8D12FB02C2F13 /* Pods-PatriotRVTests-umbrella.h */,
+				855F808ACEBFEA397D9509F5A0DAA5DE /* Pods-PatriotRVTests.debug.xcconfig */,
+				C1F2EC20CD3F571620CE869BE28D9140 /* Pods-PatriotRVTests.release.xcconfig */,
+			);
+			name = "Pods-PatriotRVTests";
+			path = "Target Support Files/Pods-PatriotRVTests";
+			sourceTree = "<group>";
+		};
+		A1A4AF9B6F4C7A61A5F8CD3E2825189E /* Pods-PatriotRvWatchWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				24092F45D0B4236F6FA497ACDC7F95FF /* Pods-PatriotRvWatchWidgetExtension.modulemap */,
+				0FB9D2F792A967F75180368F1EDBC387 /* Pods-PatriotRvWatchWidgetExtension-acknowledgements.markdown */,
+				3A44F51710C954F18E60CE969C29592B /* Pods-PatriotRvWatchWidgetExtension-acknowledgements.plist */,
+				7A5D7323751F288575CD69430DF7339F /* Pods-PatriotRvWatchWidgetExtension-dummy.m */,
+				00EE71BC75E4DA53595924CAFB2F4509 /* Pods-PatriotRvWatchWidgetExtension-Info.plist */,
+				EC8B5F9DC9EFA37F7B0D53EF503427E8 /* Pods-PatriotRvWatchWidgetExtension-umbrella.h */,
+				7853D916A93B1E8E690E70CC76AFCB99 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */,
+				2985DAA9E00894F310F78535313ED564 /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */,
+			);
+			name = "Pods-PatriotRvWatchWidgetExtension";
+			path = "Target Support Files/Pods-PatriotRvWatchWidgetExtension";
+			sourceTree = "<group>";
+		};
+		B0E8727081BC718B860C971C1BF60556 /* Pods-PatriotRVWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				20C55E6A652A700616F32A05C4EFABAE /* Pods-PatriotRVWatchApp.modulemap */,
+				FA493DA160C34C33C806DDFA8F4FE91B /* Pods-PatriotRVWatchApp-acknowledgements.markdown */,
+				65694519130900C1F81F87EA27CDA78E /* Pods-PatriotRVWatchApp-acknowledgements.plist */,
+				329691ACBCB1D67A987AD9EE8E9E09BB /* Pods-PatriotRVWatchApp-dummy.m */,
+				C3EF729CE10B6199780ABDC94F29CE56 /* Pods-PatriotRVWatchApp-Info.plist */,
+				A15BD850D6E189AD02C872DE2FD61107 /* Pods-PatriotRVWatchApp-umbrella.h */,
+				B83D22343E3CC41ADA6988843A5FEB98 /* Pods-PatriotRVWatchApp.debug.xcconfig */,
+				8B44AF682801AFE2B0DA34074EAD878D /* Pods-PatriotRVWatchApp.release.xcconfig */,
+			);
+			name = "Pods-PatriotRVWatchApp";
+			path = "Target Support Files/Pods-PatriotRVWatchApp";
+			sourceTree = "<group>";
+		};
+		B6912ABA608625E299983810DC0DE886 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				139C85BFE1F1DB6799D27917AE9C7595 /* Pods-PatriotRV */,
+				7A0FD7E8F12F5C02BEBBF9529ADE5602 /* Pods-PatriotRV-PatriotRVUITests */,
+				93407C17DDE8BEEDFC52EE710E7527CF /* Pods-PatriotRVTests */,
+				B0E8727081BC718B860C971C1BF60556 /* Pods-PatriotRVWatchApp */,
+				A1A4AF9B6F4C7A61A5F8CD3E2825189E /* Pods-PatriotRvWatchWidgetExtension */,
+				86C7F05027D9CA31D85293916AAA786C /* Pods-PatriotRvWidgetExtension */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C26CA0F2B7ABED1C5501196CDE4109E7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C6AF8941EBE01DFD786F38907561CF1 /* SwiftMQTT.modulemap */,
+				85AC5C28EB557E3B4DDE9B350AD38FA5 /* SwiftMQTT-dummy.m */,
+				FC8522367FF97683B17E502717D5401A /* SwiftMQTT-Info.plist */,
+				B495568688F3BF218CAE6830AA2008E1 /* SwiftMQTT-prefix.pch */,
+				39C68D54EE369B3AAD34347279AF77C9 /* SwiftMQTT-umbrella.h */,
+				CF0E95E1615B6AFAEFD4783E48020F08 /* SwiftMQTT.debug.xcconfig */,
+				A3626C35EB7CFE09E99EE8546FB9E385 /* SwiftMQTT.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftMQTT";
+			sourceTree = "<group>";
+		};
+		CAD101C6E098AF972AC6117444E1AF28 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60D5383254A74FA23AB98B05DD71CBD3 /* SwiftMQTT */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				54CCD06893F300F5B2C02DAFD57093E1 /* Frameworks */,
+				CAD101C6E098AF972AC6117444E1AF28 /* Pods */,
+				89C456A0374E8CD66A49B65F18179C5C /* Products */,
+				B6912ABA608625E299983810DC0DE886 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3F84828ECA9703DAB9AF0667CA27C3C0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				712A7061A4160E30D3D7A5198F6B4F66 /* Pods-PatriotRvWatchWidgetExtension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7328F08E469A68F03935B41574DD707A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				499216040EE3BFE824FF9DA125800286 /* Pods-PatriotRV-PatriotRVUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75B60A2592C09BA462F179A941DC2905 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F23F3C2F8EBED2D860885D55B6059DE /* SwiftMQTT-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8199D3A9C5F720C0E64874DC3DFADDF5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63C01C75E6B8C27E799A45E80AAB2A51 /* Pods-PatriotRV-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A9E2968DFADB7988CC9983CA61C9B0C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E3CAC5BB54BD944B6AE76AA08469DD /* Pods-PatriotRVWatchApp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBC1551F71C118EA58D8EBB3192FF7FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BECA2602EF560318AA4F2A17501896C7 /* Pods-PatriotRvWidgetExtension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6AD20085FB339D3ED3FA7ECF98A9280 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FBED307A5016347ADF5CD759171730 /* Pods-PatriotRVTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		82C4A91DAC7EAAE9CFB7F019FB1B9C42 /* Pods-PatriotRvWatchWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A78A131FEA568E33179DBED63163128D /* Build configuration list for PBXNativeTarget "Pods-PatriotRvWatchWidgetExtension" */;
+			buildPhases = (
+				3F84828ECA9703DAB9AF0667CA27C3C0 /* Headers */,
+				2D41D09594458CBAC92F49748A7E62BB /* Sources */,
+				F744BBF9FFD7097D724E11F64079A23D /* Frameworks */,
+				5529E588E2588E072CB5DBAC470E7C33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-PatriotRvWatchWidgetExtension";
+			productName = Pods_PatriotRvWatchWidgetExtension;
+			productReference = 2AAEB5C6942505D37DF695CE8B4C3A62 /* Pods-PatriotRvWatchWidgetExtension */;
+			productType = "com.apple.product-type.framework";
+		};
+		9DE1F4D507C4BC70FA533442052CB75F /* Pods-PatriotRV-PatriotRVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7A6545D274B5D0D461C9017C2C900BC /* Build configuration list for PBXNativeTarget "Pods-PatriotRV-PatriotRVUITests" */;
+			buildPhases = (
+				7328F08E469A68F03935B41574DD707A /* Headers */,
+				39767D7B842A033E960310C2179AFA37 /* Sources */,
+				CE3317DE40D6CFB8B2271D42CD9E9716 /* Frameworks */,
+				568E41D543CB5557581E4C30E5CB9A26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B43296EAFD2B92925A4049E31FFA5350 /* PBXTargetDependency */,
+			);
+			name = "Pods-PatriotRV-PatriotRVUITests";
+			productName = Pods_PatriotRV_PatriotRVUITests;
+			productReference = E2ABE00A092D1051A75A8B26C2D903DF /* Pods-PatriotRV-PatriotRVUITests */;
+			productType = "com.apple.product-type.framework";
+		};
+		A7B93C1CDFEE5595AD51E6E355B71A1B /* SwiftMQTT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 198E87D045DE2B616CD83E774C61ECC2 /* Build configuration list for PBXNativeTarget "SwiftMQTT" */;
+			buildPhases = (
+				75B60A2592C09BA462F179A941DC2905 /* Headers */,
+				DFB12D5FC5F52589D73DEEDD319CCFD9 /* Sources */,
+				BA6192EF89779D6D97BE53DA01D7458C /* Frameworks */,
+				1EA72085BF908B713DDDBDBF57AADA17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftMQTT;
+			productName = SwiftMQTT;
+			productReference = 46E3DF4CF7992B5307848CD46CA3C6BC /* SwiftMQTT */;
+			productType = "com.apple.product-type.framework";
+		};
+		A8F296ADC81088DC896ADACB67AAFA64 /* Pods-PatriotRvWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46C2A826144B132AB36E25A933360AF4 /* Build configuration list for PBXNativeTarget "Pods-PatriotRvWidgetExtension" */;
+			buildPhases = (
+				CBC1551F71C118EA58D8EBB3192FF7FD /* Headers */,
+				9A43026439BE4B9014F46C245116F20B /* Sources */,
+				A28A5556D433A8AE2272EB0DF1A2C099 /* Frameworks */,
+				AE9BEAC2D9AE6EB487066CF5D49C0845 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-PatriotRvWidgetExtension";
+			productName = Pods_PatriotRvWidgetExtension;
+			productReference = AB49E18C18409C5F5DF9B940F52B7E3E /* Pods-PatriotRvWidgetExtension */;
+			productType = "com.apple.product-type.framework";
+		};
+		B322C156DD7B921CF1564DADFFE1A9F3 /* Pods-PatriotRV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E57643BF03AA096A0ECCBCC472689B8 /* Build configuration list for PBXNativeTarget "Pods-PatriotRV" */;
+			buildPhases = (
+				8199D3A9C5F720C0E64874DC3DFADDF5 /* Headers */,
+				F6F6AAFE0ED395F2A0C00D294C060271 /* Sources */,
+				E6E4732A70D39C5397D4BB2A8DA1BAFE /* Frameworks */,
+				1C8BD5E0A91541EF57EC87B4484E53A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				268F090C226B734446F046373FCCA784 /* PBXTargetDependency */,
+			);
+			name = "Pods-PatriotRV";
+			productName = Pods_PatriotRV;
+			productReference = 352116EF371BABF590286185F38C837F /* Pods-PatriotRV */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5FC3D20A74E48B119ECD5269BB58EB5 /* Pods-PatriotRVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF6F9716F7AB1103B91CB183CEC089D2 /* Build configuration list for PBXNativeTarget "Pods-PatriotRVTests" */;
+			buildPhases = (
+				D6AD20085FB339D3ED3FA7ECF98A9280 /* Headers */,
+				D2F8FAA5D66F5B6FEAF5D0554635E96E /* Sources */,
+				8A7B0CCFD56D2204C7F5A8F21804AC84 /* Frameworks */,
+				8DEA6930798FDB91CE2191FC41EA122F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				738EB4B6B9312621EF033FCD56BD2E00 /* PBXTargetDependency */,
+			);
+			name = "Pods-PatriotRVTests";
+			productName = Pods_PatriotRVTests;
+			productReference = 4077A6940E8A78AB92629A281A4683F8 /* Pods-PatriotRVTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		ECEBCD854AC13B34CC5CE8E7A51F1D50 /* Pods-PatriotRVWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 397D9EA9117CBA4AD8DF71928ECFC246 /* Build configuration list for PBXNativeTarget "Pods-PatriotRVWatchApp" */;
+			buildPhases = (
+				8A9E2968DFADB7988CC9983CA61C9B0C /* Headers */,
+				63115666D774E85C008542A739002AB7 /* Sources */,
+				0A224CF3C16A93D23D3FB28682706167 /* Frameworks */,
+				7F3871E74F0A75275A95BC14DE014745 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-PatriotRVWatchApp";
+			productName = Pods_PatriotRVWatchApp;
+			productReference = 3126C498008CC2AA135C6EE42CBFEC90 /* Pods-PatriotRVWatchApp */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 89C456A0374E8CD66A49B65F18179C5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B322C156DD7B921CF1564DADFFE1A9F3 /* Pods-PatriotRV */,
+				9DE1F4D507C4BC70FA533442052CB75F /* Pods-PatriotRV-PatriotRVUITests */,
+				D5FC3D20A74E48B119ECD5269BB58EB5 /* Pods-PatriotRVTests */,
+				ECEBCD854AC13B34CC5CE8E7A51F1D50 /* Pods-PatriotRVWatchApp */,
+				82C4A91DAC7EAAE9CFB7F019FB1B9C42 /* Pods-PatriotRvWatchWidgetExtension */,
+				A8F296ADC81088DC896ADACB67AAFA64 /* Pods-PatriotRvWidgetExtension */,
+				A7B93C1CDFEE5595AD51E6E355B71A1B /* SwiftMQTT */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C8BD5E0A91541EF57EC87B4484E53A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EA72085BF908B713DDDBDBF57AADA17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5529E588E2588E072CB5DBAC470E7C33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		568E41D543CB5557581E4C30E5CB9A26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F3871E74F0A75275A95BC14DE014745 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DEA6930798FDB91CE2191FC41EA122F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE9BEAC2D9AE6EB487066CF5D49C0845 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D41D09594458CBAC92F49748A7E62BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64113BDFE5D8B87C6D49F9C07C9D56CA /* Pods-PatriotRvWatchWidgetExtension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39767D7B842A033E960310C2179AFA37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57774E58776DDB38ADA4FC884CEA5CA /* Pods-PatriotRV-PatriotRVUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63115666D774E85C008542A739002AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C096ACFC90EBF0599945CD3739770303 /* Pods-PatriotRVWatchApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A43026439BE4B9014F46C245116F20B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C65D86D9BFD30CC568E2AFE0922B6F /* Pods-PatriotRvWidgetExtension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2F8FAA5D66F5B6FEAF5D0554635E96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1922F8ABA8E74E124489378AD07269B /* Pods-PatriotRVTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB12D5FC5F52589D73DEEDD319CCFD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA356AF43BC1E82CB67457C9CB498AE1 /* MQTTConnAckPacket.swift in Sources */,
+				BEBCD8A44924D37A18CEA1575289A563 /* MQTTConnectPacket.swift in Sources */,
+				2450C0A21C1B6AFAFEF3E429D55813FF /* MQTTDisconnectPacket.swift in Sources */,
+				7E72DD38A8389C0B2DF5EB6BBC5C6C3B /* MQTTExtensions.swift in Sources */,
+				4EDA635979DFA03FA60165AED1A9E9A4 /* MQTTMessage.swift in Sources */,
+				F9A9B344797E89887F8B7980DFFF84D1 /* MQTTPacket.swift in Sources */,
+				C6BA11DD406702E955E0E6BFD0198EE4 /* MQTTPacketFactory.swift in Sources */,
+				4201123A3234678B35B8DF2721A16BC7 /* MQTTPacketFixedHeader.swift in Sources */,
+				75B373D3EC6E33B87FDF2608E72DE5C3 /* MQTTPingPacket.swift in Sources */,
+				CF473A21B8AA2CEE9FB32EF88C1EC421 /* MQTTPingResp.swift in Sources */,
+				FF20B8ED79F0130DBFA46CD79D8E6686 /* MQTTPubAck.swift in Sources */,
+				2A01953238F33F268D14027EA989CE30 /* MQTTPublishPacket.swift in Sources */,
+				6E451F30C2949C858394CB7DB5448C6A /* MQTTPubMsg.swift in Sources */,
+				A31D4E3A68BAFEFD6F79ECBDA67C2DAC /* MQTTSession.swift in Sources */,
+				416446D75358DD4027D2D608CB62CF67 /* MQTTSessionStream.swift in Sources */,
+				400151BFFE42316C9EA771D9AD79630B /* MQTTStreamable.swift in Sources */,
+				A594E5B508165B54F37015B7A73B2191 /* MQTTSubAckPacket.swift in Sources */,
+				8AE54B78C3D187C1912CB21389CCBE5B /* MQTTSubPacket.swift in Sources */,
+				3BD563690E366B5B244D8B06BCE4B941 /* MQTTUnSubAckPacket.swift in Sources */,
+				7C20E53333CDB013CA2CBDD55273EDDC /* MQTTUnsubPacket.swift in Sources */,
+				3D90A1216F1D03FDB3C6EA8E1363549A /* SwiftMQTT-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6F6AAFE0ED395F2A0C00D294C060271 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				143F8676B5E1631CCF008DBC9E0B66D3 /* Pods-PatriotRV-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		268F090C226B734446F046373FCCA784 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftMQTT;
+			target = A7B93C1CDFEE5595AD51E6E355B71A1B /* SwiftMQTT */;
+			targetProxy = 62186EB4737F141A731AC5141EE7E3EB /* PBXContainerItemProxy */;
+		};
+		738EB4B6B9312621EF033FCD56BD2E00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-PatriotRV";
+			target = B322C156DD7B921CF1564DADFFE1A9F3 /* Pods-PatriotRV */;
+			targetProxy = B9D5455B6368B6DFA887F6F0A0ACCC05 /* PBXContainerItemProxy */;
+		};
+		B43296EAFD2B92925A4049E31FFA5350 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftMQTT;
+			target = A7B93C1CDFEE5595AD51E6E355B71A1B /* SwiftMQTT */;
+			targetProxy = EFB7FCF90F1913A7BE0B19D050F81930 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08D8630B705A3623966769553D88FA40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3626C35EB7CFE09E99EE8546FB9E385 /* SwiftMQTT.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftMQTT/SwiftMQTT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftMQTT/SwiftMQTT-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftMQTT/SwiftMQTT.modulemap";
+				PRODUCT_MODULE_NAME = SwiftMQTT;
+				PRODUCT_NAME = SwiftMQTT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		40BFA7ADF0B0D891520379D926B3BAF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		4827E244026430A97EFCB9A1369BAC23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D14E9B858C3A995E73CC8CE9B4C73B9D /* Pods-PatriotRV.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4AEA4D88BBEAB23F3D86322B1421CE03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01BF8B3767DAEBD065A5A90DB87235E0 /* Pods-PatriotRvWidgetExtension.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4C9214DA7C957FBB27E00C4DFA7EDD62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BD308E317D9D92C89134E36E0661F30 /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		63DA05BA906B1C37E11C669099D4912D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18D4A57DC459F85C38FAD458955C11F8 /* Pods-PatriotRvWidgetExtension.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		678E66790F4F96817275FD114037C71A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2985DAA9E00894F310F78535313ED564 /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		704A995A3409191BE82159924C878A4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B44AF682801AFE2B0DA34074EAD878D /* Pods-PatriotRVWatchApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		91E507F94CECB1167AE33B9B3001FE44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF0E95E1615B6AFAEFD4783E48020F08 /* SwiftMQTT.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftMQTT/SwiftMQTT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftMQTT/SwiftMQTT-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftMQTT/SwiftMQTT.modulemap";
+				PRODUCT_MODULE_NAME = SwiftMQTT;
+				PRODUCT_NAME = SwiftMQTT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9C76BDF11C55B2C8F89E2F554394C05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04F2CFC64DDA6363313B8032E11334C9 /* Pods-PatriotRV.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B16FF54FC9BB411AD2262A7BA976B884 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B83D22343E3CC41ADA6988843A5FEB98 /* Pods-PatriotRVWatchApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		B4392DDE18A4D8C9CA4D4EF1F0E99119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05B764C54BAB1456A329B684AD0D08CE /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CF82AB0AC855B2DB2E45038D21565F08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 855F808ACEBFEA397D9509F5A0DAA5DE /* Pods-PatriotRVTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D9FEB74DD6E4DF4BB31702D080F249CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		F4B0866F217696695B5B4691EA867259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1F2EC20CD3F571620CE869BE28D9140 /* Pods-PatriotRVTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FC04B9302BC2F1A6317668922DF0C75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7853D916A93B1E8E690E70CC76AFCB99 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		198E87D045DE2B616CD83E774C61ECC2 /* Build configuration list for PBXNativeTarget "SwiftMQTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91E507F94CECB1167AE33B9B3001FE44 /* Debug */,
+				08D8630B705A3623966769553D88FA40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		397D9EA9117CBA4AD8DF71928ECFC246 /* Build configuration list for PBXNativeTarget "Pods-PatriotRVWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B16FF54FC9BB411AD2262A7BA976B884 /* Debug */,
+				704A995A3409191BE82159924C878A4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46C2A826144B132AB36E25A933360AF4 /* Build configuration list for PBXNativeTarget "Pods-PatriotRvWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEA4D88BBEAB23F3D86322B1421CE03 /* Debug */,
+				63DA05BA906B1C37E11C669099D4912D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40BFA7ADF0B0D891520379D926B3BAF5 /* Debug */,
+				D9FEB74DD6E4DF4BB31702D080F249CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E57643BF03AA096A0ECCBCC472689B8 /* Build configuration list for PBXNativeTarget "Pods-PatriotRV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4827E244026430A97EFCB9A1369BAC23 /* Debug */,
+				9C76BDF11C55B2C8F89E2F554394C05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A78A131FEA568E33179DBED63163128D /* Build configuration list for PBXNativeTarget "Pods-PatriotRvWatchWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC04B9302BC2F1A6317668922DF0C75E /* Debug */,
+				678E66790F4F96817275FD114037C71A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7A6545D274B5D0D461C9017C2C900BC /* Build configuration list for PBXNativeTarget "Pods-PatriotRV-PatriotRVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C9214DA7C957FBB27E00C4DFA7EDD62 /* Debug */,
+				B4392DDE18A4D8C9CA4D4EF1F0E99119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF6F9716F7AB1103B91CB183CEC089D2 /* Build configuration list for PBXNativeTarget "Pods-PatriotRVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF82AB0AC855B2DB2E45038D21565F08 /* Debug */,
+				F4B0866F217696695B5B4691EA867259 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
