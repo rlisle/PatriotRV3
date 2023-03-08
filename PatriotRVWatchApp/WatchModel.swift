@@ -15,6 +15,7 @@ class WatchModel: NSObject, ObservableObject {
     @Published var phase: TripMode = .pretrip
     @Published var nextItem: String = "Waiting on app..."
     @Published var nextItemId: Int = 0
+    @Published var isDone: Bool = false
 
     override init() {
         super.init()

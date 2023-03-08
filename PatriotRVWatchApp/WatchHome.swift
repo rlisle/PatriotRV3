@@ -13,31 +13,35 @@ struct WatchHome: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
-                HStack {
-                    Text("Next trip: ")
-                        .font(.caption2)
-                    Text(model.nextTrip)
-                        .font(.headline)
-                    Spacer()
-                    Text(model.nextTripDate?.mmddyy() ?? "?")
-                        .font(.caption2)
-                }
-                HStack {
-                    Text("Trip Phase: ")
-                    Spacer()
-                    Text(model.phase.rawValue)
-                }
-                HStack {
-                    Text("Next: ")
-                    Spacer()
-                    Text(model.nextItem)
+            ZStack {
+//                Image("truck-rv")
+//                    .resizable()
+                VStack {
+                    HStack {
+                        Text("Next trip: ")
+                            .font(.caption2)
+                        Text(model.nextTrip)
+                            .font(.body)
+                        Spacer()
+                        Text(model.nextTripDate?.mmddyy() ?? "?")
+                            .font(.caption2)
+                    }
+                    HStack {
+                        Text(model.phase.rawValue)
+                        Text("next Item: ")
+                        Spacer()
+                    }
+                    .font(.caption)
+                    HStack {
+                        Text(model.nextItem)
+                        Checkmark(isDone: $model.isDone)
+                    }
                 }
             }
-            .background(
-                Image("truck-rv")
+//            .background(
+//                Image("truck-rv")
 //                    .resizable()
-            )
+//            )
         }
     }
 }

@@ -5,7 +5,9 @@
 //  Created by Ron Lisle on 10/23/21.
 //
 
+#if !os(watchOS)
 import SwiftMQTT
+#endif
 import Foundation
 
 public enum MQTTError: Error {
