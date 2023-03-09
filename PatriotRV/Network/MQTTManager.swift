@@ -122,17 +122,14 @@ extension MQTTManager: CocoaMQTTDelegate {
         }
     }
     
-//    func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topics: [String]) {
-//        print("didSubscribeTopic")
-//    }
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopics success: NSDictionary, failed: [String]) {
         print("didSubscribeTopics")
     }
     
 
-    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {
-        print("didUnsubscribe topic")
-    }
+//    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {
+//        print("didUnsubscribe topic")
+//    }
     
     func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopics topics: [String]) {
         print("didUnsubscribe topics")
