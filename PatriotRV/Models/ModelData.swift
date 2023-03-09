@@ -71,12 +71,13 @@ class ModelData: ObservableObject {
         // Load trips
         initializeTrips()
         
-        cancellable = $checklist
-            .receive(on: DispatchQueue.main)
-            //.print("Combine: checklist changed\n")
-            .sink(receiveValue: { newChecklist in
-                  print("TODO: update widgets and watch")
-            })
+//        cancellable = $checklist
+//            .receive(on: DispatchQueue.main)
+//            //.print("Combine: checklist changed\n")
+//            .sink(receiveValue: { newChecklist in
+//                  print("TODO: update widgets and watch")
+//            })
+        
 //        Connectivity.shared.$lastDoneId
 //            .dropFirst()
 //            .receive(on: DispatchQueue.main)

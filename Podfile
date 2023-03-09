@@ -5,7 +5,10 @@ target 'PatriotRV' do
   use_frameworks!
 
   # Pods for PatriotRV
-  pod 'CocoaMQTT'
+  # Fix for crash until merged to CocoaMQTT #802
+  pod 'CocoaAsyncSocket', :git => 'https://github.com/dauerr/CocoaAsyncSocket'
+  pod 'CocoaMQTT', :git => 'https://github.com/dauerr/CocoaMQTT'
+#  pod 'CocoaMQTT'
 
   target 'PatriotRVTests' do
     inherit! :search_paths

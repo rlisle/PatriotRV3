@@ -48,6 +48,7 @@ class MQTTManager: MQTTManagerProtocol {
     }
     
     private func connect() {
+        print("MQTT connect")
         clientID = getClientID()
         mqtt = CocoaMQTT(clientID: clientID, host: host, port: port)
         mqtt.delegate = self
@@ -55,17 +56,20 @@ class MQTTManager: MQTTManagerProtocol {
     }
 
     private func subscribe() {
+        print("MQTT subscribe")
         mqtt.subscribe(subscribeTopic)
         isSubscribed = true
         requestUpdates()
     }
 
     private func requestUpdates() {
+        print("MQTT requestUpdates")
         // This requests every patriot controller to send its current devices states
         publish(topic: "patriot/query", message: "All")
     }
 
     func publish(topic: String, message: String) {
+        print("MQTT publish \(topic), \(message)")
         mqtt.publish(topic, withString: message)
     }
 
