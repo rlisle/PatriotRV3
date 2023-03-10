@@ -89,6 +89,19 @@ struct HomeView: View {
         .task {
             model.startChecklistActivity()
         }
+        .onOpenURL(perform: { (url) in
+            //url can now be compared for matching url passed from widget eg. patriot://link1
+            switch url {
+            case URL(string: "patriot:///link1"):
+                print("link 1")
+            case URL(string: "patriot:///link2"):
+                print("link 2")
+            case URL(string: "patriot:///link3"):
+                print("link 3")
+            default:
+                print("unknown link url")
+            }
+        })
     } //body
 }
 
