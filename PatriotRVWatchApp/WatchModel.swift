@@ -10,7 +10,7 @@ import WatchConnectivity
 
 class WatchModel: NSObject, ObservableObject {
     
-    @Published var nextTrip: String = "Canada"
+    @Published var nextTrip: String = "Wildwood RV, Windsor, Canada "
     @Published var nextTripDate: Date? = Date("05/01/23")
     @Published var phase: TripMode = .pretrip
     @Published var nextItem: String = "Waiting on app..."

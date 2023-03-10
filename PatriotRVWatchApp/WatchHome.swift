@@ -19,22 +19,29 @@ struct WatchHome: View {
                 VStack {
                     HStack {
                         Text("Next trip: ")
-                            .font(.caption2)
-                        Text(model.nextTrip)
-                            .font(.body)
+                            .bold()
                         Spacer()
                         Text(model.nextTripDate?.mmddyy() ?? "?")
-                            .font(.caption2)
+                            .bold()
                     }
+                    
+                    Text(model.nextTrip)
+                        .font(.system(size: 500))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
+                        .padding(.bottom, 16)
+                    
                     HStack {
                         Text(model.phase.rawValue)
                         Text("next Item: ")
                         Spacer()
                     }
-                    .font(.caption)
+                    .bold()
                     HStack {
                         Text(model.nextItem)
-                        Checkmark(isDone: $model.isDone)
+                        .font(.system(size: 500))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
                     }
                 }
             }
