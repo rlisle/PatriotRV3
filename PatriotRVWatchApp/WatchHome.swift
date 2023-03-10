@@ -13,25 +13,42 @@ struct WatchHome: View {
 
     var body: some View {
         NavigationStack {
-            HStack {
-                Text("Next trip: ")
-                    .font(.caption2)
-                Text(model.nextTrip)
-                    .font(.headline)
-                Spacer()
-                Text(model.nextTripDate?.mmddyy() ?? "?")
-                    .font(.caption2)
+            ZStack {
+//                Image("truck-rv")
+//                    .resizable()
+                VStack {
+                    HStack {
+                        Text("Next trip: ")
+                            .bold()
+                        Spacer()
+                        Text(model.nextTripDate?.mmddyy() ?? "?")
+                            .bold()
+                    }
+                    
+                    Text(model.nextTrip)
+                        .font(.system(size: 500))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
+                        .padding(.bottom, 16)
+                    
+                    HStack {
+                        Text(model.phase.rawValue)
+                        Text("next Item: ")
+                        Spacer()
+                    }
+                    .bold()
+                    HStack {
+                        Text(model.nextItem)
+                        .font(.system(size: 500))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
+                    }
+                }
             }
-            HStack {
-                Text("Trip Phase: ")
-                Spacer()
-                Text(model.phase.rawValue)
-            }
-            HStack {
-                Text("Next: ")
-                Spacer()
-                Text(model.nextItem)
-            }
+//            .background(
+//                Image("truck-rv")
+//                    .resizable()
+//            )
         }
     }
 }

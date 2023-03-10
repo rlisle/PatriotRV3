@@ -16,8 +16,9 @@ struct PowerView: View {
             Text("Power Usage")
             HStack {
                 VStack {
-                    RvPowerView()
-                    TeslaPowerView()
+                    PowerGaugeView(title: "RV", value: model.rv)
+                        .padding(.vertical, 8)
+                    PowerGaugeView(title: "Tesla", value: model.tesla)
                 }
             }
             .padding(.horizontal, 32)
@@ -27,20 +28,24 @@ struct PowerView: View {
     }
 }
 
-struct RvPowerView: View {
+struct PowerGaugeView: View {
 
     @EnvironmentObject var model: ModelData
+    
+    var title: String
+    var value: Float
+    var font: Font = .title
 
     var body: some View {
         VStack {
-            Gauge(value: model.rv, in: 0...50) {
-                Text("RV")
+            Gauge(value: value, in: 0...50) {
+                Text(title).font(.caption)
             } currentValueLabel: {
-                Text(model.rv.formatted())
+                Text("\(value, specifier: "%.1f")").font(font)
             } minimumValueLabel: {
-                Text("0")
+                Text("0").font(.caption)
             } maximumValueLabel: {
-                Text("50")
+                Text("50").font(.caption)
             }
             .gaugeStyle(.accessoryLinearCapacity)
             .tint(model.rvTint)
@@ -48,30 +53,9 @@ struct RvPowerView: View {
     }
 }
 
-struct TeslaPowerView: View {
-
-    @EnvironmentObject var model: ModelData
-
-    var body: some View {
-        VStack {
-            Gauge(value: model.tesla, in: 0...50) {
-                Text("Tesla")
-            } currentValueLabel: {
-                Text(model.tesla.formatted())
-            } minimumValueLabel: {
-                Text("0")
-            } maximumValueLabel: {
-                Text("50")
-            }
-            .gaugeStyle(.accessoryLinearCapacity)
-            .tint(model.teslaTint)
-        }
-    }
-}
-
 struct PowerView_Previews: PreviewProvider {
     static var previews: some View {
         PowerView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+            .environmentObject(ModelData())
     }
 }

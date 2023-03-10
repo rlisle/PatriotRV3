@@ -8,32 +8,39 @@
 import Foundation
 import Combine
 import ActivityKit
+import WidgetKit
 
 class ModelData: ObservableObject {
     
-    // Trips
     @Published var trips: [Trip] = []
-    
-    // Checklist
     @Published var checklist: [ChecklistItem] = []
     
-    //TODO: Can these be eliminated and derived directly from checklist?
-    @Published var checklistPhase: TripMode = .pretrip
-//    @Published var phaseCompletedItems = 0
-
-    @Published var showCompleted = true     //TODO: persist
+    @Published var checklistPhase: TripMode = .pretrip  // Selected for display
+    {
+        didSet {
+            print("checklistPhase = \(checklistPhase)")
+        }
+    }
+    @Published var showCompleted = true                 //TODO: persist
     
     // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
-    internal var linePower: [Float] = [0.0, 0.0]
+    internal var linePower: [Float] = [0.0, 0.0]        // Amps
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
     var mqtt: MQTTManagerProtocol
     
-    private var cancellable: Set<AnyCancellable> = []
+    private var cancellable: AnyCancellable?
 
-    // Previews and tests will pass a MockMQTTManager
+    // For use with previews and tests
+    convenience init() {
+        let mqttManager = MockMQTTManager() //TODO: switch to protocol or mock
+        self.init(mqttManager: mqttManager)
+        self.updatePower(line: 0, power: 480.0)
+        self.updatePower(line: 1, power: 2880.0)
+    }
+    
     init(mqttManager: MQTTManagerProtocol) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
@@ -54,15 +61,22 @@ class ModelData: ObservableObject {
         
         //TODO: convert delegate to Combine
         // or pass mqtt to the checklist
-        checklist = Checklist.initialChecklist
-        for i in 0..<checklist.count {
-            checklist[i].id = i+1
-            checklist[i].delegate = self
+        var tchecklist = Checklist.initialChecklist
+        for i in 0..<tchecklist.count {
+            tchecklist[i].id = i+1
+            tchecklist[i].delegate = self
         }
+        checklist = tchecklist
         
         // Load trips
         initializeTrips()
         
+//        cancellable = $checklist
+//            .receive(on: DispatchQueue.main)
+//            //.print("Combine: checklist changed\n")
+//            .sink(receiveValue: { newChecklist in
+//                  print("TODO: update widgets and watch")
+//            })
         
 //        Connectivity.shared.$lastDoneId
 //            .dropFirst()
@@ -76,19 +90,25 @@ class ModelData: ObservableObject {
 //                self.checklist[$0].isDone = true
 //            })
 //            .store(in: &cancellable)
-
     }
 }
 
 extension ModelData: Publishing {
     func publish(id: Int, isDone: Bool) {
-        mqtt.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
-//        checklistPhase = currentPhase(date: Date())
-        updateWatchNextItem()
+        //TODO: this should be the checklist.key
+        if let checklistItem = item(id: id) {
+            mqtt.publish(topic: "patriot/\(checklistItem.key)/set", message: isDone ? "100" : "0")
+            // checklistPhase = currentPhase(date: Date())
+            updateWidgetNextItem()
+        }
     }
 }
 
 extension ModelData {
+
+    func nextItemCategory() -> TripMode {
+        return checklist.todo().first?.category ?? .parked
+    }
     
 //    func currentPhase(date: Date) -> TripMode {
 //        guard nextTrip(date: date) != nil else {
@@ -105,12 +125,28 @@ extension ModelData {
                 checklist[index].isDone = value != "0"
             }
         }
-        updateWatchNextItem()
+        updateWidgetNextItem()
+    }
+
+    func item(id: Int) -> ChecklistItem? {
+        return checklist.first(where: { $0.id == id })
     }
     
-    func updateWatchNextItem() {
-        print("Updating watch nextItem")
-        let nextItemId = checklist.todo().first?.id ?? 0
+    func updateWidgetNextItem() {
+        guard let nextItem = checklist.todo().first else {
+            print("updateWidgetNextItem: no next item")
+            return
+        }
+        let doneCount = checklist.category(nextItem.category).done().count
+        let totalCount = checklist.category(nextItem.category).count
+        print("Updating widget nextItem: \(nextItem.name) \(doneCount) of \(totalCount)")
+        UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem.rawValue)
+        UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount.rawValue)
+        UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount.rawValue)
+        WidgetCenter.shared.reloadTimelines(ofKind: Constants.kind)
+        
+        //TODO: still needed, or use the above instead?
+        let nextItemId = nextItem.id
         Connectivity.shared.send(nextItemId: nextItemId)
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */; };
 		272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */; };
 		272FC2D7297C774D005C6D43 /* WatchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D6297C774D005C6D43 /* WatchHome.swift */; };
 		272FC2D9297C774E005C6D43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 272FC2D8297C774E005C6D43 /* Assets.xcassets */; };
@@ -16,6 +17,8 @@
 		272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2E6297D59BE005C6D43 /* PowerView.swift */; };
 		2736E294299BC1510044F681 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		273BEF0E298E8F2000A07284 /* ModelDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BEF0D298E8F2000A07284 /* ModelDataTests.swift */; };
+		273FCCEA29A0F769002DB4A2 /* MockMQTTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273FCCE929A0F769002DB4A2 /* MockMQTTManager.swift */; };
+		273FCCEE29A103C9002DB4A2 /* ChecklistItemsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273FCCED29A103C9002DB4A2 /* ChecklistItemsListView.swift */; };
 		274DBC49299F9BBC007866BD /* TripRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DBC48299F9BBC007866BD /* TripRowView.swift */; };
 		274DBC4B299F9F98007866BD /* HomeChecklistRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DBC4A299F9F98007866BD /* HomeChecklistRowView.swift */; };
 		274DBC4D299FA906007866BD /* PowerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DBC4C299FA906007866BD /* PowerRowView.swift */; };
@@ -26,7 +29,6 @@
 		276270BC297C1BD800844645 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ModelData.swift */; };
 		276270BE297C1BEB00844645 /* MQTTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BD297C1BEB00844645 /* MQTTManager.swift */; };
 		276270C0297C1C7200844645 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BF297C1C7200844645 /* ChecklistView.swift */; };
-		276270C3297C1E0D00844645 /* SwiftMQTT in Frameworks */ = {isa = PBXBuildFile; productRef = 276270C2297C1E0D00844645 /* SwiftMQTT */; };
 		276270C6297C20A000844645 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270C5297C20A000844645 /* Colors.swift */; };
 		276270C8297C20DD00844645 /* ImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270C7297C20DD00844645 /* ImageHeader.swift */; };
 		276270CA297C20E500844645 /* ChecklistRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270C9297C20E500844645 /* ChecklistRowView.swift */; };
@@ -34,6 +36,9 @@
 		276270CE297C212A00844645 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CD297C212A00844645 /* DetailView.swift */; };
 		276270D0297C213100844645 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270CF297C213100844645 /* MenuView.swift */; };
 		276270D2297C21AF00844645 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270D1297C21AF00844645 /* MenuRowView.swift */; };
+		27696BC929A643670053466A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
+		27696BCA29A643670053466A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
+		27696BCB29A643670053466A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
 		276DDFC3297DD559008CEC48 /* PowerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC2297DD559008CEC48 /* PowerData.swift */; };
 		276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC5297DD8C0008CEC48 /* HomeView.swift */; };
 		276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DDFC7297EADE3008CEC48 /* LogView.swift */; };
@@ -42,7 +47,7 @@
 		2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5E29816F9A0093FCCB /* SwiftUI.framework */; };
 		2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */; };
 		2771BA6429816F9A0093FCCB /* PowerWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */; };
-		2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */; };
+		2771BA6629816F9A0093FCCB /* ChecklistWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6529816F9A0093FCCB /* ChecklistWidget.swift */; };
 		2771BA6929816F9C0093FCCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2771BA6829816F9C0093FCCB /* Assets.xcassets */; };
 		2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
 		2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
@@ -52,6 +57,32 @@
 		277CA737298A98170000A570 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA736298A98170000A570 /* TripListView.swift */; };
 		27BC94AE298D474500642680 /* TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AD298D474500642680 /* TripTests.swift */; };
 		27BC94B0298E8A4B00642680 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */; };
+		27BFA4B629A96B7000D5FAEE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5C29816F9A0093FCCB /* WidgetKit.framework */; };
+		27BFA4B729A96B7000D5FAEE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771BA5E29816F9A0093FCCB /* SwiftUI.framework */; };
+		27BFA4C329A96B7100D5FAEE /* PatriotRvWatchWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		27BFA4C929AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CA29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CB29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CC29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */; };
+		27BFA4CE29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
+		27BFA4CF29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
+		27BFA4D029AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
+		27BFA4D129AA323A00D5FAEE /* ChecklistEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */; };
+		27BFA4D329AA346300D5FAEE /* ChecklistEntryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */; };
+		27BFA4D429AA346300D5FAEE /* ChecklistEntryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */; };
+		27BFA4D529AA354900D5FAEE /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
+		27BFA4D629AA354F00D5FAEE /* ChecklistEntryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */; };
+		27BFA4D729AA355200D5FAEE /* ChecklistEntryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */; };
+		27BFA4D829AA3E8A00D5FAEE /* PatriotRvWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */; };
+		27BFA4DA29AA3E9900D5FAEE /* ChecklistWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6529816F9A0093FCCB /* ChecklistWidget.swift */; };
+		27BFA4DB29AA3EA600D5FAEE /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
+		27BFA4DD29AA3F6400D5FAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2771BA6829816F9C0093FCCB /* Assets.xcassets */; };
+		27BFA4DE29AA40D500D5FAEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27696BC829A643670053466A /* Constants.swift */; };
+		27BFA4E029AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4DF29AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift */; };
+		27BFA4E329AA9AB600D5FAEE /* PowerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4E229AA9AB600D5FAEE /* PowerWidget.swift */; };
+		27BFA4E429AA9AB600D5FAEE /* PowerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4E229AA9AB600D5FAEE /* PowerWidget.swift */; };
+		27BFA4E629AA9BBA00D5FAEE /* CircularPowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4E529AA9BBA00D5FAEE /* CircularPowerView.swift */; };
+		27BFA4E729AA9BBA00D5FAEE /* CircularPowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4E529AA9BBA00D5FAEE /* CircularPowerView.swift */; };
 		27C1912C29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C1912D29894390005556F4 /* TripMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1912B29894390005556F4 /* TripMode.swift */; };
 		27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C50B512997BD8900EF9DB5 /* MockMQTT.swift */; };
@@ -76,6 +107,11 @@
 		27F2A5BF297C141B00EFD417 /* ChecklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5BE297C141B00EFD417 /* ChecklistTests.swift */; };
 		27F2A5C9297C141B00EFD417 /* PatriotRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */; };
 		27F2A5CB297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */; };
+		4FB8A2FF9332797BD86C58E1 /* Pods_PatriotRvWatchWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51FD4D45A2D9E175BDC9DC9 /* Pods_PatriotRvWatchWidgetExtension.framework */; };
+		737B0F761EF74D11D3E175F4 /* Pods_PatriotRV_PatriotRVUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BD6DF61F751C72806DEEBB /* Pods_PatriotRV_PatriotRVUITests.framework */; };
+		B2277C40178E5AE388A90ABD /* Pods_PatriotRVWatchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ADF432B7106583AFB07A07 /* Pods_PatriotRVWatchApp.framework */; };
+		BDFB50CEB7C02AC9EDCFFD55 /* Pods_PatriotRvWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CA73AD5DFF0CA379C30A92 /* Pods_PatriotRvWidgetExtension.framework */; };
+		F6A4265977845B8763AB6770 /* Pods_PatriotRVTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F97529E35DC1B0F9B355F4 /* Pods_PatriotRVTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +128,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2771BA5929816F9A0093FCCB;
 			remoteInfo = PatriotRvWidgetExtension;
+		};
+		27BFA4C129A96B7100D5FAEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27F2A5A2297C141A00EFD417 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27BFA4B429A96B7000D5FAEE;
+			remoteInfo = PatriotRvWatchWidgetExtension;
 		};
 		27F2A5BB297C141B00EFD417 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -132,9 +175,22 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27BFA4C429A96B7100D5FAEE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				27BFA4C329A96B7100D5FAEE /* PatriotRvWatchWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; path = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; sourceTree = "<group>"; };
+		175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRVWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVWatchApp.swift; sourceTree = "<group>"; };
 		272FC2D6297C774D005C6D43 /* WatchHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHome.swift; sourceTree = "<group>"; };
@@ -143,6 +199,8 @@
 		272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		272FC2E6297D59BE005C6D43 /* PowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerView.swift; sourceTree = "<group>"; };
 		273BEF0D298E8F2000A07284 /* ModelDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataTests.swift; sourceTree = "<group>"; };
+		273FCCE929A0F769002DB4A2 /* MockMQTTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMQTTManager.swift; sourceTree = "<group>"; };
+		273FCCED29A103C9002DB4A2 /* ChecklistItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemsListView.swift; sourceTree = "<group>"; };
 		274DBC48299F9BBC007866BD /* TripRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRowView.swift; sourceTree = "<group>"; };
 		274DBC4A299F9F98007866BD /* HomeChecklistRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChecklistRowView.swift; sourceTree = "<group>"; };
 		274DBC4C299FA906007866BD /* PowerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRowView.swift; sourceTree = "<group>"; };
@@ -160,6 +218,7 @@
 		276270CD297C212A00844645 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		276270CF297C213100844645 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		276270D1297C21AF00844645 /* MenuRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
+		27696BC829A643670053466A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		276DDFC2297DD559008CEC48 /* PowerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerData.swift; sourceTree = "<group>"; };
 		276DDFC5297DD8C0008CEC48 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		276DDFC7297EADE3008CEC48 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -169,7 +228,7 @@
 		2771BA5E29816F9A0093FCCB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWidgetBundle.swift; sourceTree = "<group>"; };
 		2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerWidgetLiveActivity.swift; sourceTree = "<group>"; };
-		2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRvWidget.swift; sourceTree = "<group>"; };
+		2771BA6529816F9A0093FCCB /* ChecklistWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistWidget.swift; sourceTree = "<group>"; };
 		2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PatriotRvWidget.intentdefinition; sourceTree = "<group>"; };
 		2771BA6829816F9C0093FCCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2771BA6A29816F9C0093FCCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,7 +237,15 @@
 		277CA736298A98170000A570 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
 		27BC94AD298D474500642680 /* TripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTests.swift; sourceTree = "<group>"; };
 		27BC94AF298E8A4B00642680 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
+		27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatriotRvWatchWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEntry.swift; sourceTree = "<group>"; };
+		27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEntryProvider.swift; sourceTree = "<group>"; };
+		27BFA4DF29AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		27BFA4E229AA9AB600D5FAEE /* PowerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerWidget.swift; sourceTree = "<group>"; };
+		27BFA4E529AA9BBA00D5FAEE /* CircularPowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularPowerView.swift; sourceTree = "<group>"; };
 		27C1912B29894390005556F4 /* TripMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripMode.swift; sourceTree = "<group>"; };
+		27C498F729B8C17100E9B74B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWidgetExtension.entitlements; sourceTree = "<group>"; };
 		27C50B4F2997B4D900EF9DB5 /* PatriotRV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRV.entitlements; sourceTree = "<group>"; };
 		27C50B502997B52300EF9DB5 /* PatriotRVWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRVWatchApp.entitlements; sourceTree = "<group>"; };
@@ -191,6 +258,7 @@
 		27D1C37E2985B58C00D34DAC /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAttributes.swift; sourceTree = "<group>"; };
 		27D1C3832987E64D00D34DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		27E27E2B29B612070022C972 /* PatriotRvWatchWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatriotRvWatchWidgetExtension.entitlements; sourceTree = "<group>"; };
 		27F2A5AA297C141A00EFD417 /* PatriotRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVApp.swift; sourceTree = "<group>"; };
 		27F2A5B1297C141B00EFD417 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,6 +268,22 @@
 		27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatriotRVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F2A5C8297C141B00EFD417 /* PatriotRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITests.swift; sourceTree = "<group>"; };
 		27F2A5CA297C141B00EFD417 /* PatriotRVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3348D7438F7FF4B335150B34 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWatchWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		33ADF432B7106583AFB07A07 /* Pods_PatriotRVWatchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRVWatchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4545AC3EE467484FF1551E14 /* Pods-PatriotRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV.release.xcconfig"; path = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV.release.xcconfig"; sourceTree = "<group>"; };
+		4D74259EC148EFD73DD84C9C /* Pods-PatriotRVWatchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVWatchApp.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7E960C493F1BAD1AC7316553 /* Pods-PatriotRVTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVTests.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8542DBD5AB56526437A9389A /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV-PatriotRVUITests.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		89BD6DF61F751C72806DEEBB /* Pods_PatriotRV_PatriotRVUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV_PatriotRVUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D45F495A63193EEF3A64DA6 /* Pods-PatriotRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRV/Pods-PatriotRV.debug.xcconfig"; sourceTree = "<group>"; };
+		8E9A9953893B147F9AC149AB /* Pods-PatriotRvWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		952EEAC144395E28460214F0 /* Pods-PatriotRVTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVTests.release.xcconfig"; path = "Target Support Files/Pods-PatriotRVTests/Pods-PatriotRVTests.release.xcconfig"; sourceTree = "<group>"; };
+		B6F97529E35DC1B0F9B355F4 /* Pods_PatriotRVTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRVTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1254F874AEFA40BEEE72332 /* Pods-PatriotRvWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-PatriotRvWidgetExtension/Pods-PatriotRvWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		DD8DD4FE6DCDB73A739EAFAF /* Pods-PatriotRVWatchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRVWatchApp.release.xcconfig"; path = "Target Support Files/Pods-PatriotRVWatchApp/Pods-PatriotRVWatchApp.release.xcconfig"; sourceTree = "<group>"; };
+		E2CA73AD5DFF0CA379C30A92 /* Pods_PatriotRvWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRvWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C8E87900FA7C75058416CF /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRvWatchWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-PatriotRvWatchWidgetExtension/Pods-PatriotRvWatchWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		F51FD4D45A2D9E175BDC9DC9 /* Pods_PatriotRvWatchWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRvWatchWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2277C40178E5AE388A90ABD /* Pods_PatriotRVWatchApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +301,17 @@
 			files = (
 				2771BA5F29816F9A0093FCCB /* SwiftUI.framework in Frameworks */,
 				2771BA5D29816F9A0093FCCB /* WidgetKit.framework in Frameworks */,
+				BDFB50CEB7C02AC9EDCFFD55 /* Pods_PatriotRvWidgetExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BFA4B229A96B7000D5FAEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BFA4B729A96B7000D5FAEE /* SwiftUI.framework in Frameworks */,
+				27BFA4B629A96B7000D5FAEE /* WidgetKit.framework in Frameworks */,
+				4FB8A2FF9332797BD86C58E1 /* Pods_PatriotRvWatchWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				276270C3297C1E0D00844645 /* SwiftMQTT in Frameworks */,
+				14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6A4265977845B8763AB6770 /* Pods_PatriotRVTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737B0F761EF74D11D3E175F4 /* Pods_PatriotRV_PatriotRVUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +361,14 @@
 				272FC2DB297C774E005C6D43 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		273FCCE829A0F6D6002DB4A2 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				273FCCE929A0F769002DB4A2 /* MockMQTTManager.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		274DBC50299FABC6007866BD /* Row Views */ = {
@@ -291,6 +397,12 @@
 			children = (
 				2771BA5C29816F9A0093FCCB /* WidgetKit.framework */,
 				2771BA5E29816F9A0093FCCB /* SwiftUI.framework */,
+				175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */,
+				89BD6DF61F751C72806DEEBB /* Pods_PatriotRV_PatriotRVUITests.framework */,
+				B6F97529E35DC1B0F9B355F4 /* Pods_PatriotRVTests.framework */,
+				33ADF432B7106583AFB07A07 /* Pods_PatriotRVWatchApp.framework */,
+				F51FD4D45A2D9E175BDC9DC9 /* Pods_PatriotRvWatchWidgetExtension.framework */,
+				E2CA73AD5DFF0CA379C30A92 /* Pods_PatriotRvWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -299,8 +411,10 @@
 			isa = PBXGroup;
 			children = (
 				2771BA6129816F9A0093FCCB /* PatriotRvWidgetBundle.swift */,
+				27BFA4DF29AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift */,
 				2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */,
-				2771BA6529816F9A0093FCCB /* PatriotRvWidget.swift */,
+				2771BA6529816F9A0093FCCB /* ChecklistWidget.swift */,
+				27BFA4E229AA9AB600D5FAEE /* PowerWidget.swift */,
 				27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */,
 				2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */,
 				2771BA6829816F9C0093FCCB /* Assets.xcassets */,
@@ -332,6 +446,11 @@
 				277CA734298A956E0000A570 /* DateExtension.swift */,
 				277CA731298A8CE30000A570 /* Trip.swift */,
 				27C1912B29894390005556F4 /* TripMode.swift */,
+				27696BC829A643670053466A /* Constants.swift */,
+				27BFA4C829AA31CD00D5FAEE /* UserDefaultsExtension.swift */,
+				27BFA4CD29AA323A00D5FAEE /* ChecklistEntry.swift */,
+				27BFA4D229AA346300D5FAEE /* ChecklistEntryProvider.swift */,
+				27BFA4E529AA9BBA00D5FAEE /* CircularPowerView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -339,6 +458,8 @@
 		27F2A5A1297C141A00EFD417 = {
 			isa = PBXGroup;
 			children = (
+				27C498F729B8C17100E9B74B /* Podfile */,
+				27E27E2B29B612070022C972 /* PatriotRvWatchWidgetExtension.entitlements */,
 				27C50B4E2997B45100EF9DB5 /* PatriotRvWidgetExtension.entitlements */,
 				27F2A5AC297C141A00EFD417 /* PatriotRV */,
 				27F2A5BD297C141B00EFD417 /* PatriotRVTests */,
@@ -348,6 +469,7 @@
 				2771BA6029816F9A0093FCCB /* PatriotRvWidget */,
 				2771BA5B29816F9A0093FCCB /* Frameworks */,
 				27F2A5AB297C141A00EFD417 /* Products */,
+				3B813B812670CA6AA186CF72 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,6 +481,7 @@
 				27F2A5C4297C141B00EFD417 /* PatriotRVUITests.xctest */,
 				272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */,
 				2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */,
+				27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -425,6 +548,7 @@
 				27D1C37E2985B58C00D34DAC /* AddTripView.swift */,
 				276270C7297C20DD00844645 /* ImageHeader.swift */,
 				276270BF297C1C7200844645 /* ChecklistView.swift */,
+				273FCCED29A103C9002DB4A2 /* ChecklistItemsListView.swift */,
 				276270CD297C212A00844645 /* DetailView.swift */,
 				276DDFC5297DD8C0008CEC48 /* HomeView.swift */,
 				276DDFC7297EADE3008CEC48 /* LogView.swift */,
@@ -440,6 +564,7 @@
 		27F2A5DA297C196B00EFD417 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				273FCCE829A0F6D6002DB4A2 /* Mock */,
 				27C50B6C29992D2B00EF9DB5 /* ArrayExtensions.swift */,
 				276270B7297C1BC700844645 /* Checklist.swift */,
 				276270B9297C1BD000844645 /* ChecklistItem.swift */,
@@ -451,6 +576,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		3B813B812670CA6AA186CF72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D45F495A63193EEF3A64DA6 /* Pods-PatriotRV.debug.xcconfig */,
+				4545AC3EE467484FF1551E14 /* Pods-PatriotRV.release.xcconfig */,
+				8542DBD5AB56526437A9389A /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */,
+				131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */,
+				7E960C493F1BAD1AC7316553 /* Pods-PatriotRVTests.debug.xcconfig */,
+				952EEAC144395E28460214F0 /* Pods-PatriotRVTests.release.xcconfig */,
+				4D74259EC148EFD73DD84C9C /* Pods-PatriotRVWatchApp.debug.xcconfig */,
+				DD8DD4FE6DCDB73A739EAFAF /* Pods-PatriotRVWatchApp.release.xcconfig */,
+				3348D7438F7FF4B335150B34 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */,
+				E6C8E87900FA7C75058416CF /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */,
+				8E9A9953893B147F9AC149AB /* Pods-PatriotRvWidgetExtension.debug.xcconfig */,
+				C1254F874AEFA40BEEE72332 /* Pods-PatriotRvWidgetExtension.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -458,13 +602,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 272FC2E3297C774E005C6D43 /* Build configuration list for PBXNativeTarget "PatriotRVWatchApp" */;
 			buildPhases = (
+				F7DC4889E9A3592FE0A20C03 /* [CP] Check Pods Manifest.lock */,
 				272FC2CE297C774D005C6D43 /* Sources */,
 				272FC2CF297C774D005C6D43 /* Frameworks */,
 				272FC2D0297C774D005C6D43 /* Resources */,
+				27BFA4C429A96B7100D5FAEE /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				27BFA4C229A96B7100D5FAEE /* PBXTargetDependency */,
 			);
 			name = PatriotRVWatchApp;
 			productName = "PatriotRVWatch Watch App";
@@ -475,6 +622,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2771BA7329816F9C0093FCCB /* Build configuration list for PBXNativeTarget "PatriotRvWidgetExtension" */;
 			buildPhases = (
+				8C6825DE76D395E147C70748 /* [CP] Check Pods Manifest.lock */,
 				2771BA5629816F9A0093FCCB /* Sources */,
 				2771BA5729816F9A0093FCCB /* Frameworks */,
 				2771BA5829816F9A0093FCCB /* Resources */,
@@ -488,15 +636,35 @@
 			productReference = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		27BFA4B429A96B7000D5FAEE /* PatriotRvWatchWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27BFA4C729A96B7100D5FAEE /* Build configuration list for PBXNativeTarget "PatriotRvWatchWidgetExtension" */;
+			buildPhases = (
+				B0BEC56C4BD7D90BCFC352A9 /* [CP] Check Pods Manifest.lock */,
+				27BFA4B129A96B7000D5FAEE /* Sources */,
+				27BFA4B229A96B7000D5FAEE /* Frameworks */,
+				27BFA4B329A96B7000D5FAEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatriotRvWatchWidgetExtension;
+			productName = PatriotRvWatchWidgetExtension;
+			productReference = 27BFA4B529A96B7000D5FAEE /* PatriotRvWatchWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		27F2A5A9297C141A00EFD417 /* PatriotRV */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5CE297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRV" */;
 			buildPhases = (
+				1ACF418FF1F61A4E0005735F /* [CP] Check Pods Manifest.lock */,
 				27F2A5A6297C141A00EFD417 /* Sources */,
 				27F2A5A7297C141A00EFD417 /* Frameworks */,
 				27F2A5A8297C141A00EFD417 /* Resources */,
 				272FC2E0297C774E005C6D43 /* Embed Watch Content */,
 				2771BA7029816F9C0093FCCB /* Embed Foundation Extensions */,
+				D20D43D6D380B517591E2155 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -505,9 +673,6 @@
 				2771BA6E29816F9C0093FCCB /* PBXTargetDependency */,
 			);
 			name = PatriotRV;
-			packageProductDependencies = (
-				276270C2297C1E0D00844645 /* SwiftMQTT */,
-			);
 			productName = PatriotRV;
 			productReference = 27F2A5AA297C141A00EFD417 /* PatriotRV.app */;
 			productType = "com.apple.product-type.application";
@@ -516,6 +681,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5D1297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRVTests" */;
 			buildPhases = (
+				4592ED214F938B7989532956 /* [CP] Check Pods Manifest.lock */,
 				27F2A5B6297C141B00EFD417 /* Sources */,
 				27F2A5B7297C141B00EFD417 /* Frameworks */,
 				27F2A5B8297C141B00EFD417 /* Resources */,
@@ -534,9 +700,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27F2A5D4297C141B00EFD417 /* Build configuration list for PBXNativeTarget "PatriotRVUITests" */;
 			buildPhases = (
+				142C57E56ECE49BA62DBDD4F /* [CP] Check Pods Manifest.lock */,
 				27F2A5C0297C141B00EFD417 /* Sources */,
 				27F2A5C1297C141B00EFD417 /* Frameworks */,
 				27F2A5C2297C141B00EFD417 /* Resources */,
+				0598064AE6CCCE3962E4BB64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -562,6 +730,9 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					2771BA5929816F9A0093FCCB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					27BFA4B429A96B7000D5FAEE = {
 						CreatedOnToolsVersion = 14.2;
 					};
 					27F2A5A9297C141A00EFD417 = {
@@ -598,6 +769,7 @@
 				27F2A5C3297C141B00EFD417 /* PatriotRVUITests */,
 				272FC2D1297C774D005C6D43 /* PatriotRVWatchApp */,
 				2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */,
+				27BFA4B429A96B7000D5FAEE /* PatriotRvWatchWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -617,6 +789,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2771BA6929816F9C0093FCCB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BFA4B329A96B7000D5FAEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BFA4DD29AA3F6400D5FAEE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +825,175 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0598064AE6CCCE3962E4BB64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		142C57E56ECE49BA62DBDD4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRV-PatriotRVUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1ACF418FF1F61A4E0005735F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4592ED214F938B7989532956 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRVTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C6825DE76D395E147C70748 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRvWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0BEC56C4BD7D90BCFC352A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRvWatchWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D20D43D6D380B517591E2155 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV/Pods-PatriotRV-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatriotRV/Pods-PatriotRV-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PatriotRV/Pods-PatriotRV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7DC4889E9A3592FE0A20C03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatriotRVWatchApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		272FC2CE297C774D005C6D43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -652,12 +1001,16 @@
 			files = (
 				27C50B5C2997CB6900EF9DB5 /* Trip.swift in Sources */,
 				27C1912D29894390005556F4 /* TripMode.swift in Sources */,
+				27BFA4D729AA355200D5FAEE /* ChecklistEntryProvider.swift in Sources */,
 				272FC2D7297C774D005C6D43 /* WatchHome.swift in Sources */,
+				27BFA4CF29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
 				27C50B6B2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				27C50B572997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27696BCA29A643670053466A /* Constants.swift in Sources */,
 				27C50B6829991D4D00EF9DB5 /* Checkmark.swift in Sources */,
 				27C50B63299919EB00EF9DB5 /* WatchModel.swift in Sources */,
 				27C50B702999415A00EF9DB5 /* DateExtension.swift in Sources */,
+				27BFA4CA29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
 				272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,14 +1019,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27BFA4CB29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
 				27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
+				27BFA4D329AA346300D5FAEE /* ChecklistEntryProvider.swift in Sources */,
 				2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				27C50B582997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27BFA4E029AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift in Sources */,
 				27C50B5D2997CB6A00EF9DB5 /* Trip.swift in Sources */,
 				2771BA6429816F9A0093FCCB /* PowerWidgetLiveActivity.swift in Sources */,
 				2736E294299BC1510044F681 /* TripMode.swift in Sources */,
-				2771BA6629816F9A0093FCCB /* PatriotRvWidget.swift in Sources */,
+				2771BA6629816F9A0093FCCB /* ChecklistWidget.swift in Sources */,
+				27BFA4E629AA9BBA00D5FAEE /* CircularPowerView.swift in Sources */,
 				2771BA6229816F9A0093FCCB /* PatriotRvWidgetBundle.swift in Sources */,
+				27BFA4E329AA9AB600D5FAEE /* PowerWidget.swift in Sources */,
+				27696BCB29A643670053466A /* Constants.swift in Sources */,
+				27BFA4D029AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27BFA4B129A96B7000D5FAEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27BFA4E429AA9AB600D5FAEE /* PowerWidget.swift in Sources */,
+				27BFA4D429AA346300D5FAEE /* ChecklistEntryProvider.swift in Sources */,
+				27BFA4DA29AA3E9900D5FAEE /* ChecklistWidget.swift in Sources */,
+				27BFA4D529AA354900D5FAEE /* TripMode.swift in Sources */,
+				27BFA4CC29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
+				27BFA4E729AA9BBA00D5FAEE /* CircularPowerView.swift in Sources */,
+				27BFA4D829AA3E8A00D5FAEE /* PatriotRvWidgetBundle.swift in Sources */,
+				27BFA4DB29AA3EA600D5FAEE /* PatriotRvWidget.intentdefinition in Sources */,
+				27BFA4D129AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
+				27BFA4DE29AA40D500D5FAEE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +1060,7 @@
 			files = (
 				274DBC4D299FA906007866BD /* PowerRowView.swift in Sources */,
 				276270BE297C1BEB00844645 /* MQTTManager.swift in Sources */,
+				27BFA4D629AA354F00D5FAEE /* ChecklistEntryProvider.swift in Sources */,
 				276270D0297C213100844645 /* MenuView.swift in Sources */,
 				27C50B6029984FB700EF9DB5 /* Connectivity.swift in Sources */,
 				276270CC297C211600844645 /* Checkmark.swift in Sources */,
@@ -691,6 +1069,7 @@
 				276004BB298D373000D26ACF /* Trips.swift in Sources */,
 				274DBC4F299FAAD2007866BD /* LogRowView.swift in Sources */,
 				27C50B562997C67500EF9DB5 /* Publishing.swift in Sources */,
+				27BFA4C929AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
 				276270BC297C1BD800844645 /* ModelData.swift in Sources */,
 				276DDFC6297DD8C0008CEC48 /* HomeView.swift in Sources */,
 				276270C8297C20DD00844645 /* ImageHeader.swift in Sources */,
@@ -699,17 +1078,21 @@
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
+				27BFA4CE29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
 				274DBC4B299F9F98007866BD /* HomeChecklistRowView.swift in Sources */,
 				277CA735298A956E0000A570 /* DateExtension.swift in Sources */,
+				27696BC929A643670053466A /* Constants.swift in Sources */,
 				276270C6297C20A000844645 /* Colors.swift in Sources */,
 				277CA732298A8CE30000A570 /* Trip.swift in Sources */,
 				27C1912C29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */,
 				272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */,
 				276270CA297C20E500844645 /* ChecklistRowView.swift in Sources */,
+				273FCCEA29A0F769002DB4A2 /* MockMQTTManager.swift in Sources */,
 				276270B8297C1BC700844645 /* Checklist.swift in Sources */,
 				276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */,
 				276DDFC3297DD559008CEC48 /* PowerData.swift in Sources */,
+				273FCCEE29A103C9002DB4A2 /* ChecklistItemsListView.swift in Sources */,
 				277CA737298A98170000A570 /* TripListView.swift in Sources */,
 				27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */,
 				276270C0297C1C7200844645 /* ChecklistView.swift in Sources */,
@@ -753,6 +1136,11 @@
 			target = 2771BA5929816F9A0093FCCB /* PatriotRvWidgetExtension */;
 			targetProxy = 2771BA6D29816F9C0093FCCB /* PBXContainerItemProxy */;
 		};
+		27BFA4C229A96B7100D5FAEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27BFA4B429A96B7000D5FAEE /* PatriotRvWatchWidgetExtension */;
+			targetProxy = 27BFA4C129A96B7100D5FAEE /* PBXContainerItemProxy */;
+		};
 		27F2A5BC297C141B00EFD417 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27F2A5A9297C141A00EFD417 /* PatriotRV */;
@@ -768,7 +1156,9 @@
 /* Begin XCBuildConfiguration section */
 		272FC2E1297C774E005C6D43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D74259EC148EFD73DD84C9C /* Pods-PatriotRVWatchApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
@@ -799,7 +1189,9 @@
 		};
 		272FC2E2297C774E005C6D43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD8DD4FE6DCDB73A739EAFAF /* Pods-PatriotRVWatchApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRVWatchApp/PatriotRVWatchApp.entitlements;
@@ -830,6 +1222,7 @@
 		};
 		2771BA7129816F9C0093FCCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E9A9953893B147F9AC149AB /* Pods-PatriotRvWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -858,6 +1251,7 @@
 		};
 		2771BA7229816F9C0093FCCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1254F874AEFA40BEEE72332 /* Pods-PatriotRvWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -881,6 +1275,70 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		27BFA4C529A96B7100D5FAEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3348D7438F7FF4B335150B34 /* Pods-PatriotRvWatchWidgetExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWatchWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWatchWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.watchkitapp.PatriotRvWatchWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		27BFA4C629A96B7100D5FAEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6C8E87900FA7C75058416CF /* Pods-PatriotRvWatchWidgetExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PatriotRvWatchWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65NFWK9633;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PatriotRvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PatriotRvWatchWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.PatriotRV.watchkitapp.PatriotRvWatchWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Release;
 		};
@@ -1000,8 +1458,9 @@
 		};
 		27F2A5CF297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D45F495A63193EEF3A64DA6 /* Pods-PatriotRV.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
@@ -1035,8 +1494,9 @@
 		};
 		27F2A5D0297C141B00EFD417 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4545AC3EE467484FF1551E14 /* Pods-PatriotRV.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PatriotRV/PatriotRV.entitlements;
@@ -1070,8 +1530,9 @@
 		};
 		27F2A5D2297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E960C493F1BAD1AC7316553 /* Pods-PatriotRVTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1090,8 +1551,9 @@
 		};
 		27F2A5D3297C141B00EFD417 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 952EEAC144395E28460214F0 /* Pods-PatriotRVTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1110,8 +1572,9 @@
 		};
 		27F2A5D5297C141B00EFD417 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8542DBD5AB56526437A9389A /* Pods-PatriotRV-PatriotRVUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
@@ -1128,8 +1591,9 @@
 		};
 		27F2A5D6297C141B00EFD417 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 65NFWK9633;
@@ -1161,6 +1625,15 @@
 			buildConfigurations = (
 				2771BA7129816F9C0093FCCB /* Debug */,
 				2771BA7229816F9C0093FCCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27BFA4C729A96B7100D5FAEE /* Build configuration list for PBXNativeTarget "PatriotRvWatchWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27BFA4C529A96B7100D5FAEE /* Debug */,
+				27BFA4C629A96B7100D5FAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1213,14 +1686,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		276270C2297C1E0D00844645 /* SwiftMQTT */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 276270C1297C1E0D00844645 /* XCRemoteSwiftPackageReference "SwiftMQTT" */;
-			productName = SwiftMQTT;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27F2A5A2297C141A00EFD417 /* Project object */;
 }

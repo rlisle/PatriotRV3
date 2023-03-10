@@ -67,7 +67,7 @@ extension ModelData {
             // Start the live activity
             do {
                 powerActivity = try Activity.request(attributes: activityAttributes, content: activityContent)
-                print("Started power monitor live activity: \(String(describing: powerActivity))")
+//                print("Started power monitor live activity: \(String(describing: powerActivity))")
             } catch (let error) {
                 print("Error starting power monitor Live Activity \(error.localizedDescription).")
             }
@@ -89,7 +89,7 @@ extension ModelData {
         )
         let activityContent = ActivityContent(state: contentState, staleDate: nil)
         Task {
-            print("updatePowerActivity: rv: \(rv) tesla: \(tesla)")
+//            print("updatePowerActivity: rv: \(rv) tesla: \(tesla)")
             await powerActivity?.update(activityContent)
         }
     }

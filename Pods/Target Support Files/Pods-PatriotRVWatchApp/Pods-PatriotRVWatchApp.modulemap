@@ -1,0 +1,6 @@
+framework module Pods_PatriotRVWatchApp {
+  umbrella header "Pods-PatriotRVWatchApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

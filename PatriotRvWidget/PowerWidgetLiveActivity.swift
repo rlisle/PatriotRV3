@@ -20,7 +20,7 @@ struct PowerWidgetLiveActivity: Widget {
                 
         ActivityConfiguration(for: PatriotRvWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
-            LockScreenLiveActivityView(context: context)
+            LockScreenPowerLiveActivityView(context: context)
 
         } dynamicIsland: { context in
             DynamicIsland {
@@ -98,7 +98,7 @@ struct PowerWidgetLiveActivity: Widget {
 
 }
 
-struct LockScreenLiveActivityView: View {
+struct LockScreenPowerLiveActivityView: View {
     let context: ActivityViewContext<PatriotRvWidgetAttributes>
     
     var body: some View {

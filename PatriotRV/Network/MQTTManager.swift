@@ -2,11 +2,16 @@
 //  MQTTManager.swift
 //  RvChecklist
 //
+//  Currently using CocoaMQTT because it supports MQTT 5
+//  Was using SwiftMQTT but it doesn't support MQTT5
+//  Was using Swift Package install, but it broke previews
+//  so reverted back to CocoaPods installation
+//
 //  Created by Ron Lisle on 10/23/21.
 //
 
-import SwiftMQTT
 import Foundation
+import CocoaMQTT
 
 public enum MQTTError: Error {
     case connectionError
@@ -19,21 +24,22 @@ protocol MQTTManagerProtocol {
     var messageHandler: ((String, String) -> Void)? { get set }
 }
 
-class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
-
+class MQTTManager: MQTTManagerProtocol {
+    
     let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
     let port: UInt16 = 1883
     let subscribeTopic = "#"
     var clientID: String = ""
 
-    var session: MQTTSession?
+    var mqtt: CocoaMQTT!            // For some reason CocoaMQTT5 not found
+    
     var messageHandler: ((String, String) -> Void)?
     
     var isSubscribed = false
     
     var isConnected: Bool {
         get {
-            return session != nil
+            return mqtt != nil
         }
     }
     
@@ -42,77 +48,32 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     }
     
     private func connect() {
+        print("MQTT connect")
         clientID = getClientID()
-        session = MQTTSession(host: host, port: port, clientID: clientID, cleanSession: true, keepAlive: 15, useSSL: false)
-        session!.delegate = self
-        session!.connect { [self] (error) in
-            if error == .none {
-                print("MQTT connected on clientID: \(String(describing: clientID))")
-                self.subscribe()
-            } else {
-                print("MQTT error occurred during connection:")
-                print(error.description)
-                session = nil
-            }
-        }
+        mqtt = CocoaMQTT(clientID: clientID, host: host, port: port)
+        mqtt.delegate = self
+        mqtt.connect()
     }
 
     private func subscribe() {
-        print("Subscribing...")
-        session?.subscribe(to: subscribeTopic, delivering: .exactlyOnce) { (error) in
-            print("Subscribe completed, error: \(error)")
-            if error == .none {
-                self.isSubscribed = true
-//                self.requestUpdates()
-            } else {
-                print("MQTT subscription error:")
-                print(error.description)
-            }
-        }
-        //debug
-        self.requestUpdates()
-
+        print("MQTT subscribe")
+        mqtt.subscribe(subscribeTopic)
+        isSubscribed = true
+        requestUpdates()
     }
 
     private func requestUpdates() {
+        print("MQTT requestUpdates")
         // This requests every patriot controller to send its current devices states
         publish(topic: "patriot/query", message: "All")
     }
 
     func publish(topic: String, message: String) {
-        session?.publish(message.data(using: .utf8)!, in: topic, delivering: .atMostOnce, retain: false) { error in
-            if error != .none {
-                print("Error sending MQTT: \(error.description)")
-            }
-        }
-    }
-    
-    func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
-//        print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
-        if let handler = messageHandler {
-            handler(message.topic, message.stringRepresentation ?? "")
-        }
+        print("MQTT publish \(topic), \(message)")
+        mqtt.publish(topic, withString: message)
     }
 
-    func mqttDidDisconnect(session: MQTTSession, error: MQTTSessionError) {
-        print("MQTT session disconnected.")
-        if error != .none {
-            print(error.description)
-        }
-        self.session = nil
-        //TODO: try to reconnect
-        //print("MQTT Reconnecting")
-        //connect()     //TODO: implement retry counter
-    }
-
-    func mqttDidAcknowledgePing(from session: MQTTSession) {
-//        print("MQTT deep-alive ping acknowledged.")
-    }
-
-    // MQTT non-delegate methods
-    
     private func getClientID() -> String {
-
         let userDefaults = UserDefaults.standard
         let clientIDPersistenceKey = "clientID"
         let clientID: String
@@ -124,7 +85,6 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
             userDefaults.set(clientID, forKey: clientIDPersistenceKey)
             userDefaults.synchronize()
         }
-        
         return clientID
     }
     
@@ -135,12 +95,52 @@ class MQTTManager: MQTTManagerProtocol, MQTTSessionDelegate {
     }
 }
 
-class MockMQTTManager: MQTTManagerProtocol {
-    
-    var messageHandler: ((String, String) -> Void)?
+extension MQTTManager: CocoaMQTTDelegate {
 
-    func publish(topic: String, message: String) {
-        print("MQTTManager: publish(\(topic): \(message)")
+    func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {
+        print("didDisconnect")
+    }
+    
+    
+    func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
+        print("didConnectAck")
+        subscribe()
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {
+        print("didPublishMessage")
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {
+        print("didPublishAck")
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16 ) {
+        print("didReceiveMessage")
+        if let handler = messageHandler {
+            handler(message.topic, message.string ?? "")
+        }
+    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopics success: NSDictionary, failed: [String]) {
+        print("didSubscribeTopics")
+    }
+    
+
+//    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {
+//        print("didUnsubscribe topic")
+//    }
+    
+    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopics topics: [String]) {
+        print("didUnsubscribe topics")
+    }
+
+    func mqttDidPing(_ mqtt: CocoaMQTT) {
+        print("ping)")
+    }
+    
+    func mqttDidReceivePong(_ mqtt: CocoaMQTT) {
+        print("pong")
     }
     
 }

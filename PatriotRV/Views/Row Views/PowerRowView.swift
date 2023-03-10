@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct PowerRowView: View {
+    
+    @EnvironmentObject var model: ModelData
+    
+    var font: Font = .title
+    
     var body: some View {
         VStack {
-            Text("Power")
-            RvPowerView()
-            TeslaPowerView()
+            PowerGaugeView(title: "Power Usage", value: model.rv, font: font)
         }
     }
 }
@@ -21,7 +24,7 @@ struct PowerRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             PowerRowView()
-                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+                .environmentObject(ModelData())
         }
     }
 }

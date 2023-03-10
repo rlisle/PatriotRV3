@@ -1,0 +1,6 @@
+framework module Pods_PatriotRvWatchWidgetExtension {
+  umbrella header "Pods-PatriotRvWatchWidgetExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
