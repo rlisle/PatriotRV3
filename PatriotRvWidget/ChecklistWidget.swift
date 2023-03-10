@@ -37,19 +37,26 @@ struct ChecklistWidgetEntryView : View {
         case .systemLarge:
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Trip: ")
-                        Spacer()
-                        Text(entry.nextTrip)
+                        Link(destination: URL(string: "patriot:///link1")!, label: {
+                            Text("Trip: ")
+                            Spacer()
+                            Text(entry.nextTrip)
+                        })
+                    }
+                    Spacer()
+                    HStack {
+                        Link(destination: URL(string: "patriot:///link2")!, label: {
+                            Text(entry.tripMode)
+                            Spacer()
+                            Text("\(entry.doneCount) of \(entry.totalCount)")
+                        })
                     }
                     HStack {
-                        Text(entry.tripMode)
-                        Spacer()
-                        Text("\(entry.doneCount) of \(entry.totalCount)")
-                    }
-                    HStack {
-                        Text("Next: ")
-                        Spacer()
-                        Text(entry.nextItem)
+                        Link(destination: URL(string: "patriot:///link3")!, label: {
+                            Text("Next: ")
+                            Spacer()
+                            Text(entry.nextItem)
+                        })
                     }
                 }
                 .background(Image("truck-rv"))
@@ -66,21 +73,27 @@ struct ChecklistWidgetEntryView : View {
             ZStack {
                 //Color("WidgetBackground")
                 VStack(alignment: .leading) {
-                    HStack {
-                        Text("Trip: ")
-                        Spacer()
-                        Text(entry.nextTrip)
-                    }
-                    HStack {
-                        Text(entry.tripMode)
-                        Spacer()
-                        Text("\(entry.doneCount) of \(entry.totalCount)")
-                    }
-                    HStack {
-                        Text("Next: ")
-                        Spacer()
-                        Text(entry.nextItem)
-                    }
+                    Link(destination: URL(string: "patriot:///link1")!, label: {
+                        HStack {
+                            Text("Trip: ")
+                            Spacer()
+                            Text(entry.nextTrip)
+                        }
+                    })
+                    Link(destination: URL(string: "patriot:///link2")!, label: {
+                        HStack {
+                            Text(entry.tripMode)
+                            Spacer()
+                            Text("\(entry.doneCount) of \(entry.totalCount)")
+                        }
+                    })
+                    Link(destination: URL(string: "patriot:///link3")!, label: {
+                        HStack {
+                            Text("Next: ")
+                            Spacer()
+                            Text(entry.nextItem)
+                        }
+                    })
                 }
                 .padding(8)
             }
