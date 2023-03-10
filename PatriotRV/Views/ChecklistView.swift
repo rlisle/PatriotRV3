@@ -24,41 +24,38 @@ struct ChecklistView: View {
     
     var body: some View {
         
-        NavigationStack {
-                    
-            VStack {
-                
-                ImageHeader(imageName: "truck-rv")
+        VStack {
+            
+            ImageHeader(imageName: "truck-rv")
 
-                Picker("Phase", selection: $modelData.checklistPhase) {
-                    ForEach(phases, id: \.self) {
-                        Text($0.rawValue)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.bottom, 0)
-                .padding(.top, -14)
-                .background(Color.black)
-
-                ChecklistItemsListView()
-            }
-            .blackNavigation
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showingAddTrip = true
-                    }) {
-                        Image(systemName: "plus")
-                    }
-                    .foregroundColor(.white)
+            Picker("Phase", selection: $modelData.checklistPhase) {
+                ForEach(phases, id: \.self) {
+                    Text($0.rawValue)
                 }
             }
-            .navigationDestination(isPresented: $showingAddTrip, destination: {
-                AddTripView()
-            })
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.bottom, 0)
+            .padding(.top, -14)
+            .background(Color.black)
+
+            ChecklistItemsListView()
+        }
+        .blackNavigation
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showingAddTrip = true
+                }) {
+                    Image(systemName: "plus")
+                }
+                .foregroundColor(.white)
+            }
+        }
+        .navigationDestination(isPresented: $showingAddTrip, destination: {
+            AddTripView()
+        })
                 
-        } //NavigationStack
-        .accentColor(.black)   // Sets back button color
+//        .accentColor(.black)   // Sets back button color - doesn't work now
     }
 }
 

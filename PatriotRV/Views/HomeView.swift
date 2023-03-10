@@ -11,6 +11,9 @@ struct HomeView: View {
 
     @EnvironmentObject var model: ModelData
     
+    @State var tripLink: Bool = false
+    @State var checklistLink: Bool = false
+    
     @State private var showCompleted = true
     @State private var showSettings = false
 
@@ -20,48 +23,49 @@ struct HomeView: View {
         case checklists
         case trips
     }
-    @State private var selection: Screen?
+    @State private var selection: [String] = []
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $selection) {
             VStack {
-                
                 ImageHeader(imageName: "truck-rv")
-                
-                
                 List {
                     Section("Next Trip") {
-                        NavigationLink {
-                            TripListView()
-                        } label: {
+                        NavigationLink(value: "trip") {
                             TripRowView()
                         }
                     }
                     Section("Checklist") {
-                        NavigationLink {
-                            ChecklistView()
-                        } label: {
+                        NavigationLink(value: "list") {
                             HomeChecklistRowView()
                         }
                     }
                     Section("Power") {
-                        NavigationLink {
-                            PowerView()
-                        } label: {
+                        NavigationLink(value: "power") {
                             PowerRowView(font: .body)
                         }
                     }
                     Section("Log") {
-                        NavigationLink {
-                            LogView()
-                        } label: {
+                        NavigationLink(value: "log") {
                             LogRowView()
                         }
                     }
                 }
                 .listStyle(.grouped)
                 .padding(.top, -8)
-            } //vstack
+            }
+            .navigationDestination(for: String.self) { dest in
+                switch dest {
+                case "trip":
+                    TripListView()
+                case "list":
+                    ChecklistView()
+                case "power":
+                    PowerView()
+                default:    // Log
+                    LogRowView()
+                }
+            }
             .navigationTitle("Summary")
             .blackNavigation
             .toolbar {
@@ -94,10 +98,13 @@ struct HomeView: View {
             switch url {
             case URL(string: "patriot:///link1"):
                 print("link 1")
+                selection.append("trip")
             case URL(string: "patriot:///link2"):
                 print("link 2")
+                selection.append("list")
             case URL(string: "patriot:///link3"):
                 print("link 3")
+                selection.append("power")
             default:
                 print("unknown link url")
             }
