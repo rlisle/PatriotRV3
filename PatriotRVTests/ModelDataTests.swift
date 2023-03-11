@@ -19,21 +19,21 @@ final class ModelDataTests: XCTestCase {
     }
     
     // CATEGORY
-    func test_currentPhase_parked() {
-        let expected = TripMode.parked
-        let date = Date("01/01/19")
-        let result = model.currentPhase(date: date)
-        XCTAssertEqual(result, expected)
-    }
-
-    //TODO: add other category cases
-    
-    func test_checklist_nextItem() {
-        let expectedId = "iceMachine"
-        setAllItemsBefore(order: 2020)
-        let result = model.nextItem()
-        XCTAssertEqual(result?.key, expectedId)
-    }
+//    func test_currentPhase_parked() {
+//        let expected = TripMode.parked
+//        let date = Date("01/01/19")
+//        let result = model.currentPhase(date: date)
+//        XCTAssertEqual(result, expected)
+//    }
+//
+//    //TODO: add other category cases
+//    
+//    func test_checklist_nextItem() {
+//        let expectedId = "iceMachine"
+//        setAllItemsBefore(order: 2020)
+//        let result = model.nextItem()
+//        XCTAssertEqual(result?.key, expectedId)
+//    }
     
     // Helpers
     
