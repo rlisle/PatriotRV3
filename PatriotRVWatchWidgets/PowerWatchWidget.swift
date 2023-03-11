@@ -13,35 +13,32 @@ import Intents
 struct PowerWatchWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
-    var entry: Provider.Entry
+    var entry: PowerProvider.Entry
 
     var body: some View {
         
         switch family {
         case .accessoryCircular:
-            CircularPowerView(tripMode: entry.tripMode, doneCount: entry.doneCount, totalCount: entry.totalCount)
+            CircularView(title: "RV",
+                         value: entry.rvAmps,
+                         total: 50)
 
         case .accessoryInline:
-            Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
+            Text("RV: \(entry.rvAmps), Tesla: \(entry.teslaAmps)")
             
         default:
             ZStack {
                 //Color("WidgetBackground")
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Trip: ")
+                        Text("RV Amps:")
                         Spacer()
-                        Text(entry.nextTrip)
+                        Text("\(entry.rvAmps)")
                     }
                     HStack {
-                        Text(entry.tripMode)
+                        Text("Tesla Amps:")
                         Spacer()
-                        Text("\(entry.doneCount) of \(entry.totalCount)")
-                    }
-                    HStack {
-                        Text("Next: ")
-                        Spacer()
-                        Text(entry.nextItem)
+                        Text("\(entry.teslaAmps)")
                     }
                 }
                 .padding(8)
@@ -57,7 +54,7 @@ struct PowerWatchWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
-                            provider: Provider()) { entry in
+                            provider: PowerProvider()) { entry in
             PowerWatchWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Power")
@@ -76,12 +73,9 @@ struct PowerWatchWidget_Previews: PreviewProvider {
                 id: \.self) { family in
                 
                 PowerWatchWidgetEntryView(
-                    entry: PowerWidgetEntry(
-                        nextTrip: "Canada",
-                        tripMode: "Parked",
-                        doneCount: 3,
-                        totalCount: 15,
-                        nextItem: "Plan Trip"))
+                    entry: PowerEntry(
+                        rvAmps: 7,
+                        teslaAmps: 24))
                 .previewContext(WidgetPreviewContext(family: family))
                 .previewDevice(PreviewDevice(rawValue: "Apple Watch Series 5 (44 mm)"))
                 .previewDisplayName(String(family.description.dropFirst(9)))

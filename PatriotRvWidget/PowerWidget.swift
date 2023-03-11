@@ -13,38 +13,35 @@ import Intents
 struct PowerWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
-    var entry: Provider.Entry
+    var entry: PowerProvider.Entry
 
     var body: some View {
         
         switch family {
         case .accessoryCircular:
-            CircularPowerView(tripMode: entry.tripMode, doneCount: entry.doneCount, totalCount: entry.totalCount)
+            CircularView(title: "RV",
+                         value: entry.rvAmps,
+                         total: 50)
 
         case .accessoryInline:
-            Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
-            
+            Text("RV: \(entry.rvAmps), Tesla: \(entry.teslaAmps)")
+
         case .systemLarge:
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Trip: ")
-                        Spacer()
-                        Text(entry.nextTrip)
-                    }
-                    HStack {
-                        Text(entry.tripMode)
-                        Spacer()
-                        Text("\(entry.doneCount) of \(entry.totalCount)")
-                    }
-                    HStack {
-                        Text("Next: ")
-                        Spacer()
-                        Text(entry.nextItem)
-                    }
+            //Color("WidgetBackground")
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("RV Amps:")
+                    Spacer()
+                    Text("\(entry.rvAmps)")
                 }
-                .background(Image("truck-rv"))
-                .padding(8)
-            
+                HStack {
+                    Text("Tesla Amps:")
+                    Spacer()
+                    Text("\(entry.teslaAmps)")
+                }
+            }
+            .padding(8)
+
         case .systemSmall:
             Text("RV Power")
                 .widgetURL(URL(string: "patriot:///power")!)
@@ -54,19 +51,14 @@ struct PowerWidgetEntryView : View {
                 //Color("WidgetBackground")
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Trip: ")
+                        Text("RV Amps:")
                         Spacer()
-                        Text(entry.nextTrip)
+                        Text("\(entry.rvAmps)")
                     }
                     HStack {
-                        Text(entry.tripMode)
+                        Text("Tesla Amps:")
                         Spacer()
-                        Text("\(entry.doneCount) of \(entry.totalCount)")
-                    }
-                    HStack {
-                        Text("Next: ")
-                        Spacer()
-                        Text(entry.nextItem)
+                        Text("\(entry.teslaAmps)")
                     }
                 }
                 .padding(8)
@@ -82,7 +74,7 @@ struct PowerWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
-                            provider: Provider()) { entry in
+                            provider: PowerProvider()) { entry in
             PowerWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Power")
@@ -100,13 +92,10 @@ struct PowerWidget_Previews: PreviewProvider {
             ForEach(phoneFamilies,
                 id: \.self) { family in
                 
-                ChecklistWidgetEntryView(
-                    entry: ChecklistEntry(
-                        nextTrip: "Canada",
-                        tripMode: "Parked",
-                        doneCount: 3,
-                        totalCount: 15,
-                        nextItem: "Plan Trip"))
+                PowerWidgetEntryView(
+                    entry: PowerEntry(
+                        rvAmps: 4,
+                        teslaAmps: 24))
                 .previewContext(WidgetPreviewContext(family: family))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
                 .previewDisplayName(String(family.description.dropFirst(9)))
