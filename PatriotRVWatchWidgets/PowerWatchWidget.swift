@@ -27,21 +27,36 @@ struct PowerWatchWidgetEntryView : View {
             Text("RV: \(entry.rvAmps), Tesla: \(entry.teslaAmps)")
             
         default:
-            ZStack {
-                //Color("WidgetBackground")
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("RV Amps:")
-                        Spacer()
-                        Text("\(entry.rvAmps)")
-                    }
-                    HStack {
-                        Text("Tesla Amps:")
-                        Spacer()
-                        Text("\(entry.teslaAmps)")
+            //Color("WidgetBackground")
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Amps:").font(.caption)
+                }
+                HStack {
+                    Text("RV:").font(.caption)
+                    Gauge(value: Double(entry.rvAmps), in: 0...50) {
+                        Text("n/a")
+                    } currentValueLabel: {
+                        Text("n/a")
+                    } minimumValueLabel: {
+                        Text("0").font(.headline)
+                    } maximumValueLabel: {
+                        Text("50").font(.caption)
                     }
                 }
-                .padding(8)
+                HStack {
+                    Text("Tesla:")
+                    Gauge(value: Double(entry.teslaAmps), in: 0...50) {
+                        Text("Not displayed")
+                    } currentValueLabel: {
+                        Text("RV").font(.title)
+                    } minimumValueLabel: {
+                        Text("0").font(.caption)
+                    } maximumValueLabel: {
+                        Text("50").font(.caption)
+                    }
+                    .gaugeStyle(.linear)
+                }
             }
         }
     }

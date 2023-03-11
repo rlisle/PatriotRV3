@@ -44,7 +44,6 @@ struct PowerWidgetEntryView : View {
 
         case .systemSmall:
             Text("RV Power")
-                .widgetURL(URL(string: "patriot:///power")!)
 
         default:
             ZStack {
@@ -76,6 +75,7 @@ struct PowerWidget: Widget {
         StaticConfiguration(kind: kind,
                             provider: PowerProvider()) { entry in
             PowerWidgetEntryView(entry: entry)
+                .widgetURL(URL(string: "patriot:///power")!)
         }
         .configurationDisplayName("RV Power")
         .description("RV Power Monitor")
@@ -91,6 +91,8 @@ struct PowerWidget_Previews: PreviewProvider {
         Group {
             ForEach(phoneFamilies,
                 id: \.self) { family in
+                let accessory = family.description.hasPrefix("accessory")
+                let numToDrop = accessory ? 9 : 6
                 
                 PowerWidgetEntryView(
                     entry: PowerEntry(
@@ -98,7 +100,7 @@ struct PowerWidget_Previews: PreviewProvider {
                         teslaAmps: 24))
                 .previewContext(WidgetPreviewContext(family: family))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-                .previewDisplayName(String(family.description.dropFirst(9)))
+                .previewDisplayName(String(family.description.dropFirst(numToDrop)))
             }
         }
     }

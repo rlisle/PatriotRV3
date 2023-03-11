@@ -13,6 +13,6 @@ struct PatriotRvWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
         ChecklistWatchWidget()
-//        PowerWatchWidget()
+        PowerWatchWidget()
     }
 }
