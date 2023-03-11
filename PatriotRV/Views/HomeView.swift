@@ -105,6 +105,9 @@ struct HomeView: View {
             case URL(string: "patriot:///link3"):
                 print("link 3")
                 selection.append("power")
+            case URL(string: "patriot:///power"):
+                print("power link")
+                selection.append("power")
             default:
                 print("unknown link url")
             }

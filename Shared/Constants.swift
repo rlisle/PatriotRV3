@@ -8,5 +8,6 @@
 import Foundation
 
 struct Constants {
-    static let kind = "ChecklistWidget"
+    static let checklistKind = "ChecklistWidget"
+    static let powerKind = "PowerWidget"
 }

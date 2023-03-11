@@ -1,5 +1,5 @@
 //
-//  PowerWidget.swift
+//  PowerWatchWidget.swift
 //  PatriotRV
 //
 //  Created by Ron Lisle on 2/25/23.
@@ -10,7 +10,7 @@ import SwiftUI
 import Intents
 
 
-struct PowerWidgetEntryView : View {
+struct PowerWatchWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var entry: Provider.Entry
@@ -24,31 +24,6 @@ struct PowerWidgetEntryView : View {
         case .accessoryInline:
             Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
             
-        case .systemLarge:
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Trip: ")
-                        Spacer()
-                        Text(entry.nextTrip)
-                    }
-                    HStack {
-                        Text(entry.tripMode)
-                        Spacer()
-                        Text("\(entry.doneCount) of \(entry.totalCount)")
-                    }
-                    HStack {
-                        Text("Next: ")
-                        Spacer()
-                        Text(entry.nextItem)
-                    }
-                }
-                .background(Image("truck-rv"))
-                .padding(8)
-            
-        case .systemSmall:
-            Text("RV Power")
-                .widgetURL(URL(string: "patriot:///power")!)
-
         default:
             ZStack {
                 //Color("WidgetBackground")
@@ -75,40 +50,40 @@ struct PowerWidgetEntryView : View {
     }
 }
 
-struct PowerWidget: Widget {
+struct PowerWatchWidget: Widget {
     let kind: String = Constants.powerKind
     
-    let accessories: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .systemLarge, .systemMedium, .systemSmall]
+    let accessories: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner]
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
                             provider: Provider()) { entry in
-            PowerWidgetEntryView(entry: entry)
+            PowerWatchWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Power")
-        .description("RV Power Monitor")
+        .description("RV Power")
         .supportedFamilies(accessories)
     }
 }
 
-struct PowerWidget_Previews: PreviewProvider {
+struct PowerWatchWidget_Previews: PreviewProvider {
     
-    static let phoneFamilies: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .systemLarge, .systemMedium, .systemSmall]
+    static let watchFamilies: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner]
 
     static var previews: some View {
         Group {
-            ForEach(phoneFamilies,
+            ForEach(watchFamilies,
                 id: \.self) { family in
                 
-                ChecklistWidgetEntryView(
-                    entry: ChecklistEntry(
+                PowerWatchWidgetEntryView(
+                    entry: PowerWidgetEntry(
                         nextTrip: "Canada",
                         tripMode: "Parked",
                         doneCount: 3,
                         totalCount: 15,
                         nextItem: "Plan Trip"))
                 .previewContext(WidgetPreviewContext(family: family))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
+                .previewDevice(PreviewDevice(rawValue: "Apple Watch Series 5 (44 mm)"))
                 .previewDisplayName(String(family.description.dropFirst(9)))
             }
         }
