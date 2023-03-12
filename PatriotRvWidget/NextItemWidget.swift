@@ -1,16 +1,14 @@
 //
-//  PatriotRvWidget.swift
-//  PatriotRvWidget
+//  NextItemWidget.swift
+//  PatriotRvWidgetExtension
 //
-//  Created by Ron Lisle on 1/25/23.
+//  Created by Ron Lisle on 3/12/23.
 //
-
 import WidgetKit
 import SwiftUI
 import Intents
 
-
-struct ChecklistWidgetEntryView : View {
+struct NextItemWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var entry: Provider.Entry
@@ -18,20 +16,8 @@ struct ChecklistWidgetEntryView : View {
     var body: some View {
         
         switch family {
-        case .accessoryCircular:
-            Gauge(value: 3, in: 0...13) {
-                Text("Not displayed")
-            } currentValueLabel: {
-                Text(entry.tripMode).font(.title)
-            } minimumValueLabel: {
-                Text(String(entry.doneCount)).font(.caption)
-            } maximumValueLabel: {
-                Text(String(entry.totalCount)).font(.caption)
-            }
-            .gaugeStyle(.accessoryCircular)
-            
         case .accessoryInline:
-            Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
+            Text("Next: \(entry.nextItem)")
             
         default:
             VStack(alignment: .leading) {
@@ -65,8 +51,8 @@ struct ChecklistWidgetEntryView : View {
     }
 }
 
-struct ChecklistWidget: Widget {
-    let kind: String = Constants.checklistKind
+struct NextItemWidget: Widget {
+    let kind: String = Constants.nextItemKind
     
     static let accessories: [WidgetFamily] = [
         .accessoryInline,
@@ -78,31 +64,31 @@ struct ChecklistWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
                             provider: Provider()) { entry in
-            ChecklistWidgetEntryView(entry: entry)
-                .widgetURL(URL(string: "patriot:///list")!)
+            NextItemWidgetEntryView(entry: entry)
+                .widgetURL(URL(string: "patriot:///nextitem")!)
         }
-        .configurationDisplayName("RV Checklist")
-        .description("RV Trip Checklist")
-        .supportedFamilies(ChecklistWidget.accessories)
+        .configurationDisplayName("Next item")
+        .description("RV checklist next item")
+        .supportedFamilies(NextItemWidget.accessories)
     }
 }
 
-struct ChecklistWidget_Previews: PreviewProvider {
+struct NextItemWidget_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            ForEach(ChecklistWidget.accessories,
+            ForEach(NextItemWidget.accessories,
                 id: \.self) { family in
                 let accessory = family.description.hasPrefix("accessory")
                 let numToDrop = accessory ? 9 : 6
 
-                ChecklistWidgetEntryView(
+                NextItemWidgetEntryView(
                     entry: ChecklistEntry(
-                        nextTrip: "Canada",
-                        tripMode: "Parked",
+                        nextTrip: "n/a",
+                        tripMode: "n/a",
                         doneCount: 3,
                         totalCount: 15,
-                        nextItem: "Plan Trip"))
+                        nextItem: "Inspect roof"))
                 .previewContext(WidgetPreviewContext(family: family))
                 .previewDisplayName(String(family.description.dropFirst(numToDrop)))
             }

@@ -96,20 +96,14 @@ struct HomeView: View {
         .onOpenURL(perform: { (url) in
             //url can now be compared for matching url passed from widget eg. patriot://link1
             switch url {
-            case URL(string: "patriot:///link1"):
-                print("link 1")
+            case URL(string: "patriot:///trip"):
                 selection.append("trip")
-            case URL(string: "patriot:///link2"):
-                print("link 2")
+            case URL(string: "patriot:///list"):
                 selection.append("list")
-            case URL(string: "patriot:///link3"):
-                print("link 3")
-                selection.append("power")
             case URL(string: "patriot:///power"):
-                print("power link")
                 selection.append("power")
             default:
-                print("unknown link url")
+                print("unknown link url: \(url)")
             }
         })
     } //body

@@ -14,6 +14,7 @@ struct PatriotRvWidgetBundle: WidgetBundle {
     var body: some Widget {
         ChecklistWidget()
         PowerWidget()
+        PowerRvWidget()
 //        ChecklistWidgetLiveActivity()
 //        PowerWidgetLiveActivity()
     }
