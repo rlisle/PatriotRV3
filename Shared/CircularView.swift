@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct CircularPowerView: View {
+struct CircularView: View {
 
-    var tripMode: String
-    var doneCount: Int
-    var totalCount: Int
+    var title: String
+    var value: Int
+    var total: Int
 
     var body: some View {
         VStack {
             Gauge(value: 3, in: 0...13) {
                 Text("Not displayed")
             } currentValueLabel: {
-                Text(tripMode).font(.title)
+                Text(title).font(.title)
             } minimumValueLabel: {
-                Text(String(doneCount)).font(.caption)
+                Text(String(value)).font(.caption)
             } maximumValueLabel: {
-                Text(String(totalCount)).font(.caption)
+                Text(String(total)).font(.caption)
             }
             .gaugeStyle(.accessoryCircular)
         }

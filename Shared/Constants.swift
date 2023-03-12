@@ -8,5 +8,11 @@
 import Foundation
 
 struct Constants {
-    static let kind = "ChecklistWidget"
+    static let checklistKind = "ChecklistWidget"
+    static let powerRvKind = "RvPowerWidget"
+    static let powerTeslaKind = "TeslaPowerWidget"
+    static let powerKind = "PowerWidget"
+    static let nextItemKind = "NextItemWidget"
+    static let powerActivityKind = "PowerActivityWidget"
+    static let checklistActivityKind = "ChecklistActivityWidget"
 }

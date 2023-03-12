@@ -143,7 +143,7 @@ extension ModelData {
         UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem.rawValue)
         UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount.rawValue)
         UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount.rawValue)
-        WidgetCenter.shared.reloadTimelines(ofKind: Constants.kind)
+        WidgetCenter.shared.reloadTimelines(ofKind: Constants.checklistKind)
         
         //TODO: still needed, or use the above instead?
         let nextItemId = nextItem.id

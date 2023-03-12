@@ -1,6 +1,6 @@
 //
-//  PatriotRvWidgetBundle.swift
-//  PatriotRvWidget
+//  PatriotRvWatchWidgetBundle.swift
+//  PatriotRvWatchWidget
 //
 //  Created by Ron Lisle on 1/25/23.
 //
@@ -12,10 +12,7 @@ import SwiftUI
 struct PatriotRvWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
-        ChecklistWidget()
-        NextItemWidget()
-        PowerWidget()
-        PowerRvWidget()
-        PowerWidgetLiveActivity()
+        ChecklistWatchWidget()
+        PowerWatchWidget()
     }
 }

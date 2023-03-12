@@ -15,5 +15,7 @@ extension UserDefaults {
         case doneCount = "DoneCount"
         case totalCount = "TotalCount"
         case nextItem = "NextItem"
+        case rvAmps = "RvAmps"
+        case teslaAmps = "TeslaAmps"
     }
 }

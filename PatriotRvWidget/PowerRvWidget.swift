@@ -1,16 +1,14 @@
 //
-//  PowerWidget.swift
-//  PatriotRV
+//  PowerRvWidget.swift
+//  PatriotRvWidgetExtension
 //
-//  Created by Ron Lisle on 2/25/23.
+//  Created by Ron Lisle on 3/11/23.
 //
-
 import WidgetKit
 import SwiftUI
 import Intents
 
-
-struct PowerWidgetEntryView : View {
+struct PowerRvWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var entry: PowerProvider.Entry
@@ -18,8 +16,13 @@ struct PowerWidgetEntryView : View {
     var body: some View {
         
         switch family {
+        case .accessoryCircular:    // Lock screen only
+            CircularView(title: "RV",
+                         value: entry.rvAmps,
+                         total: 50)
+
         case .accessoryInline:      // Lock screen only
-            Text("RV: \(entry.rvAmps), Tesla: \(entry.teslaAmps)")
+            Text("RV: \(entry.rvAmps) amps")
 
         default:
             ZStack {
@@ -30,11 +33,6 @@ struct PowerWidgetEntryView : View {
                         Spacer()
                         Text("\(entry.rvAmps)")
                     }
-                    HStack {
-                        Text("Tesla Amps:")
-                        Spacer()
-                        Text("\(entry.teslaAmps)")
-                    }
                 }
                 .padding(8)
             }
@@ -42,37 +40,38 @@ struct PowerWidgetEntryView : View {
     }
 }
 
-struct PowerWidget: Widget {
+struct PowerRvWidget: Widget {
     let kind: String = Constants.powerKind
     
     static let accessories: [WidgetFamily] = [
-        .accessoryRectangular,
-        .accessoryInline,
+        .accessoryRectangular,  // Lock screen only
+        .accessoryInline,       // Lock screen only
+        .accessoryCircular,     // Lock screen only
         .systemSmall
     ]
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
                             provider: PowerProvider()) { entry in
-            PowerWidgetEntryView(entry: entry)
+            PowerRvWidgetEntryView(entry: entry)
                 .widgetURL(URL(string: "patriot:///power")!)
         }
-        .configurationDisplayName("Power Monitor")
-        .description("RV & Tesla Power Monitor")
+        .configurationDisplayName("RV Power Monitor")
+        .description("RV Power Monitor")
         .supportedFamilies(PowerWidget.accessories)
     }
 }
 
-struct PowerWidget_Previews: PreviewProvider {
+struct PowerRvWidget_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            ForEach(PowerWidget.accessories,
+            ForEach(PowerRvWidget.accessories,
                 id: \.self) { family in
                 let accessory = family.description.hasPrefix("accessory")
                 let numToDrop = accessory ? 9 : 6
 
-                PowerWidgetEntryView(
+                PowerRvWidgetEntryView(
                     entry: PowerEntry(
                         rvAmps: 4,
                         teslaAmps: 24))

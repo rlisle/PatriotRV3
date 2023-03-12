@@ -1,6 +1,6 @@
 //
-//  PatriotRvWidget.swift
-//  PatriotRvWidget
+//  PatriotRvWatchWidget.swift
+//  PatriotRvWatchWidget
 //
 //  Created by Ron Lisle on 1/25/23.
 //
@@ -10,7 +10,7 @@ import SwiftUI
 import Intents
 
 
-struct ChecklistWidgetEntryView : View {
+struct ChecklistWatchWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
     var entry: Provider.Entry
@@ -29,74 +29,68 @@ struct ChecklistWidgetEntryView : View {
                 Text(String(entry.totalCount)).font(.caption)
             }
             .gaugeStyle(.accessoryCircular)
-            
+
         case .accessoryInline:
             Text("\(entry.nextTrip): \(entry.tripMode) \(entry.doneCount) of \(entry.totalCount)")
             
         default:
-            VStack(alignment: .leading) {
-                HStack {
+            ZStack {
+                //Color("WidgetBackground")
+                VStack(alignment: .leading) {
                     Link(destination: URL(string: "patriot:///link1")!, label: {
-                        Text("Trip: ")
-                        Spacer()
-                        Text(entry.nextTrip)
+                        HStack {
+                            Text("Trip: ")
+                            Spacer()
+                            Text(entry.nextTrip)
+                        }
                     })
-                }
-                Spacer()
-                HStack {
                     Link(destination: URL(string: "patriot:///link2")!, label: {
-                        Text(entry.tripMode)
-                        Spacer()
-                        Text("\(entry.doneCount) of \(entry.totalCount)")
+                        HStack {
+                            Text(entry.tripMode)
+                            Spacer()
+                            Text("\(entry.doneCount) of \(entry.totalCount)")
+                        }
                     })
-                }
-                HStack {
                     Link(destination: URL(string: "patriot:///link3")!, label: {
-                        Text("Next: ")
-                        Spacer()
-                        Text(entry.nextItem)
+                        HStack {
+                            Text("Next: ")
+                            Spacer()
+                            Text(entry.nextItem)
+                        }
                     })
                 }
+                .padding(8)
             }
-            .background(Image("truck-rv").opacity(0.2).scaledToFill())
-            .foregroundColor(.black)
-            .padding(8)
         }
     }
 }
 
-struct ChecklistWidget: Widget {
+struct ChecklistWatchWidget: Widget {
     let kind: String = Constants.checklistKind
     
-    static let accessories: [WidgetFamily] = [
-        .accessoryInline,
-        .accessoryCircular,
-        .systemMedium,
-        .systemSmall
-    ]
+    let accessories: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner]
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
                             provider: Provider()) { entry in
-            ChecklistWidgetEntryView(entry: entry)
-                .widgetURL(URL(string: "patriot:///list")!)
+            ChecklistWatchWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Checklist")
         .description("RV Trip Checklist")
-        .supportedFamilies(ChecklistWidget.accessories)
+        .supportedFamilies(accessories)
     }
 }
 
-struct ChecklistWidget_Previews: PreviewProvider {
+struct ChecklistWatchWidget_Previews: PreviewProvider {
     
+    static let families: [WidgetFamily] = [.accessoryRectangular, .accessoryInline, .accessoryCircular, .accessoryCorner]
+
     static var previews: some View {
         Group {
-            ForEach(ChecklistWidget.accessories,
+            ForEach(families,
                 id: \.self) { family in
-                let accessory = family.description.hasPrefix("accessory")
-                let numToDrop = accessory ? 9 : 6
-
-                ChecklistWidgetEntryView(
+                
+                ChecklistWatchWidgetEntryView(
                     entry: ChecklistEntry(
                         nextTrip: "Canada",
                         tripMode: "Parked",
@@ -104,7 +98,7 @@ struct ChecklistWidget_Previews: PreviewProvider {
                         totalCount: 15,
                         nextItem: "Plan Trip"))
                 .previewContext(WidgetPreviewContext(family: family))
-                .previewDisplayName(String(family.description.dropFirst(numToDrop)))
+                .previewDisplayName(String(family.description.dropFirst(9)))
             }
         }
     }
