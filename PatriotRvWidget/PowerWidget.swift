@@ -57,8 +57,8 @@ struct PowerWidget: Widget {
             PowerWidgetEntryView(entry: entry)
                 .widgetURL(URL(string: "patriot:///power")!)
         }
-        .configurationDisplayName("RV Power")
-        .description("RV Power Monitor")
+        .configurationDisplayName("Power Monitor")
+        .description("RV & Tesla Power Monitor")
         .supportedFamilies(PowerWidget.accessories)
     }
 }

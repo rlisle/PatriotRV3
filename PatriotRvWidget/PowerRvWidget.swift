@@ -56,7 +56,7 @@ struct PowerRvWidget: Widget {
             PowerRvWidgetEntryView(entry: entry)
                 .widgetURL(URL(string: "patriot:///power")!)
         }
-        .configurationDisplayName("RV Power")
+        .configurationDisplayName("RV Power Monitor")
         .description("RV Power Monitor")
         .supportedFamilies(PowerWidget.accessories)
     }
@@ -71,7 +71,7 @@ struct PowerRvWidget_Previews: PreviewProvider {
                 let accessory = family.description.hasPrefix("accessory")
                 let numToDrop = accessory ? 9 : 6
 
-                PowerWidgetEntryView(
+                PowerRvWidgetEntryView(
                     entry: PowerEntry(
                         rvAmps: 4,
                         teslaAmps: 24))

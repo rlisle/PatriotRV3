@@ -94,11 +94,12 @@ struct HomeView: View {
             model.startChecklistActivity()
         }
         .onOpenURL(perform: { (url) in
-            //url can now be compared for matching url passed from widget eg. patriot://link1
             switch url {
             case URL(string: "patriot:///trip"):
                 selection.append("trip")
             case URL(string: "patriot:///list"):
+                selection.append("list")
+            case URL(string: "patriot:///nextitem"):
                 selection.append("list")
             case URL(string: "patriot:///power"):
                 selection.append("power")

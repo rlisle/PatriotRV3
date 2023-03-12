@@ -13,6 +13,7 @@ struct PatriotRvWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
         ChecklistWidget()
+        NextItemWidget()
         PowerWidget()
         PowerRvWidget()
 //        ChecklistWidgetLiveActivity()

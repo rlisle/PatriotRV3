@@ -19,7 +19,57 @@ struct NextItemWidgetEntryView : View {
         case .accessoryInline:
             Text("Next: \(entry.nextItem)")
             
-        default:
+        case .accessoryCircular:
+            ZStack {
+                Image(systemName: "checkmark.circle")
+                    .resizable()
+                    .opacity(0.5)
+                VStack {
+                    Text("\(entry.nextItem.word(0))")
+                    Text("\(entry.nextItem.word(1))")
+                    if entry.nextItem.numWords() > 2 {
+                        Text("\(entry.nextItem.word(2))")
+                    }
+                }
+            }
+
+        case .systemMedium:   //TODO: display next item + picture
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Trip: ")
+                    Spacer()
+                    Text(entry.nextTrip)
+                }
+                HStack {
+                    Text(entry.tripMode)
+                    Spacer()
+                    Text("\(entry.doneCount) of \(entry.totalCount)")
+                }
+                HStack {
+                    Text("Next: ")
+                    Spacer()
+                    Text(entry.nextItem)
+                }
+                Spacer()
+                HStack {
+                    Spacer()
+                    Link(destination: URL(string: "patriot:///previtem")!, label: {
+                        Text("<")
+                    })
+                    Spacer()
+                    Link(destination: URL(string: "patriot:///itemdone")!, label: {
+                        Image(systemName: "checkmark.square")
+                    })
+                    Spacer()
+                }
+                .padding(.bottom, 8)
+            }
+            //TODO: show picture of next item
+            //.background(Image("truck-rv").opacity(0.2).scaledToFill())
+            .foregroundColor(.black)
+            .padding(8)
+
+        default:    // .systemSmall
             VStack(alignment: .leading) {
                 HStack {
                     Link(destination: URL(string: "patriot:///link1")!, label: {
@@ -28,7 +78,6 @@ struct NextItemWidgetEntryView : View {
                         Text(entry.nextTrip)
                     })
                 }
-                Spacer()
                 HStack {
                     Link(destination: URL(string: "patriot:///link2")!, label: {
                         Text(entry.tripMode)
@@ -43,8 +92,22 @@ struct NextItemWidgetEntryView : View {
                         Text(entry.nextItem)
                     })
                 }
+                Spacer()
+                HStack {
+                    Spacer()
+                    Link(destination: URL(string: "patriot:///previtem")!, label: {
+                        Text("<")
+                    })
+                    Spacer()
+                    Link(destination: URL(string: "patriot:///itemdone")!, label: {
+                        Image(systemName: "checkmark.square")
+                    })
+                    Spacer()
+                }
+                .padding(.bottom, 8)
             }
-            .background(Image("truck-rv").opacity(0.2).scaledToFill())
+            //TODO: show picture of next item
+            //.background(Image("truck-rv").opacity(0.2).scaledToFill())
             .foregroundColor(.black)
             .padding(8)
         }
@@ -73,6 +136,31 @@ struct NextItemWidget: Widget {
     }
 }
 
+extension String {
+    func word(_ index: Int) -> String {
+        let words = self.byWords
+        guard words.count > index else {
+            return " "
+        }
+        return String(words[index])
+    }
+    
+    func numWords() -> Int {
+        let words = self.byWords
+        return words.count
+    }
+}
+
+extension StringProtocol where Index == String.Index {
+    var byWords: [SubSequence] {
+        var byWords: [SubSequence] = []
+        enumerateSubstrings(in: startIndex..., options: .byWords) { _, range, _, _ in
+            byWords.append(self[range])
+        }
+        return byWords
+    }
+}
+
 struct NextItemWidget_Previews: PreviewProvider {
     
     static var previews: some View {
@@ -84,8 +172,8 @@ struct NextItemWidget_Previews: PreviewProvider {
 
                 NextItemWidgetEntryView(
                     entry: ChecklistEntry(
-                        nextTrip: "n/a",
-                        tripMode: "n/a",
+                        nextTrip: "Oakwood Golf Resort",
+                        tripMode: "Pre-trip",
                         doneCount: 3,
                         totalCount: 15,
                         nextItem: "Inspect roof"))
