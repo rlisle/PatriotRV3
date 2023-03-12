@@ -58,8 +58,8 @@ struct ChecklistWidgetLiveActivity: Widget {
             } minimal: {
                 Text("\(context.state.numberDone)/\(context.state.numberItems)")
             }
-            //.widgetURL(URL(string: "http://www.lisles.net"))
-            //.keylineTint(Color.red)
+            .widgetURL(URL(string: "patriot:///list"))
+            .keylineTint(Color.red)
         }
     }
     
@@ -74,22 +74,22 @@ struct LockScreenChecklistLiveActivityView: View {
                 Text("\(context.state.nextTripName)")
                 Spacer()
                 Text("\(context.state.numberDone) of \(context.state.numberItems)")
-            }
+            }.font(.caption)
             
             Gauge(value: Float(context.state.numberDone), in: 0...Float(context.state.numberItems)) {
-                Text(context.state.tripMode.rawValue)
+                Text("\(context.state.tripMode.rawValue): \(context.state.nextItemName)")
             } currentValueLabel: {
-                Text(context.state.nextItemName).font(.title)
+                Text("\(context.state.numberDone)").font(.body)
             } minimumValueLabel: {
-                Text(String(context.state.numberDone)).font(.caption)
+                Text("0").font(.caption)
             } maximumValueLabel: {
                 Text(String(context.state.numberItems)).font(.caption)
             }
             .gaugeStyle(.accessoryLinearCapacity)
         }
         .padding()
-//        .activityBackgroundTint(Color.cyan) // Set color based on todos
-//        .activitySystemActionForegroundColor(Color.black)
+        .activityBackgroundTint(Color.cyan) // Set color based on todos
+        .activitySystemActionForegroundColor(Color.black)
     }
 }
 
