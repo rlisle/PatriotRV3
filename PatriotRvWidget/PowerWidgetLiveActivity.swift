@@ -24,17 +24,9 @@ struct PowerWidgetLiveActivity: Widget {
 
         } dynamicIsland: { context in
             DynamicIsland {
-                // Expanded UI goes here.  Compose the expanded UI through
-                // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
                     VStack {
                         Text(rvAmps(context.state.rvAmps))
-                    }
-                }
-                DynamicIslandExpandedRegion(.trailing) {
-                    VStack {
-                        Text(teslaAmps(context.state.teslaAmps))
-                        //TODO: use color to indicate charge/discharge
                     }
                 }
                 DynamicIslandExpandedRegion(.center) {
@@ -50,6 +42,11 @@ struct PowerWidgetLiveActivity: Widget {
                             tint: chargingTint(context.state.teslaAmps))
                     }
                 }
+                DynamicIslandExpandedRegion(.trailing) {
+                    VStack {
+                        Text(teslaAmps(context.state.teslaAmps))
+                    }
+                }
             } compactLeading: {
                 Text(rvAmps(context.state.rvAmps))
             } compactTrailing: {
@@ -57,8 +54,7 @@ struct PowerWidgetLiveActivity: Widget {
             } minimal: {
                 Text("\(context.state.rvAmps)a")
             }
-            //.widgetURL(URL(string: "http://www.lisles.net"))
-            //.keylineTint(Color.red)
+            .widgetURL(URL(string: "patriot:///power"))
         }
     }
     

@@ -110,6 +110,7 @@
 		27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1C3802986B9D100D34DAC /* WidgetAttributes.swift */; };
 		27DE7F6329BDFC7000453813 /* NextItemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE7F6229BDFC7000453813 /* NextItemWidget.swift */; };
 		27DE7F6429BE1B8900453813 /* ChecklistWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFA4DF29AA46B100D5FAEE /* ChecklistWidgetLiveActivity.swift */; };
+		27DE7F6529BE5EA700453813 /* PowerWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6329816F9A0093FCCB /* PowerWidgetLiveActivity.swift */; };
 		27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2A5AD297C141A00EFD417 /* PatriotRVApp.swift */; };
 		27F2A5B2297C141B00EFD417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B1297C141B00EFD417 /* Assets.xcassets */; };
 		27F2A5B5297C141B00EFD417 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F2A5B4297C141B00EFD417 /* Preview Assets.xcassets */; };
@@ -1053,6 +1054,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27DE7F6329BDFC7000453813 /* NextItemWidget.swift in Sources */,
+				27DE7F6529BE5EA700453813 /* PowerWidgetLiveActivity.swift in Sources */,
 				27BFA4CB29AA31CD00D5FAEE /* UserDefaultsExtension.swift in Sources */,
 				27D1C3822986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
 				2748581429BCBEF9001A1C97 /* PowerEntry.swift in Sources */,
