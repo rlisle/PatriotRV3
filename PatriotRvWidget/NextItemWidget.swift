@@ -33,83 +33,44 @@ struct NextItemWidgetEntryView : View {
                 }
             }
 
-        case .systemMedium:   //TODO: display next item + picture
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Trip: ")
-                    Spacer()
-                    Text(entry.nextTrip)
-                }
-                HStack {
-                    Text(entry.tripMode)
-                    Spacer()
-                    Text("\(entry.doneCount) of \(entry.totalCount)")
-                }
-                HStack {
-                    Text("Next: ")
-                    Spacer()
-                    Text(entry.nextItem)
-                }
-                Spacer()
-                HStack {
-                    Spacer()
-                    Link(destination: URL(string: "patriot:///previtem")!, label: {
-                        Text("<")
-                    })
-                    Spacer()
-                    Link(destination: URL(string: "patriot:///itemdone")!, label: {
-                        Image(systemName: "checkmark.square")
-                    })
-                    Spacer()
-                }
-                .padding(.bottom, 8)
-            }
-            //TODO: show picture of next item
-            //.background(Image("truck-rv").opacity(0.2).scaledToFill())
-            .foregroundColor(.black)
-            .padding(8)
-
-        default:    // .systemSmall
-            VStack(alignment: .leading) {
-                HStack {
-                    Link(destination: URL(string: "patriot:///link1")!, label: {
-                        Text("Trip: ")
-                        Spacer()
-                        Text(entry.nextTrip)
-                    })
-                }
-                HStack {
-                    Link(destination: URL(string: "patriot:///link2")!, label: {
+        default:
+            HStack {
+                VStack(alignment: .leading) {
+                    HStack {
                         Text(entry.tripMode)
                         Spacer()
                         Text("\(entry.doneCount) of \(entry.totalCount)")
-                    })
-                }
-                HStack {
-                    Link(destination: URL(string: "patriot:///link3")!, label: {
-                        Text("Next: ")
+                    }.font(.subheadline)
+                    Text(entry.nextTrip)
+                        .font(.headline)
+                    Text("Next: ")
+                        .padding(.top, 1)
+                        .font(.subheadline)
+                    Text(entry.nextItem).font(.headline)
+                    Spacer()
+                    HStack {
                         Spacer()
-                        Text(entry.nextItem)
-                    })
+                        Link(destination: URL(string: "patriot:///previtem")!, label: {
+                            Text("<")
+                        })
+                        Spacer()
+                        Link(destination: URL(string: "patriot:///itemdone")!, label: {
+                            Image(systemName: "checkmark.square")
+                        })
+                        Spacer()
+                    }
+                    .padding(16)
                 }
-                Spacer()
-                HStack {
-                    Spacer()
-                    Link(destination: URL(string: "patriot:///previtem")!, label: {
-                        Text("<")
-                    })
-                    Spacer()
-                    Link(destination: URL(string: "patriot:///itemdone")!, label: {
-                        Image(systemName: "checkmark.square")
-                    })
-                    Spacer()
+                .padding(16)
+                
+                if family == .systemMedium {
+                    //TODO: show next item picture instead of truck
+                    Image("truck-rv")
+                        .resizable()
                 }
-                .padding(.bottom, 8)
             }
-            //TODO: show picture of next item
-            //.background(Image("truck-rv").opacity(0.2).scaledToFill())
-            .foregroundColor(.black)
-            .padding(8)
+            .background(Color.black)
+            .foregroundColor(.white)
         }
     }
 }
