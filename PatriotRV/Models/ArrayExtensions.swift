@@ -18,6 +18,6 @@ extension Array where Element == ChecklistItem {
     }
 
     func category(_ category: TripMode) -> [ChecklistItem] {
-        return self.filter { $0.category == category }
+        return self.filter { $0.tripMode == category }
     }
 }

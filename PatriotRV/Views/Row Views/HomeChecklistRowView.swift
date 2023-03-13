@@ -38,7 +38,7 @@ struct HomeChecklistRowView: View {
     }
     
     func category() -> TripMode {
-        return model.checklist.todo().first?.category ?? .parked
+        return model.checklist.todo().first?.tripMode ?? .parked
     }
     
     func index() -> Int {

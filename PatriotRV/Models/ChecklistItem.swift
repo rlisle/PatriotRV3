@@ -12,7 +12,7 @@ struct ChecklistItem {
     var id: Int             // Todo and display sort order (1 - #items)
     let key: String         // Used by device (eg. RearAwning) MQTT status    let key: String
     let name: String        // Title
-    let category: TripMode
+    let tripMode: TripMode
     let description: String // Markdown?
     var isDone: Bool = false {
         didSet {
@@ -29,7 +29,7 @@ struct ChecklistItem {
         self.id = id
         self.key = key
         self.name = name
-        self.category = category
+        self.tripMode = category
         self.description = description
         self.imageName = imageName
         self.isDone = isDone
@@ -44,7 +44,7 @@ extension ChecklistItem: Identifiable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
         return lhs.key == rhs.key
         && lhs.name == rhs.name
-        && lhs.category == rhs.category
+        && lhs.tripMode == rhs.tripMode
     }
 }
 
@@ -52,6 +52,6 @@ extension ChecklistItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(key)
         hasher.combine(name)
-        hasher.combine(category)
+        hasher.combine(tripMode)
     }
 }

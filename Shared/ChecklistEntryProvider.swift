@@ -10,7 +10,11 @@ import WidgetKit
 //import SwiftUI
 //import Intents
 
-struct Provider: TimelineProvider {
+// ???
+// Since doing away with ChecklistActivityWidget, is this still needed?
+// ???
+
+struct ChecklistProvider: TimelineProvider {
     
     typealias Entry = ChecklistEntry
     
@@ -57,6 +61,9 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        
+        print("Widget: getTimeline")
+        
         let entries = [
             populatedChecklistEntry()
         ]

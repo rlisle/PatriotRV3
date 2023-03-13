@@ -107,7 +107,7 @@ extension ModelData: Publishing {
 extension ModelData {
 
     func nextItemCategory() -> TripMode {
-        return checklist.todo().first?.category ?? .parked
+        return checklist.todo().first?.tripMode ?? .parked
     }
     
 //    func currentPhase(date: Date) -> TripMode {
@@ -137,10 +137,12 @@ extension ModelData {
             print("updateWidgetNextItem: no next item")
             return
         }
-        let doneCount = checklist.category(nextItem.category).done().count
-        let totalCount = checklist.category(nextItem.category).count
-        print("Updating widget nextItem: \(nextItem.name) \(doneCount) of \(totalCount)")
+        let doneCount = checklist.category(nextItem.tripMode).done().count
+        let totalCount = checklist.category(nextItem.tripMode).count
+        print("Updating widget nextItem: \(nextItem.tripMode): \(nextItem.name) \(doneCount) of \(totalCount)")
+        
         UserDefaults.group.set(nextItem.name, forKey: UserDefaults.Keys.nextItem.rawValue)
+        UserDefaults.group.set(nextItem.tripMode.rawValue, forKey: UserDefaults.Keys.tripMode.rawValue)
         UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount.rawValue)
         UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount.rawValue)
         WidgetCenter.shared.reloadTimelines(ofKind: Constants.checklistKind)
