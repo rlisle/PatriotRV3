@@ -99,7 +99,8 @@ extension ModelData: Publishing {
         if let checklistItem = item(id: id) {
             mqtt.publish(topic: "patriot/\(checklistItem.key)/set", message: isDone ? "100" : "0")
             // checklistPhase = currentPhase(date: Date())
-            updateWidgetNextItem()
+            updateWidgetNextItem()  // Why is this here and not in ChecklistItem.isDone (the caller)?
+                                    // Because ChecklistItem doesn't have a reference to ModelData (delegate?)
         }
     }
 }
@@ -120,9 +121,11 @@ extension ModelData {
     
     // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
     func setDone(checklistitem: String, value: String) {
+        print("setDone \(checklistitem)")
         for index in 0..<checklist.count {
             if checklist[index].key.lowercased() == checklistitem.lowercased() {
                 checklist[index].isDone = value != "0"
+                break
             }
         }
         updateWidgetNextItem()

@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ChecklistItem {
+class ChecklistItem {
 
     var id: Int             // Todo and display sort order (1 - #items)
-    let key: String         // Used by device (eg. RearAwning) MQTT status    let key: String
+    let key: String         // Used by device (eg. RearAwning) MQTT status
     let name: String        // Title
     let tripMode: TripMode
     let description: String // Markdown?
@@ -33,10 +33,6 @@ struct ChecklistItem {
         self.description = description
         self.imageName = imageName
         self.isDone = isDone
-    }
-    
-    mutating func setDone(_ done: Bool) {
-        isDone = done
     }
 }
 
