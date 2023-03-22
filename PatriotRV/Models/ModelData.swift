@@ -12,8 +12,12 @@ import WidgetKit
 
 class ModelData: ObservableObject {
     
+    //TODO: add persistence and editing of trips
     @Published var trips: [Trip] = []
+    
+    // Checklist
     @Published var checklist: [ChecklistItem] = []
+
     
     @Published var checklistPhase: TripMode = .pretrip  // Selected for display
     {
@@ -35,7 +39,7 @@ class ModelData: ObservableObject {
 
     // For use with previews and tests
     convenience init() {
-        let mqttManager = MockMQTTManager() //TODO: switch to protocol or mock
+        let mqttManager = MockMQTTManager()
         self.init(mqttManager: mqttManager)
         self.updatePower(line: 0, power: 480.0)
         self.updatePower(line: 1, power: 2880.0)
@@ -95,7 +99,6 @@ class ModelData: ObservableObject {
 
 extension ModelData: Publishing {
     func publish(id: Int, isDone: Bool) {
-        //TODO: this should be the checklist.key
         if let checklistItem = item(id: id) {
             mqtt.publish(topic: "patriot/\(checklistItem.key)/set", message: isDone ? "100" : "0")
             // checklistPhase = currentPhase(date: Date())
@@ -103,6 +106,18 @@ extension ModelData: Publishing {
                                     // Because ChecklistItem doesn't have a reference to ModelData (delegate?)
         }
     }
+    
+    func publish(index: Int, isDone: Bool) {
+        guard index < checklist.count else {
+            print("Error: publish index out of range")
+            return
+        }
+        mqtt.publish(topic: "patriot/\(checklist[index].key)/set", message: isDone ? "100" : "0")
+        // checklistPhase = currentPhase(date: Date())
+//        updateWidgetNextItem()  // Why is this here and not in ChecklistItem.isDone (the caller)?
+                                // Because ChecklistItem doesn't have a reference to ModelData (delegate?)
+    }
+
 }
 
 extension ModelData {
@@ -125,12 +140,19 @@ extension ModelData {
         for index in 0..<checklist.count {
             if checklist[index].key.lowercased() == checklistitem.lowercased() {
                 checklist[index].isDone = value != "0"
+                publish(index: index, isDone: value != "0")
+                checklist[index].date = Date()
                 break
             }
         }
         updateWidgetNextItem()
     }
 
+    func index(id: Int) -> Int? {
+        checklist.firstIndex { $0.id == id }
+    }
+    
+    //TODO: replace this with index(id:)
     func item(id: Int) -> ChecklistItem? {
         return checklist.first(where: { $0.id == id })
     }
