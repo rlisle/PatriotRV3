@@ -10,32 +10,33 @@ import Combine
 import ActivityKit
 import WidgetKit
 
-class ModelData: ObservableObject {
+class ViewModel: ObservableObject {
     
     //TODO: add persistence and editing of trips
     @Published var trips: [Trip] = []
     
-    // Checklist
+    // Checklist - persisted by Photon controllers
     @Published var checklist: [ChecklistItem] = []
 
-    
-    @Published var checklistPhase: TripMode = .pretrip  // Selected for display
-    {
-        didSet {
-            print("checklistPhase = \(checklistPhase)")
-        }
-    }
+    // NextItem
+    @Published var nextItemIndex: Int? = 0             // Updated when an item is set isDone
+
+    // Display Controls
+    @Published var displayPhase: TripMode = .pretrip  // Selected for display
     @Published var showCompleted = true                 //TODO: persist
     
     // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
+    
     internal var linePower: [Float] = [0.0, 0.0]        // Amps
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
-    var mqtt: MQTTManagerProtocol
+    // MQTT
+    var mqtt: MQTTManagerProtocol                       // Protocol to simplify unit tests
     
-    private var cancellable: AnyCancellable?
+    
+    //private var cancellable: AnyCancellable?            // Not currently needed?
 
     // For use with previews and tests
     convenience init() {
@@ -48,32 +49,11 @@ class ModelData: ObservableObject {
     init(mqttManager: MQTTManagerProtocol) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
-            // t: patriot/state/ALL/X/<checklistitem> m:<0|1>
-            let lcTopic: String = topic.lowercased()
-            if lcTopic.hasPrefix("patriot/state/all/x/") {
-                let components = lcTopic.components(separatedBy: "/")
-                if components.count > 4 {
-                    self.setDone(checklistitem: components[4], value: message)
-                }
-                // Handle power messages
-            }else if lcTopic == "shellies/em/emeter/0/power" {
-                self.updatePower(line: 0, power: Float(message) ?? 0.0)
-            }else if lcTopic == "shellies/em/emeter/1/power" {
-                self.updatePower(line: 1, power: Float(message) ?? 0.0)
-            }
+            self.handleMQTTMessage(topic: topic, message: message)
         }
         
-        //TODO: convert delegate to Combine
-        // or pass mqtt to the checklist
-        var tchecklist = Checklist.initialChecklist
-        for i in 0..<tchecklist.count {
-            tchecklist[i].id = i+1
-            tchecklist[i].delegate = self
-        }
-        checklist = tchecklist
-        
-        // Load trips
         initializeTrips()
+        initializeChecklist()
         
 //        cancellable = $checklist
 //            .receive(on: DispatchQueue.main)
@@ -97,64 +77,62 @@ class ModelData: ObservableObject {
     }
 }
 
-extension ModelData: Publishing {
-    func publish(id: Int, isDone: Bool) {
-        if let checklistItem = item(id: id) {
-            mqtt.publish(topic: "patriot/\(checklistItem.key)/set", message: isDone ? "100" : "0")
-            // checklistPhase = currentPhase(date: Date())
-            updateWidgetNextItem()  // Why is this here and not in ChecklistItem.isDone (the caller)?
-                                    // Because ChecklistItem doesn't have a reference to ModelData (delegate?)
+// Handle MQTT messages
+extension ViewModel {
+    func handleMQTTMessage(topic: String, message: String) {
+        
+        // Handle Checklist messages
+        // t: patriot/state/ALL/X/<checklistitem> m:<0|1>
+        let lcTopic: String = topic.lowercased()
+        if lcTopic.hasPrefix("patriot/state/all/x/") {
+            let components = lcTopic.components(separatedBy: "/")
+            if components.count > 4 {
+                let isDone = message != "0"
+                self.setDone(key: components[4], isDone: isDone)
+            }
+            
+        // Handle power messages
+        }else if lcTopic == "shellies/em/emeter/0/power" {
+            self.updatePower(line: 0, power: Float(message) ?? 0.0)
+        }else if lcTopic == "shellies/em/emeter/1/power" {
+            self.updatePower(line: 1, power: Float(message) ?? 0.0)
         }
+        
     }
-    
-    func publish(index: Int, isDone: Bool) {
-        guard index < checklist.count else {
-            print("Error: publish index out of range")
-            return
-        }
-        mqtt.publish(topic: "patriot/\(checklist[index].key)/set", message: isDone ? "100" : "0")
-        // checklistPhase = currentPhase(date: Date())
-//        updateWidgetNextItem()  // Why is this here and not in ChecklistItem.isDone (the caller)?
-                                // Because ChecklistItem doesn't have a reference to ModelData (delegate?)
-    }
-
 }
 
-extension ModelData {
-
-    func nextItemCategory() -> TripMode {
-        return checklist.todo().first?.tripMode ?? .parked
+extension ViewModel: Publishing {
+    func publish(key: String, isDone: Bool) {
+        mqtt.publish(topic: "patriot/\(key)/set", message: isDone ? "100" : "0")
+        // checklistPhase = currentPhase(date: Date())
+        updateWidgetNextItem()  // Why is this here and not in ChecklistItem.isDone (the caller)?
+                                // Because ChecklistItem doesn't have a reference to ModelData (delegate?)
     }
-    
-//    func currentPhase(date: Date) -> TripMode {
-//        guard nextTrip(date: date) != nil else {
-//            print("currentPhase = .parked because nextTrip = nil")
-//            return .parked
-//        }
-//        return nextItem()?.category ?? .parked
-//    }
+}
+
+// Checklist
+extension ViewModel {
+
+    func initializeChecklist() {
+        checklist = Checklist.initialChecklist
+    }
     
     // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
-    func setDone(checklistitem: String, value: String) {
-        print("setDone \(checklistitem)")
-        for index in 0..<checklist.count {
-            if checklist[index].key.lowercased() == checklistitem.lowercased() {
-                checklist[index].isDone = value != "0"
-                publish(index: index, isDone: value != "0")
-                checklist[index].date = Date()
-                break
-            }
-        }
+    func setDone(key: String, isDone: Bool) {
+        guard let index = index(key: key) else { return }
+        checklist[index].isDone = isDone
+//        publish(key: key, isDone: value != "0")   // Only needed if MQTT didn't trigger this
+        checklist[index].date = Date()
         updateWidgetNextItem()
     }
-
-    func index(id: Int) -> Int? {
-        checklist.firstIndex { $0.id == id }
-    }
     
-    //TODO: replace this with index(id:)
-    func item(id: Int) -> ChecklistItem? {
-        return checklist.first(where: { $0.id == id })
+    func toggleDone(key: String) {
+        guard let index = index(key: key) else { return }
+        checklist[index].isDone.toggle()
+    }
+
+    func index(key: String) -> Int? {
+        checklist.firstIndex { $0.key == key }
     }
     
     func updateWidgetNextItem() {
@@ -173,8 +151,7 @@ extension ModelData {
         WidgetCenter.shared.reloadTimelines(ofKind: Constants.checklistKind)
         
         //TODO: still needed, or use the above instead?
-        let nextItemId = nextItem.id
-        Connectivity.shared.send(nextItemId: nextItemId)
+        Connectivity.shared.send(key: nextItem.key)
     }
     
     func item(_ checklistitem: String) -> ChecklistItem? {

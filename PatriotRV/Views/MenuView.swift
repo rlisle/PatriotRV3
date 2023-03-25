@@ -11,7 +11,7 @@ import SwiftUI
 
 struct MenuView: View {
     
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var modelData: ViewModel
 
     @Binding var showMenu: Bool
     @Binding var showCompleted: Bool
@@ -70,7 +70,7 @@ struct MenuView_Previews: PreviewProvider {
         MenuView(showMenu: .constant(true),
                  showCompleted: .constant(true),
                  selection: .constant("None"), isShowingPower: .constant(false) )
-        .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+        .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
             .previewLayout(.fixed(width: 180, height: 720))
     }
 }

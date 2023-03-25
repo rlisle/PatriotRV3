@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
 
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
     
     @State var tripLink: Bool = false
     @State var checklistLink: Bool = false
@@ -114,6 +114,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
     }
 }

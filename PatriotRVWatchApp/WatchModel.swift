@@ -14,7 +14,7 @@ class WatchModel: NSObject, ObservableObject {
     @Published var nextTripDate: Date? = Date("06/24/23")
     @Published var phase: TripMode = .pretrip
     @Published var nextItem: String = "Waiting on app..."
-    @Published var nextItemId: Int = 0
+    @Published var nextItemKey: String = ""
     @Published var isDone: Bool = false
 
     override init() {
@@ -30,22 +30,22 @@ class WatchModel: NSObject, ObservableObject {
         WCSession.default.activate()
     }
 
-    func setDone(order: Int, value: Bool) {
-        print("Watch sending done \(nextItemId) to app")
-        send(doneId: nextItemId)
+    func setDone(key: String, value: Bool) {
+        print("Watch sending done \(key) to app")
+        send(doneKey: key)
     }
 }
 
 // WatchConnectivity
 extension WatchModel {
-    public func send(doneId: Int) {
+    public func send(doneKey: String) {
         guard canSendToPeer() else {
             print("Can't sent to peer")
             return
         }
         
-        let userInfo: [String: Int] = [
-            ConnectivityUserInfoKey.nextItemId.rawValue: doneId
+        let userInfo: [String: String] = [
+            ConnectivityUserInfoKey.nextItemKey.rawValue: doneKey
         ]
         WCSession.default.transferUserInfo(userInfo)
     }
@@ -92,7 +92,7 @@ extension WatchModel: WCSessionDelegate {
                 ) {
         
         guard let nextItem = userInfo[ConnectivityUserInfoKey.nextItem.rawValue] as? String,
-        let nextItemId = userInfo[ConnectivityUserInfoKey.nextItemId.rawValue] as? Int,
+              let nextItemKey = userInfo[ConnectivityUserInfoKey.nextItemKey.rawValue] as? String,
               let nextTrip = userInfo[ConnectivityUserInfoKey.nextTrip.rawValue] as? String,
               let nextTripDate = userInfo[ConnectivityUserInfoKey.nextTripDate.rawValue] as? Date,
               let phase = userInfo[ConnectivityUserInfoKey.phase.rawValue] as? TripMode
@@ -100,17 +100,17 @@ extension WatchModel: WCSessionDelegate {
             print("key not found")
             return
         }
-        print("Watch setting values from app, next ID \(nextItemId)")
+        print("Watch setting values from app, next key \(nextItemKey)")
         self.nextTrip = nextTrip
         self.nextTripDate = nextTripDate
         self.phase = phase
-        self.nextItemId = nextItemId
+        self.nextItemKey = nextItemKey
         self.nextItem = nextItem
     }
 }
 
 extension WatchModel: Publishing {
-    func publish(id: Int, isDone: Bool) {
+    func publish(key: String, isDone: Bool) {
         //Nothing to do now
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 import ActivityKit
 
-extension ModelData {
+extension ViewModel {
 
     var rvTint: Color {
         get {

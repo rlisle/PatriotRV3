@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ModelData {
+extension ViewModel {
     
     func nextTrip(date: Date?) -> Trip? {
         let today = date ?? Date()

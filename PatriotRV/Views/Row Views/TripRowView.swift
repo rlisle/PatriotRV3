@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TripRowView: View {
     
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
     
     var body: some View {
         if let trip = model.trips.last {
@@ -31,7 +31,7 @@ struct TripRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             TripRowView()
-                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+                .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
         }
     }
 }

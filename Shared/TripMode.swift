@@ -15,4 +15,5 @@ enum TripMode: String, Codable {
     case departure = "Departure"
     case reststop = "Rest-Stop"
     case arrival = "Arrival"
+    case done = "Done"
 }

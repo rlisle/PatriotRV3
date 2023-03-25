@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeChecklistRowView: View {
     
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,10 +29,10 @@ struct HomeChecklistRowView: View {
             }
             .padding(.vertical, 4)
             HStack {
-                Text("#\(model.checklist.todo().first?.id ?? 0):")
+                Text("#\(model.nextItemIndex ?? 0):")
                 Text(model.checklist.todo().first?.name ?? "")
                 Spacer()
-                Checkmark(isDone: $model.checklist[index()].isDone)
+                Checkmark(item: model.checklist[model.nextItemIndex ?? 0])
             }
         }
     }
@@ -41,13 +41,13 @@ struct HomeChecklistRowView: View {
         return model.checklist.todo().first?.tripMode ?? .parked
     }
     
-    func index() -> Int {
-        guard let index = model.checklist.todo().first?.id else {
-            print("Invalid checklistItem index")
-            return 0
-        }
-        return index - 1
-    }
+//    func index() -> Int {
+//        guard let index = model.checklist.todo().first?.id else {
+//            print("Invalid checklistItem index")
+//            return 0
+//        }
+//        return index - 1
+//    }
 
 }
 
@@ -55,7 +55,7 @@ struct HomeChecklistRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             HomeChecklistRowView()
-                .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+                .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
         }
     }
 }

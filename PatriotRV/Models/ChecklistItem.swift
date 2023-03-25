@@ -2,6 +2,8 @@
 //  ChecklistItem.swift
 //  RvChecklist
 //
+//  This item should only be updated via the ModelData
+//
 //  Created by Ron Lisle on 2/12/21.
 //
 
@@ -9,34 +11,33 @@ import SwiftUI
 
 struct ChecklistItem {
 
-    var id: Int             // Todo and display sort order (1 ... #items)
-    let key: String         // Used by device (eg. RearAwning) MQTT status
+    let key: String         // Used by device (eg. RearAwning) MQTT status, unique
     let name: String        // Title
     let tripMode: TripMode
     let description: String // Markdown?
-    var isDone: Bool = false {
-        didSet {    // If only accessed via model, then this can be done there instead.
-            delegate?.publish(id: id, isDone: isDone)   //TODO: switch to Combine
-            date = Date()
-        }
-    }
+    var sortOrder: Int      //
     var imageName: String?  //TODO: Add ability to add/change images
+    var isDone: Bool
     var date: Date?         // Either completion or due date ?
 
-    weak var delegate: Publishing?  //TODO: get rid of this
-
-    init(id: Int, key: String, name: String, category: TripMode, description: String, imageName: String? = nil, isDone: Bool = false) {
-        self.id = id
+    init(key: String,
+         name: String,
+         category: TripMode,
+         description: String,
+         sortOrder: Int,
+         imageName: String? = nil,
+         isDone: Bool = false) {
         self.key = key
         self.name = name
         self.tripMode = category
         self.description = description
+        self.sortOrder = sortOrder
         self.imageName = imageName
         self.isDone = isDone
     }
 }
 
-extension ChecklistItem: Identifiable {
+extension ChecklistItem: Equatable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
         return lhs.key == rhs.key
         && lhs.name == rhs.name

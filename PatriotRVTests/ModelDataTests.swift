@@ -10,12 +10,12 @@ import XCTest
 
 final class ModelDataTests: XCTestCase {
 
-    var model: ModelData!
+    var model: ViewModel!
     var mockMQTT: MQTTManager!
     
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
-        model = ModelData(mqttManager: mockMQTT)
+        model = ViewModel(mqttManager: mockMQTT)
     }
     
     // CATEGORY

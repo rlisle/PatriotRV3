@@ -10,12 +10,12 @@ import XCTest
 
 final class ChecklistTests: XCTestCase {
 
-    var model: ModelData!
+    var model: ViewModel!
     var mockMQTT: MQTTManager!
     
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
-        model = ModelData(mqttManager: mockMQTT)
+        model = ViewModel(mqttManager: mockMQTT)
     }
 
     func test_messageHandler() {
@@ -50,38 +50,38 @@ final class ChecklistTests: XCTestCase {
     }
     
     func test_setItem_and_numDone_1() {
-        model.setDone(checklistitem: "checkTires", value: "100")
+        model.setDone(key: "checkTires", isDone: true)
         let count = model.checklist.category(.pretrip).done().count
         XCTAssertEqual(count, 1)
     }
 
     func test_setItem_and_numDone_2() {
-        model.setDone(checklistitem: "iceMachine", value: "100")
-        model.setDone(checklistitem: "rampAwningIn", value: "100")
+        model.setDone(key: "iceMachine", isDone: true)
+        model.setDone(key: "rampAwningIn", isDone: true)
         let count = model.checklist.category(.departure).done().count
         XCTAssertEqual(count, 2)
     }
 
     func test_setItem_and_numDone_1_not3() {
-        model.setDone(checklistitem: "checkRoof", value: "100")
-        model.setDone(checklistitem: "rearCamera", value: "100")
-        model.setDone(checklistitem: "disconnectCables", value: "100")
+        model.setDone(key: "checkRoof", isDone: true)
+        model.setDone(key: "rearCamera", isDone: true)
+        model.setDone(key: "disconnectCables", isDone: true)
         let count = model.checklist.category(.arrival).done().count
         XCTAssertEqual(count, 1)
     }
     
     func test_uncheckAll_2() {
-        model.setDone(checklistitem: "iceMachine", value: "100")
-        model.setDone(checklistitem: "rampAwningIn", value: "100")
+        model.setDone(key: "iceMachine", isDone: true)
+        model.setDone(key: "rampAwningIn", isDone: true)
         model.uncheckAll()
         let count = model.checklist.done().count
         XCTAssertEqual(count, 0)
     }
 
     func test_uncheckAll_3() {
-        model.setDone(checklistitem: "checkRoof", value: "100")
-        model.setDone(checklistitem: "rearCamera", value: "100")
-        model.setDone(checklistitem: "disconnectCables", value: "100")
+        model.setDone(key: "checkRoof", isDone: true)
+        model.setDone(key: "rearCamera", isDone: true)
+        model.setDone(key: "disconnectCables", isDone: true)
         model.uncheckAll()
         let count = model.checklist.done().count
         XCTAssertEqual(count, 0)
