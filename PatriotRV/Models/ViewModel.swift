@@ -117,25 +117,32 @@ extension ViewModel {
         checklist = Checklist.initialChecklist
     }
     
-    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
-    func setDone(key: String, isDone: Bool) {
-        guard let index = index(key: key) else { return }
-        checklist[index].isDone = isDone
-//        publish(key: key, isDone: value != "0")   // Only needed if MQTT didn't trigger this
-        checklist[index].date = Date()
-        updateWidgetNextItem()
-    }
-    
-    func toggleDone(key: String) {
-        guard let index = index(key: key) else { return }
-        checklist[index].isDone.toggle()
-    }
-
     func index(key: String) -> Int? {
         checklist.firstIndex { $0.key == key }
     }
     
+    func updateNextItemIndex() {
+        print("updateNextItemIndex")
+        nextItemIndex = checklist.firstIndex { $0.isDone == false }
+    }
+
+    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
+    func setDone(key: String, isDone: Bool = true) {
+        guard let index = index(key: key) else { return }
+        checklist[index].isDone = isDone
+        checklist[index].date = Date()
+        updateWidgetNextItem()
+    }
+
+    // Called when checkbox tapped
+    func toggleDone(key: String) {
+        guard let index = index(key: key) else { return }
+        checklist[index].isDone.toggle()
+        updateNextItemIndex()
+    }
+
     func updateWidgetNextItem() {
+        print("updateWidgetNextItem")
         guard let nextItem = checklist.todo().first else {
             print("updateWidgetNextItem: no next item")
             return

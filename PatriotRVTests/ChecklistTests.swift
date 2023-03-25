@@ -18,7 +18,7 @@ final class ChecklistTests: XCTestCase {
         model = ViewModel(mqttManager: mockMQTT)
     }
 
-    func test_messageHandler() {
+    func test_messageHandler_sets_item() {
         guard let item = model.item("fuel") else {
             XCTFail("item 'fuel' not found")
             return
