@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+//import Combine
 import ActivityKit
 import WidgetKit
 
@@ -19,7 +19,7 @@ class ViewModel: ObservableObject {
     @Published var checklist: [ChecklistItem] = []
 
     // NextItem
-    @Published var nextItemIndex: Int? = 0             // Updated when an item is set isDone
+    @Published var nextItemIndex: Int? = 0             // Updated when an item is set toggle by checkbox
 
     // Display Controls
     @Published var displayPhase: TripMode = .pretrip  // Selected for display
@@ -36,8 +36,6 @@ class ViewModel: ObservableObject {
     var mqtt: MQTTManagerProtocol                       // Protocol to simplify unit tests
     
     
-    //private var cancellable: AnyCancellable?            // Not currently needed?
-
     // For use with previews and tests
     convenience init() {
         let mqttManager = MockMQTTManager()
@@ -54,26 +52,6 @@ class ViewModel: ObservableObject {
         
         initializeTrips()
         initializeChecklist()
-        
-//        cancellable = $checklist
-//            .receive(on: DispatchQueue.main)
-//            //.print("Combine: checklist changed\n")
-//            .sink(receiveValue: { newChecklist in
-//                  print("TODO: update widgets and watch")
-//            })
-        
-//        Connectivity.shared.$lastDoneId
-//            .dropFirst()
-//            .receive(on: DispatchQueue.main)
-//            //.assign(to: \.lastCompleted, on: self)
-//            .sink(receiveValue: {
-//                guard (0...self.checklist.count).contains($0) else {
-//                    print("Invalid lastDoneId received")
-//                    return
-//                }
-//                self.checklist[$0].isDone = true
-//            })
-//            .store(in: &cancellable)
     }
 }
 
@@ -169,36 +147,6 @@ extension ViewModel {
         for index in 0..<checklist.count {
             checklist[index].isDone = false
         }
+        updateNextItemIndex()
     }
-    
-//    func doneIds() -> [Int] {
-//        return checklist.done().map { $0.id }
-//    }
-    
-    // Use the other funcs to filter first
-    // eg next todo in Departure:
-    //   checklist.category("Departure").nextItem()
-//    func nextItem() -> ChecklistItem? {
-//        return checklist.todo().first
-//    }
-    
-//    func checklistDisplayItems() -> [ChecklistItem] {
-//        if showCompleted == true {
-//            return checklist.category(checklistPhase)
-//        } else {
-//            return checklist.category(checklistPhase).todo()
-//        }
-//    }
-//
-//    // For now persisting to UserDefaults
-//    func saveChecklist() {
-//        let tripMode = currentPhase(date: Date()).rawValue
-//        UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(tripMode, forKey: "TripMode")
-//
-//        if let item = nextItem() {
-//            UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(item.name, forKey: "NextItem")
-//        }
-//    }
-
-        
 }

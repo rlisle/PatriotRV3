@@ -16,6 +16,7 @@ struct PatriotRvWidgetBundle: WidgetBundle {
         NextItemWidget()
         PowerWidget()
         PowerRvWidget()
-        PowerWidgetLiveActivity()
+        //PowerWidgetLiveActivity()
+        ChecklistWidgetLiveActivity()
     }
 }

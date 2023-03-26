@@ -73,9 +73,11 @@ final class ChecklistTests: XCTestCase {
     func test_uncheckAll_2() {
         model.setDone(key: "iceMachine", isDone: true)
         model.setDone(key: "rampAwningIn", isDone: true)
+        let count1 = model.checklist.done().count
+        XCTAssertEqual(count1, 2)
         model.uncheckAll()
-        let count = model.checklist.done().count
-        XCTAssertEqual(count, 0)
+        let count2 = model.checklist.done().count
+        XCTAssertEqual(count2, 0)
     }
 
     func test_uncheckAll_3() {
@@ -85,6 +87,20 @@ final class ChecklistTests: XCTestCase {
         model.uncheckAll()
         let count = model.checklist.done().count
         XCTAssertEqual(count, 0)
+    }
+
+    func test_nextItem_updated() {
+        // Initially first item is nextItem
+        XCTAssertEqual(model.nextItemIndex, 0)
+        // Setting it advances to next item
+        model.toggleDone(key: "startList")
+        XCTAssertEqual(model.nextItemIndex, 1)
+        // Setting later item doesn't change it
+        model.toggleDone(key: "dumpTanks")
+        XCTAssertEqual(model.nextItemIndex, 1)
+        // But restoring it moves it back
+        model.toggleDone(key: "startList")
+        XCTAssertEqual(model.nextItemIndex, 0)
     }
 
 }

@@ -1,133 +1,76 @@
 //
-//  PowerWidgetLiveActivity.swift
-//  PatriotRvWidget
+//  ChecklistWidgetLiveActivity.swift
+//  PatriotRvWidgetExtension
 //
 //  LiveActivities are only available on iPhone
 //  Supports Dynamic Island
 //  Use ActivityKit to update
 //
-//  Displays power usage and Tesla charging
+//  Displays checklist info
 //
-//  Created by Ron Lisle on 1/25/23.
+//  Created by Ron Lisle on 3/26/23.
 //
-
-// Currently disabled
 
 import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct PowerWidgetLiveActivity: Widget {
+struct ChecklistWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
                 
         ActivityConfiguration(for: PatriotRvWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
-            LockScreenPowerLiveActivityView(context: context)
+            LockScreenChecklistLiveActivityView(context: context)
 
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
                     VStack {
-                        Text(rvAmps(context.state.rvAmps))
+                        Text(String(context.state.numberDone))
                     }
                 }
                 DynamicIslandExpandedRegion(.center) {
                     HStack {
-                        WidgetCircularPowerView(
-                            title: "RV Power Usage",
-                            amps: context.state.rvAmps,
-                            tint: powerTint(context.state.rvAmps))
-                        .padding(.trailing,16)
-                        WidgetCircularPowerView(
-                            title: "Tesla Charging",
-                            amps: context.state.teslaAmps,
-                            tint: chargingTint(context.state.teslaAmps))
+                        WidgetCircularChecklistView(
+                            title: "Checklist",
+                            numDone: context.state.numberDone,
+                            numTotal: context.state.numberItems
+                        )
                     }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     VStack {
-                        Text(teslaAmps(context.state.teslaAmps))
+                        Text(String(context.state.numberItems))
                     }
                 }
             } compactLeading: {
-                Text(rvAmps(context.state.rvAmps))
+                Text(String(context.state.numberDone))
             } compactTrailing: {
-                Text(teslaAmps(context.state.teslaAmps))
+                Text(String(context.state.numberDone))
             } minimal: {
-                Text("\(context.state.rvAmps)a")
+                Text("\(context.state.numberDone)/\(context.state.numberItems)")
             }
-            .widgetURL(URL(string: "patriot:///power"))
+            .widgetURL(URL(string: "patriot:///checklist"))
         }
     }
-    
-    func rvAmps(_ amps: Int) -> String {
-        return "RV: \(amps)a"
-    }
-    
-    func teslaAmps(_ amps: Int) -> String {
-        return "Tesla: \(amps)a"
-    }
-    
-    func powerTint(_ amps: Int) -> Color {
-        var color: Color
-        switch amps {
-        case 0...5:
-            color = .green
-        case 6...25:
-            color = .yellow
-        default:
-            color = .red
-        }
-        return color
-    }
-    
-    func chargingTint(_ amps: Int) -> Color {
-        var color: Color
-        switch amps {
-        case 0...5:
-            color = .white
-        case 6...24:
-            color = .green
-        default:
-            color = .cyan
-        }
-        return color
-    }
-
 }
 
-struct LockScreenPowerLiveActivityView: View {
+struct LockScreenChecklistLiveActivityView: View {
     let context: ActivityViewContext<PatriotRvWidgetAttributes>
     
     var body: some View {
         HStack {
-            WidgetCircularPowerView(
-                title: "RV Power Usage",
-                amps: context.state.rvAmps,
-                tint: powerTint(context.state.rvAmps))
-            WidgetCircularPowerView(
-                title: "Tesla Charging",
-                amps: context.state.teslaAmps,
-                tint: chargingTint(context.state.teslaAmps))
+            WidgetCircularChecklistView(
+                title: "RV Checklist",
+                numDone: context.state.numberDone,
+                numTotal: context.state.numberItems
+            )
         }
         .padding()
         .activityBackgroundTint(Color.cyan) // Set color based on todos
         .activitySystemActionForegroundColor(Color.black)
     }
     
-    func powerTint(_ amps: Int) -> Color {
-        var color: Color
-        switch amps {
-        case 0...5:
-            color = .green
-        case 6...25:
-            color = .yellow
-        default:
-            color = .red
-        }
-        return color
-    }
-    
     func chargingTint(_ amps: Int) -> Color {
         var color: Color
         switch amps {
@@ -143,30 +86,29 @@ struct LockScreenPowerLiveActivityView: View {
 
 }
 
-struct WidgetCircularPowerView: View {
+struct WidgetCircularChecklistView: View {
 
     var title: String
-    var amps: Int
-    var tint: Color
+    var numDone: Int
+    var numTotal: Int
 
     var body: some View {
         VStack {
-            Gauge(value: Float(amps), in: 0...50) {
+            Gauge(value: Float(numDone), in: 0...Float(numTotal)) {
                 Text(title)
             } currentValueLabel: {
-                Text(amps.formatted())
+                Text(numDone.formatted())
             } minimumValueLabel: {
                 Text("0")
             } maximumValueLabel: {
-                Text("50")
+                Text(String(numTotal))
             }
             .gaugeStyle(.accessoryCircular)
-            .tint(tint)
         }
     }
 }
 
-struct PowerWidgetLiveActivity_Previews: PreviewProvider {
+struct ChecklistWidgetLiveActivity_Previews: PreviewProvider {
     static let attributes = PatriotRvWidgetAttributes(name: "Me")
     static let contentState = PatriotRvWidgetAttributes.ContentState(
         rvAmps: 3,
