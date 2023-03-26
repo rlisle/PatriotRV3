@@ -32,7 +32,7 @@ struct ChecklistWidgetLiveActivity: Widget {
                 }
                 DynamicIslandExpandedRegion(.center) {
                     VStack {
-                        Text(context.state.tripMode.rawValue)
+                        Text("\(context.state.nextTripName): \(context.state.tripMode.rawValue)")
                         HStack {
                             WidgetCircularChecklistView(
                                 title: "Checklist",
@@ -65,16 +65,23 @@ struct LockScreenChecklistLiveActivityView: View {
     let context: ActivityViewContext<PatriotRvWidgetAttributes>
     
     var body: some View {
-        HStack {
-            WidgetCircularChecklistView(
-                title: "RV Checklist",
-                numDone: context.state.numberDone,
-                numTotal: context.state.numberItems
-            )
+        VStack {
+            HStack {
+                Text("\(context.state.nextTripName): \(context.state.tripMode.rawValue)")
+            }
+            HStack {
+                WidgetCircularChecklistView(
+                    title: "Checklist",
+                    numDone: context.state.numberDone,
+                    numTotal: context.state.numberItems
+                )
+                .padding(.horizontal, 32)
+                Text(context.state.nextItemName)
+            }
         }
-        .padding()
-        .activityBackgroundTint(Color.cyan) // Set color based on todos
-        .activitySystemActionForegroundColor(Color.black)
+        .padding(8)
+        .activityBackgroundTint(Color.white)
+//        .activitySystemActionForegroundColor(Color.white)
     }
 }
 
