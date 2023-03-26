@@ -24,29 +24,35 @@ struct ChecklistWidgetLiveActivity: Widget {
 
         } dynamicIsland: { context in
             DynamicIsland {
+                // Expanded View
                 DynamicIslandExpandedRegion(.leading) {
                     VStack {
-                        Text(String(context.state.numberDone))
+                        Text("\(context.state.nextItemIndex)")
                     }
                 }
                 DynamicIslandExpandedRegion(.center) {
-                    HStack {
-                        WidgetCircularChecklistView(
-                            title: "Checklist",
-                            numDone: context.state.numberDone,
-                            numTotal: context.state.numberItems
-                        )
+                    VStack {
+                        Text(context.state.tripMode.rawValue)
+                        HStack {
+                            WidgetCircularChecklistView(
+                                title: "Checklist",
+                                numDone: context.state.numberDone,
+                                numTotal: context.state.numberItems
+                            )
+                            .padding(.horizontal, 32)
+                            Text(context.state.nextItemName)
+                        }
                     }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     VStack {
-                        Text(String(context.state.numberItems))
+                        Text("\(context.state.numberItems)")
                     }
                 }
             } compactLeading: {
-                Text(String(context.state.numberDone))
+                Text("\(context.state.numberDone)/\(context.state.numberItems)")
             } compactTrailing: {
-                Text(String(context.state.numberDone))
+                Text(context.state.nextItemName)
             } minimal: {
                 Text("\(context.state.numberDone)/\(context.state.numberItems)")
             }
@@ -70,20 +76,6 @@ struct LockScreenChecklistLiveActivityView: View {
         .activityBackgroundTint(Color.cyan) // Set color based on todos
         .activitySystemActionForegroundColor(Color.black)
     }
-    
-    func chargingTint(_ amps: Int) -> Color {
-        var color: Color
-        switch amps {
-        case 0...5:
-            color = .white
-        case 6...24:
-            color = .green
-        default:
-            color = .cyan
-        }
-        return color
-    }
-
 }
 
 struct WidgetCircularChecklistView: View {
@@ -119,7 +111,7 @@ struct ChecklistWidgetLiveActivity_Previews: PreviewProvider {
         tripMode: TripMode.pretrip,
         numberItems: 14,
         numberDone: 3,
-        nextItemId: "fuel",
+        nextItemIndex: 2,
         nextItemName: "Fill-up Fuel Tanks"
     )
 

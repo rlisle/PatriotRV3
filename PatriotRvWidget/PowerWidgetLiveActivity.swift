@@ -177,7 +177,7 @@ struct PowerWidgetLiveActivity_Previews: PreviewProvider {
         tripMode: TripMode.pretrip,
         numberItems: 14,
         numberDone: 3,
-        nextItemId: "fuel",
+        nextItemIndex: 2,
         nextItemName: "Fill-up Fuel Tanks"
     )
 

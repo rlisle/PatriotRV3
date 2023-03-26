@@ -19,10 +19,11 @@ struct PatriotRvWidgetAttributes: ActivityAttributes {
         // Checklist - changes slowly, but want to see on dynamic island
         var daysUntilNextTrip: Int
         var nextTripName: String
+        
         var tripMode: TripMode
-        var numberItems: Int
+        var numberItems: Int        // # of items in current tripMode
         var numberDone: Int
-        var nextItemId: String
+        var nextItemIndex: Int
         var nextItemName: String    // Displayable name
     }
 

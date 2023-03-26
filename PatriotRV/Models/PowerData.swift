@@ -59,7 +59,7 @@ extension ViewModel {
                 tripMode: .pretrip,
                 numberItems: 10,
                 numberDone: 0,
-                nextItemId: "startList",
+                nextItemIndex: 0,
                 nextItemName: "Start Checklist"
             )
             let activityAttributes = PatriotRvWidgetAttributes(name: "Power")
@@ -84,7 +84,7 @@ extension ViewModel {
             tripMode: .pretrip,     // "
             numberItems: 10,
             numberDone: 0,
-            nextItemId: "startList",
+            nextItemIndex: 0,
             nextItemName: "Start Checklist"
         )
         let activityContent = ActivityContent(state: contentState, staleDate: nil)
