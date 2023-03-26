@@ -43,6 +43,13 @@ struct ChecklistProvider: TimelineProvider {
         doneCount = loadInt(.doneCount)
         totalCount = loadInt(.totalCount)
         nextItem = loadString(.nextItem)
+        // debug prints
+        print("populated checklist entry: ")
+        print(" nextTrip: \(nextTrip)")
+        print(" tripMode: \(tripMode)")
+        print(" doneCount: \(doneCount)")
+        print(" totalCount: \(totalCount)")
+        print(" nextItem: \(nextItem)")
 
         return ChecklistEntry(
            nextTrip: nextTrip,

@@ -25,6 +25,8 @@ class ViewModel: ObservableObject {
     @Published var displayPhase: TripMode = .pretrip  // Selected for display
     @Published var showCompleted = true                 //TODO: persist
     
+    internal var checklistActivity: Activity<PatriotRvWidgetAttributes>?
+
     // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
@@ -117,6 +119,7 @@ extension ViewModel {
         guard let index = index(key: key) else { return }
         checklist[index].isDone.toggle()
         updateNextItemIndex()
+        updateWidgetNextItem()
     }
 
     func updateWidgetNextItem() {
@@ -133,9 +136,11 @@ extension ViewModel {
         UserDefaults.group.set(nextItem.tripMode.rawValue, forKey: UserDefaults.Keys.tripMode.rawValue)
         UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount.rawValue)
         UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount.rawValue)
-        WidgetCenter.shared.reloadTimelines(ofKind: Constants.checklistKind)
         
-        //TODO: still needed, or use the above instead?
+        // Tell widget to update
+        WidgetCenter.shared.reloadTimelines(ofKind: Constants.checklistKind)
+
+        // Tell watch to update
         Connectivity.shared.send(key: nextItem.key)
     }
     
