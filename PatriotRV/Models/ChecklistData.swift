@@ -12,6 +12,7 @@ extension ViewModel {
 
     func updateChecklist() {
         
+        //TODO: update widget also
         updateChecklistActivity()
     }
     
@@ -19,27 +20,42 @@ extension ViewModel {
         print("startChecklistActivity")
         if ActivityAuthorizationInfo().areActivitiesEnabled {
             let future = Date(timeIntervalSinceNow: 5)
+            guard let trip = trips.first,
+                  let nextIndex = nextItemIndex
+            else {
+                print("Trip and next item info not set")
+                print("Not starting checklist activity")
+                return
+            }
+            guard nextIndex < checklist.count else {
+                print("nextItemIndex is out of range")
+                print("Not starting checklist activity")
+                return
+            }
+            let nextItem = checklist[nextIndex]
             let initialContentState = PatriotRvWidgetAttributes.ContentState(
-                rvAmps: 0,
-                teslaAmps:0,
-                battery: 90,
+                rvAmps: Int(rv),
+                teslaAmps: Int(tesla),
+                battery: 0,
                 daysUntilNextTrip: 0,
-                nextTripName: "None",
-                tripMode: .pretrip,
-                numberItems: 10,
-                numberDone: 0,
-                nextItemIndex: 0,
-                nextItemName: "Start Checklist"
+                nextTripName: trip.destination,
+                tripMode: nextItem.tripMode,
+                numberItems: checklist.count,
+                numberDone: checklist.done().count,
+                nextItemIndex: nextIndex,
+                nextItemName: nextItem.name
             )
-            let activityAttributes = PatriotRvWidgetAttributes(name: "Power")
+            let activityAttributes = PatriotRvWidgetAttributes(name: "Checklist")
             let activityContent = ActivityContent(state: initialContentState, staleDate: future)
             // Start the live activity
             do {
-                powerActivity = try Activity.request(attributes: activityAttributes, content: activityContent)
+                checklistActivity = try Activity.request(attributes: activityAttributes, content: activityContent)
 //                print("Started power monitor live activity: \(String(describing: powerActivity))")
             } catch (let error) {
                 print("Error starting power monitor Live Activity \(error.localizedDescription).")
             }
+        } else {
+            print("Activities not enabled")
         }
     }
     
@@ -60,7 +76,7 @@ extension ViewModel {
         let activityContent = ActivityContent(state: contentState, staleDate: nil)
         Task {
 //            print("updatePowerActivity: rv: \(rv) tesla: \(tesla)")
-            await powerActivity?.update(activityContent)
+            await checklistActivity?.update(activityContent)
         }
     }
 

@@ -138,6 +138,7 @@ extension ViewModel {
         UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount.rawValue)
         
         // Tell widget to update
+        updateChecklistActivity()
         WidgetCenter.shared.reloadTimelines(ofKind: Constants.checklistKind)
 
         // Tell watch to update

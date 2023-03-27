@@ -56,7 +56,7 @@ struct ChecklistWidgetLiveActivity: Widget {
             } minimal: {
                 Text("\(context.state.numberDone)/\(context.state.numberItems)")
             }
-            .widgetURL(URL(string: "patriot:///checklist"))
+            .widgetURL(URL(string: "patriot:///list"))
         }
     }
 }
