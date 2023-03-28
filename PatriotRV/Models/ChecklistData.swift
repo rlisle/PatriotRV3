@@ -10,11 +10,11 @@ import ActivityKit
 
 extension ViewModel {
 
-    func updateChecklist() {
-        
-        //TODO: update widget also
-        updateChecklistActivity()
-    }
+//    func updateChecklist() {
+//
+//        //TODO: update widget also
+//        updateChecklistActivity()
+//    }
     
     func startChecklistActivity() {
         print("startChecklistActivity")
@@ -61,23 +61,37 @@ extension ViewModel {
     
     func updateChecklistActivity() {
         print("updateChecklistActivity")
+        guard let nextIndex = nextItemIndex,
+              let tripMode = nextTripMode(),
+              let trip = nextTrip(date: Date()) else {
+            print("updateChecklistActivity no next trip or item")
+            return
+        }
+        let daysUntilNextTrip = Calendar.current.dateComponents([.day], from: Date(), to: trip.date).day
         let contentState = PatriotRvWidgetAttributes.ContentState(
             rvAmps: Int(rv),
             teslaAmps: Int(tesla),
             battery: 80,            //TODO: get this from model
-            daysUntilNextTrip: 0,   // "
-            nextTripName: "?",      // "
-            tripMode: .pretrip,     // "
-            numberItems: 10,
-            numberDone: 0,
-            nextItemIndex: 0,
-            nextItemName: "Start Checklist"
+            daysUntilNextTrip: daysUntilNextTrip ?? 999,   // "
+            nextTripName: trip.destination,
+            tripMode: nextTripMode() ?? .parked,
+            numberItems: checklist.category(tripMode).count,
+            numberDone: checklist.category(tripMode).done().count,
+            nextItemIndex: nextIndex,
+            nextItemName: checklist[nextIndex].name
         )
         let activityContent = ActivityContent(state: contentState, staleDate: nil)
         Task {
 //            print("updatePowerActivity: rv: \(rv) tesla: \(tesla)")
             await checklistActivity?.update(activityContent)
         }
+    }
+    
+    func nextTripMode() -> TripMode? {
+        guard let nextIndex = nextItemIndex else {
+            return nil
+        }
+        return checklist[nextIndex].tripMode
     }
 
 }

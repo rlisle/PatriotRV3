@@ -68,7 +68,7 @@ extension ViewModel {
             let components = lcTopic.components(separatedBy: "/")
             if components.count > 4 {
                 let isDone = message != "0"
-                self.setDone(key: components[4], isDone: isDone)
+                self.updateDone(key: components[4], value: isDone)
             }
             
         // Handle power messages
@@ -85,7 +85,7 @@ extension ViewModel: Publishing {
     func publish(key: String, isDone: Bool) {
         mqtt.publish(topic: "patriot/\(key)/set", message: isDone ? "100" : "0")
         // checklistPhase = currentPhase(date: Date())
-        updateWidgetNextItem()  // Why is this here and not in ChecklistItem.isDone (the caller)?
+        persistNextItem()  // Why is this here and not in ChecklistItem.isDone (the caller)?
                                 // Because ChecklistItem doesn't have a reference to ModelData (delegate?)
     }
 }
@@ -101,33 +101,57 @@ extension ViewModel {
         checklist.firstIndex { $0.key == key }
     }
     
-    func updateNextItemIndex() {
-        print("updateNextItemIndex")
-        nextItemIndex = checklist.firstIndex { $0.isDone == false }
-    }
+//    func updateNextItemIndex() {
+//        print("updateNextItemIndex")
+//        nextItemIndex = checklist.firstIndex { $0.isDone == false }
+//    }
+//
+//    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
+//    func setDone(key: String, isDone: Bool = true) {
+//        guard let index = index(key: key) else { return }
+//        checklist[index].isDone = isDone
+//        checklist[index].date = Date()
+//        updateWidgetNextItem()
+//    }
+//
+//    // Called when checkbox tapped
+//    func toggleDone(key: String) {
+//        guard let index = index(key: key) else { return }
+//        checklist[index].isDone.toggle()
+//        updateNextItemIndex()
+//        updateWidgetNextItem()
+//    }
 
-    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
-    func setDone(key: String, isDone: Bool = true) {
-        guard let index = index(key: key) else { return }
-        checklist[index].isDone = isDone
+    func updateDone(key: String, value: Bool? = nil) {    // Set true/false/nil = toggle
+        guard let index = index(key: key) else {
+            print("updateDone invalid key: \(key)")
+            return
+        }
+        if let value = value {
+            checklist[index].isDone = value
+        } else {
+            checklist[index].isDone.toggle()
+        }
         checklist[index].date = Date()
-        updateWidgetNextItem()
-    }
-
-    // Called when checkbox tapped
-    func toggleDone(key: String) {
-        guard let index = index(key: key) else { return }
-        checklist[index].isDone.toggle()
+        
         updateNextItemIndex()
-        updateWidgetNextItem()
+        persistNextItem()
+    }
+    
+    private func updateNextItemIndex() {
+        nextItemIndex = checklist.firstIndex {
+            $0.isDone == false
+        }
     }
 
-    func updateWidgetNextItem() {
-        print("updateWidgetNextItem")
-        guard let nextItem = checklist.todo().first else {
+    private func persistNextItem() {
+        print("persistNextItem")
+        guard let nextIndex = nextItemIndex,
+              nextIndex > 0 && nextIndex < checklist.count else {
             print("updateWidgetNextItem: no next item")
             return
         }
+        let nextItem = checklist[nextIndex]
         let doneCount = checklist.category(nextItem.tripMode).done().count
         let totalCount = checklist.category(nextItem.tripMode).count
         print("Updating widget nextItem: \(nextItem.tripMode): \(nextItem.name) \(doneCount) of \(totalCount)")
@@ -153,6 +177,6 @@ extension ViewModel {
         for index in 0..<checklist.count {
             checklist[index].isDone = false
         }
-        updateNextItemIndex()
+        nextItemIndex = 0
     }
 }

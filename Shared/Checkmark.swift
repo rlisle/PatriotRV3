@@ -15,12 +15,12 @@ struct Checkmark: View {
     
     var body: some View {
         Button(action: {
-            model.toggleDone(key: item.key)
+            model.updateDone(key: item.key)
         }) {
             Image(systemName: item.isDone ? "checkmark.square" : "square")
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    model.toggleDone(key: item.key)
+                    model.updateDone(key: item.key)
                 }
         }
     }
