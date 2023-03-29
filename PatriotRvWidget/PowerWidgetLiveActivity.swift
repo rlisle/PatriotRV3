@@ -55,7 +55,7 @@ struct PowerWidgetLiveActivity: Widget {
             } compactTrailing: {
                 Text(teslaAmps(context.state.teslaAmps))
             } minimal: {
-                Text("\(context.state.rvAmps)/\(context.state.teslaAmps)a")
+                Text("\(context.state.rvAmps)/\(context.state.teslaAmps)")
             }
             .widgetURL(URL(string: "patriot:///power"))
         }
