@@ -21,7 +21,6 @@ struct PowerWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
                 
         ActivityConfiguration(for: PatriotRvWidgetAttributes.self) { context in
-            // Lock screen/banner UI goes here
             LockScreenPowerLiveActivityView(context: context)
 
         } dynamicIsland: { context in
@@ -33,11 +32,13 @@ struct PowerWidgetLiveActivity: Widget {
                 }
                 DynamicIslandExpandedRegion(.center) {
                     HStack {
+                        Text("RV")
                         WidgetCircularPowerView(
                             title: "RV Power Usage",
                             amps: context.state.rvAmps,
                             tint: powerTint(context.state.rvAmps))
                         .padding(.trailing,16)
+                        Text("Tesla")
                         WidgetCircularPowerView(
                             title: "Tesla Charging",
                             amps: context.state.teslaAmps,
@@ -54,7 +55,7 @@ struct PowerWidgetLiveActivity: Widget {
             } compactTrailing: {
                 Text(teslaAmps(context.state.teslaAmps))
             } minimal: {
-                Text("\(context.state.rvAmps)a")
+                Text("\(context.state.rvAmps)/\(context.state.teslaAmps)a")
             }
             .widgetURL(URL(string: "patriot:///power"))
         }
@@ -71,9 +72,9 @@ struct PowerWidgetLiveActivity: Widget {
     func powerTint(_ amps: Int) -> Color {
         var color: Color
         switch amps {
-        case 0...5:
+        case 0...16:
             color = .green
-        case 6...25:
+        case 17...28:
             color = .yellow
         default:
             color = .red
@@ -84,16 +85,15 @@ struct PowerWidgetLiveActivity: Widget {
     func chargingTint(_ amps: Int) -> Color {
         var color: Color
         switch amps {
-        case 0...5:
-            color = .white
-        case 6...24:
-            color = .green
+        case 0...6:
+            color = .red
+        case 7...12:
+            color = .yellow
         default:
-            color = .cyan
+            color = .green
         }
         return color
     }
-
 }
 
 struct LockScreenPowerLiveActivityView: View {
@@ -101,26 +101,30 @@ struct LockScreenPowerLiveActivityView: View {
     
     var body: some View {
         HStack {
+            Text("RV")
             WidgetCircularPowerView(
                 title: "RV Power Usage",
                 amps: context.state.rvAmps,
                 tint: powerTint(context.state.rvAmps))
+            Spacer()
+            Text("Tesla")
             WidgetCircularPowerView(
                 title: "Tesla Charging",
                 amps: context.state.teslaAmps,
                 tint: chargingTint(context.state.teslaAmps))
         }
         .padding()
-        .activityBackgroundTint(Color.cyan) // Set color based on todos
+        .activityBackgroundTint(Color.cyan) // Set color based on power usage
         .activitySystemActionForegroundColor(Color.black)
     }
     
+    // Normal charging is 24a, so RV is up to 16a
     func powerTint(_ amps: Int) -> Color {
         var color: Color
         switch amps {
-        case 0...5:
+        case 0...16:
             color = .green
-        case 6...25:
+        case 17...28:
             color = .yellow
         default:
             color = .red
@@ -128,15 +132,16 @@ struct LockScreenPowerLiveActivityView: View {
         return color
     }
     
+    // Optimal charging is >= 24a
     func chargingTint(_ amps: Int) -> Color {
         var color: Color
         switch amps {
         case 0...5:
-            color = .white
-        case 6...24:
-            color = .green
+            color = .red
+        case 6...23:
+            color = .yellow
         default:
-            color = .cyan
+            color = .green
         }
         return color
     }
