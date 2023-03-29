@@ -101,27 +101,6 @@ extension ViewModel {
         checklist.firstIndex { $0.key == key }
     }
     
-//    func updateNextItemIndex() {
-//        print("updateNextItemIndex")
-//        nextItemIndex = checklist.firstIndex { $0.isDone == false }
-//    }
-//
-//    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
-//    func setDone(key: String, isDone: Bool = true) {
-//        guard let index = index(key: key) else { return }
-//        checklist[index].isDone = isDone
-//        checklist[index].date = Date()
-//        updateWidgetNextItem()
-//    }
-//
-//    // Called when checkbox tapped
-//    func toggleDone(key: String) {
-//        guard let index = index(key: key) else { return }
-//        checklist[index].isDone.toggle()
-//        updateNextItemIndex()
-//        updateWidgetNextItem()
-//    }
-
     func updateDone(key: String, value: Bool? = nil) {    // Set true/false/nil = toggle
         guard let index = index(key: key) else {
             print("updateDone invalid key: \(key)")

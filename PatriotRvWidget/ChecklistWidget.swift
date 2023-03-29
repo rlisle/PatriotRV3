@@ -19,7 +19,7 @@ struct ChecklistWidgetEntryView : View {
         
         switch family {
         case .accessoryCircular:
-            Gauge(value: 3, in: 0...13) {
+            Gauge(value: Float(entry.doneCount), in: 0...Float(entry.totalCount)) {
                 Text("Not displayed")
             } currentValueLabel: {
                 Text(entry.tripMode).font(.title)
@@ -36,7 +36,7 @@ struct ChecklistWidgetEntryView : View {
         default:
             VStack(alignment: .leading) {
                 HStack {
-                    Link(destination: URL(string: "patriot:///link1")!, label: {
+                    Link(destination: URL(string: "patriot:///trip")!, label: {
                         Text("Trip: ")
                         Spacer()
                         Text(entry.nextTrip)
@@ -44,14 +44,14 @@ struct ChecklistWidgetEntryView : View {
                 }
                 Spacer()
                 HStack {
-                    Link(destination: URL(string: "patriot:///link2")!, label: {
+                    Link(destination: URL(string: "patriot:///tripmode")!, label: {
                         Text(entry.tripMode)
                         Spacer()
                         Text("\(entry.doneCount) of \(entry.totalCount)")
                     })
                 }
                 HStack {
-                    Link(destination: URL(string: "patriot:///link3")!, label: {
+                    Link(destination: URL(string: "patriot:///nextitem")!, label: {
                         Text("Next: ")
                         Spacer()
                         Text(entry.nextItem)
