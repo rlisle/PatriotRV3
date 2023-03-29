@@ -5,14 +5,7 @@
 //  Created by Ron Lisle on 2/25/23.
 //
 
-//import Foundation
 import WidgetKit
-//import SwiftUI
-//import Intents
-
-// ???
-// Since doing away with ChecklistActivityWidget, is this still needed?
-// ???
 
 struct ChecklistProvider: TimelineProvider {
     

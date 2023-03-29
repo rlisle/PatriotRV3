@@ -82,7 +82,7 @@ extension ViewModel {
         )
         let activityContent = ActivityContent(state: contentState, staleDate: nil)
         Task {
-//            print("updatePowerActivity: rv: \(rv) tesla: \(tesla)")
+            print("updateChecklistActivity: nextItem \(contentState.nextItemName)")
             await checklistActivity?.update(activityContent)
         }
     }

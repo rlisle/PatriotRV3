@@ -50,15 +50,15 @@ struct ChecklistWidgetEntryView : View {
                         Text("\(entry.doneCount) of \(entry.totalCount)")
                     })
                 }
+                Text("Next: ")
                 HStack {
                     Link(destination: URL(string: "patriot:///nextitem")!, label: {
-                        Text("Next: ")
                         Spacer()
                         Text(entry.nextItem)
                     })
                 }
             }
-            .background(Image("truck-rv").opacity(0.2).scaledToFill())
+            //.background(Image("truck-rv").opacity(0.2).scaledToFill())
             .foregroundColor(.black)
             .padding(8)
         }

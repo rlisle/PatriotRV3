@@ -139,9 +139,11 @@ extension ViewModel {
         UserDefaults.group.set(nextItem.tripMode.rawValue, forKey: UserDefaults.Keys.tripMode.rawValue)
         UserDefaults.group.set(doneCount, forKey: UserDefaults.Keys.doneCount.rawValue)
         UserDefaults.group.set(totalCount, forKey: UserDefaults.Keys.totalCount.rawValue)
+        //TODO: nextTrip?
         
         // Tell widget to update
         updateChecklistActivity()
+        print("Telling widgetcenter to reload checklist timelines")
         WidgetCenter.shared.reloadTimelines(ofKind: Constants.checklistKind)
 
         // Tell watch to update
