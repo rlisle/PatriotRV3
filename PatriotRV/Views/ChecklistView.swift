@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChecklistView: View {
 
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var modelData: ViewModel
     
     @State private var showingAddTrip = false
     
@@ -28,7 +28,7 @@ struct ChecklistView: View {
             
             ImageHeader(imageName: "truck-rv")
 
-            Picker("Phase", selection: $modelData.checklistPhase) {
+            Picker("Phase", selection: $modelData.displayPhase) {
                 ForEach(phases, id: \.self) {
                     Text($0.rawValue)
                 }
@@ -65,7 +65,7 @@ struct ChecklistView_Previews: PreviewProvider {
         Group {
             ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in
                 ChecklistView()
-                    .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+                    .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }

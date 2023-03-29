@@ -7,7 +7,7 @@ enum ConnectivityUserInfoKey: String {
     
     // Checklist
     case nextItem
-    case nextItemId
+    case nextItemKey
     case totalItems
     case remainingItems
     

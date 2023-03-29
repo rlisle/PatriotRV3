@@ -13,13 +13,13 @@ import Intents
 struct ChecklistWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
-    var entry: Provider.Entry
+    var entry: ChecklistProvider.Entry
 
     var body: some View {
         
         switch family {
         case .accessoryCircular:
-            Gauge(value: 3, in: 0...13) {
+            Gauge(value: Float(entry.doneCount), in: 0...Float(entry.totalCount)) {
                 Text("Not displayed")
             } currentValueLabel: {
                 Text(entry.tripMode).font(.title)
@@ -36,7 +36,7 @@ struct ChecklistWidgetEntryView : View {
         default:
             VStack(alignment: .leading) {
                 HStack {
-                    Link(destination: URL(string: "patriot:///link1")!, label: {
+                    Link(destination: URL(string: "patriot:///trip")!, label: {
                         Text("Trip: ")
                         Spacer()
                         Text(entry.nextTrip)
@@ -44,21 +44,21 @@ struct ChecklistWidgetEntryView : View {
                 }
                 Spacer()
                 HStack {
-                    Link(destination: URL(string: "patriot:///link2")!, label: {
+                    Link(destination: URL(string: "patriot:///tripmode")!, label: {
                         Text(entry.tripMode)
                         Spacer()
                         Text("\(entry.doneCount) of \(entry.totalCount)")
                     })
                 }
+                Text("Next: ")
                 HStack {
-                    Link(destination: URL(string: "patriot:///link3")!, label: {
-                        Text("Next: ")
+                    Link(destination: URL(string: "patriot:///nextitem")!, label: {
                         Spacer()
                         Text(entry.nextItem)
                     })
                 }
             }
-            .background(Image("truck-rv").opacity(0.2).scaledToFill())
+            //.background(Image("truck-rv").opacity(0.2).scaledToFill())
             .foregroundColor(.black)
             .padding(8)
         }
@@ -77,7 +77,7 @@ struct ChecklistWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
-                            provider: Provider()) { entry in
+                            provider: ChecklistProvider()) { entry in
             ChecklistWidgetEntryView(entry: entry)
                 .widgetURL(URL(string: "patriot:///list")!)
         }

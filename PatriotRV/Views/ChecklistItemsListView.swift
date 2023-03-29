@@ -9,25 +9,25 @@ import SwiftUI
 
 struct ChecklistItemsListView: View {
     
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
 
     var body: some View {
         List {
 
             Section(header:
                 HStack {
-                Text(model.checklistPhase.rawValue)
+                Text(model.displayPhase.rawValue)
                     Spacer()
-                Text("(\(model.checklist.category(model.checklistPhase).done().count) of \(model.checklist.category(model.checklistPhase).count) done)")
+                Text("(\(model.checklist.category(model.displayPhase).done().count) of \(model.checklist.category(model.displayPhase).count) done)")
                 }
                 .padding(.vertical, 8)
             ) {
 
 
-                if(model.checklist.category(model.checklistPhase).todo().count == 0) {
-                    Text("No \(model.checklistPhase.rawValue) items found")
+                if(model.checklist.category(model.displayPhase).todo().count == 0) {
+                    Text("No \(model.displayPhase.rawValue) items found")
                 } else {
-                    ForEach(model.checklist.category(model.checklistPhase).todo(), id: \.self) { item in
+                    ForEach(model.checklist.category(model.displayPhase).todo(), id: \.self) { item in
 
                       NavigationLink(destination: DetailView(listItem: item)) {
                           ChecklistRowView(listItem: item)
@@ -35,7 +35,7 @@ struct ChecklistItemsListView: View {
                     }
                 }
             }
-            .textCase(nil)
+            //.textCase(nil)
 
 
         } // List
@@ -52,7 +52,7 @@ struct ChecklistItemsListView_Previews: PreviewProvider {
         Group {
             ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in
                 ChecklistItemsListView()
-                    .environmentObject(ModelData())
+                    .environmentObject(ViewModel())
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }

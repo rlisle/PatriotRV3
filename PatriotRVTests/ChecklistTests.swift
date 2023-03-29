@@ -10,15 +10,15 @@ import XCTest
 
 final class ChecklistTests: XCTestCase {
 
-    var model: ModelData!
+    var model: ViewModel!
     var mockMQTT: MQTTManager!
     
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
-        model = ModelData(mqttManager: mockMQTT)
+        model = ViewModel(mqttManager: mockMQTT)
     }
 
-    func test_messageHandler() {
+    func test_messageHandler_sets_item() {
         guard let item = model.item("fuel") else {
             XCTFail("item 'fuel' not found")
             return
@@ -50,41 +50,57 @@ final class ChecklistTests: XCTestCase {
     }
     
     func test_setItem_and_numDone_1() {
-        model.setDone(checklistitem: "checkTires", value: "100")
+        model.setDone(key: "checkTires", isDone: true)
         let count = model.checklist.category(.pretrip).done().count
         XCTAssertEqual(count, 1)
     }
 
     func test_setItem_and_numDone_2() {
-        model.setDone(checklistitem: "iceMachine", value: "100")
-        model.setDone(checklistitem: "rampAwningIn", value: "100")
+        model.setDone(key: "iceMachine", isDone: true)
+        model.setDone(key: "rampAwningIn", isDone: true)
         let count = model.checklist.category(.departure).done().count
         XCTAssertEqual(count, 2)
     }
 
     func test_setItem_and_numDone_1_not3() {
-        model.setDone(checklistitem: "checkRoof", value: "100")
-        model.setDone(checklistitem: "rearCamera", value: "100")
-        model.setDone(checklistitem: "disconnectCables", value: "100")
+        model.setDone(key: "checkRoof", isDone: true)
+        model.setDone(key: "rearCamera", isDone: true)
+        model.setDone(key: "disconnectCables", isDone: true)
         let count = model.checklist.category(.arrival).done().count
         XCTAssertEqual(count, 1)
     }
     
     func test_uncheckAll_2() {
-        model.setDone(checklistitem: "iceMachine", value: "100")
-        model.setDone(checklistitem: "rampAwningIn", value: "100")
+        model.setDone(key: "iceMachine", isDone: true)
+        model.setDone(key: "rampAwningIn", isDone: true)
+        let count1 = model.checklist.done().count
+        XCTAssertEqual(count1, 2)
+        model.uncheckAll()
+        let count2 = model.checklist.done().count
+        XCTAssertEqual(count2, 0)
+    }
+
+    func test_uncheckAll_3() {
+        model.setDone(key: "checkRoof", isDone: true)
+        model.setDone(key: "rearCamera", isDone: true)
+        model.setDone(key: "disconnectCables", isDone: true)
         model.uncheckAll()
         let count = model.checklist.done().count
         XCTAssertEqual(count, 0)
     }
 
-    func test_uncheckAll_3() {
-        model.setDone(checklistitem: "checkRoof", value: "100")
-        model.setDone(checklistitem: "rearCamera", value: "100")
-        model.setDone(checklistitem: "disconnectCables", value: "100")
-        model.uncheckAll()
-        let count = model.checklist.done().count
-        XCTAssertEqual(count, 0)
+    func test_nextItem_updated() {
+        // Initially first item is nextItem
+        XCTAssertEqual(model.nextItemIndex, 0)
+        // Setting it advances to next item
+        model.toggleDone(key: "startList")
+        XCTAssertEqual(model.nextItemIndex, 1)
+        // Setting later item doesn't change it
+        model.toggleDone(key: "dumpTanks")
+        XCTAssertEqual(model.nextItemIndex, 1)
+        // But restoring it moves it back
+        model.toggleDone(key: "startList")
+        XCTAssertEqual(model.nextItemIndex, 0)
     }
 
 }

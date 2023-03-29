@@ -98,49 +98,49 @@ class MQTTManager: MQTTManagerProtocol {
 extension MQTTManager: CocoaMQTTDelegate {
 
     func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {
-        print("didDisconnect")
+        print("MQTT didDisconnect")
     }
     
     
     func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
-        print("didConnectAck")
+        print("MQTT didConnectAck")
         subscribe()
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {
-        print("didPublishMessage")
+        //print("MQTT didPublishMessage: \(message.topic): \(String(describing: message.string))")
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {
-        print("didPublishAck")
+        //print("MQTT didPublishAck")
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16 ) {
-        print("didReceiveMessage")
+        //print("MQTT didReceiveMessage")
         if let handler = messageHandler {
             handler(message.topic, message.string ?? "")
         }
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopics success: NSDictionary, failed: [String]) {
-        print("didSubscribeTopics")
+        print("MQTT didSubscribeTopics")
     }
     
 
 //    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {
-//        print("didUnsubscribe topic")
+//        print("MQTT didUnsubscribe topic")
 //    }
     
     func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopics topics: [String]) {
-        print("didUnsubscribe topics")
+        print("MQTT didUnsubscribe topics")
     }
 
     func mqttDidPing(_ mqtt: CocoaMQTT) {
-        print("ping)")
+        //print("MQTT ping)")
     }
     
     func mqttDidReceivePong(_ mqtt: CocoaMQTT) {
-        print("pong")
+        //print("MQTT pong")
     }
     
 }

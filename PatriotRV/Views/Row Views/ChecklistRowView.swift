@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChecklistRowView: View {
     
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
     
     var listItem: ChecklistItem
 
@@ -18,24 +18,16 @@ struct ChecklistRowView: View {
         HStack {
             Text(listItem.name).strikethrough(listItem.isDone)
             Spacer()
-            Checkmark(isDone: $model.checklist[index()].isDone)
+            Checkmark(item: listItem)
         }
-    }
-    
-    func index() -> Int {
-        guard listItem.id - 1 > 0 && listItem.id < model.checklist.count else {
-            print("Invalid checklistItem index")
-            return 0
-        }
-        return listItem.id - 1
     }
 }
 
 struct ChecklistRowView_Previews: PreviewProvider {
-    static let modelData = ModelData(mqttManager: MockMQTTManager())
+    static var modelData = ViewModel(mqttManager: MockMQTTManager())
     static var previews: some View {
         List {
-            ChecklistRowView(listItem: modelData.checklist.todo().first!)
+            ChecklistRowView(listItem: Checklist.initialChecklist[0])
                 .environmentObject(modelData)
         }
     }

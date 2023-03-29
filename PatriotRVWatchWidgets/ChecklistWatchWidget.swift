@@ -13,7 +13,7 @@ import Intents
 struct ChecklistWatchWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
-    var entry: Provider.Entry
+    var entry: ChecklistProvider.Entry
 
     var body: some View {
         
@@ -72,7 +72,7 @@ struct ChecklistWatchWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
-                            provider: Provider()) { entry in
+                            provider: ChecklistProvider()) { entry in
             ChecklistWatchWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("RV Checklist")

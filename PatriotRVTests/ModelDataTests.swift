@@ -10,12 +10,12 @@ import XCTest
 
 final class ModelDataTests: XCTestCase {
 
-    var model: ModelData!
+    var model: ViewModel!
     var mockMQTT: MQTTManager!
     
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
-        model = ModelData(mqttManager: mockMQTT)
+        model = ViewModel(mqttManager: mockMQTT)
     }
     
     // CATEGORY
@@ -35,15 +35,4 @@ final class ModelDataTests: XCTestCase {
 //        XCTAssertEqual(result?.key, expectedId)
 //    }
     
-    // Helpers
-    
-    func setAllItemsBefore(order: Int) {
-        model.checklist.indices.forEach {
-            model.checklist[$0].isDone = (model.checklist[$0].id < order)
-        }
-    }
-    
-    func restoreChecklist() {
-        
-    }
 }

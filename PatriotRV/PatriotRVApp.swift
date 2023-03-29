@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct PatriotRVApp: App {
     
-    @StateObject private var modelData = ModelData(mqttManager: MQTTManager())
+    @StateObject private var modelData = ViewModel(mqttManager: MQTTManager())
 
     var body: some Scene {
         WindowGroup {

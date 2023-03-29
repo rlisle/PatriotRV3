@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var modelData: ViewModel
     
     @State var showCompleted = false
 
@@ -53,6 +53,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
     }
 }

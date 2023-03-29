@@ -5,12 +5,9 @@
 //  Created by Ron Lisle on 2/25/23.
 //
 
-//import Foundation
 import WidgetKit
-//import SwiftUI
-//import Intents
 
-struct Provider: TimelineProvider {
+struct ChecklistProvider: TimelineProvider {
     
     typealias Entry = ChecklistEntry
     
@@ -39,6 +36,13 @@ struct Provider: TimelineProvider {
         doneCount = loadInt(.doneCount)
         totalCount = loadInt(.totalCount)
         nextItem = loadString(.nextItem)
+        // debug prints
+        print("populated checklist entry: ")
+        print(" nextTrip: \(nextTrip)")
+        print(" tripMode: \(tripMode)")
+        print(" doneCount: \(doneCount)")
+        print(" totalCount: \(totalCount)")
+        print(" nextItem: \(nextItem)")
 
         return ChecklistEntry(
            nextTrip: nextTrip,
@@ -57,6 +61,9 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        
+        print("Widget: getTimeline")
+        
         let entries = [
             populatedChecklistEntry()
         ]

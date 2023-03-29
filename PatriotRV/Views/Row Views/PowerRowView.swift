@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PowerRowView: View {
     
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
     
     var font: Font = .title
     
@@ -24,7 +24,7 @@ struct PowerRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             PowerRowView()
-                .environmentObject(ModelData())
+                .environmentObject(ViewModel())
         }
     }
 }

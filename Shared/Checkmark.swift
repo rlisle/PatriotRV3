@@ -9,16 +9,18 @@ import SwiftUI
 
 struct Checkmark: View {
     
-    @Binding var isDone: Bool
+    @EnvironmentObject var model: ViewModel
+    
+    let item: ChecklistItem
     
     var body: some View {
         Button(action: {
-            isDone.toggle()
+            model.updateDone(key: item.key)
         }) {
-            Image(systemName: isDone ? "checkmark.square" : "square")
+            Image(systemName: item.isDone ? "checkmark.square" : "square")
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    isDone.toggle()
+                    model.updateDone(key: item.key)
                 }
         }
     }
@@ -26,8 +28,10 @@ struct Checkmark: View {
 
 struct Checkmark_Previews: PreviewProvider {
     static var previews: some View {
-        Checkmark(isDone: .constant(true))
+        let item = Checklist.initialChecklist[0]
+        Checkmark(item: item)
             .previewLayout(.fixed(width: 40, height: 40))
             .previewDisplayName("Checkmark")
+            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
     }
 }

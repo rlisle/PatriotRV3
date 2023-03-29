@@ -13,7 +13,7 @@ import WatchConnectivity
 
 final class Connectivity: NSObject, ObservableObject {
     
-    @Published var lastDoneId: Int = 0   // 0 means none
+    @Published var lastDoneKey: String? = nil     // nil means none
 
     static let shared = Connectivity()
 
@@ -33,14 +33,14 @@ final class Connectivity: NSObject, ObservableObject {
         WCSession.default.activate()
     }
     
-    public func send(nextItemId: Int) {
+    public func send(key: String) {
         guard canSendToPeer() else {
             print("Can't send nextItem to peer")
             return
         }
         
         let userInfo: [String: Any] = [
-            ConnectivityUserInfoKey.nextItemId.rawValue: nextItemId
+            ConnectivityUserInfoKey.nextItemKey.rawValue: key
         ]
         WCSession.default.transferUserInfo(userInfo)
     }
@@ -107,13 +107,13 @@ extension Connectivity: WCSessionDelegate {
                  didReceiveUserInfo userInfo: [String: Any] = [:]
                 ) {
         // Receiving nextItem indicates it is 'Done'
-        let key = ConnectivityUserInfoKey.nextItem.rawValue
-        guard let id = userInfo[key] as? Int else {
+        let keyKey = ConnectivityUserInfoKey.nextItem.rawValue
+        guard let key = userInfo[keyKey] as? String else {
             print("key not found")
             return
         }
         print("App setting done ID done from watch")
-        self.lastDoneId = id
+        self.lastDoneKey = key
     }
 
 }

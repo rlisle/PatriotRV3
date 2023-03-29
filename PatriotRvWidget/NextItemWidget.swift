@@ -11,7 +11,7 @@ import Intents
 struct NextItemWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     
-    var entry: Provider.Entry
+    var entry: ChecklistProvider.Entry
 
     var body: some View {
         
@@ -87,7 +87,7 @@ struct NextItemWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
-                            provider: Provider()) { entry in
+                            provider: ChecklistProvider()) { entry in
             NextItemWidgetEntryView(entry: entry)
                 .widgetURL(URL(string: "patriot:///nextitem")!)
         }

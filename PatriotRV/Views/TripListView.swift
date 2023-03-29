@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TripListView: View {
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
 
     var body: some View {
         //TODO:
@@ -29,6 +29,6 @@ struct TripListView: View {
 struct TripListView_Previews: PreviewProvider {
     static var previews: some View {
         TripListView()
-            .environmentObject(ModelData(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
     }
 }

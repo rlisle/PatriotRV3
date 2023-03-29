@@ -8,7 +8,7 @@
 import SwiftUI
 import ActivityKit
 
-extension ModelData {
+extension ViewModel {
 
     var rvTint: Color {
         get {
@@ -47,32 +47,32 @@ extension ModelData {
         updatePowerActivity()
     }
     
-    func startChecklistActivity() {
-        if ActivityAuthorizationInfo().areActivitiesEnabled {
-            let future = Date(timeIntervalSinceNow: 5)
-            let initialContentState = PatriotRvWidgetAttributes.ContentState(
-                rvAmps: 0,
-                teslaAmps:0,
-                battery: 90,
-                daysUntilNextTrip: 0,
-                nextTripName: "None",
-                tripMode: .pretrip,
-                numberItems: 10,
-                numberDone: 0,
-                nextItemId: "startList",
-                nextItemName: "Start Checklist"
-            )
-            let activityAttributes = PatriotRvWidgetAttributes(name: "Power")
-            let activityContent = ActivityContent(state: initialContentState, staleDate: future)
-            // Start the live activity
-            do {
-                powerActivity = try Activity.request(attributes: activityAttributes, content: activityContent)
-//                print("Started power monitor live activity: \(String(describing: powerActivity))")
-            } catch (let error) {
-                print("Error starting power monitor Live Activity \(error.localizedDescription).")
-            }
-        }
-    }
+//    func startPowerActivity() {
+//        if ActivityAuthorizationInfo().areActivitiesEnabled {
+//            let future = Date(timeIntervalSinceNow: 5)
+//            let initialContentState = PatriotRvWidgetAttributes.ContentState(
+//                rvAmps: 0,
+//                teslaAmps:0,
+//                battery: 90,
+//                daysUntilNextTrip: 0,
+//                nextTripName: "None",
+//                tripMode: .pretrip,
+//                numberItems: 10,
+//                numberDone: 0,
+//                nextItemIndex: 0,
+//                nextItemName: "Start Checklist"
+//            )
+//            let activityAttributes = PatriotRvWidgetAttributes(name: "Power")
+//            let activityContent = ActivityContent(state: initialContentState, staleDate: future)
+//            // Start the live activity
+//            do {
+//                powerActivity = try Activity.request(attributes: activityAttributes, content: activityContent)
+////                print("Started power monitor live activity: \(String(describing: powerActivity))")
+//            } catch (let error) {
+//                print("Error starting power monitor Live Activity \(error.localizedDescription).")
+//            }
+//        }
+//    }
     
     func updatePowerActivity() {
         let contentState = PatriotRvWidgetAttributes.ContentState(
@@ -84,7 +84,7 @@ extension ModelData {
             tripMode: .pretrip,     // "
             numberItems: 10,
             numberDone: 0,
-            nextItemId: "startList",
+            nextItemIndex: 0,
             nextItemName: "Start Checklist"
         )
         let activityContent = ActivityContent(state: contentState, staleDate: nil)

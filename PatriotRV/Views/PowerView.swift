@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PowerView: View {
 
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
 
     var body: some View {
         VStack {
@@ -30,7 +30,7 @@ struct PowerView: View {
 
 struct PowerGaugeView: View {
 
-    @EnvironmentObject var model: ModelData
+    @EnvironmentObject var model: ViewModel
     
     var title: String
     var value: Float
@@ -56,6 +56,6 @@ struct PowerGaugeView: View {
 struct PowerView_Previews: PreviewProvider {
     static var previews: some View {
         PowerView()
-            .environmentObject(ModelData())
+            .environmentObject(ViewModel())
     }
 }
