@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import Combine
 import ActivityKit
 import WidgetKit
 
@@ -101,6 +100,7 @@ extension ViewModel {
         checklist.firstIndex { $0.key == key }
     }
     
+    // Replaces setDone and toggleDone also
     func updateDone(key: String, value: Bool? = nil) {    // Set true/false/nil = toggle
         guard let index = index(key: key) else {
             print("updateDone invalid key: \(key)")
