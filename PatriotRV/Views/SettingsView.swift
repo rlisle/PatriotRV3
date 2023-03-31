@@ -25,6 +25,14 @@ struct SettingsView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 })
+                
+                MenuRowView(title: "Save", iconName: "square.and.arrow.down.on.square", action: {
+                    modelData.save()
+                    withAnimation {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                })
+
                 .padding(.bottom, 60)
             }
                         

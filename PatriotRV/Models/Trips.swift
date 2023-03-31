@@ -49,11 +49,12 @@ extension ViewModel {
             imageName: nil,
             website: "https://www.wildwoodgolfandrvresort.com"))
         
+        persistTrips()
         saveTrips()
     }
     
-    // For now persisting to UserDefaults
-    func saveTrips() {
+    // Share rips to UserDefaults for use by widgets, etc.
+    func persistTrips() {
         if let trip = nextTrip(date: Date()) {
             UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(trip.destination, forKey: "NextTrip")
             UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(trip.destination, forKey: "NextItem")

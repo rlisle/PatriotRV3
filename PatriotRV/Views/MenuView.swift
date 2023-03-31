@@ -29,6 +29,12 @@ struct MenuView: View {
                         showMenu = false
                     }
                 })
+                MenuRowView(title: "Save", iconName: "square.and.arrow.down.on.square", action: {
+                    modelData.save()
+                    withAnimation {
+                        showMenu = false
+                    }
+                })
                 .padding(.bottom, 60)
             }
             

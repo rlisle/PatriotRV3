@@ -8,6 +8,8 @@
 import Foundation
 import ActivityKit
 import WidgetKit
+import CloudKit
+
 
 class ViewModel: ObservableObject {
     
@@ -159,5 +161,69 @@ extension ViewModel {
             checklist[index].isDone = false
         }
         nextItemIndex = 0
+    }
+}
+
+// CloudKit
+extension ViewModel {
+    func checkAccountStatus() async throws -> CKAccountStatus {
+        try await CKContainer.default().accountStatus()
+    }
+    
+    func save() {
+        saveChecklist()
+        saveTrips()
+    }
+    
+    func saveChecklist() {
+        let container = CKContainer.default()
+        let database = container.publicCloudDatabase
+        for item in checklist {
+            //TODO: Remove "CD_" since it's not core data
+            let record = CKRecord(recordType: "Checklist")
+            record.setValuesForKeys([
+                "key": item.key,
+                "name": item.name,
+                "tripMode": item.tripMode.rawValue,
+                "description": item.description,
+                "sortOrder": item.sortOrder,
+                "isDone": item.isDone,
+                "date": item.date ?? Date()
+            ])
+            database.save(record) { record, error in
+                if let error = error {
+                     // Handle error.
+                    print("Error saving checklist: \(error)")
+                     return
+                 }
+                 // Record saved successfully.
+                print("Checklist record saved to cloud")
+            }
+        }
+    }
+    
+    func saveTrips() {
+        let container = CKContainer.default()
+        let database = container.publicCloudDatabase
+        for trip in trips {
+            let record = CKRecord(recordType: "Trip")
+            record.setValuesForKeys([
+                "date": trip.date,
+                "destination": trip.destination,
+                "notes": trip.notes ?? "",
+                "address": trip.address ?? "?",
+                "imageName": trip.imageName ?? "none",
+                "website": trip.website ?? "none"
+            ])
+            database.save(record) { record, error in
+                if let error = error {
+                     // Handle error.
+                    print("Error saving trips: \(error)")
+                     return
+                 }
+                 // Record saved successfully.
+                print("Trip record saved to cloud")
+            }
+        }
     }
 }

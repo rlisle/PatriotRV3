@@ -8,17 +8,18 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ChecklistItem {
 
-    let key: String         // Used by device (eg. RearAwning) MQTT status, unique
-    let name: String        // Title
-    let tripMode: TripMode
-    let description: String // Markdown?
-    var sortOrder: Int      //
-    var imageName: String?  //TODO: Add ability to add/change images
-    var isDone: Bool
-    var date: Date?         // Either completion or due date ?
+    let key: String         // (CD_entityName STRING) Used by device (eg. RearAwning) MQTT status, unique
+    let name: String        // (CD_title STRING) Title
+    let tripMode: TripMode  // (CD_category STRING)
+    let description: String // (CD_instructions STRING)
+    var sortOrder: Int      // (CD_sequence INT(64))
+    var imageName: String?  // (CD_photoData BYTES)
+    var isDone: Bool        // (CD_isDone INT(64))
+    var date: Date?         // (CD_timestamp DATE/TIME) Either completion or due date ?
 
     init(key: String,
          name: String,
