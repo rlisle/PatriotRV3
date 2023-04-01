@@ -36,6 +36,25 @@ struct ChecklistItem {
         self.imageName = imageName
         self.isDone = isDone
     }
+    
+    init?(from record: CKRecord) {
+        guard
+            let key = record["key"] as? String,
+            let name = record["name"] as? String,
+            let category = TripMode(rawValue: record["tripMode"] as? String ?? "Pre-Trip"),
+            let description = record["description"] as? String,
+            let sortOrder = record["sortOrder"] as? Int
+        else { return nil }
+        let imageName = record["imageName"] as? String
+        let isDone = record["isDone"] as? Bool
+        self = .init(key: key,
+                  name: name,
+                  category: category,
+                  description: description,
+                  sortOrder: sortOrder,
+                  imageName: imageName,
+                  isDone: isDone ?? false)
+    }
 }
 
 extension ChecklistItem: Equatable {

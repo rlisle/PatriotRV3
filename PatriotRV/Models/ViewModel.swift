@@ -179,28 +179,21 @@ extension ViewModel {
 
     // Load checklist from iCloud
     func loadChecklist() {
-        let container = CKContainer.default()
-        let database = container.publicCloudDatabase
-
         let pred = NSPredicate(value: true)     // All records
         let sort = NSSortDescriptor(key: "sortOrder", ascending: true)
         let query = CKQuery(recordType: "Checklist", predicate: pred)
         query.sortDescriptors = [sort]
 
          let operation = CKQueryOperation(query: query)
-         //operation.desiredKeys = ["genre", "comments"]    return all keys by default
+         //operation.desiredKeys = ["key", "name", "tripMode", "description", "sortOrder", "imageName", "isDone"]
          //operation.resultsLimit = 500
 
          var newChecklist = [ChecklistItem]()
         
         operation.recordFetchedBlock = { record in
-            let item = ChecklistItem(
-                key: record["key"] as! String,
-                name: record["name"] as! String,
-                category: TripMode(rawValue: record["tripMode"] as? String ?? "Pre-Trip") ?? .pretrip,
-                description: record["description"] as! String,
-                sortOrder: record["sortOrder"] as! Int)
-            newChecklist.append(item)
+            if let item = ChecklistItem(from: record) {
+                newChecklist.append(item)
+            }
         }
         
         operation.queryCompletionBlock = { [unowned self] (cursor, error) in
@@ -214,8 +207,31 @@ extension ViewModel {
                 }
             }
         }
-        database.add(operation)
+        CKContainer.default().publicCloudDatabase.add(operation)
     }
+    
+//    func fetchChecklist() async throws -> [ChecklistItem] {
+//        let pred = NSPredicate(value: true)     // All records
+//        let sort = NSSortDescriptor(key: "sortOrder", ascending: true)
+//        let query = CKQuery(recordType: "Checklist", predicate: pred)
+//        query.sortDescriptors = [sort]
+//        let result = try await CKContainer.default().privateCloudDatabase.records(matching: query)
+//        let records = result.matchResults.compactMap { try? $0.1.get() }
+//        var newChecklist = [ChecklistItem]()
+//        for record in records {
+//            print("record = \(record)")
+//            let item = ChecklistItem(
+//                key: record["key"] as! String,
+//                name: record["name"] as! String,
+//                category: TripMode(rawValue: record["tripMode"] as? String ?? "Pre-Trip") ?? .pretrip,
+//                description: record["description"] as! String,
+//                sortOrder: record["sortOrder"] as! Int)
+//            newChecklist.append(item)
+//        }
+////        let records = result.matchResults.compactMap { try? $0.1.get() }
+////        return records.compactMap(Fasting.init)
+//        return newChecklist
+//    }
 
     func saveChecklist() {
         let container = CKContainer.default()
@@ -271,6 +287,39 @@ extension ViewModel {
 
     }
     
+    // Load trips from iCloud
+    func loadTrips() {
+        let pred = NSPredicate(value: true)     // All records
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        let query = CKQuery(recordType: "Trip", predicate: pred)
+        query.sortDescriptors = [sort]
+
+         let operation = CKQueryOperation(query: query)
+         //operation.desiredKeys = ["key", "name", "tripMode", "description", "sortOrder", "imageName", "isDone"]
+         //operation.resultsLimit = 500
+
+         var newTrips = [Trip]()
+        
+        operation.recordFetchedBlock = { record in
+            if let trip = Trip(from: record) {
+                newTrips.append(trip)
+            }
+        }
+        
+        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
+            Task {
+                await MainActor.run {
+                    if error == nil {
+                        self.trips = newTrips
+                    } else {
+                        print("Fetch trips failed: \(error!.localizedDescription)")
+                    }
+                }
+            }
+        }
+        CKContainer.default().publicCloudDatabase.add(operation)
+    }
+
     func saveTrips() {
         let container = CKContainer.default()
         let database = container.publicCloudDatabase
