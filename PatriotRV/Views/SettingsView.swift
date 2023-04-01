@@ -15,6 +15,8 @@ struct SettingsView: View {
     @EnvironmentObject var modelData: ViewModel
     
     @State var showCompleted = false
+    
+    private let enableDangerZone = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,6 +30,7 @@ struct SettingsView: View {
                     }
                 })
                 
+                //TODO: remove this once saving is done automatically
                 MenuRowView(title: "Save", iconName: "square.and.arrow.down.on.square", action: {
                     modelData.save()
                     withAnimation {
@@ -37,7 +40,8 @@ struct SettingsView: View {
 
                 .padding(.bottom, 60)
             }
-                        
+                   
+            //TODO: move show/hide done to checklist view
             Section(header: Text("Settings")) {
                 
                 MenuRowView(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
@@ -47,6 +51,19 @@ struct SettingsView: View {
                     }
                 })
                 .padding(.bottom, 60)
+            }
+            
+            if enableDangerZone {
+                Section(header: Text("Danger Zone")) {
+                    
+                    MenuRowView(title: "Seed Database", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
+                        modelData.seedDatabase()
+                        withAnimation {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    })
+                    .padding(.bottom, 60)
+                }
             }
             
             Spacer()

@@ -29,10 +29,15 @@ struct HomeChecklistRowView: View {
             }
             .padding(.vertical, 4)
             HStack {
-                Text("#\(model.nextItemIndex ?? 0):")
-                Text(model.checklist.todo().first?.name ?? "")
-                Spacer()
-                Checkmark(item: model.checklist[model.nextItemIndex ?? 0])
+                if let index = model.nextItemIndex,
+                   index > 0 && index < model.checklist.count {
+                    Text("#\(index):")
+                    Text(model.checklist.todo().first?.name ?? "")
+                    Spacer()
+                    Checkmark(item: model.checklist[index])
+                } else {
+                    Text("No next item")
+                }
             }
         }
     }

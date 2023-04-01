@@ -11,6 +11,7 @@ import WidgetKit
 import CloudKit
 
 
+@MainActor
 class ViewModel: ObservableObject {
     
     //TODO: add persistence and editing of trips
@@ -45,6 +46,7 @@ class ViewModel: ObservableObject {
         self.init(mqttManager: mqttManager)
         self.updatePower(line: 0, power: 480.0)
         self.updatePower(line: 1, power: 2880.0)
+        //TODO: set dummy trips & checklist
     }
     
     init(mqttManager: MQTTManagerProtocol) {
@@ -53,8 +55,8 @@ class ViewModel: ObservableObject {
             self.handleMQTTMessage(topic: topic, message: message)
         }
         
-        initializeTrips()
-        initializeChecklist()
+        //loadTrips()
+        loadChecklist()
     }
 }
 
@@ -174,12 +176,51 @@ extension ViewModel {
         saveChecklist()
         saveTrips()
     }
-    
+
+    // Load checklist from iCloud
+    func loadChecklist() {
+        let container = CKContainer.default()
+        let database = container.publicCloudDatabase
+
+        let pred = NSPredicate(value: true)     // All records
+        let sort = NSSortDescriptor(key: "sortOrder", ascending: true)
+        let query = CKQuery(recordType: "Checklist", predicate: pred)
+        query.sortDescriptors = [sort]
+
+         let operation = CKQueryOperation(query: query)
+         //operation.desiredKeys = ["genre", "comments"]    return all keys by default
+         //operation.resultsLimit = 500
+
+         var newChecklist = [ChecklistItem]()
+        
+        operation.recordFetchedBlock = { record in
+            let item = ChecklistItem(
+                key: record["key"] as! String,
+                name: record["name"] as! String,
+                category: TripMode(rawValue: record["tripMode"] as? String ?? "Pre-Trip") ?? .pretrip,
+                description: record["description"] as! String,
+                sortOrder: record["sortOrder"] as! Int)
+            newChecklist.append(item)
+        }
+        
+        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
+            Task {
+                await MainActor.run {
+                    if error == nil {
+                        self.checklist = newChecklist
+                    } else {
+                        print("Fetch checklist failed: \(error!.localizedDescription)")
+                    }
+                }
+            }
+        }
+        database.add(operation)
+    }
+
     func saveChecklist() {
         let container = CKContainer.default()
         let database = container.publicCloudDatabase
         for item in checklist {
-            //TODO: Remove "CD_" since it's not core data
             let record = CKRecord(recordType: "Checklist")
             record.setValuesForKeys([
                 "key": item.key,
@@ -200,6 +241,34 @@ extension ViewModel {
                 print("Checklist record saved to cloud")
             }
         }
+    }
+    
+    // Danger! This will add all of the initial 'seed' built-in values to the database.
+    func seedDatabase() {
+        let container = CKContainer.default()
+        let database = container.publicCloudDatabase
+        for item in Checklist.initialChecklist {
+            let record = CKRecord(recordType: "Checklist")
+            record.setValuesForKeys([
+                "key": item.key,
+                "name": item.name,
+                "tripMode": item.tripMode.rawValue,
+                "description": item.description,
+                "sortOrder": item.sortOrder,
+                "isDone": item.isDone,
+                "date": item.date ?? Date()
+            ])
+            database.save(record) { record, error in
+                if let error = error {
+                     // Handle error.
+                    print("Error saving checklist record: \(error)")
+                     return
+                 }
+                 // Record saved successfully.
+                print("Initial checklist record saved to cloud")
+            }
+        }
+
     }
     
     func saveTrips() {
