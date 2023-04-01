@@ -2,6 +2,8 @@
 //  SettingsView.swift
 //  PatriotRV
 //
+//  Left side menu
+//
 //  Created by Ron Lisle on 1/23/23.
 //
 
