@@ -8,6 +8,7 @@
 import CloudKit
 
 extension ViewModel {
+    
     func checkAccountStatus() async throws -> CKAccountStatus {
         try await CKContainer.default().accountStatus()
     }

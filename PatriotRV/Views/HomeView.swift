@@ -16,7 +16,7 @@ struct HomeView: View {
     
     @State private var showCompleted = true
     @State private var showSettings = false
-//    @State private var showOnboarding = true
+    @State private var showLogin = false
 
     enum Screen {
         case settings
@@ -94,9 +94,9 @@ struct HomeView: View {
         .task {
             model.startChecklistActivity()
         }
-//        .sheet(isPresented: $showOnboarding) {
-//            OnboardingView()
-//        }
+        .sheet(isPresented: $showLogin) {
+            LoginView()
+        }
         .onOpenURL(perform: { (url) in
             switch url {
             case URL(string: "patriot:///trip"):

@@ -15,7 +15,7 @@ extension ViewModel {
         return tripsAfterDate.first
     }
     
-    func initializeTrips() {
+    func seedTrips() {
         // Load trips (for now hardcode a few)
         trips.append(Trip(
             date: Date("07/26/22"),

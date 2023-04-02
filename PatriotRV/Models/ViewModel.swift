@@ -55,7 +55,7 @@ class ViewModel: ObservableObject {
             self.handleMQTTMessage(topic: topic, message: message)
         }
         
-        //loadTrips()
+        loadTrips()
         loadChecklist()
     }
 }
@@ -96,7 +96,7 @@ extension ViewModel: Publishing {
 // Checklist
 extension ViewModel {
 
-    func initializeChecklist() {
+    func seedChecklist() {
         checklist = Checklist.initialChecklist
     }
     

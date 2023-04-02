@@ -16,7 +16,7 @@ struct SettingsView: View {
     
     @State var showCompleted = false
     
-    private let enableDangerZone = false
+    private let enableDangerZone = true
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -56,12 +56,19 @@ struct SettingsView: View {
             if enableDangerZone {
                 Section(header: Text("Danger Zone")) {
                     
-                    MenuRowView(title: "Seed Database", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
-                        modelData.seedDatabase()
+                    MenuRowView(title: "Seed Checklist", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
+                        modelData.seedChecklist()
                         withAnimation {
                             presentationMode.wrappedValue.dismiss()
                         }
                     })
+                    MenuRowView(title: "Seed Trips", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
+                        modelData.seedTrips()
+                        withAnimation {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    })
+                    
                     .padding(.bottom, 60)
                 }
             }
