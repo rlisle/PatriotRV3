@@ -73,4 +73,3 @@ extension Trip: Hashable {
         hasher.combine(date)
     }
 }
-

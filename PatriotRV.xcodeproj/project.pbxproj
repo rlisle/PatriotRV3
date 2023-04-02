@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */; };
+		271223D329D99F5F00C5A143 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D229D99F5F00C5A143 /* CloudKit.swift */; };
 		2728E91829BD25F900F18B87 /* PowerRvWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728E91729BD25F900F18B87 /* PowerRvWidget.swift */; };
 		272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */; };
 		272FC2D7297C774D005C6D43 /* WatchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D6297C774D005C6D43 /* WatchHome.swift */; };
@@ -202,6 +203,7 @@
 /* Begin PBXFileReference section */
 		131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; path = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; sourceTree = "<group>"; };
 		175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		271223D229D99F5F00C5A143 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		2728E91729BD25F900F18B87 /* PowerRvWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRvWidget.swift; sourceTree = "<group>"; };
 		272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRVWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVWatchApp.swift; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				276270BD297C1BEB00844645 /* MQTTManager.swift */,
+				271223D229D99F5F00C5A143 /* CloudKit.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1119,6 +1122,7 @@
 				27C50B6A2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				2748581229BCBEF9001A1C97 /* PowerEntry.swift in Sources */,
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
+				271223D329D99F5F00C5A143 /* CloudKit.swift in Sources */,
 				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				2748581829BCC135001A1C97 /* PowerEntryProvider.swift in Sources */,

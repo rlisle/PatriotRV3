@@ -30,7 +30,7 @@ struct SettingsView: View {
                     }
                 })
                 
-                //TODO: remove this once saving is done automatically
+                // This may help debugging etc. Save s/b automatic though
                 MenuRowView(title: "Save", iconName: "square.and.arrow.down.on.square", action: {
                     modelData.save()
                     withAnimation {
