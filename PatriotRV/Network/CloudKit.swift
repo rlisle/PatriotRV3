@@ -22,40 +22,68 @@ extension ViewModel {
 // Trip
 extension ViewModel {
     
-    func loadTrips() {
-        
-        setLoadingTrip()
+//    func loadTrips() {
+//
+//        setLoadingTrip()
+//
+//        let pred = NSPredicate(value: true)     // All records
+//        let sort = NSSortDescriptor(key: "date", ascending: false)
+//        let query = CKQuery(recordType: "Trip", predicate: pred)
+//        query.sortDescriptors = [sort]
+//
+//         let operation = CKQueryOperation(query: query)
+//         //operation.desiredKeys = ["key", "name", "tripMode", "description", "sortOrder", "imageName", "isDone"]
+//         //operation.resultsLimit = 500
+//
+//         var newTrips = [Trip]()
+//
+//        operation.recordFetchedBlock = { record in
+//            if let trip = Trip(from: record) {
+//                newTrips.append(trip)
+//            }
+//        }
+//
+//        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
+//            Task {
+//                await MainActor.run {
+//                    if error == nil {
+//                        self.trips = newTrips
+//                    } else {
+//                        print("Fetch trips failed: \(error!.localizedDescription)")
+//                    }
+//                }
+//            }
+//        }
+//
+//        CKContainer.default().publicCloudDatabase.add(operation)
+//    }
+
+    nonisolated func asyncLoadTrips() async throws {
         
         let pred = NSPredicate(value: true)     // All records
         let sort = NSSortDescriptor(key: "date", ascending: false)
         let query = CKQuery(recordType: "Trip", predicate: pred)
         query.sortDescriptors = [sort]
-
-         let operation = CKQueryOperation(query: query)
-         //operation.desiredKeys = ["key", "name", "tripMode", "description", "sortOrder", "imageName", "isDone"]
-         //operation.resultsLimit = 500
-
-         var newTrips = [Trip]()
         
-        operation.recordFetchedBlock = { record in
-            if let trip = Trip(from: record) {
-                newTrips.append(trip)
-            }
-        }
-        
-        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
-            Task {
-                await MainActor.run {
-                    if error == nil {
-                        self.trips = newTrips
-                    } else {
-                        print("Fetch trips failed: \(error!.localizedDescription)")
+        do {
+            let response = try await CKContainer.default().publicCloudDatabase.records(matching: query, inZoneWith: nil, desiredKeys: nil, resultsLimit: 500)
+            for (_, result) in response.matchResults {
+                switch result {
+                case .success(let record):
+                    if let trip = Trip(from: record) {
+                        await MainActor.run {
+                            trips.append(trip)
+                        }
                     }
+                case .failure(let error):
+                    print("Error: \(error)")
                 }
             }
+            
+        } catch {
+            print("Error fetching trips")
+            throw error
         }
-        
-        CKContainer.default().publicCloudDatabase.add(operation)
     }
 
     func setLoadingTrip() {
@@ -66,7 +94,6 @@ extension ViewModel {
             address: nil,
             imageName: nil,
             website: nil))
-
     }
     
     func saveTrips() {
@@ -177,33 +204,6 @@ extension ViewModel {
                  }
                  // Record saved successfully.
                 print("Checklist record saved to cloud")
-            }
-        }
-    }
-    
-    // Danger! This will add all of the initial 'seed' built-in values to the database.
-    func seedDatabase() {
-        let container = CKContainer.default()
-        let database = container.publicCloudDatabase
-        for item in Checklist.initialChecklist {
-            let record = CKRecord(recordType: "Checklist")
-            record.setValuesForKeys([
-                "key": item.key,
-                "name": item.name,
-                "tripMode": item.tripMode.rawValue,
-                "description": item.description,
-                "sortOrder": item.sortOrder,
-                "isDone": item.isDone,
-                "date": item.date ?? Date()
-            ])
-            database.save(record) { record, error in
-                if let error = error {
-                     // Handle error.
-                    print("Error saving checklist record: \(error)")
-                     return
-                 }
-                 // Record saved successfully.
-                print("Initial checklist record saved to cloud")
             }
         }
     }

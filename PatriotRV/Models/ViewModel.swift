@@ -54,7 +54,15 @@ class ViewModel: ObservableObject {
             self.handleMQTTMessage(topic: topic, message: message)
         }
         
-        loadTrips()
+        setLoadingTrip()
+        Task {
+            do {
+                try await asyncLoadTrips()
+            } catch {
+                print("asyncLoadTrips threw an error \(error)")
+            }
+        }
+        
         loadChecklist()
     }
 }
