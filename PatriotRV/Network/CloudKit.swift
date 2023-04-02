@@ -23,6 +23,9 @@ extension ViewModel {
 extension ViewModel {
     
     func loadTrips() {
+        
+        setLoadingTrip()
+        
         let pred = NSPredicate(value: true)     // All records
         let sort = NSSortDescriptor(key: "date", ascending: false)
         let query = CKQuery(recordType: "Trip", predicate: pred)
@@ -55,6 +58,17 @@ extension ViewModel {
         CKContainer.default().publicCloudDatabase.add(operation)
     }
 
+    func setLoadingTrip() {
+        trips.append(Trip(
+            date: Date("01/01/23"),
+            destination: "TBD",
+            notes: "Loading trips...",
+            address: nil,
+            imageName: nil,
+            website: nil))
+
+    }
+    
     func saveTrips() {
         let container = CKContainer.default()
         let database = container.publicCloudDatabase

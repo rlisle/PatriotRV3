@@ -14,7 +14,6 @@ import CloudKit
 @MainActor
 class ViewModel: ObservableObject {
     
-    //TODO: add persistence and editing of trips
     @Published var trips: [Trip] = []
     
     // Checklist - persisted by Photon controllers
@@ -46,7 +45,7 @@ class ViewModel: ObservableObject {
         self.init(mqttManager: mqttManager)
         self.updatePower(line: 0, power: 480.0)
         self.updatePower(line: 1, power: 2880.0)
-        //TODO: set dummy trips & checklist
+        //TODO: set dummy trips & checklist instead of loading from CloudKit
     }
     
     init(mqttManager: MQTTManagerProtocol) {
