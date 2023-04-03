@@ -22,42 +22,6 @@ extension ViewModel {
 // Trip
 extension ViewModel {
     
-//    func loadTrips() {
-//
-//        setLoadingTrip()
-//
-//        let pred = NSPredicate(value: true)     // All records
-//        let sort = NSSortDescriptor(key: "date", ascending: false)
-//        let query = CKQuery(recordType: "Trip", predicate: pred)
-//        query.sortDescriptors = [sort]
-//
-//         let operation = CKQueryOperation(query: query)
-//         //operation.desiredKeys = ["key", "name", "tripMode", "description", "sortOrder", "imageName", "isDone"]
-//         //operation.resultsLimit = 500
-//
-//         var newTrips = [Trip]()
-//
-//        operation.recordFetchedBlock = { record in
-//            if let trip = Trip(from: record) {
-//                newTrips.append(trip)
-//            }
-//        }
-//
-//        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
-//            Task {
-//                await MainActor.run {
-//                    if error == nil {
-//                        self.trips = newTrips
-//                    } else {
-//                        print("Fetch trips failed: \(error!.localizedDescription)")
-//                    }
-//                }
-//            }
-//        }
-//
-//        CKContainer.default().publicCloudDatabase.add(operation)
-//    }
-
     nonisolated func asyncLoadTrips() async throws {
         
         let pred = NSPredicate(value: true)     // All records
@@ -123,88 +87,55 @@ extension ViewModel {
 }
 
 
-
 // Checklist
 extension ViewModel {
-    // Load checklist from iCloud
-    func loadChecklist() {
+    
+    nonisolated func asyncLoadChecklist() async throws {
+        do {
+            let records = try await fetchChecklist()
+            await MainActor.run {
+                checklist = records
+            }
+            
+        } catch {
+            print("Error fetching checklist")
+            throw error
+        }
+    }
+    
+    nonisolated func fetchChecklist() async throws -> [ChecklistItem] {
         let pred = NSPredicate(value: true)     // All records
         let sort = NSSortDescriptor(key: "sortOrder", ascending: true)
         let query = CKQuery(recordType: "Checklist", predicate: pred)
         query.sortDescriptors = [sort]
-
-         let operation = CKQueryOperation(query: query)
-         //operation.desiredKeys = ["key", "name", "tripMode", "description", "sortOrder", "imageName", "isDone"]
-         //operation.resultsLimit = 500
-
-         var newChecklist = [ChecklistItem]()
-        
-        operation.recordFetchedBlock = { record in
-            if let item = ChecklistItem(from: record) {
-                newChecklist.append(item)
-            }
-        }
-        
-        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
-            Task {
-                await MainActor.run {
-                    if error == nil {
-                        self.checklist = newChecklist
-                    } else {
-                        print("Fetch checklist failed: \(error!.localizedDescription)")
-                    }
-                }
-            }
-        }
-        CKContainer.default().publicCloudDatabase.add(operation)
+        let response = try await CKContainer.default().publicCloudDatabase.records(matching: query, inZoneWith: nil, desiredKeys: nil, resultsLimit: 500)
+        let records = response.matchResults.compactMap { try? $0.1.get() }
+        return records.compactMap(ChecklistItem.init)
     }
-    
-//    func fetchChecklist() async throws -> [ChecklistItem] {
-//        let pred = NSPredicate(value: true)     // All records
-//        let sort = NSSortDescriptor(key: "sortOrder", ascending: true)
-//        let query = CKQuery(recordType: "Checklist", predicate: pred)
-//        query.sortDescriptors = [sort]
-//        let result = try await CKContainer.default().privateCloudDatabase.records(matching: query)
-//        let records = result.matchResults.compactMap { try? $0.1.get() }
-//        var newChecklist = [ChecklistItem]()
-//        for record in records {
-//            print("record = \(record)")
-//            let item = ChecklistItem(
-//                key: record["key"] as! String,
-//                name: record["name"] as! String,
-//                category: TripMode(rawValue: record["tripMode"] as? String ?? "Pre-Trip") ?? .pretrip,
-//                description: record["description"] as! String,
-//                sortOrder: record["sortOrder"] as! Int)
-//            newChecklist.append(item)
-//        }
-////        let records = result.matchResults.compactMap { try? $0.1.get() }
-////        return records.compactMap(Fasting.init)
-//        return newChecklist
-//    }
 
     func saveChecklist() {
-        let container = CKContainer.default()
-        let database = container.publicCloudDatabase
         for item in checklist {
-            let record = CKRecord(recordType: "Checklist")
-            record.setValuesForKeys([
-                "key": item.key,
-                "name": item.name,
-                "tripMode": item.tripMode.rawValue,
-                "description": item.description,
-                "sortOrder": item.sortOrder,
-                "isDone": item.isDone,
-                "date": item.date ?? Date()
-            ])
-            database.save(record) { record, error in
-                if let error = error {
-                     // Handle error.
-                    print("Error saving checklist: \(error)")
-                     return
-                 }
-                 // Record saved successfully.
-                print("Checklist record saved to cloud")
-            }
+            saveChecklistItem(item)
+        }
+    }
+    
+    func saveChecklistItem(_ item: ChecklistItem) {
+        let database = CKContainer.default().publicCloudDatabase
+        let record = CKRecord(recordType: "Checklist")
+        record.setValuesForKeys([
+            "key": item.key,
+            "name": item.name,
+            "tripMode": item.tripMode.rawValue,
+            "description": item.description,
+            "sortOrder": item.sortOrder,
+            "isDone": item.isDone,
+            "date": item.date ?? Date()
+        ])
+        database.save(record) { record, error in
+            if let error = error {
+                print("Error saving checklist item \(item.name): \(error)")
+                 return
+             }
         }
     }
 }

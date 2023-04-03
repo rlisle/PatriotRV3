@@ -58,12 +58,11 @@ class ViewModel: ObservableObject {
         Task {
             do {
                 try await asyncLoadTrips()
+                try await asyncLoadChecklist()
             } catch {
-                print("asyncLoadTrips threw an error \(error)")
+                print("Error fetching from iCloud: \(error)")
             }
         }
-        
-        loadChecklist()
     }
 }
 
