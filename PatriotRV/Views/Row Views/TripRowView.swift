@@ -10,9 +10,10 @@ import SwiftUI
 struct TripRowView: View {
     
     @EnvironmentObject var model: ViewModel
+    let trip: Trip?
     
     var body: some View {
-        if let trip = model.trips.last {
+        if let trip = trip {
             VStack(alignment: .leading) {
                 HStack {
                     Text(trip.destination)
@@ -30,7 +31,7 @@ struct TripRowView: View {
 struct TripRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            TripRowView()
+            TripRowView(trip: Mock.trip)
                 .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
         }
     }

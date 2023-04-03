@@ -9,26 +9,47 @@ import SwiftUI
 
 struct TripListView: View {
     @EnvironmentObject var model: ViewModel
+    @State private var showingAddTrip = false
 
     var body: some View {
-        //TODO:
         VStack {
-            if let trip = model.trips.last {
-                Text("Date: \(trip.date.mmddyy())")
-                Text("Destination: \(trip.destination)")
-                if let notes = trip.notes {
-                    Text("Notes: \(notes)")
+            List {
+                if(model.trips.count == 0) {
+                    Text("No trips found")
+                } else {
+                    ForEach(model.trips, id: \.self) { trip in
+
+                      NavigationLink(destination: TripView(trip: trip)) {
+                          TripRowView(trip: trip)
+                      }
+                    }
                 }
-            } else {
-                Text("No trips")
             }
         }
+        .blackNavigation
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showingAddTrip = true
+                }) {
+                    Image(systemName: "plus")
+                }
+                .foregroundColor(.white)
+            }
+        }
+        .navigationDestination(isPresented: $showingAddTrip, destination: {
+            AddTripView()
+        })
     }
 }
 
 struct TripListView_Previews: PreviewProvider {
     static var previews: some View {
-        TripListView()
-            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+        Group {
+            ForEach(["iPhone 14 Pro", "iPad"], id: \.self) { deviceName in
+                TripListView()
+                    .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+            }
+        }
     }
 }

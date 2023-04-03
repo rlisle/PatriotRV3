@@ -33,7 +33,7 @@ struct HomeView: View {
                 List {
                     Section("Next Trip") {
                         NavigationLink(value: "trip") {
-                            TripRowView()
+                            TripRowView(trip: model.trips.last)
                         }
                     }
                     Section("Checklist") {

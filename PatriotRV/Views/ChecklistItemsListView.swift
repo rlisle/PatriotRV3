@@ -50,7 +50,7 @@ struct ChecklistItemsListView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in
+            ForEach(["iPhone 14 Pro", "iPad"], id: \.self) { deviceName in
                 ChecklistItemsListView()
                     .environmentObject(ViewModel())
                     .previewDevice(PreviewDevice(rawValue: deviceName))

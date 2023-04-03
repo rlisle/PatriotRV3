@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ChecklistView: View {
-
     @EnvironmentObject var modelData: ViewModel
-    
     @State private var showingAddTrip = false
     
     private var phases: [TripMode] = [.pretrip, .departure,.arrival]

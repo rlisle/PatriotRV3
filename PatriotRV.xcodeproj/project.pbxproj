@@ -10,6 +10,8 @@
 		14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */; };
 		271223D329D99F5F00C5A143 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D229D99F5F00C5A143 /* CloudKit.swift */; };
 		271223D529D9A34000C5A143 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D429D9A34000C5A143 /* LoginView.swift */; };
+		271223D729DAE90600C5A143 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D629DAE90600C5A143 /* TripView.swift */; };
+		271223D929DAEC8C00C5A143 /* MockTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D829DAEC8C00C5A143 /* MockTrip.swift */; };
 		2728E91829BD25F900F18B87 /* PowerRvWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728E91729BD25F900F18B87 /* PowerRvWidget.swift */; };
 		272FC2D5297C774D005C6D43 /* PatriotRVWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */; };
 		272FC2D7297C774D005C6D43 /* WatchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC2D6297C774D005C6D43 /* WatchHome.swift */; };
@@ -206,6 +208,8 @@
 		175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271223D229D99F5F00C5A143 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		271223D429D9A34000C5A143 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		271223D629DAE90600C5A143 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		271223D829DAEC8C00C5A143 /* MockTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTrip.swift; sourceTree = "<group>"; };
 		2728E91729BD25F900F18B87 /* PowerRvWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRvWidget.swift; sourceTree = "<group>"; };
 		272FC2D2297C774D005C6D43 /* PatriotRVWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatriotRVWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		272FC2D4297C774D005C6D43 /* PatriotRVWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatriotRVWatchApp.swift; sourceTree = "<group>"; };
@@ -389,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				273FCCE929A0F769002DB4A2 /* MockMQTTManager.swift */,
+				271223D829DAEC8C00C5A143 /* MockTrip.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -595,6 +600,7 @@
 				272FC2E6297D59BE005C6D43 /* PowerView.swift */,
 				276DDFC9297EC130008CEC48 /* SettingsView.swift */,
 				277CA736298A98170000A570 /* TripListView.swift */,
+				271223D629DAE90600C5A143 /* TripView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1108,6 +1114,7 @@
 			files = (
 				274DBC4D299FA906007866BD /* PowerRowView.swift in Sources */,
 				276270BE297C1BEB00844645 /* MQTTManager.swift in Sources */,
+				271223D929DAEC8C00C5A143 /* MockTrip.swift in Sources */,
 				27BFA4D629AA354F00D5FAEE /* ChecklistEntryProvider.swift in Sources */,
 				27C50B6029984FB700EF9DB5 /* Connectivity.swift in Sources */,
 				271223D529D9A34000C5A143 /* LoginView.swift in Sources */,
@@ -1131,6 +1138,7 @@
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				2748581829BCC135001A1C97 /* PowerEntryProvider.swift in Sources */,
 				27BFA4CE29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
+				271223D729DAE90600C5A143 /* TripView.swift in Sources */,
 				274DBC4B299F9F98007866BD /* HomeChecklistRowView.swift in Sources */,
 				277CA735298A956E0000A570 /* DateExtension.swift in Sources */,
 				27696BC929A643670053466A /* Constants.swift in Sources */,
