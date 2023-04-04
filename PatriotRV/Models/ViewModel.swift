@@ -106,6 +106,24 @@ extension ViewModel {
         checklist = Checklist.initialChecklist
     }
     
+    func eliminateDuplicates() {
+        var newChecklist = [ChecklistItem]()
+        for item in checklist {
+            if !newChecklist.contains(item) {
+                newChecklist.append(item)
+            }
+        }
+        guard newChecklist.count > 0 else {
+            print("Error in eliminateDuplicates. No records")
+            return
+        }
+        Task {
+            await MainActor.run {
+                checklist = newChecklist
+            }
+        }
+    }
+    
     func index(key: String) -> Int? {
         checklist.firstIndex { $0.key == key }
     }

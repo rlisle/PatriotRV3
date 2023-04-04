@@ -12,14 +12,14 @@ import CloudKit
 
 struct ChecklistItem {
 
-    let key: String         // (CD_entityName STRING) Used by device (eg. RearAwning) MQTT status, unique
-    let name: String        // (CD_title STRING) Title
-    let tripMode: TripMode  // (CD_category STRING)
-    let description: String // (CD_instructions STRING)
-    var sortOrder: Int      // (CD_sequence INT(64))
-    var imageName: String?  // (CD_photoData BYTES)
-    var isDone: Bool        // (CD_isDone INT(64))
-    var date: Date?         // (CD_timestamp DATE/TIME) Either completion or due date ?
+    let key: String         // Unique string used by device (eg. RearAwning)
+    let name: String        // Human readable Title
+    let tripMode: TripMode  // "category" TripMode.rawValue
+    let description: String //
+    var sortOrder: Int      //
+    var imageName: String?  //
+    var isDone: Bool        //
+    var date: Date?         //
 
     init(key: String,
          name: String,
@@ -39,12 +39,12 @@ struct ChecklistItem {
     
     init?(from record: CKRecord) {
         guard
-            let key = record["key"] as? String,
             let name = record["name"] as? String,
             let category = TripMode(rawValue: record["tripMode"] as? String ?? "Pre-Trip"),
             let description = record["description"] as? String,
             let sortOrder = record["sortOrder"] as? Int
         else { return nil }
+        let key = record.recordID.recordName
         let imageName = record["imageName"] as? String
         let isDone = record["isDone"] as? Bool
         self = .init(key: key,
@@ -60,15 +60,11 @@ struct ChecklistItem {
 extension ChecklistItem: Equatable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
         return lhs.key == rhs.key
-        && lhs.name == rhs.name
-        && lhs.tripMode == rhs.tripMode
     }
 }
 
 extension ChecklistItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(key)
-        hasher.combine(name)
-        hasher.combine(tripMode)
     }
 }

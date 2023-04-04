@@ -56,6 +56,13 @@ struct SettingsView: View {
             if enableDangerZone {
                 Section(header: Text("Danger Zone")) {
                     
+                    MenuRowView(title: "Eliminate Duplicates", iconName: "rectangle.on.rectangle.slash", action: {
+                        modelData.eliminateDuplicates()
+                        withAnimation {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    })
+
                     MenuRowView(title: "Seed Checklist", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
                         modelData.seedChecklist()
                         withAnimation {

@@ -5,6 +5,8 @@
 //  Created by Ron Lisle on 4/2/23.
 //
 
+//TODO: Convert ChecklistItem to CKRecord
+
 import CloudKit
 
 extension ViewModel {
@@ -114,16 +116,22 @@ extension ViewModel {
     }
 
     func saveChecklist() {
+        // Do we need to delete all existing records first?
         for item in checklist {
             saveChecklistItem(item)
         }
     }
     
     func saveChecklistItem(_ item: ChecklistItem) {
+        guard !item.key.isEmpty else {
+            print("Attempt to save checklist item with empty key")
+            return
+        }
         let database = CKContainer.default().publicCloudDatabase
-        let record = CKRecord(recordType: "Checklist")
+        let recordID = CKRecord.ID(recordName: item.key)
+        let record = CKRecord(recordType: "Checklist", recordID: recordID)
         record.setValuesForKeys([
-            "key": item.key,
+//            "key": item.key,      // Do we need this since it is now the CKRecord.ID?
             "name": item.name,
             "tripMode": item.tripMode.rawValue,
             "description": item.description,
