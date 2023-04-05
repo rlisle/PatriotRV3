@@ -57,8 +57,8 @@ class ViewModel: ObservableObject {
         setLoadingTrip()
         Task {
             do {
-                try await asyncLoadTrips()
-                try await asyncLoadChecklist()
+                try await loadTrips()
+                try await loadChecklist()
             } catch {
                 print("Error fetching from iCloud: \(error)")
             }

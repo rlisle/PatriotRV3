@@ -32,9 +32,11 @@ struct SettingsView: View {
                 
                 // This may help debugging etc. Save s/b automatic though
                 MenuRowView(title: "Save", iconName: "square.and.arrow.down.on.square", action: {
-                    modelData.save()
-                    withAnimation {
-                        presentationMode.wrappedValue.dismiss()
+                    Task {
+                        try await modelData.save()
+                        withAnimation {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     }
                 })
 
@@ -58,6 +60,15 @@ struct SettingsView: View {
                     
                     MenuRowView(title: "Eliminate Duplicates", iconName: "rectangle.on.rectangle.slash", action: {
                         modelData.eliminateDuplicates()
+                        withAnimation {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    })
+
+                    MenuRowView(title: "Delete Checklist", iconName: "exclamationmark.icloud", action: {
+                        Task {
+                            try await modelData.deleteChecklist()
+                        }
                         withAnimation {
                             presentationMode.wrappedValue.dismiss()
                         }

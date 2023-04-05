@@ -3,6 +3,7 @@
 //  PatriotRV
 //
 //  This model represents a planned or previous trip
+//  The CKRecord.ID is = date+destination
 //
 //  Created by Ron Lisle on 2/1/23.
 //
