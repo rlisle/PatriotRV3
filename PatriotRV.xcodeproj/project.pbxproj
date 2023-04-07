@@ -11,6 +11,7 @@
 		27040AD129DD87D9002BAB52 /* ChecklistCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */; };
 		27040AD329DD87EC002BAB52 /* TripsCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */; };
 		27040AD529E023BA002BAB52 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD429E023BA002BAB52 /* Maintenance.swift */; };
+		27040AD729E0B5FE002BAB52 /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD629E0B5FE002BAB52 /* PreviewDevices.swift */; };
 		271223D329D99F5F00C5A143 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D229D99F5F00C5A143 /* CloudKit.swift */; };
 		271223D529D9A34000C5A143 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D429D9A34000C5A143 /* LoginView.swift */; };
 		271223D729DAE90600C5A143 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271223D629DAE90600C5A143 /* TripView.swift */; };
@@ -211,6 +212,7 @@
 		27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCloudKit.swift; sourceTree = "<group>"; };
 		27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsCloudKit.swift; sourceTree = "<group>"; };
 		27040AD429E023BA002BAB52 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
+		27040AD629E0B5FE002BAB52 /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
 		271223D229D99F5F00C5A143 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		271223D429D9A34000C5A143 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		271223D629DAE90600C5A143 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				276DDFC9297EC130008CEC48 /* SettingsView.swift */,
 				277CA736298A98170000A570 /* TripListView.swift */,
 				271223D629DAE90600C5A143 /* TripView.swift */,
+				27040AD629E0B5FE002BAB52 /* PreviewDevices.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1143,6 +1146,7 @@
 				2748581229BCBEF9001A1C97 /* PowerEntry.swift in Sources */,
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				271223D329D99F5F00C5A143 /* CloudKit.swift in Sources */,
+				27040AD729E0B5FE002BAB52 /* PreviewDevices.swift in Sources */,
 				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				2748581829BCC135001A1C97 /* PowerEntryProvider.swift in Sources */,

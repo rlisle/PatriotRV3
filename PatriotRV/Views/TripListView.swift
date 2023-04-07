@@ -13,18 +13,7 @@ struct TripListView: View {
 
     var body: some View {
         VStack {
-            List {
-                if(model.trips.count == 0) {
-                    Text("No trips found")
-                } else {
-                    ForEach(model.trips, id: \.self) { trip in
-
-                      NavigationLink(destination: TripView(trip: trip)) {
-                          TripRowView(trip: trip)
-                      }
-                    }
-                }
-            }
+            tripsListView
         }
         .blackNavigation
         .toolbar {
@@ -41,6 +30,21 @@ struct TripListView: View {
             AddTripView()
         })
     }
+    
+    var tripsListView: some View {
+        List {
+            if(model.trips.count == 0) {
+                Text("No trips found")
+            } else {
+                ForEach(model.trips, id: \.self) { trip in
+
+                  NavigationLink(destination: TripView(trip: trip)) {
+                      TripRowView(trip: trip)
+                  }
+                }
+            }
+        }
+    }
 }
 
 struct TripListView_Previews: PreviewProvider {
@@ -49,6 +53,8 @@ struct TripListView_Previews: PreviewProvider {
             ForEach(["iPhone 14 Pro", "iPad"], id: \.self) { deviceName in
                 TripListView()
                     .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+                    .previewDevice(PreviewDevice(rawValue: deviceName))
+                    .previewDisplayName(deviceName)
             }
         }
     }
