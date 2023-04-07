@@ -16,7 +16,7 @@ extension ViewModel {
     }
     
     func seedTrips() {
-        // Load trips (for now hardcode a few)
+        trips = []
         trips.append(Trip(
             date: Date("07/26/22"),
             destination: "Wildwood RV and Golf Resort",
@@ -49,15 +49,14 @@ extension ViewModel {
             imageName: nil,
             website: "https://www.wildwoodgolfandrvresort.com"))
         
-        persistTrips()
-        saveTrips()
+//        persistTrips()
+//        saveTrips()
     }
     
-    // Share rips to UserDefaults for use by widgets, etc.
+    // Share trips to UserDefaults for use by widgets, etc.
     func persistTrips() {
         if let trip = nextTrip(date: Date()) {
             UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(trip.destination, forKey: "NextTrip")
-            UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(trip.destination, forKey: "NextItem")
         }
     }
 }

@@ -28,7 +28,7 @@ struct Checkmark: View {
 
 struct Checkmark_Previews: PreviewProvider {
     static var previews: some View {
-        let item = Checklist.initialChecklist[0]
+        let item = ViewModel.initialChecklist[0]
         Checkmark(item: item)
             .previewLayout(.fixed(width: 40, height: 40))
             .previewDisplayName("Checkmark")

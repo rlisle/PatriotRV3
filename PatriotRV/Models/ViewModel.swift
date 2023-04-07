@@ -55,6 +55,7 @@ class ViewModel: ObservableObject {
         }
         
         setLoadingTrip()
+        //TODO: perform this in parallel
         Task {
             do {
                 try await loadTrips()
@@ -102,10 +103,6 @@ extension ViewModel: Publishing {
 // Checklist
 extension ViewModel {
 
-    func seedChecklist() {
-        checklist = Checklist.initialChecklist
-    }
-    
     func eliminateDuplicates() {
         var newChecklist = [ChecklistItem]()
         for item in checklist {

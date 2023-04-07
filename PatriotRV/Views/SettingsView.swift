@@ -80,6 +80,16 @@ struct SettingsView: View {
                             presentationMode.wrappedValue.dismiss()
                         }
                     })
+                    
+                    MenuRowView(title: "Delete Trips", iconName: "exclamationmark.icloud", action: {
+                        Task {
+                            try await modelData.deleteTrips()
+                        }
+                        withAnimation {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    })
+                    
                     MenuRowView(title: "Seed Trips", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
                         modelData.seedTrips()
                         withAnimation {

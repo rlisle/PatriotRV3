@@ -15,6 +15,7 @@ extension ViewModel {
         do {
             let records = try await fetchTrips()
             await MainActor.run {
+                print("Trips loaded")
                 trips = records
             }
             
@@ -36,17 +37,22 @@ extension ViewModel {
         return records.compactMap(Trip.init)
     }
 
-//    func setLoadingTrip() {
-//        trips.append(Trip(
-//            date: Date("01/01/23"),
-//            destination: "TBD",
-//            notes: "Loading trips...",
-//            address: nil,
-//            imageName: nil,
-//            website: nil))
-//    }
-//
+    func setLoadingTrip() {
+        trips = [
+            Trip(
+            date: Date("01/01/23"),
+            destination: "TBD",
+            notes: "Loading trips...",
+            address: nil,
+            imageName: nil,
+            website: nil)
+        ]
+    }
+
     func saveTrips() async throws {
+        //TODO: delete existing trips first?
+        
+        //TODO: perform this in parallel
         for trip in trips {
             try await saveTrip(trip)
         }
@@ -54,7 +60,10 @@ extension ViewModel {
     
     nonisolated func saveTrip(_ trip: Trip) async throws {
         let database = CKContainer.default().publicCloudDatabase
-        let recordName = DateFormatter().string(from: trip.date) + trip.destination
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateString = formatter.string(from: trip.date)
+        let recordName = "\(dateString)-\(trip.destination)"
         let recordID = CKRecord.ID(recordName: recordName)
         let record = CKRecord(recordType: "Trip", recordID: recordID)
         record.setValuesForKeys([
@@ -73,11 +82,11 @@ extension ViewModel {
     }
     
     func deleteTrips() async throws {
+        //TODO: perform this in parallel
         for trip in trips {
             try await deleteTrip(trip)
         }
         trips = []
-        try await saveTrips()
     }
     
     private nonisolated func deleteTrip(_ trip: Trip) async throws {
@@ -85,6 +94,7 @@ extension ViewModel {
         let recordName = DateFormatter().string(from: trip.date) + trip.destination
         let recordID = CKRecord.ID(recordName: recordName)
         do {
+            print("Deleting record with id: \(recordName)")
             _ = try await database.deleteRecord(withID: recordID)
         } catch {
             print("Error deleting trip \(recordName): \(error)")
