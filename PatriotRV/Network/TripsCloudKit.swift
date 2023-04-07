@@ -58,14 +58,15 @@ extension ViewModel {
         }
     }
     
-    nonisolated func saveTrip(_ trip: Trip) async throws {
-        let database = CKContainer.default().publicCloudDatabase
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+    func tripRecordID(_ trip: Trip) -> CKRecord.ID {
         let dateString = formatter.string(from: trip.date)
         let recordName = "\(dateString)-\(trip.destination)"
-        let recordID = CKRecord.ID(recordName: recordName)
-        let record = CKRecord(recordType: "Trip", recordID: recordID)
+        return CKRecord.ID(recordName: recordName)
+    }
+    
+    nonisolated func saveTrip(_ trip: Trip) async throws {
+        let database = CKContainer.default().publicCloudDatabase
+        let record = await CKRecord(recordType: "Trip", recordID: tripRecordID(trip))
         record.setValuesForKeys([
             "date": trip.date,
             "destination": trip.destination,
@@ -77,7 +78,7 @@ extension ViewModel {
         do {
             try await database.save(record)
         } catch {
-            print("Error saving trip \(recordName): \(error)")
+            print("Error saving trip \(record.recordID.recordName): \(error)")
         }
     }
     

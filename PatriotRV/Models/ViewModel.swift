@@ -35,6 +35,8 @@ class ViewModel: ObservableObject {
     internal var linePower: [Float] = [0.0, 0.0]        // Amps
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
+    internal let formatter = DateFormatter()
+
     // MQTT
     var mqtt: MQTTManagerProtocol                       // Protocol to simplify unit tests
     
@@ -53,7 +55,8 @@ class ViewModel: ObservableObject {
         mqtt.messageHandler = { topic, message in
             self.handleMQTTMessage(topic: topic, message: message)
         }
-        
+        formatter.dateFormat = "yyyy-MM-dd"
+
         setLoadingTrip()
         //TODO: perform this in parallel
         Task {
