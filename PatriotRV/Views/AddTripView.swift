@@ -16,5 +16,6 @@ struct AddTripView: View {
 struct AddTripView_Previews: PreviewProvider {
     static var previews: some View {
         AddTripView()
+            .modifier(PreviewDevices())
     }
 }

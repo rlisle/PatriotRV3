@@ -34,5 +34,6 @@ struct TripRowView_Previews: PreviewProvider {
             TripRowView(trip: Mock.trip)
                 .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
         }
+        .modifier(PreviewDevices())
     }
 }

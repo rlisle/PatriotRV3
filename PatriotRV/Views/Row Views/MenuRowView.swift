@@ -40,5 +40,6 @@ struct MenuRow_Previews: PreviewProvider {
                 print("Action tapped")
             })
         }
+        .modifier(PreviewDevices())
     }
 }

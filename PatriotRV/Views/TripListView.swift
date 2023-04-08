@@ -49,13 +49,8 @@ struct TripListView: View {
 
 struct TripListView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ForEach(["iPhone 14 Pro", "iPad"], id: \.self) { deviceName in
-                TripListView()
-                    .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
-                    .previewDevice(PreviewDevice(rawValue: deviceName))
-                    .previewDisplayName(deviceName)
-            }
-        }
+        TripListView()
+        .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+        .modifier(PreviewDevices())
     }
 }

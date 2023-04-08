@@ -30,5 +30,6 @@ struct ChecklistRowView_Previews: PreviewProvider {
             ChecklistRowView(listItem: ViewModel.initialChecklist[0])
                 .environmentObject(modelData)
         }
+        .modifier(PreviewDevices())
     }
 }

@@ -19,5 +19,6 @@ struct LogRowView_Previews: PreviewProvider {
             LogRowView()
                 .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
         }
+        .modifier(PreviewDevices())
     }
 }

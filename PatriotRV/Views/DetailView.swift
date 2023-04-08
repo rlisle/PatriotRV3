@@ -63,6 +63,7 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(listItem: modelData.checklist[4])
             .environmentObject(modelData)
+            .modifier(PreviewDevices())
     }
 }
 

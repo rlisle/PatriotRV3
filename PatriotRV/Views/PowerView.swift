@@ -57,5 +57,6 @@ struct PowerView_Previews: PreviewProvider {
     static var previews: some View {
         PowerView()
             .environmentObject(ViewModel())
+            .modifier(PreviewDevices())
     }
 }

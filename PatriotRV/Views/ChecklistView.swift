@@ -60,13 +60,8 @@ struct ChecklistView: View {
 struct ChecklistView_Previews: PreviewProvider {
     
     static var previews: some View {
-        Group {
-            ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in
-                ChecklistView()
-                    .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
-                    .previewDevice(PreviewDevice(rawValue: deviceName))
-                    .previewDisplayName(deviceName)
-            }
-        }
+        ChecklistView()
+            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+            .modifier(PreviewDevices())
     }
 }
