@@ -40,7 +40,8 @@ extension ViewModel {
             try await deleteChecklistItem(item)
         }
         checklist = []
-        try await saveChecklist()
+        // We've already deleted all the records in the cloud, so this shouldn't be needed
+        //try await saveChecklist()
     }
     
     private nonisolated func deleteChecklistItem(_ item: ChecklistItem) async throws {
@@ -64,6 +65,16 @@ extension ViewModel {
             try await saveChecklistItem(item)
         }
     }
+
+//    func saveChecklistItem(index: Int) async throws {
+//        guard index < checklist.count else {
+//            print("saveChecklistItem index out of range")
+//            return
+//        }
+//        Task {
+//            try await saveChecklistItem(checklist[index])
+//        }
+//    }
     
     nonisolated func saveChecklistItem(_ item: ChecklistItem) async throws {
         guard !item.key.isEmpty else {
@@ -82,9 +93,16 @@ extension ViewModel {
             "date": item.date ?? Date()
         ])
         do {
-            try await database.save(record)
+//            try await database.save(record)
+            let (saveResults, _) = try await database.modifyRecords(saving: [record],
+                                                                    deleting: [],
+                                                                    savePolicy: .allKeys)
         } catch {
             print("Error saving checklist item \(item.name): \(error)")
+            // If error, try updating existing record
+//            let (saveResults, _) = try await database.modifyRecords(saving: [lastPersonRecord],
+//                                                                                deleting: [],
+//                                                                                savePolicy: .allKeys)
         }
     }
 }

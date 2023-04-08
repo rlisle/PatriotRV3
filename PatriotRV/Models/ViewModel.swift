@@ -122,6 +122,7 @@ extension ViewModel {
                 checklist = newChecklist
             }
         }
+        //TODO: perform save?
     }
     
     func index(key: String) -> Int? {
@@ -134,12 +135,17 @@ extension ViewModel {
             print("updateDone invalid key: \(key)")
             return
         }
+        var item = checklist[index]
         if let value = value {
-            checklist[index].isDone = value
+            item.isDone = value
         } else {
-            checklist[index].isDone.toggle()
+            item.isDone.toggle()
         }
-        checklist[index].date = Date()
+        item.date = Date()
+        checklist[index] = item
+        Task {
+            try? await saveChecklistItem(item)
+        }
         
         updateNextItemIndex()
         persistNextItem()
@@ -149,8 +155,10 @@ extension ViewModel {
         nextItemIndex = checklist.firstIndex {
             $0.isDone == false
         }
+        print("updateNextItemIndex nextItemIndex = \(String(describing: nextItemIndex))")
     }
 
+    // Save nextItem for use by widgets, etc.
     private func persistNextItem() {
         print("persistNextItem")
         guard let nextIndex = nextItemIndex,
