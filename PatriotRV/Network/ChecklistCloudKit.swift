@@ -16,6 +16,7 @@ extension ViewModel {
             let records = try await fetchChecklist()
             await MainActor.run {
                 checklist = records
+                updateNextItemIndex()
             }
             
         } catch {

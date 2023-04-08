@@ -20,7 +20,7 @@ class ViewModel: ObservableObject {
     @Published var checklist: [ChecklistItem] = []
 
     // NextItem
-    @Published var nextItemIndex: Int? = 0             // Updated when an item is set toggle by checkbox
+    @Published var nextItemIndex: Int? = 0             // Updated when any item isDone changed
 
     // Display Controls
     @Published var displayPhase: TripMode = .pretrip  // Selected for display
@@ -151,11 +151,17 @@ extension ViewModel {
         persistNextItem()
     }
     
-    private func updateNextItemIndex() {
-        nextItemIndex = checklist.firstIndex {
+    func updateNextItemIndex() {
+        let index = checklist.firstIndex {
             $0.isDone == false
         }
-        print("updateNextItemIndex nextItemIndex = \(String(describing: nextItemIndex))")
+        guard let index = index,
+              index >= 0 && index < checklist.count else {
+            print("Checklist empty or all items done")
+            return
+        }
+        nextItemIndex = index
+        print("updateNextItemIndex nextItemIndex = \(index)")
     }
 
     // Save nextItem for use by widgets, etc.
