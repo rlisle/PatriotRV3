@@ -50,7 +50,6 @@ struct ChecklistItemsListView_Previews: PreviewProvider {
     
     static var previews: some View {
         ChecklistItemsListView()
-            .environmentObject(ViewModel())
             .modifier(PreviewDevices())
     }
 }

@@ -50,7 +50,7 @@ struct ChecklistView: View {
             }
         }
         .navigationDestination(isPresented: $showingAddTrip, destination: {
-            AddTripView()
+            AddChecklistView()
         })
                 
 //        .accentColor(.black)   // Sets back button color - doesn't work now
