@@ -19,97 +19,102 @@ struct SettingsView: View {
     private let enableDangerZone = true
 
     var body: some View {
-        VStack(alignment: .leading) {
-                        
-            Section(header: Text("Actions")) {
-                
-                MenuRowView(title: "Uncheck All", iconName: "square", action: {
-                    modelData.uncheckAll()
-                    withAnimation {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                })
-                
-                // This may help debugging etc. Save s/b automatic though
-                MenuRowView(title: "Save", iconName: "square.and.arrow.down.on.square", action: {
-                    Task {
-                        try await modelData.save()
-                        withAnimation {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }
-                })
-
-                .padding(.bottom, 60)
-            }
-                   
-            //TODO: move show/hide done to checklist view
-            Section(header: Text("Settings")) {
-                
-                MenuRowView(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
-                    showCompleted.toggle()
-                    withAnimation {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                })
-                .padding(.bottom, 60)
-            }
-            
-            if enableDangerZone {
-                Section(header: Text("Danger Zone")) {
-                    
-                    MenuRowView(title: "Eliminate Duplicates", iconName: "rectangle.on.rectangle.slash", action: {
-                        modelData.eliminateDuplicates()
-                        withAnimation {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    })
-
-                    MenuRowView(title: "Delete Checklist", iconName: "exclamationmark.icloud", action: {
-                        Task {
-                            try await modelData.deleteChecklist()
-                        }
-                        withAnimation {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    })
-
-                    MenuRowView(title: "Seed Checklist", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
-                        modelData.seedChecklist()
-                        withAnimation {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    })
-                    
-                    MenuRowView(title: "Delete Trips", iconName: "exclamationmark.icloud", action: {
-                        Task {
-                            try await modelData.deleteTrips()
-                        }
-                        withAnimation {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    })
-                    
-                    MenuRowView(title: "Seed Trips", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
-                        modelData.seedTrips()
-                        withAnimation {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    })
-                    
-                    .padding(.bottom, 60)
+        ScrollView {
+            VStack(alignment: .leading) {
+                Actions
+                Settings
+                if enableDangerZone {
+                    DangerZone
                 }
+                Spacer()
             }
-            
-            Spacer()
         }
-        .padding(.top, 80)
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(red: 32/255, green: 32/255, blue: 32/255))
         .foregroundColor(.gray)
-        .edgesIgnoringSafeArea(.all)
     }
+
+    var Actions: some View {
+        Section(header: Text("Actions")) {
+            MenuRowView(title: "Uncheck All", iconName: "square", action: {
+                modelData.uncheckAll()
+                withAnimation {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            })
+            // This may help debugging etc. Save s/b automatic though
+            MenuRowView(title: "Save", iconName: "square.and.arrow.down.on.square", action: {
+                Task {
+                    try await modelData.save()
+                    withAnimation {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            })
+        }
+        .padding(.top, 8)
+    }
+    
+    var Settings: some View {
+        //TODO: move show/hide done to checklist view
+        Section(header: Text("Settings")) {
+            
+            MenuRowView(title: showCompleted ? "Hide Done" : "Show Done", iconName: showCompleted ? "eye.slash" : "eye", action: {
+                showCompleted.toggle()
+                withAnimation {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            })
+        }
+        .padding(.top, 8)
+    }
+    
+    var DangerZone: some View {
+        Section(header: Text("Danger Zone")) {
+            
+            MenuRowView(title: "Eliminate Duplicates", iconName: "rectangle.on.rectangle.slash", action: {
+                modelData.eliminateDuplicates()
+                withAnimation {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            })
+            
+            MenuRowView(title: "Delete Checklist", iconName: "exclamationmark.icloud", action: {
+                Task {
+                    try await modelData.deleteChecklist()
+                }
+                withAnimation {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            })
+            
+            MenuRowView(title: "Seed Checklist", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
+                modelData.seedChecklist()
+                withAnimation {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            })
+            
+            MenuRowView(title: "Delete Trips", iconName: "exclamationmark.icloud", action: {
+                Task {
+                    try await modelData.deleteTrips()
+                }
+                withAnimation {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            })
+            
+            MenuRowView(title: "Seed Trips", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
+                modelData.seedTrips()
+                withAnimation {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            })
+        }
+        .padding(.top, 8)
+    }
+    
 }
 
 struct SettingsView_Previews: PreviewProvider {
