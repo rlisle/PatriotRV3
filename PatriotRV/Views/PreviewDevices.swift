@@ -11,7 +11,7 @@
   struct <ViewName>_Previews: PreviewProvider {
      static var previews: some View {
          <ViewName>(<arg>: <value>)
-             .environmentObject(ViewModel(mqttManager: MockMQTTManager())) // if needed
+             // Note that .environmentObject not needed, included in PreviewDevices
              .modifier(PreviewDevices())
      }
  }
@@ -23,7 +23,7 @@ struct PreviewDevices: ViewModifier {
     func body(content: Content) -> some View {
         ForEach(["iPhone 14 Pro", "iPad (10th generation)"], id: \.self) { deviceName in
             content
-            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel())
             .previewDevice(PreviewDevice(rawValue: deviceName))
             .previewDisplayName(deviceName)
         }

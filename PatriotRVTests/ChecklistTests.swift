@@ -15,7 +15,7 @@ final class ChecklistTests: XCTestCase {
     
     override func setUpWithError() throws {
         mockMQTT = MockMQTT()
-        model = ViewModel(mqttManager: mockMQTT)
+        model = ViewModel()
     }
 
     func test_messageHandler_sets_item() {

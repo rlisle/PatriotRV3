@@ -60,7 +60,7 @@ struct HomeChecklistRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             HomeChecklistRowView()
-                .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+                .environmentObject(ViewModel())
         }
         .modifier(PreviewDevices())
     }

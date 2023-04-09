@@ -24,7 +24,7 @@ struct ChecklistRowView: View {
 }
 
 struct ChecklistRowView_Previews: PreviewProvider {
-    static var modelData = ViewModel(mqttManager: MockMQTTManager())
+    static var modelData = ViewModel()
     static var previews: some View {
         List {
             ChecklistRowView(listItem: ViewModel.initialChecklist[0])

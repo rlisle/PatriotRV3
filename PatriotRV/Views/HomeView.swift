@@ -118,7 +118,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel())
             .modifier(PreviewDevices())
     }
 }

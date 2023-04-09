@@ -32,6 +32,6 @@ struct Checkmark_Previews: PreviewProvider {
         Checkmark(item: item)
             .previewLayout(.fixed(width: 40, height: 40))
             .previewDisplayName("Checkmark")
-            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel())
     }
 }

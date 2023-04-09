@@ -67,16 +67,6 @@ extension ViewModel {
         }
     }
 
-//    func saveChecklistItem(index: Int) async throws {
-//        guard index < checklist.count else {
-//            print("saveChecklistItem index out of range")
-//            return
-//        }
-//        Task {
-//            try await saveChecklistItem(checklist[index])
-//        }
-//    }
-    
     nonisolated func saveChecklistItem(_ item: ChecklistItem) async throws {
         guard !item.key.isEmpty else {
             print("Attempt to save checklist item with empty key")

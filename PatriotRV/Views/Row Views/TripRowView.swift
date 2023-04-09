@@ -32,7 +32,7 @@ struct TripRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             TripRowView(trip: Mock.trip)
-                .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+                .environmentObject(ViewModel())
         }
         .modifier(PreviewDevices())
     }

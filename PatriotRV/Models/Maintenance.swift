@@ -7,10 +7,8 @@
 
 import Foundation
 
-struct MaintenanceSeed {
+extension ViewModel {
     static let initialMaintenance = [
-        
-        // MAINTENANCE 0
         ChecklistItem(
             key: "genRun",
             name: "Run Generator",
@@ -55,4 +53,8 @@ struct MaintenanceSeed {
             sortOrder: 0,
             isDone: true)
     ]
+    
+    func seedMaintenance() {
+        maintenance = ViewModel.initialMaintenance
+    }
 }

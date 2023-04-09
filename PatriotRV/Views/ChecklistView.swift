@@ -61,7 +61,7 @@ struct ChecklistView_Previews: PreviewProvider {
     
     static var previews: some View {
         ChecklistView()
-            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel())
             .modifier(PreviewDevices())
     }
 }

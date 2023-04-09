@@ -15,30 +15,26 @@ import CloudKit
 class ViewModel: ObservableObject {
     
     @Published var trips: [Trip] = []
-    
-    // Checklist - persisted by Photon controllers
     @Published var checklist: [ChecklistItem] = []
-
-    // NextItem
+    @Published var maintenance: [ChecklistItem] = []
+    
     @Published var nextItemIndex: Int? = 0             // Updated when any item isDone changed
 
-    // Display Controls
     @Published var displayPhase: TripMode = .pretrip  // Selected for display
     @Published var showCompleted = true                 //TODO: persist
     
     internal var checklistActivity: Activity<PatriotRvWidgetAttributes>?
 
-    // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
-    
     internal var linePower: [Float] = [0.0, 0.0]        // Amps
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
     internal let formatter = DateFormatter()
 
-    // MQTT
     var mqtt: MQTTManagerProtocol                       // Protocol to simplify unit tests
+    
+    var mockData = false
     
     
     // For use with previews and tests
@@ -48,6 +44,10 @@ class ViewModel: ObservableObject {
         self.updatePower(line: 0, power: 480.0)
         self.updatePower(line: 1, power: 2880.0)
         //TODO: set dummy trips & checklist instead of loading from CloudKit
+        mockData = true
+        seedTrips()
+        seedChecklist()
+        seedMaintenance()
     }
     
     init(mqttManager: MQTTManagerProtocol) {
@@ -57,12 +57,15 @@ class ViewModel: ObservableObject {
         }
         formatter.dateFormat = "yyyy-MM-dd"
 
+        // Note: don't load from iCloud if Preview or testing
+        
         setLoadingTrip()
         //TODO: perform this in parallel
         Task {
             do {
                 try await loadTrips()
                 try await loadChecklist()
+                //TODO: loadMaintenance()
             } catch {
                 print("Error fetching from iCloud: \(error)")
             }
@@ -122,7 +125,7 @@ extension ViewModel {
                 checklist = newChecklist
             }
         }
-        //TODO: perform save?
+        //TODO: perform save (if not mockData)?
     }
     
     func index(key: String) -> Int? {
@@ -143,8 +146,10 @@ extension ViewModel {
         }
         item.date = Date()
         checklist[index] = item
-        Task {
-            try? await saveChecklistItem(item)
+        if !mockData {
+            Task {
+                try? await saveChecklistItem(item)
+            }
         }
         
         updateNextItemIndex()
@@ -161,7 +166,6 @@ extension ViewModel {
             return
         }
         nextItemIndex = index
-        print("updateNextItemIndex nextItemIndex = \(index)")
     }
 
     // Save nextItem for use by widgets, etc.
