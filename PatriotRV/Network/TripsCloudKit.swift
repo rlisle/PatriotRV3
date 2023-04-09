@@ -15,7 +15,6 @@ extension ViewModel {
         do {
             let records = try await fetchTrips()
             await MainActor.run {
-                print("Trips loaded")
                 trips = records
             }
             
