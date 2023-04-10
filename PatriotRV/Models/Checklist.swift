@@ -326,4 +326,8 @@ extension ViewModel {
     func seedChecklist() {
         checklist = ViewModel.initialChecklist
     }
+    
+    func addChecklistItem(_ newItem: ChecklistItem) {
+        checklist.append(newItem)
+    }
 }

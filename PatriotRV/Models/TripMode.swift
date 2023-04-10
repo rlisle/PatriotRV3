@@ -8,7 +8,7 @@
 import Foundation
 
 // An enum for checklist categories
-enum TripMode: String, Codable {
+enum TripMode: String, Codable, CaseIterable {
     case parked = "Parked"
     case maintenance = "Maintenance"
     case pretrip = "Pre-Trip"
