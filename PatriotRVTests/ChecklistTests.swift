@@ -8,6 +8,7 @@
 import XCTest
 @testable import PatriotRV
 
+@MainActor
 final class ChecklistTests: XCTestCase {
 
     var model: ViewModel!
@@ -18,7 +19,7 @@ final class ChecklistTests: XCTestCase {
         model = ViewModel()
     }
 
-    func test_messageHandler_sets_item() {
+    func test_messageHandler_sets_item() throws {
         guard let item = model.item("fuel") else {
             XCTFail("item 'fuel' not found")
             return

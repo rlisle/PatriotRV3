@@ -8,6 +8,7 @@
 import XCTest
 @testable import PatriotRV
 
+@MainActor
 final class ModelDataTests: XCTestCase {
 
     var model: ViewModel!

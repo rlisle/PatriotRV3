@@ -8,22 +8,15 @@
 import XCTest
 @testable import PatriotRV
 
+@MainActor
 final class TripTests: XCTestCase {
 
     var model: ViewModel!
-    var mockMQTT: MQTTManager!
     
     override func setUpWithError() throws {
-        mockMQTT = MockMQTT()
-        model = ViewModel(mqttManager: mockMQTT)
+        model = ViewModel()
     }
 
-//    func test_nextTrip_nil() throws {
-//        let date = Date("01/01/21")
-//        let trip = model.nextTrip(date: date)
-//        XCTAssertNil(trip)
-//    }
-    
     func test_nextTrip_2022() throws {
         let date = Date("07/14/22")
         let expectedDate = Date("07/26/22")

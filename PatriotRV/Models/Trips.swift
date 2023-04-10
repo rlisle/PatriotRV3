@@ -62,4 +62,8 @@ extension ViewModel {
             UserDefaults(suiteName: "group.net.lisles.patriotrv")!.setValue(trip.destination, forKey: "NextTrip")
         }
     }
+    
+    func addTrip(_ trip: Trip) {
+        trips.append(trip)
+    }
 }
