@@ -6,36 +6,35 @@
 //
 
 import Foundation
-//import Combine
 import ActivityKit
 import WidgetKit
+import CloudKit
 
+
+@MainActor
 class ViewModel: ObservableObject {
     
-    //TODO: add persistence and editing of trips
     @Published var trips: [Trip] = []
-    
-    // Checklist - persisted by Photon controllers
     @Published var checklist: [ChecklistItem] = []
+    @Published var maintenance: [ChecklistItem] = []
+    
+    @Published var nextItemIndex: Int? = 0             // Updated when any item isDone changed
 
-    // NextItem
-    @Published var nextItemIndex: Int? = 0             // Updated when an item is set toggle by checkbox
-
-    // Display Controls
     @Published var displayPhase: TripMode = .pretrip  // Selected for display
     @Published var showCompleted = true                 //TODO: persist
     
     internal var checklistActivity: Activity<PatriotRvWidgetAttributes>?
 
-    // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
-    
     internal var linePower: [Float] = [0.0, 0.0]        // Amps
     internal var powerActivity: Activity<PatriotRvWidgetAttributes>?
     
-    // MQTT
+    internal let formatter = DateFormatter()
+
     var mqtt: MQTTManagerProtocol                       // Protocol to simplify unit tests
+    
+    var mockData = false
     
     
     // For use with previews and tests
@@ -44,6 +43,11 @@ class ViewModel: ObservableObject {
         self.init(mqttManager: mqttManager)
         self.updatePower(line: 0, power: 480.0)
         self.updatePower(line: 1, power: 2880.0)
+        //TODO: set dummy trips & checklist instead of loading from CloudKit
+        mockData = true
+        seedTrips()
+        seedChecklist()
+        seedMaintenance()
     }
     
     init(mqttManager: MQTTManagerProtocol) {
@@ -51,9 +55,21 @@ class ViewModel: ObservableObject {
         mqtt.messageHandler = { topic, message in
             self.handleMQTTMessage(topic: topic, message: message)
         }
+        formatter.dateFormat = "yyyy-MM-dd"
+
+        // Note: don't load from iCloud if Preview or testing
         
-        initializeTrips()
-        initializeChecklist()
+        setLoadingTrip()
+        //TODO: perform this in parallel
+        Task {
+            do {
+                try await loadTrips()
+                try await loadChecklist()
+                //TODO: loadMaintenance()
+            } catch {
+                print("Error fetching from iCloud: \(error)")
+            }
+        }
     }
 }
 
@@ -93,36 +109,66 @@ extension ViewModel: Publishing {
 // Checklist
 extension ViewModel {
 
-    func initializeChecklist() {
-        checklist = Checklist.initialChecklist
+    func eliminateDuplicates() {
+        var newChecklist = [ChecklistItem]()
+        for item in checklist {
+            if !newChecklist.contains(item) {
+                newChecklist.append(item)
+            }
+        }
+        guard newChecklist.count > 0 else {
+            print("Error in eliminateDuplicates. No records")
+            return
+        }
+        Task {
+            await MainActor.run {
+                checklist = newChecklist
+            }
+        }
+        //TODO: perform save (if not mockData)?
     }
     
     func index(key: String) -> Int? {
         checklist.firstIndex { $0.key == key }
     }
     
+    // Replaces setDone and toggleDone also
     func updateDone(key: String, value: Bool? = nil) {    // Set true/false/nil = toggle
         guard let index = index(key: key) else {
             print("updateDone invalid key: \(key)")
             return
         }
+        var item = checklist[index]
         if let value = value {
-            checklist[index].isDone = value
+            item.isDone = value
         } else {
-            checklist[index].isDone.toggle()
+            item.isDone.toggle()
         }
-        checklist[index].date = Date()
+        item.date = Date()
+        checklist[index] = item
+        if !mockData {
+            Task {
+                try? await saveChecklistItem(item)
+            }
+        }
         
         updateNextItemIndex()
         persistNextItem()
     }
     
-    private func updateNextItemIndex() {
-        nextItemIndex = checklist.firstIndex {
+    func updateNextItemIndex() {
+        let index = checklist.firstIndex {
             $0.isDone == false
         }
+        guard let index = index,
+              index >= 0 && index < checklist.count else {
+            print("Checklist empty or all items done")
+            return
+        }
+        nextItemIndex = index
     }
 
+    // Save nextItem for use by widgets, etc.
     private func persistNextItem() {
         print("persistNextItem")
         guard let nextIndex = nextItemIndex,

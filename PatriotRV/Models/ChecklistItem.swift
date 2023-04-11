@@ -8,17 +8,18 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ChecklistItem {
 
-    let key: String         // Used by device (eg. RearAwning) MQTT status, unique
-    let name: String        // Title
-    let tripMode: TripMode
-    let description: String // Markdown?
+    let key: String         // Unique string used by device (eg. RearAwning)
+    let name: String        // Human readable Title
+    let tripMode: TripMode  // "category" TripMode.rawValue
+    let description: String //
     var sortOrder: Int      //
-    var imageName: String?  //TODO: Add ability to add/change images
-    var isDone: Bool
-    var date: Date?         // Either completion or due date ?
+    var imageName: String?  //
+    var isDone: Bool        //
+    var date: Date?         //
 
     init(key: String,
          name: String,
@@ -35,20 +36,35 @@ struct ChecklistItem {
         self.imageName = imageName
         self.isDone = isDone
     }
+    
+    init?(from record: CKRecord) {
+        guard
+            let name = record["name"] as? String,
+            let category = TripMode(rawValue: record["tripMode"] as? String ?? "Pre-Trip"),
+            let description = record["description"] as? String,
+            let sortOrder = record["sortOrder"] as? Int
+        else { return nil }
+        let key = record.recordID.recordName
+        let imageName = record["imageName"] as? String
+        let isDone = record["isDone"] as? Bool
+        self = .init(key: key,
+                  name: name,
+                  category: category,
+                  description: description,
+                  sortOrder: sortOrder,
+                  imageName: imageName,
+                  isDone: isDone ?? false)
+    }
 }
 
 extension ChecklistItem: Equatable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
         return lhs.key == rhs.key
-        && lhs.name == rhs.name
-        && lhs.tripMode == rhs.tripMode
     }
 }
 
 extension ChecklistItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(key)
-        hasher.combine(name)
-        hasher.combine(tripMode)
     }
 }

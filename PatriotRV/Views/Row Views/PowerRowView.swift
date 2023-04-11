@@ -26,5 +26,6 @@ struct PowerRowView_Previews: PreviewProvider {
             PowerRowView()
                 .environmentObject(ViewModel())
         }
+        .modifier(PreviewDevices())
     }
 }

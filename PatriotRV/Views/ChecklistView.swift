@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ChecklistView: View {
-
     @EnvironmentObject var modelData: ViewModel
-    
     @State private var showingAddTrip = false
     
     private var phases: [TripMode] = [.pretrip, .departure,.arrival]
@@ -52,7 +50,7 @@ struct ChecklistView: View {
             }
         }
         .navigationDestination(isPresented: $showingAddTrip, destination: {
-            AddTripView()
+            AddChecklistView()
         })
                 
 //        .accentColor(.black)   // Sets back button color - doesn't work now
@@ -62,13 +60,8 @@ struct ChecklistView: View {
 struct ChecklistView_Previews: PreviewProvider {
     
     static var previews: some View {
-        Group {
-            ForEach(["iPhone 11 Pro", "iPad"], id: \.self) { deviceName in
-                ChecklistView()
-                    .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
-                    .previewDevice(PreviewDevice(rawValue: deviceName))
-                    .previewDisplayName(deviceName)
-            }
-        }
+        ChecklistView()
+            .environmentObject(ViewModel())
+            .modifier(PreviewDevices())
     }
 }

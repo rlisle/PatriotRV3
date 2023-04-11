@@ -10,12 +10,6 @@ import ActivityKit
 
 extension ViewModel {
 
-//    func updateChecklist() {
-//
-//        //TODO: update widget also
-//        updateChecklistActivity()
-//    }
-    
     func startChecklistActivity() {
         print("startChecklistActivity")
         if ActivityAuthorizationInfo().areActivitiesEnabled {
@@ -28,8 +22,8 @@ extension ViewModel {
                 return
             }
             guard nextIndex < checklist.count else {
-                print("nextItemIndex is out of range")
-                print("Not starting checklist activity")
+                print("startChecklistActivity nextItemIndex is out of range")
+                print("Error: Checklist activity not started")
                 return
             }
             let nextItem = checklist[nextIndex]

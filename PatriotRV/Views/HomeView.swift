@@ -16,6 +16,7 @@ struct HomeView: View {
     
     @State private var showCompleted = true
     @State private var showSettings = false
+    @State private var showLogin = false
 
     enum Screen {
         case settings
@@ -32,7 +33,7 @@ struct HomeView: View {
                 List {
                     Section("Next Trip") {
                         NavigationLink(value: "trip") {
-                            TripRowView()
+                            TripRowView(trip: model.trips.last)
                         }
                     }
                     Section("Checklist") {
@@ -93,6 +94,9 @@ struct HomeView: View {
         .task {
             model.startChecklistActivity()
         }
+        .sheet(isPresented: $showLogin) {
+            LoginView()
+        }
         .onOpenURL(perform: { (url) in
             switch url {
             case URL(string: "patriot:///trip"):
@@ -114,6 +118,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(ViewModel(mqttManager: MockMQTTManager()))
+            .environmentObject(ViewModel())
+            .modifier(PreviewDevices())
     }
 }

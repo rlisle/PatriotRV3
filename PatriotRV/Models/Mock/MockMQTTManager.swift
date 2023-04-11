@@ -12,6 +12,6 @@ class MockMQTTManager: MQTTManagerProtocol {
     var messageHandler: ((String, String) -> Void)?
 
     func publish(topic: String, message: String) {
-        print("MQTTManager: publish(\(topic): \(message)")
+        print("MockMQTTManager: publish(\(topic): \(message)")
     }
 }

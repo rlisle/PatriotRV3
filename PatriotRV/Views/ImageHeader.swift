@@ -24,5 +24,6 @@ struct ImageHeader_Previews: PreviewProvider {
     static var previews: some View {
         ImageHeader(imageName: "truck-rv")
             .previewLayout(.fixed(width: 300, height: 210))
+            .modifier(PreviewDevices())
     }
 }
