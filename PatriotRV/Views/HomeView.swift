@@ -34,6 +34,25 @@ struct HomeView: View {
                     Section("Next Trip") {
                         NavigationLink(value: "trip") {
                             TripRowView(trip: model.trips.last)
+                                .swipeActions(edge: .trailing) {
+                                    Button {
+                                        print("TODO: edit")
+                                    } label: {
+                                        Label("Edit", systemImage: "pencil")
+                                    }
+                                    .tint(.cyan)
+                                    Button {
+                                        print("TODO: add")
+                                    } label: {
+                                        Label("Add", systemImage: "plus")
+                                    }
+                                    .tint(.green)
+                                    Button(role: .destructive) {
+                                        print("TODO: delete")
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
                         }
                     }
                     Section("Checklist") {
