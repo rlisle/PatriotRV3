@@ -86,13 +86,10 @@ struct HomeView: View {
                     LogRowView()
                 }
             }
-            .navigationTitle("Summary")
+            .navigationTitle("Patriot RV")
             .blackNavigation
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("RV Checklist")
-//                        .foregroundColor(.header)
-                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         withAnimation {
