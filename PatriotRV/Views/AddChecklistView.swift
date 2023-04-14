@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddChecklistView: View {
     
@@ -37,7 +38,7 @@ struct AddChecklistView: View {
                 TextField("Sort order", text: $sortOrder)
             }
             Section {
-                TextField("Image name", text: $imageName)
+                EditableImage()
             }
             Section {
                 Button("Save") {

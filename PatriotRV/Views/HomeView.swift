@@ -37,11 +37,13 @@ struct HomeView: View {
                                 .swipeActions(edge: .trailing) {
                                     Button {
                                         print("TODO: edit")
+                                        selection.append("edittrip")
                                     } label: {
                                         Label("Edit", systemImage: "pencil")
                                     }
                                     .tint(.cyan)
                                     Button {
+                                        selection.append("addtrip")
                                         print("TODO: add")
                                     } label: {
                                         Label("Add", systemImage: "plus")
@@ -78,8 +80,14 @@ struct HomeView: View {
                 switch dest {
                 case "trip":
                     TripListView()
+                case "addtrip":
+                    AddTripView()
+                case "edittrip":
+                    AddTripView(trip: model.trips.last)
                 case "list":
                     ChecklistView()
+                case "addchecklist":
+                    AddChecklistView()
                 case "power":
                     PowerView()
                 default:    // Log

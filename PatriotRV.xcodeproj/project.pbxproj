@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */; };
+		2703E98529E819C8002BA7A0 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98429E819C8002BA7A0 /* ImageModel.swift */; };
+		2703E98729E821B9002BA7A0 /* EditableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98629E821B9002BA7A0 /* EditableImage.swift */; };
 		27040AD129DD87D9002BAB52 /* ChecklistCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */; };
 		27040AD329DD87EC002BAB52 /* TripsCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */; };
 		27040AD529E023BA002BAB52 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD429E023BA002BAB52 /* Maintenance.swift */; };
@@ -210,6 +212,8 @@
 /* Begin PBXFileReference section */
 		131268E17131475A574660A6 /* Pods-PatriotRV-PatriotRVUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; path = "Target Support Files/Pods-PatriotRV-PatriotRVUITests/Pods-PatriotRV-PatriotRVUITests.release.xcconfig"; sourceTree = "<group>"; };
 		175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2703E98429E819C8002BA7A0 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		2703E98629E821B9002BA7A0 /* EditableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableImage.swift; sourceTree = "<group>"; };
 		27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCloudKit.swift; sourceTree = "<group>"; };
 		27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsCloudKit.swift; sourceTree = "<group>"; };
 		27040AD429E023BA002BAB52 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
@@ -602,6 +606,7 @@
 				276270BF297C1C7200844645 /* ChecklistView.swift */,
 				273FCCED29A103C9002DB4A2 /* ChecklistItemsListView.swift */,
 				276270CD297C212A00844645 /* DetailView.swift */,
+				2703E98629E821B9002BA7A0 /* EditableImage.swift */,
 				276DDFC5297DD8C0008CEC48 /* HomeView.swift */,
 				276270C7297C20DD00844645 /* ImageHeader.swift */,
 				271223D429D9A34000C5A143 /* LoginView.swift */,
@@ -631,6 +636,7 @@
 				27C1912B29894390005556F4 /* TripMode.swift */,
 				276004BA298D373000D26ACF /* Trips.swift */,
 				276270BB297C1BD800844645 /* ViewModel.swift */,
+				2703E98429E819C8002BA7A0 /* ImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1132,6 +1138,7 @@
 				27C50B6029984FB700EF9DB5 /* Connectivity.swift in Sources */,
 				271223D529D9A34000C5A143 /* LoginView.swift in Sources */,
 				27040AD129DD87D9002BAB52 /* ChecklistCloudKit.swift in Sources */,
+				2703E98729E821B9002BA7A0 /* EditableImage.swift in Sources */,
 				27040AD329DD87EC002BAB52 /* TripsCloudKit.swift in Sources */,
 				276270CC297C211600844645 /* Checkmark.swift in Sources */,
 				27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */,
@@ -1174,6 +1181,7 @@
 				277CA737298A98170000A570 /* TripListView.swift in Sources */,
 				27D1C37F2985B58C00D34DAC /* AddTripView.swift in Sources */,
 				276270C0297C1C7200844645 /* ChecklistView.swift in Sources */,
+				2703E98529E819C8002BA7A0 /* ImageModel.swift in Sources */,
 				276270D2297C21AF00844645 /* MenuRowView.swift in Sources */,
 				274DBC49299F9BBC007866BD /* TripRowView.swift in Sources */,
 				276DDFCA297EC130008CEC48 /* SettingsView.swift in Sources */,

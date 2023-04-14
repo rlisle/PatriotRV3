@@ -2,6 +2,8 @@
 //  AddTripView.swift
 //  PatriotRV
 //
+//  Also edit trip if trip not nil
+//
 //  Created by Ron Lisle on 1/28/23.
 //
 
@@ -19,6 +21,16 @@ struct AddTripView: View {
     @State private var imageName: String = ""
     @State private var website: String = ""
 
+    init(trip: Trip? = nil) {
+        guard let trip = trip else { return }
+        self.date = trip.date
+        self.destination = trip.destination
+        self.notes = trip.notes ?? ""
+        self.address = trip.address ?? ""
+        self.imageName = trip.imageName ?? ""
+        self.website = trip.website ?? ""
+    }
+    
     var body: some View {
         Form {
             Section {

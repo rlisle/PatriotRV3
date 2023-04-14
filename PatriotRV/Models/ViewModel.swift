@@ -5,10 +5,12 @@
 //  Created by Ron Lisle on 2/20/21.
 //
 
-import Foundation
+import SwiftUI
 import ActivityKit
 import WidgetKit
 import CloudKit
+import PhotosUI
+import CoreTransferable
 
 
 @MainActor
@@ -23,8 +25,22 @@ class ViewModel: ObservableObject {
     @Published var displayPhase: TripMode = .pretrip  // Selected for display
     @Published var showCompleted = true                 //TODO: persist
     
+    // Images
+    @Published private(set) var imageState: ImageState = .empty
+    @Published var imageSelection: PhotosPickerItem? = nil {
+        didSet {
+            if let imageSelection {
+                let progress = loadTransferable(from: imageSelection)
+                imageState = .loading(progress)
+            } else {
+                imageState = .empty
+            }
+        }
+    }
+    
     internal var checklistActivity: Activity<PatriotRvWidgetAttributes>?
 
+    // Power
     @Published var rv: Float = 0.0
     @Published var tesla: Float = 0.0
     internal var linePower: [Float] = [0.0, 0.0]        // Amps
@@ -68,6 +84,26 @@ class ViewModel: ObservableObject {
                 //TODO: loadMaintenance()
             } catch {
                 print("Error fetching from iCloud: \(error)")
+            }
+        }
+    }
+    
+    // I'd rather this be in ImageModel, but it complains about the 'private'
+    private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
+        return imageSelection.loadTransferable(type: ChecklistImage.self) { result in
+            DispatchQueue.main.async {
+                guard imageSelection == self.imageSelection else {
+                    print("Failed to get the selected item.")
+                    return
+                }
+                switch result {
+                case .success(let profileImage?):
+                    self.imageState = .success(profileImage.image)
+                case .success(nil):
+                    self.imageState = .empty
+                case .failure(let error):
+                    self.imageState = .failure(error)
+                }
             }
         }
     }
