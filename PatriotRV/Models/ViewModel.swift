@@ -19,6 +19,8 @@ class ViewModel: ObservableObject {
     @Published var trips: [Trip] = []
     @Published var checklist: [ChecklistItem] = []
     @Published var maintenance: [ChecklistItem] = []
+
+    @Published var tripPhotoData: Data?
     
     @Published var nextItemIndex: Int? = 0             // Updated when any item isDone changed
 
@@ -26,17 +28,17 @@ class ViewModel: ObservableObject {
     @Published var showCompleted = true                 //TODO: persist
     
     // Images
-    @Published private(set) var imageState: ImageState = .empty
-    @Published var imageSelection: PhotosPickerItem? = nil {
-        didSet {
-            if let imageSelection {
-                let progress = loadTransferable(from: imageSelection)
-                imageState = .loading(progress)
-            } else {
-                imageState = .empty
-            }
-        }
-    }
+//    @Published private(set) var imageState: ImageState = .empty
+//    @Published var imageSelection: PhotosPickerItem? = nil {
+//        didSet {
+//            if let imageSelection {
+//                let progress = loadTransferable(from: imageSelection)
+//                imageState = .loading(progress)
+//            } else {
+//                imageState = .empty
+//            }
+//        }
+//    }
     
     internal var checklistActivity: Activity<PatriotRvWidgetAttributes>?
 
@@ -89,24 +91,24 @@ class ViewModel: ObservableObject {
     }
     
     // I'd rather this be in ImageModel, but it complains about the 'private'
-    private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
-        return imageSelection.loadTransferable(type: ChecklistImage.self) { result in
-            DispatchQueue.main.async {
-                guard imageSelection == self.imageSelection else {
-                    print("Failed to get the selected item.")
-                    return
-                }
-                switch result {
-                case .success(let profileImage?):
-                    self.imageState = .success(profileImage.image)
-                case .success(nil):
-                    self.imageState = .empty
-                case .failure(let error):
-                    self.imageState = .failure(error)
-                }
-            }
-        }
-    }
+//    private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
+//        return imageSelection.loadTransferable(type: ChecklistImage.self) { result in
+//            DispatchQueue.main.async {
+//                guard imageSelection == self.imageSelection else {
+//                    print("Failed to get the selected item.")
+//                    return
+//                }
+//                switch result {
+//                case .success(let profileImage?):
+//                    self.imageState = .success(profileImage.image)
+//                case .success(nil):
+//                    self.imageState = .empty
+//                case .failure(let error):
+//                    self.imageState = .failure(error)
+//                }
+//            }
+//        }
+//    }
 }
 
 // Handle MQTT messages

@@ -8,6 +8,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddTripView: View {
     
@@ -20,6 +21,9 @@ struct AddTripView: View {
     @State private var address: String = ""
     @State private var imageName: String = ""
     @State private var website: String = ""
+    
+    @MainActor @State private var isLoading = false
+    @State private var photosPickerItem: PhotosPickerItem?
 
     init(trip: Trip? = nil) {
         guard let trip = trip else { return }
@@ -33,6 +37,22 @@ struct AddTripView: View {
     
     var body: some View {
         Form {
+            Section {
+                ZStack {
+                    VStack {
+                        HStack(spacing: 10) {
+                            Spacer()
+                            PhotosPicker(selection: $photosPickerItem) {
+                                Text("Select")
+                            }
+                            .tint(.accentColor)
+                            .buttonStyle(.borderedProminent)
+                        }
+                        Spacer()
+                    }
+                    PhotoView(photoData: model.tripPhotoData, size: .detail)
+                }
+            }
             Section {
                 DatePicker("Date of trip:", selection: $date, in: Date.now..., displayedComponents: .date)
                 TextField("Destination", text: $destination)

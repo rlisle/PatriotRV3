@@ -10,6 +10,7 @@
 		14BB628DEF2ABEAC4F3B2CB3 /* Pods_PatriotRV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */; };
 		2703E98529E819C8002BA7A0 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98429E819C8002BA7A0 /* ImageModel.swift */; };
 		2703E98729E821B9002BA7A0 /* EditableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98629E821B9002BA7A0 /* EditableImage.swift */; };
+		2703E98929E9681E002BA7A0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98829E9681E002BA7A0 /* PhotoView.swift */; };
 		27040AD129DD87D9002BAB52 /* ChecklistCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */; };
 		27040AD329DD87EC002BAB52 /* TripsCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */; };
 		27040AD529E023BA002BAB52 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD429E023BA002BAB52 /* Maintenance.swift */; };
@@ -214,6 +215,7 @@
 		175300F98845CC7B0BC04515 /* Pods_PatriotRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatriotRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2703E98429E819C8002BA7A0 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		2703E98629E821B9002BA7A0 /* EditableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableImage.swift; sourceTree = "<group>"; };
+		2703E98829E9681E002BA7A0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCloudKit.swift; sourceTree = "<group>"; };
 		27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsCloudKit.swift; sourceTree = "<group>"; };
 		27040AD429E023BA002BAB52 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				271223D429D9A34000C5A143 /* LoginView.swift */,
 				276DDFC7297EADE3008CEC48 /* LogView.swift */,
 				272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */,
+				2703E98829E9681E002BA7A0 /* PhotoView.swift */,
 				272FC2E6297D59BE005C6D43 /* PowerView.swift */,
 				27040AD629E0B5FE002BAB52 /* PreviewDevices.swift */,
 				276DDFC9297EC130008CEC48 /* SettingsView.swift */,
@@ -1154,6 +1157,7 @@
 				276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */,
 				27C50B6A2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				2748581229BCBEF9001A1C97 /* PowerEntry.swift in Sources */,
+				2703E98929E9681E002BA7A0 /* PhotoView.swift in Sources */,
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				271223D329D99F5F00C5A143 /* CloudKit.swift in Sources */,
 				27040AD729E0B5FE002BAB52 /* PreviewDevices.swift in Sources */,

@@ -37,9 +37,9 @@ struct AddChecklistView: View {
             Section {
                 TextField("Sort order", text: $sortOrder)
             }
-            Section {
-                EditableImage()
-            }
+//            Section {
+//                EditableImage()
+//            }
             Section {
                 Button("Save") {
                     if let order = Int(sortOrder) {

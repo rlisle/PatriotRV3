@@ -10,6 +10,7 @@
 
 import Foundation
 import CloudKit
+import PhotosUI
 
 struct Trip  {
     let date: Date
@@ -19,12 +20,15 @@ struct Trip  {
     let imageName: String?
     let website: String?
     
+    private var photoData: Data?
+    
     init(date: Date,
         destination: String,
         notes: String?,
         address: String?,
         imageName: String?,
-        website: String?
+        website: String?,
+        photoData: Data? = nil
     ) {
         self.date = date
         self.destination = destination
@@ -32,6 +36,7 @@ struct Trip  {
         self.address = address
         self.imageName = imageName
         self.website = website
+        self.photoData = photoData
     }
     
     init?(from record: CKRecord) {
