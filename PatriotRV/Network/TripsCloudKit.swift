@@ -43,8 +43,8 @@ extension ViewModel {
             destination: "TBD",
             notes: "Loading trips...",
             address: nil,
-            imageName: nil,
-            website: nil)
+            website: nil,
+            photoData: nil)
         ]
     }
 
@@ -71,8 +71,8 @@ extension ViewModel {
             "destination": trip.destination,
             "notes": trip.notes ?? "",
             "address": trip.address ?? "?",
-            "imageName": trip.imageName ?? "none",
-            "website": trip.website ?? "none"
+            "website": trip.website ?? "none",
+            "photoData": trip.photoData
         ])
         do {
             try await database.save(record)

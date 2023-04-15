@@ -19,7 +19,6 @@ struct AddTripView: View {
     @State private var destination: String = ""
     @State private var notes: String = ""
     @State private var address: String = ""
-    @State private var imageName: String = ""
     @State private var website: String = ""
     
     @MainActor @State private var isLoading = false
@@ -31,7 +30,6 @@ struct AddTripView: View {
         self.destination = trip.destination
         self.notes = trip.notes ?? ""
         self.address = trip.address ?? ""
-        self.imageName = trip.imageName ?? ""
         self.website = trip.website ?? ""
     }
     
@@ -42,11 +40,16 @@ struct AddTripView: View {
                     VStack {
                         HStack(spacing: 10) {
                             Spacer()
-                            PhotosPicker(selection: $photosPickerItem) {
+                            PhotosPicker(selection: $photosPickerItem,
+                                         matching: .images) {
                                 Text("Select")
                             }
                             .tint(.accentColor)
                             .buttonStyle(.borderedProminent)
+                            if isLoading {
+                                ProgressView()
+                                    .tint(.accentColor)
+                            }
                         }
                         Spacer()
                     }
@@ -63,15 +66,11 @@ struct AddTripView: View {
                 TextField("Notes", text: $notes)
             }
             Section {
-                TextField("Image name", text: $imageName)
-            }
-            Section {
                 Button("Save") {
                     let newTrip = Trip(date: date,
                                        destination: destination,
                                        notes: notes,
                                        address: address,
-                                       imageName: imageName,
                                        website: website)
                     model.addTrip(newTrip)
                     withAnimation {
@@ -79,8 +78,27 @@ struct AddTripView: View {
                     }
                 }
             }
+            .onChange(of: photosPickerItem) { selectedPhotosPickerItem in
+              guard let selectedPhotosPickerItem else {
+                return
+              }
+              Task {
+                isLoading = true
+                await updatePhotosPickerItem(with: selectedPhotosPickerItem)
+                isLoading = false
+              }
+            }
         }
     }
+    
+    private func updatePhotosPickerItem(with item: PhotosPickerItem) async {
+        //TODO: redirect to next trip
+        photosPickerItem = item
+        if let photoData = try? await item.loadTransferable(type: Data.self) {
+            model.tripPhotoData = photoData
+        }
+    }
+    
 }
 
 struct AddTripView_Previews: PreviewProvider {

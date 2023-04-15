@@ -17,16 +17,13 @@ struct Trip  {
     let destination: String
     let notes: String?
     let address: String?
-    let imageName: String?
     let website: String?
-    
-    private var photoData: Data?
+    var photoData: Data?
     
     init(date: Date,
         destination: String,
         notes: String?,
         address: String?,
-        imageName: String?,
         website: String?,
         photoData: Data? = nil
     ) {
@@ -34,7 +31,6 @@ struct Trip  {
         self.destination = destination
         self.notes = notes
         self.address = address
-        self.imageName = imageName
         self.website = website
         self.photoData = photoData
     }
@@ -46,24 +42,24 @@ struct Trip  {
         else { return nil }
         let notes = record["notes"] as? String
         let address = record["address"] as? String
-        let imageName = record["imageName"] as? String
         let website = record["website"] as? String
+        let photoData = record["photoData"] as? Data
         self = .init(
             date: date,
             destination: destination,
             notes: notes,
             address: address,
-            imageName: imageName,
-            website: website
+            website: website,
+            photoData: photoData
         )
     }
     
-    func isWithin2weeks(today: Date) -> Bool {
-        guard let twoWeeksFromToday = Calendar.current.date(byAdding: .weekOfYear, value: 2, to: today) else {
-            return false
-        }
-        return date <= twoWeeksFromToday
-    }
+//    func isWithin2weeks(today: Date) -> Bool {
+//        guard let twoWeeksFromToday = Calendar.current.date(byAdding: .weekOfYear, value: 2, to: today) else {
+//            return false
+//        }
+//        return date <= twoWeeksFromToday
+//    }
 }
 
 extension Trip: Equatable {

@@ -13,6 +13,6 @@ class Mock {
         destination: "Halloween",
         notes: "Test trip for unit tests",
         address: "1234 Test Rd, Testville, TX",
-        imageName: nil,
-        website: "https://www.wildwoodgolfandrvresort.com")
+        website: "https://www.wildwoodgolfandrvresort.com",
+        photoData: nil)
 }
