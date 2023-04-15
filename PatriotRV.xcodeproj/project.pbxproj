@@ -12,6 +12,10 @@
 		2703E98729E821B9002BA7A0 /* EditableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98629E821B9002BA7A0 /* EditableImage.swift */; };
 		2703E98929E9681E002BA7A0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98829E9681E002BA7A0 /* PhotoView.swift */; };
 		2703E98C29EB3007002BA7A0 /* HomeDestinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98B29EB3007002BA7A0 /* HomeDestinations.swift */; };
+		2703E98F29EB32B5002BA7A0 /* TripSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98E29EB32B5002BA7A0 /* TripSection.swift */; };
+		2703E99129EB350A002BA7A0 /* ChecklistSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E99029EB350A002BA7A0 /* ChecklistSection.swift */; };
+		2703E99329EB354F002BA7A0 /* PowerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E99229EB354F002BA7A0 /* PowerSection.swift */; };
+		2703E99529EB3570002BA7A0 /* LogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E99429EB3570002BA7A0 /* LogSection.swift */; };
 		27040AD129DD87D9002BAB52 /* ChecklistCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */; };
 		27040AD329DD87EC002BAB52 /* TripsCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */; };
 		27040AD529E023BA002BAB52 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD429E023BA002BAB52 /* Maintenance.swift */; };
@@ -217,6 +221,10 @@
 		2703E98629E821B9002BA7A0 /* EditableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableImage.swift; sourceTree = "<group>"; };
 		2703E98829E9681E002BA7A0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		2703E98B29EB3007002BA7A0 /* HomeDestinations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDestinations.swift; sourceTree = "<group>"; };
+		2703E98E29EB32B5002BA7A0 /* TripSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSection.swift; sourceTree = "<group>"; };
+		2703E99029EB350A002BA7A0 /* ChecklistSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistSection.swift; sourceTree = "<group>"; };
+		2703E99229EB354F002BA7A0 /* PowerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSection.swift; sourceTree = "<group>"; };
+		2703E99429EB3570002BA7A0 /* LogSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSection.swift; sourceTree = "<group>"; };
 		27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCloudKit.swift; sourceTree = "<group>"; };
 		27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsCloudKit.swift; sourceTree = "<group>"; };
 		27040AD429E023BA002BAB52 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
@@ -396,6 +404,10 @@
 		2703E98D29EB3281002BA7A0 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				2703E98E29EB32B5002BA7A0 /* TripSection.swift */,
+				2703E99029EB350A002BA7A0 /* ChecklistSection.swift */,
+				2703E99229EB354F002BA7A0 /* PowerSection.swift */,
+				2703E99429EB3570002BA7A0 /* LogSection.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -1156,6 +1168,7 @@
 				27BFA4D629AA354F00D5FAEE /* ChecklistEntryProvider.swift in Sources */,
 				27C50B6029984FB700EF9DB5 /* Connectivity.swift in Sources */,
 				271223D529D9A34000C5A143 /* LoginView.swift in Sources */,
+				2703E99529EB3570002BA7A0 /* LogSection.swift in Sources */,
 				27040AD129DD87D9002BAB52 /* ChecklistCloudKit.swift in Sources */,
 				2703E98729E821B9002BA7A0 /* EditableImage.swift in Sources */,
 				27040AD329DD87EC002BAB52 /* TripsCloudKit.swift in Sources */,
@@ -1181,6 +1194,7 @@
 				27C50B522997BD8900EF9DB5 /* MockMQTT.swift in Sources */,
 				276270CE297C212A00844645 /* DetailView.swift in Sources */,
 				2748581829BCC135001A1C97 /* PowerEntryProvider.swift in Sources */,
+				2703E99329EB354F002BA7A0 /* PowerSection.swift in Sources */,
 				27BFA4CE29AA323A00D5FAEE /* ChecklistEntry.swift in Sources */,
 				274DBC4B299F9F98007866BD /* HomeChecklistRowView.swift in Sources */,
 				277CA735298A956E0000A570 /* DateExtension.swift in Sources */,
@@ -1189,12 +1203,14 @@
 				277CA732298A8CE30000A570 /* Trip.swift in Sources */,
 				27C1912C29894390005556F4 /* TripMode.swift in Sources */,
 				272FC2E5297C8838005C6D43 /* NavigationBarModifier.swift in Sources */,
+				2703E98F29EB32B5002BA7A0 /* TripSection.swift in Sources */,
 				27040AD529E023BA002BAB52 /* Maintenance.swift in Sources */,
 				272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */,
 				276270CA297C20E500844645 /* ChecklistRowView.swift in Sources */,
 				27040AD929E325DB002BAB52 /* AddChecklistView.swift in Sources */,
 				273FCCEA29A0F769002DB4A2 /* MockMQTTManager.swift in Sources */,
 				276270B8297C1BC700844645 /* Checklist.swift in Sources */,
+				2703E99129EB350A002BA7A0 /* ChecklistSection.swift in Sources */,
 				276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */,
 				276DDFC3297DD559008CEC48 /* PowerData.swift in Sources */,
 				273FCCEE29A103C9002DB4A2 /* ChecklistItemsListView.swift in Sources */,
