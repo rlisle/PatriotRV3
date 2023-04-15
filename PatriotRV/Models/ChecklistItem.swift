@@ -17,7 +17,7 @@ struct ChecklistItem {
     let tripMode: TripMode  // "category" TripMode.rawValue
     let description: String //
     var sortOrder: Int      //
-    var imageName: String?  //
+    var photoData: Data?    //
     var isDone: Bool        //
     var date: Date?         //
 
@@ -26,14 +26,14 @@ struct ChecklistItem {
          category: TripMode,
          description: String,
          sortOrder: Int,
-         imageName: String? = nil,
+         photoData: Data? = nil,
          isDone: Bool = false) {
         self.key = key
         self.name = name
         self.tripMode = category
         self.description = description
         self.sortOrder = sortOrder
-        self.imageName = imageName
+        self.photoData = photoData
         self.isDone = isDone
     }
     
@@ -45,14 +45,14 @@ struct ChecklistItem {
             let sortOrder = record["sortOrder"] as? Int
         else { return nil }
         let key = record.recordID.recordName
-        let imageName = record["imageName"] as? String
+        let photoData = record["photoData"] as? Data
         let isDone = record["isDone"] as? Bool
         self = .init(key: key,
                   name: name,
                   category: category,
                   description: description,
                   sortOrder: sortOrder,
-                  imageName: imageName,
+                  photoData: photoData,
                   isDone: isDone ?? false)
     }
 }

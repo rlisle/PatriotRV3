@@ -11,6 +11,7 @@
 		2703E98529E819C8002BA7A0 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98429E819C8002BA7A0 /* ImageModel.swift */; };
 		2703E98729E821B9002BA7A0 /* EditableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98629E821B9002BA7A0 /* EditableImage.swift */; };
 		2703E98929E9681E002BA7A0 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98829E9681E002BA7A0 /* PhotoView.swift */; };
+		2703E98C29EB3007002BA7A0 /* HomeDestinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703E98B29EB3007002BA7A0 /* HomeDestinations.swift */; };
 		27040AD129DD87D9002BAB52 /* ChecklistCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */; };
 		27040AD329DD87EC002BAB52 /* TripsCloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */; };
 		27040AD529E023BA002BAB52 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27040AD429E023BA002BAB52 /* Maintenance.swift */; };
@@ -215,6 +216,7 @@
 		2703E98429E819C8002BA7A0 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		2703E98629E821B9002BA7A0 /* EditableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableImage.swift; sourceTree = "<group>"; };
 		2703E98829E9681E002BA7A0 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		2703E98B29EB3007002BA7A0 /* HomeDestinations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDestinations.swift; sourceTree = "<group>"; };
 		27040AD029DD87D9002BAB52 /* ChecklistCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCloudKit.swift; sourceTree = "<group>"; };
 		27040AD229DD87EC002BAB52 /* TripsCloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsCloudKit.swift; sourceTree = "<group>"; };
 		27040AD429E023BA002BAB52 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
@@ -381,6 +383,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2703E98A29EB2FC4002BA7A0 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				27040AD629E0B5FE002BAB52 /* PreviewDevices.swift */,
+				272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */,
+				2703E98B29EB3007002BA7A0 /* HomeDestinations.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		2703E98D29EB3281002BA7A0 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
 		272FC2D3297C774D005C6D43 /* PatriotRVWatchApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,6 +568,7 @@
 				27F2A5DA297C196B00EFD417 /* Models */,
 				276270C4297C208900844645 /* Resources */,
 				27F2A5D9297C195400EFD417 /* Views */,
+				2703E98A29EB2FC4002BA7A0 /* ViewModifiers */,
 				27F2A5D8297C193B00EFD417 /* Network */,
 				277CA733298A954A0000A570 /* Extensions */,
 				27F2A5B1297C141B00EFD417 /* Assets.xcassets */,
@@ -600,6 +620,7 @@
 		27F2A5D9297C195400EFD417 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2703E98D29EB3281002BA7A0 /* Sections */,
 				274DBC50299FABC6007866BD /* Row Views */,
 				27040AD829E325DB002BAB52 /* AddChecklistView.swift */,
 				27D1C37E2985B58C00D34DAC /* TripView.swift */,
@@ -611,10 +632,8 @@
 				276270C7297C20DD00844645 /* ImageHeader.swift */,
 				271223D429D9A34000C5A143 /* LoginView.swift */,
 				276DDFC7297EADE3008CEC48 /* LogView.swift */,
-				272FC2E4297C8838005C6D43 /* NavigationBarModifier.swift */,
 				2703E98829E9681E002BA7A0 /* PhotoView.swift */,
 				272FC2E6297D59BE005C6D43 /* PowerView.swift */,
-				27040AD629E0B5FE002BAB52 /* PreviewDevices.swift */,
 				276DDFC9297EC130008CEC48 /* SettingsView.swift */,
 				277CA736298A98170000A570 /* TripListView.swift */,
 			);
@@ -1154,6 +1173,7 @@
 				276DDFC8297EADE3008CEC48 /* LogView.swift in Sources */,
 				27C50B6A2999231900EF9DB5 /* ConnectivityUserInfoKey.swift in Sources */,
 				2748581229BCBEF9001A1C97 /* PowerEntry.swift in Sources */,
+				2703E98C29EB3007002BA7A0 /* HomeDestinations.swift in Sources */,
 				2703E98929E9681E002BA7A0 /* PhotoView.swift in Sources */,
 				2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */,
 				271223D329D99F5F00C5A143 /* CloudKit.swift in Sources */,

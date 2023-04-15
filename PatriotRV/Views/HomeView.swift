@@ -31,69 +31,15 @@ struct HomeView: View {
             VStack {
                 ImageHeader(imageName: "truck-rv")
                 List {
-                    Section("Next Trip") {
-                        NavigationLink(value: "trip") {
-                            TripRowView(trip: model.trips.last)
-                                .swipeActions(edge: .trailing) {
-                                    Button {
-                                        print("TODO: edit")
-                                        selection.append("edittrip")
-                                    } label: {
-                                        Label("Edit", systemImage: "pencil")
-                                    }
-                                    .tint(.cyan)
-                                    Button {
-                                        selection.append("addtrip")
-                                        print("TODO: add")
-                                    } label: {
-                                        Label("Add", systemImage: "plus")
-                                    }
-                                    .tint(.green)
-                                    Button(role: .destructive) {
-                                        print("TODO: delete")
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                        }
-                    }
-                    Section("Checklist") {
-                        NavigationLink(value: "list") {
-                            HomeChecklistRowView()
-                        }
-                    }
-                    Section("Power") {
-                        NavigationLink(value: "power") {
-                            PowerRowView(font: .body)
-                        }
-                    }
-                    Section("Log") {
-                        NavigationLink(value: "log") {
-                            LogRowView()
-                        }
-                    }
+                    TripSection(selection: $selection)
+                    ChecklistSection(selection: $selection)
+                    PowerSection()
+                    LogSection()
                 }
                 .listStyle(.grouped)
                 .padding(.top, -8)
             }
-            .navigationDestination(for: String.self) { dest in
-                switch dest {
-                case "trip":
-                    TripListView()
-                case "addtrip":
-                    TripView()
-                case "edittrip":
-                    TripView(trip: model.trips.last)
-                case "list":
-                    ChecklistView()
-                case "addchecklist":
-                    AddChecklistView()
-                case "power":
-                    PowerView()
-                default:    // Log
-                    LogRowView()
-                }
-            }
+            .modifier(HomeDestinations(trip: model.trips.last!, item: model.checklist.todo().first!))
             .navigationTitle("Patriot RV")
             .blackNavigation
             .navigationBarTitleDisplayMode(.inline)
@@ -138,6 +84,102 @@ struct HomeView: View {
     } //body
 }
 
+
+struct TripSection: View {
+    
+    @EnvironmentObject var model: ViewModel
+    @Binding var selection: [String]
+
+    var body: some View {
+        Section {
+            NavigationLink(value: "trip") {
+                TripRowView(trip: model.trips.last)
+                    .swipeActions(edge: .trailing) {
+                        Button {
+                            print("TODO: edit")
+                            selection.append("edittrip")
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                        .tint(.cyan)
+                        Button {
+                            selection.append("addtrip")
+                            print("TODO: add")
+                        } label: {
+                            Label("Add", systemImage: "plus")
+                        }
+                        .tint(.green)
+                        Button(role: .destructive) {
+                            print("TODO: delete")
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+            }
+        } header: {
+            Text("Next Trip")
+        }
+    }
+}
+
+struct ChecklistSection: View {
+
+//    @EnvironmentObject var model: ViewModel
+    @Binding var selection: [String]
+
+    var body: some View {
+        Section {
+            NavigationLink(value: "itemlist") {
+                HomeChecklistRowView()
+                    .swipeActions(edge: .trailing) {
+                        Button {
+                            selection.append("edititem")
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                        .tint(.cyan)
+                        Button {
+                            selection.append("additem")
+                        } label: {
+                            Label("Add", systemImage: "plus")
+                        }
+                        .tint(.green)
+                        Button(role: .destructive) {
+                            print("TODO: delete")
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+            }
+        } header: {
+            Text("Checklist")
+        }
+    }
+}
+
+struct PowerSection: View {
+    var body: some View {
+        Section {
+            NavigationLink(value: "power") {
+                PowerRowView(font: .body)
+            }
+        } header: {
+            Text("Power")
+        }
+    }
+}
+
+struct LogSection: View {
+    var body: some View {
+        Section {
+            NavigationLink(value: "log") {
+                LogRowView()
+            }
+        } header: {
+            Text("Log")
+        }
+    }
+}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

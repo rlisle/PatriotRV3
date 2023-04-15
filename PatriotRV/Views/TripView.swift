@@ -69,17 +69,19 @@ struct TripView: View {
                                        destination: destination,
                                        notes: notes,
                                        address: address,
-                                       website: website)
+                                       website: website,
+                                       photoData: photoData)
                     model.addTrip(newTrip)
                     withAnimation {
                         presentationMode.wrappedValue.dismiss()
                     }
+                    Task {
+                        await try? model.saveTrip(newTrip)
+                    }
                 }
             }
             .onChange(of: photosPickerItem) { selectedPhotosPickerItem in
-              guard let selectedPhotosPickerItem else {
-                return
-              }
+              guard let selectedPhotosPickerItem else { return }
               Task {
                 isLoading = true
                 await updatePhotosPickerItem(with: selectedPhotosPickerItem)
@@ -90,8 +92,6 @@ struct TripView: View {
     }
     
     private func updatePhotosPickerItem(with item: PhotosPickerItem) async {
-        //TODO: redirect to next trip
-        print("UpdatePhotosPickerItem")
         photosPickerItem = item
         if let data = try? await item.loadTransferable(type: Data.self) {
             print("Setting photo data")

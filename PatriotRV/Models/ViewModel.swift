@@ -25,19 +25,6 @@ class ViewModel: ObservableObject {
     @Published var displayPhase: TripMode = .pretrip  // Selected for display
     @Published var showCompleted = true                 //TODO: persist
     
-    // Images
-//    @Published private(set) var imageState: ImageState = .empty
-//    @Published var imageSelection: PhotosPickerItem? = nil {
-//        didSet {
-//            if let imageSelection {
-//                let progress = loadTransferable(from: imageSelection)
-//                imageState = .loading(progress)
-//            } else {
-//                imageState = .empty
-//            }
-//        }
-//    }
-    
     internal var checklistActivity: Activity<PatriotRvWidgetAttributes>?
 
     // Power
