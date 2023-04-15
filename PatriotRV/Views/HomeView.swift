@@ -81,9 +81,9 @@ struct HomeView: View {
                 case "trip":
                     TripListView()
                 case "addtrip":
-                    AddTripView()
+                    TripView()
                 case "edittrip":
-                    AddTripView(trip: model.trips.last)
+                    TripView(trip: model.trips.last)
                 case "list":
                     ChecklistView()
                 case "addchecklist":

@@ -20,8 +20,6 @@ class ViewModel: ObservableObject {
     @Published var checklist: [ChecklistItem] = []
     @Published var maintenance: [ChecklistItem] = []
 
-    @Published var tripPhotoData: Data?
-    
     @Published var nextItemIndex: Int? = 0             // Updated when any item isDone changed
 
     @Published var displayPhase: TripMode = .pretrip  // Selected for display

@@ -1,8 +1,8 @@
 //
-//  AddTripView.swift
+//  TripView.swift
 //  PatriotRV
 //
-//  Also edit trip if trip not nil
+//  Add, Edit, or Display trip
 //
 //  Created by Ron Lisle on 1/28/23.
 //
@@ -10,7 +10,7 @@
 import SwiftUI
 import PhotosUI
 
-struct AddTripView: View {
+struct TripView: View {
     
     @EnvironmentObject var model: ViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -20,7 +20,8 @@ struct AddTripView: View {
     @State private var notes: String = ""
     @State private var address: String = ""
     @State private var website: String = ""
-    
+    @State private var photoData: Data? = nil
+
     @MainActor @State private var isLoading = false
     @State private var photosPickerItem: PhotosPickerItem?
 
@@ -31,29 +32,25 @@ struct AddTripView: View {
         self.notes = trip.notes ?? ""
         self.address = trip.address ?? ""
         self.website = trip.website ?? ""
+        self.photoData = trip.photoData
     }
     
     var body: some View {
         Form {
             Section {
-                ZStack {
-                    VStack {
-                        HStack(spacing: 10) {
-                            Spacer()
-                            PhotosPicker(selection: $photosPickerItem,
-                                         matching: .images) {
-                                Text("Select")
-                            }
-                            .tint(.accentColor)
-                            .buttonStyle(.borderedProminent)
-                            if isLoading {
-                                ProgressView()
-                                    .tint(.accentColor)
-                            }
-                        }
-                        Spacer()
+                HStack {
+                    Spacer()
+                    PhotoView(photoData: photoData, size: .detail)
+                    Spacer()
+                }
+                .overlay(alignment: .topTrailing) {
+                    PhotosPicker(selection: $photosPickerItem,
+                                 matching: .images) {
+                        Image(systemName: "pencil.circle.fill")
+                            .symbolRenderingMode(.multicolor)
+                            .font(.system(size: 30))
+                            .foregroundColor(.accentColor)
                     }
-                    PhotoView(photoData: model.tripPhotoData, size: .detail)
                 }
             }
             Section {
@@ -66,6 +63,7 @@ struct AddTripView: View {
                 TextField("Notes", text: $notes)
             }
             Section {
+                //TODO: display only if something has changed
                 Button("Save") {
                     let newTrip = Trip(date: date,
                                        destination: destination,
@@ -93,17 +91,19 @@ struct AddTripView: View {
     
     private func updatePhotosPickerItem(with item: PhotosPickerItem) async {
         //TODO: redirect to next trip
+        print("UpdatePhotosPickerItem")
         photosPickerItem = item
-        if let photoData = try? await item.loadTransferable(type: Data.self) {
-            model.tripPhotoData = photoData
+        if let data = try? await item.loadTransferable(type: Data.self) {
+            print("Setting photo data")
+            photoData = data
         }
     }
     
 }
 
-struct AddTripView_Previews: PreviewProvider {
+struct TripView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTripView()
+        TripView()
             .modifier(PreviewDevices())
     }
 }

@@ -27,7 +27,7 @@ struct TripListView: View {
             }
         }
         .navigationDestination(isPresented: $showingAddTrip, destination: {
-            AddTripView()
+            TripView()
         })
     }
     
@@ -38,7 +38,7 @@ struct TripListView: View {
             } else {
                 ForEach(model.trips, id: \.self) { trip in
 
-                  NavigationLink(destination: AddTripView(trip: trip)) {
+                  NavigationLink(destination: TripView(trip: trip)) {
                       TripRowView(trip: trip)
                   }
                 }
