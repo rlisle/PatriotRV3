@@ -46,7 +46,6 @@ class ViewModel: ObservableObject {
         self.init(mqttManager: mqttManager)
         self.updatePower(line: 0, power: 480.0)
         self.updatePower(line: 1, power: 2880.0)
-        //TODO: set dummy trips & checklist instead of loading from CloudKit
         mockData = true
         seedTrips()
         seedChecklist()
@@ -63,37 +62,20 @@ class ViewModel: ObservableObject {
         // Note: don't load from iCloud if Preview or testing
         
         setLoadingTrip()
-        //TODO: perform this in parallel
         Task {
             do {
                 try await loadTrips()
                 try await loadChecklist()
                 //TODO: loadMaintenance()
+                
+                //Start MQTT after iCloud loaded or failed
+                mqtt.connect()
+                
             } catch {
                 print("Error fetching from iCloud: \(error)")
             }
         }
     }
-    
-    // I'd rather this be in ImageModel, but it complains about the 'private'
-//    private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
-//        return imageSelection.loadTransferable(type: ChecklistImage.self) { result in
-//            DispatchQueue.main.async {
-//                guard imageSelection == self.imageSelection else {
-//                    print("Failed to get the selected item.")
-//                    return
-//                }
-//                switch result {
-//                case .success(let profileImage?):
-//                    self.imageState = .success(profileImage.image)
-//                case .success(nil):
-//                    self.imageState = .empty
-//                case .failure(let error):
-//                    self.imageState = .failure(error)
-//                }
-//            }
-//        }
-//    }
 }
 
 // Handle MQTT messages
@@ -152,7 +134,7 @@ extension ViewModel {
     }
     
     func index(key: String) -> Int? {
-        checklist.firstIndex { $0.key == key }
+        checklist.firstIndex { $0.key.caseInsensitiveCompare(key) == .orderedSame }
     }
     
     // Replaces setDone and toggleDone also

@@ -17,21 +17,8 @@ struct TripSection: View {
             NavigationLink(value: "trip") {
                 TripRowView(trip: model.trips.last)
                     .swipeActions(edge: .trailing) {
-                        Button {
-                            print("TODO: edit")
-                            selection.append("edittrip")
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
-                        }
-                        .tint(.cyan)
-                        Button {
-                            selection.append("addtrip")
-                            print("TODO: add")
-                        } label: {
-                            Label("Add", systemImage: "plus")
-                        }
-                        .tint(.green)
                         Button(role: .destructive) {
+                            //TODO: .confirmationDialog and action
                             print("TODO: delete")
                         } label: {
                             Label("Delete", systemImage: "trash")
@@ -39,7 +26,17 @@ struct TripSection: View {
                     }
             }
         } header: {
-            Text("Next Trip")
+            HStack {
+                Text("Next Trip")
+                Spacer()
+                Button("+") {
+                    selection.append("addtrip")
+                }
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                selection.append("triplist")
+            }
         }
     }
 }

@@ -17,20 +17,10 @@ struct ChecklistSection: View {
             NavigationLink(value: "itemlist") {
                 HomeChecklistRowView()
                     .swipeActions(edge: .trailing) {
-                        Button {
-                            selection.append("edititem")
-                        } label: {
-                            Label("Edit", systemImage: "pencil")
-                        }
-                        .tint(.cyan)
-                        Button {
-                            selection.append("additem")
-                        } label: {
-                            Label("Add", systemImage: "plus")
-                        }
-                        .tint(.green)
                         Button(role: .destructive) {
+                            //TODO: .confirmationDialog and action
                             print("TODO: delete")
+                            selection.append("deletetrip")
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }

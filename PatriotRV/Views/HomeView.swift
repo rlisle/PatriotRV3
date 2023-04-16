@@ -11,10 +11,6 @@ struct HomeView: View {
 
     @EnvironmentObject var model: ViewModel
     
-    @State var tripLink: Bool = false
-    @State var checklistLink: Bool = false
-    
-    @State private var showCompleted = true
     @State private var showSettings = false
     @State private var showLogin = false
 
@@ -39,7 +35,7 @@ struct HomeView: View {
                 .listStyle(.grouped)
                 .padding(.top, -8)
             }
-            .modifier(HomeDestinations(trip: model.trips.last!, item: model.checklist.todo().first!))
+            .modifier(HomeDestinations(trip: model.trips.last, item: model.checklist.todo().first))
             .navigationTitle("Patriot RV")
             .blackNavigation
             .navigationBarTitleDisplayMode(.inline)
@@ -55,12 +51,12 @@ struct HomeView: View {
                     }
                     .foregroundColor(.white)
                 }
-            } //toolbar
+            }
             .navigationDestination(isPresented: $showSettings,
                                    destination: {
                 SettingsView()
             })
-        } //navigationstack
+        }
         .task {
             model.startChecklistActivity()
         }
@@ -81,7 +77,7 @@ struct HomeView: View {
                 print("unknown link url: \(url)")
             }
         })
-    } //body
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {

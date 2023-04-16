@@ -8,10 +8,10 @@ import SwiftUI
 
 struct HomeDestinations: ViewModifier {
 
-    var trip: Trip
-    var item: ChecklistItem
+    var trip: Trip?
+    var item: ChecklistItem?
     
-    init(trip: Trip, item: ChecklistItem) {
+    init(trip: Trip?, item: ChecklistItem?) {
         self.trip = trip
         self.item = item
   }
@@ -20,22 +20,28 @@ struct HomeDestinations: ViewModifier {
       content
       .navigationDestination(for: String.self) { dest in
           switch dest {
-          case "trip":
+          case "triplist":
               TripListView()
           case "addtrip":
               TripView()
           case "edittrip":
               TripView(trip: trip)
-          case "itemlist":
+          case "deletetrip":
+              TripDelete(trip: trip)
+          case "item":
               ChecklistView()
           case "additem":
               AddChecklistView()
           case "edititem":
               AddChecklistView(item: item)
+          case "deleteitem":
+              ItemDelete(item: item)
           case "power":
               PowerView()
-          default:    // Log
+          case "log":
               LogRowView()
+          default:    // Log
+              UnknownDestination()
           }
       }
   }

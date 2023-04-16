@@ -17,6 +17,7 @@ extension ViewModel {
             await MainActor.run {
                 checklist = records
                 updateNextItemIndex()
+                print("checklist loaded")
             }
             
         } catch {

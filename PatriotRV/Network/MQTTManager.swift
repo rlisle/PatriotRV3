@@ -20,6 +20,7 @@ public enum MQTTError: Error {
 }
 
 protocol MQTTManagerProtocol {
+    func connect()
     func publish(topic: String, message: String)
     var messageHandler: ((String, String) -> Void)? { get set }
 }
@@ -42,12 +43,13 @@ class MQTTManager: MQTTManagerProtocol {
             return mqtt != nil
         }
     }
+
+// Call connect when ready to receive MQTT messages
+//    init() {
+//        connect()
+//    }
     
-    init() {
-        connect()
-    }
-    
-    private func connect() {
+    func connect() {
         print("MQTT connect")
         clientID = getClientID()
         mqtt = CocoaMQTT(clientID: clientID, host: host, port: port)
