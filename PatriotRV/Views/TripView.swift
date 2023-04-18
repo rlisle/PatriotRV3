@@ -20,7 +20,7 @@ struct TripView: View {
     @State private var notes: String = ""
     @State private var address: String = ""
     @State private var website: String = ""
-    @State private var photoData: Data? = nil
+    @State private var photo: UIImage? = nil
 
     @MainActor @State private var isLoading = false
     @State private var photosPickerItem: PhotosPickerItem?
@@ -32,7 +32,7 @@ struct TripView: View {
         self.notes = trip.notes ?? ""
         self.address = trip.address ?? ""
         self.website = trip.website ?? ""
-        self.photoData = trip.photoData
+        self.photo = trip.photo
     }
     
     var body: some View {
@@ -40,7 +40,7 @@ struct TripView: View {
             Section {
                 HStack {
                     Spacer()
-                    PhotoView(photoData: photoData, size: .detail)
+                    PhotoView(image: photo)
                     Spacer()
                 }
                 .overlay(alignment: .topTrailing) {
@@ -70,19 +70,20 @@ struct TripView: View {
                                        notes: notes,
                                        address: address,
                                        website: website,
-                                       photoData: photoData)
+                                       photo: photo)
                     model.addTrip(newTrip)
                     withAnimation {
                         presentationMode.wrappedValue.dismiss()
                     }
                     Task {
-                        await try? model.saveTrip(newTrip)
+                        try? await model.saveTrip(newTrip)
                     }
                 }
             }
             .onChange(of: photosPickerItem) { selectedPhotosPickerItem in
               guard let selectedPhotosPickerItem else { return }
               Task {
+                  print("Photo selected")
                 isLoading = true
                 await updatePhotosPickerItem(with: selectedPhotosPickerItem)
                 isLoading = false
@@ -94,11 +95,9 @@ struct TripView: View {
     private func updatePhotosPickerItem(with item: PhotosPickerItem) async {
         photosPickerItem = item
         if let data = try? await item.loadTransferable(type: Data.self) {
-            print("Setting photo data")
-            photoData = data
+            photo = UIImage(data: data)
         }
     }
-    
 }
 
 struct TripView_Previews: PreviewProvider {

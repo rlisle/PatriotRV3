@@ -8,7 +8,7 @@
 //  Created by Ron Lisle on 2/1/23.
 //
 
-import Foundation
+import SwiftUI
 import CloudKit
 import PhotosUI
 
@@ -18,24 +18,25 @@ struct Trip  {
     let notes: String?
     let address: String?
     let website: String?
-    var photoData: Data?
+    var photo: UIImage?    // JPEG data
     
     init(date: Date,
         destination: String,
         notes: String?,
         address: String?,
         website: String?,
-        photoData: Data? = nil
+        photo: UIImage? = nil
     ) {
         self.date = date
         self.destination = destination
         self.notes = notes
         self.address = address
         self.website = website
-        self.photoData = photoData
+        self.photo = photo
     }
     
     init?(from record: CKRecord) {
+        var photo: UIImage? = nil
         guard
             let date = record["date"] as? Date,
             let destination = record["destination"] as? String
@@ -43,15 +44,24 @@ struct Trip  {
         let notes = record["notes"] as? String
         let address = record["address"] as? String
         let website = record["website"] as? String
-        let photoData = record["photoData"] as? Data
+        if let asset = record["photo"] as? CKAsset,
+           let url = asset.fileURL,
+           let imageData = try? Data(contentsOf: url) {
+            photo = UIImage(data: imageData)
+        }
         self = .init(
             date: date,
             destination: destination,
             notes: notes,
             address: address,
             website: website,
-            photoData: photoData
+            photo: photo
         )
+    }
+    
+    //TODO: may want to remove slashes, dashes, etc.
+    func dateString() -> String {
+        return DateFormatter().string(from: self.date)
     }
     
 //    func isWithin2weeks(today: Date) -> Bool {

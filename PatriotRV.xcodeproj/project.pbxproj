@@ -670,13 +670,13 @@
 				2742240329D0781100DD08C2 /* ChecklistData.swift */,
 				276270B9297C1BD000844645 /* ChecklistItem.swift */,
 				27C50B5F29984FB700EF9DB5 /* Connectivity.swift */,
+				2703E98429E819C8002BA7A0 /* ImageModel.swift */,
 				27040AD429E023BA002BAB52 /* Maintenance.swift */,
 				276DDFC2297DD559008CEC48 /* PowerData.swift */,
 				277CA731298A8CE30000A570 /* Trip.swift */,
 				27C1912B29894390005556F4 /* TripMode.swift */,
 				276004BA298D373000D26ACF /* Trips.swift */,
 				276270BB297C1BD800844645 /* ViewModel.swift */,
-				2703E98429E819C8002BA7A0 /* ImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

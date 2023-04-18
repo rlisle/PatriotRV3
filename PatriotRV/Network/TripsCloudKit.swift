@@ -45,7 +45,7 @@ extension ViewModel {
             notes: "Loading trips...",
             address: nil,
             website: nil,
-            photoData: nil)
+            photo: nil)
         ]
     }
 
@@ -59,23 +59,29 @@ extension ViewModel {
     }
     
     func tripRecordID(_ trip: Trip) -> CKRecord.ID {
-        let dateString = formatter.string(from: trip.date)
-        let recordName = "\(dateString)-\(trip.destination)"
-        return CKRecord.ID(recordName: recordName)
+        return CKRecord.ID(recordName: trip.dateString())
     }
     
     nonisolated func saveTrip(_ trip: Trip) async throws {
+        guard let photo = trip.photo,
+              let imageData = photo.jpegData(compressionQuality: 1.0) else {
+            print("Unable to convert photo to data for saving")
+            return
+        }
         let database = CKContainer.default().publicCloudDatabase
-        let record = await CKRecord(recordType: "Trip", recordID: tripRecordID(trip))
-        record.setValuesForKeys([
-            "date": trip.date,
-            "destination": trip.destination,
-            "notes": trip.notes ?? "",
-            "address": trip.address ?? "?",
-            "website": trip.website ?? "none",
-            "photoData": trip.photoData
-        ])
+        let record = CKRecord(recordType: "Trip") //, recordID: tripRecordID(trip))
+        let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(trip.dateString() + ".jpg", conformingTo: .jpeg)
         do {
+            try imageData.write(to: url)
+            let asset = CKAsset(fileURL: url)
+            record.setValuesForKeys([
+                "date": trip.date,
+                "destination": trip.destination,
+                "notes": trip.notes ?? "",
+                "address": trip.address ?? "?",
+                "website": trip.website ?? "none",
+                "photo": asset
+            ])
             try await database.save(record)
         } catch {
             print("Error saving trip \(record.recordID.recordName): \(error)")

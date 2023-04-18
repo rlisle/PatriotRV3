@@ -36,4 +36,19 @@ extension ViewModel {
             }
         }
     }
+    
+    //TODO: currently assumes JPEG
+    func saveImageToFile(name: String, image: UIImage) -> URL
+    {
+        let filemgr = FileManager.default
+        let dirPaths = filemgr.urls(for: .documentDirectory,
+                                    in: .userDomainMask)
+        let fileURL = dirPaths[0].appendingPathComponent(name)  // eg. currentFile.jpg
+        if let renderedJPEGData =
+            image.jpegData(compressionQuality: 0.5) {
+            try! renderedJPEGData.write(to: fileURL)
+        }
+        return fileURL
+    }
+
 }
