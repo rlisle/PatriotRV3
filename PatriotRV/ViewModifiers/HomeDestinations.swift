@@ -28,7 +28,7 @@ struct HomeDestinations: ViewModifier {
               TripView(trip: trip)
           case "deletetrip":
               TripDelete(trip: trip)
-          case "item":
+          case "itemlist":
               ChecklistView()
           case "additem":
               AddChecklistView()

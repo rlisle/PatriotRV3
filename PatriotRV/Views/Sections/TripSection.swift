@@ -14,7 +14,7 @@ struct TripSection: View {
 
     var body: some View {
         Section {
-            NavigationLink(value: "trip") {
+            NavigationLink(value: "edittrip") {
                 TripRowView(trip: model.trips.last)
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
