@@ -8,34 +8,31 @@ import SwiftUI
 
 struct HomeDestinations: ViewModifier {
 
-    var trip: Trip?
-    var item: ChecklistItem?
+    var model: ViewModel
     
-    init(trip: Trip?, item: ChecklistItem?) {
-        self.trip = trip
-        self.item = item
-  }
-
-  func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
       content
       .navigationDestination(for: String.self) { dest in
           switch dest {
           case "triplist":
+              let _ = print("triplist")
               TripListView()
           case "addtrip":
+              let _ = print("tripview")
               TripView()
           case "edittrip":
-              TripView(trip: trip)
+              let _ = print("edittrip")
+              TripView(trip: model.trips.next())
           case "deletetrip":
-              TripDelete(trip: trip)
+              TripDelete(trip: model.trips.next())
           case "itemlist":
               ChecklistView()
           case "additem":
               AddChecklistView()
           case "edititem":
-              AddChecklistView(item: item)
+              AddChecklistView(item: model.nextItem())
           case "deleteitem":
-              ItemDelete(item: item)
+              ItemDelete(item: model.nextItem())
           case "power":
               PowerView()
           case "log":

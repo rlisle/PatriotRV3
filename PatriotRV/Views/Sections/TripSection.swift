@@ -11,11 +11,12 @@ struct TripSection: View {
     
     @EnvironmentObject var model: ViewModel
     @Binding var selection: [String]
+    
 
     var body: some View {
         Section {
             NavigationLink(value: "edittrip") {
-                TripRowView(trip: model.trips.last)
+                TripRowView(trip: model.trips.next())
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
                             //TODO: .confirmationDialog and action

@@ -26,6 +26,7 @@ struct TripView: View {
     @State private var photosPickerItem: PhotosPickerItem?
 
     init(trip: Trip? = nil) {
+        print("TripView init")
         guard let trip = trip else { return }
         self.date = trip.date
         self.destination = trip.destination
@@ -71,12 +72,12 @@ struct TripView: View {
                                        address: address,
                                        website: website,
                                        photo: photo)
-                    model.addTrip(newTrip)
+                    model.trips.add(newTrip)
                     withAnimation {
                         presentationMode.wrappedValue.dismiss()
                     }
                     Task {
-                        try? await model.saveTrip(newTrip)
+                        try? await model.trips.saveTrip(newTrip)
                     }
                 }
             }

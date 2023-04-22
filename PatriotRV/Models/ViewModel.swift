@@ -12,11 +12,20 @@ import CloudKit
 import PhotosUI
 import CoreTransferable
 
+class ChecklistsModel: ObservableObject {
+    
+}
+
+
+class MaintenanceModel: ObservableObject {
+    
+}
 
 @MainActor
 class ViewModel: ObservableObject {
     
-    @Published var trips: [Trip] = []
+    @Published var trips: TripsModel
+    
     @Published var checklist: [ChecklistItem] = []
     @Published var maintenance: [ChecklistItem] = []
 
@@ -37,42 +46,47 @@ class ViewModel: ObservableObject {
 
     var mqtt: MQTTManagerProtocol                       // Protocol to simplify unit tests
     
-    var mockData = false
+    var usingMockData = false
     
     
     // For use with previews and tests
     convenience init() {
-        let mqttManager = MockMQTTManager()
-        self.init(mqttManager: mqttManager)
-        self.updatePower(line: 0, power: 480.0)
-        self.updatePower(line: 1, power: 2880.0)
-        mockData = true
-        seedTrips()
-        seedChecklist()
-        seedMaintenance()
+        let mockMqttManager = MockMQTTManager()
+        self.init(mqttManager: mockMqttManager, useMockData: true)
     }
     
-    init(mqttManager: MQTTManagerProtocol) {
+    init(mqttManager: MQTTManagerProtocol, useMockData: Bool = false) {
+        usingMockData = useMockData
         mqtt = mqttManager
+        formatter.dateFormat = "yyyy-MM-dd"
+        trips = TripsModel(useMockData: usingMockData)
+        loadData()
         mqtt.messageHandler = { topic, message in
             self.handleMQTTMessage(topic: topic, message: message)
         }
-        formatter.dateFormat = "yyyy-MM-dd"
-
-        // Note: don't load from iCloud if Preview or testing
-        
-        setLoadingTrip()
-        Task {
-            do {
-                try await loadTrips()
-                try await loadChecklist()
-                //TODO: loadMaintenance()
-                
-                //Start MQTT after iCloud loaded or failed
-                mqtt.connect()
-                
-            } catch {
-                print("Error fetching from iCloud: \(error)")
+        //TODO: issue MQTT query here or later
+    }
+    
+    func loadData() {
+        trips.setLoadingTrip()
+         if usingMockData {
+            self.updatePower(line: 0, power: 480.0)
+            self.updatePower(line: 1, power: 2880.0)
+            seedChecklist()
+            seedMaintenance()
+        } else {
+            Task {
+                do {
+//                    try await loadTrips()
+                    try await loadChecklist()
+                    //TODO: loadMaintenance()
+                    
+                    //Start MQTT after iCloud loaded or failed
+                    mqtt.connect()
+                    
+                } catch {
+                    print("Error fetching from iCloud: \(error)")
+                }
             }
         }
     }
@@ -114,6 +128,10 @@ extension ViewModel: Publishing {
 // Checklist
 extension ViewModel {
 
+    func nextItem() -> ChecklistItem {
+        return checklist[nextItemIndex ?? 0]
+    }
+    
     func eliminateDuplicates() {
         var newChecklist = [ChecklistItem]()
         for item in checklist {
@@ -151,7 +169,7 @@ extension ViewModel {
         }
         item.date = Date()
         checklist[index] = item
-        if !mockData {
+        if !usingMockData {
             Task {
                 try? await saveChecklistItem(item)
             }

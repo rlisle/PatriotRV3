@@ -16,7 +16,7 @@ extension ViewModel {
     
     func save() async throws {
         try await saveChecklist()
-        try await saveTrips()
+        try await trips.saveTrips()
     }    
 }
 

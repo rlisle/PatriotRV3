@@ -20,7 +20,7 @@ struct TripDelete_Previews: PreviewProvider {
     static var model = ViewModel()
     static var previews: some View {
         if model.trips.count > 0 {
-            TripDelete(trip: model.trips.last!)
+            TripDelete(trip: model.trips.trips.last!)
                 .environmentObject(model)
         } else {
             Text("Can't preview: no trips")

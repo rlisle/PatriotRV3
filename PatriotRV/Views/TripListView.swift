@@ -36,7 +36,7 @@ struct TripListView: View {
             if(model.trips.count == 0) {
                 Text("No trips found")
             } else {
-                ForEach(model.trips, id: \.self) { trip in
+                ForEach(model.trips.trips, id: \.self) { trip in
 
                   NavigationLink(destination: TripView(trip: trip)) {
                       TripRowView(trip: trip)

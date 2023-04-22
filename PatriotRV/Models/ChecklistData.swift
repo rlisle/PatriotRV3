@@ -14,7 +14,7 @@ extension ViewModel {
         print("startChecklistActivity")
         if ActivityAuthorizationInfo().areActivitiesEnabled {
             let future = Date(timeIntervalSinceNow: 5)
-            guard let trip = trips.first,
+            guard let trip = trips.trips.first,
                   let nextIndex = nextItemIndex
             else {
                 print("Trip and next item info not set")
@@ -57,7 +57,7 @@ extension ViewModel {
         print("updateChecklistActivity")
         guard let nextIndex = nextItemIndex,
               let tripMode = nextTripMode(),
-              let trip = nextTrip(date: Date()) else {
+              let trip = trips.next(date: Date()) else {
             print("updateChecklistActivity no next trip or item")
             return
         }

@@ -9,7 +9,7 @@ import CloudKit
 
 //TODO: Convert Trip to CKRecord?
 
-extension ViewModel {
+extension TripsModel {
     
     nonisolated func loadTrips() async throws {
         do {

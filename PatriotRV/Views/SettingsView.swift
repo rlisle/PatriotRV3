@@ -98,7 +98,7 @@ struct SettingsView: View {
             
             MenuRowView(title: "Delete Trips", iconName: "exclamationmark.icloud", action: {
                 Task {
-                    try await modelData.deleteTrips()
+                    try await modelData.trips.deleteTrips()
                 }
                 withAnimation {
                     presentationMode.wrappedValue.dismiss()
@@ -106,7 +106,7 @@ struct SettingsView: View {
             })
             
             MenuRowView(title: "Seed Trips", iconName: "square.and.arrow.up.trianglebadge.exclamationmark", action: {
-                modelData.seedTrips()
+                modelData.trips.seedTripData()
                 withAnimation {
                     presentationMode.wrappedValue.dismiss()
                 }

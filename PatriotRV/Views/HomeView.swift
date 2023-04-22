@@ -35,7 +35,7 @@ struct HomeView: View {
                 .listStyle(.grouped)
                 .padding(.top, -8)
             }
-            .modifier(HomeDestinations(trip: model.trips.last, item: model.checklist.todo().first))
+            .modifier(HomeDestinations(model: model))
             .navigationTitle("Patriot RV")
             .blackNavigation
             .navigationBarTitleDisplayMode(.inline)

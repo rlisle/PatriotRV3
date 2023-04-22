@@ -57,7 +57,7 @@
 		2750158E29EC0A0000CEFBB1 /* UnknownDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750158D29EC0A0000CEFBB1 /* UnknownDestination.swift */; };
 		2750159029EC0B5300CEFBB1 /* TripDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750158F29EC0B5300CEFBB1 /* TripDelete.swift */; };
 		2750159229EC0B7300CEFBB1 /* ItemDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750159129EC0B7300CEFBB1 /* ItemDelete.swift */; };
-		276004BB298D373000D26ACF /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276004BA298D373000D26ACF /* Trips.swift */; };
+		276004BB298D373000D26ACF /* TripsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276004BA298D373000D26ACF /* TripsSeedData.swift */; };
 		276270B8297C1BC700844645 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B7297C1BC700844645 /* Checklist.swift */; };
 		276270BA297C1BD000844645 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270B9297C1BD000844645 /* ChecklistItem.swift */; };
 		276270BC297C1BD800844645 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276270BB297C1BD800844645 /* ViewModel.swift */; };
@@ -84,6 +84,7 @@
 		2771BA6B29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
 		2771BA6C29816F9C0093FCCB /* PatriotRvWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */; };
 		2771BA6F29816F9C0093FCCB /* PatriotRvWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2771BA5A29816F9A0093FCCB /* PatriotRvWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2777D97B29F3F79F005CB9D6 /* TripsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777D97A29F3F79F005CB9D6 /* TripsModel.swift */; };
 		277CA732298A8CE30000A570 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA731298A8CE30000A570 /* Trip.swift */; };
 		277CA735298A956E0000A570 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA734298A956E0000A570 /* DateExtension.swift */; };
 		277CA737298A98170000A570 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA736298A98170000A570 /* TripListView.swift */; };
@@ -261,7 +262,7 @@
 		2750158D29EC0A0000CEFBB1 /* UnknownDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownDestination.swift; sourceTree = "<group>"; };
 		2750158F29EC0B5300CEFBB1 /* TripDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDelete.swift; sourceTree = "<group>"; };
 		2750159129EC0B7300CEFBB1 /* ItemDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDelete.swift; sourceTree = "<group>"; };
-		276004BA298D373000D26ACF /* Trips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
+		276004BA298D373000D26ACF /* TripsSeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsSeedData.swift; sourceTree = "<group>"; };
 		276270B7297C1BC700844645 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		276270B9297C1BD000844645 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		276270BB297C1BD800844645 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -287,6 +288,7 @@
 		2771BA6729816F9A0093FCCB /* PatriotRvWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PatriotRvWidget.intentdefinition; sourceTree = "<group>"; };
 		2771BA6829816F9C0093FCCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2771BA6A29816F9C0093FCCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2777D97A29F3F79F005CB9D6 /* TripsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsModel.swift; sourceTree = "<group>"; };
 		277CA731298A8CE30000A570 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		277CA734298A956E0000A570 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		277CA736298A98170000A570 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
@@ -675,7 +677,8 @@
 				276DDFC2297DD559008CEC48 /* PowerData.swift */,
 				277CA731298A8CE30000A570 /* Trip.swift */,
 				27C1912B29894390005556F4 /* TripMode.swift */,
-				276004BA298D373000D26ACF /* Trips.swift */,
+				2777D97A29F3F79F005CB9D6 /* TripsModel.swift */,
+				276004BA298D373000D26ACF /* TripsSeedData.swift */,
 				276270BB297C1BD800844645 /* ViewModel.swift */,
 			);
 			path = Models;
@@ -1185,7 +1188,7 @@
 				276270CC297C211600844645 /* Checkmark.swift in Sources */,
 				27F2A5AE297C141A00EFD417 /* PatriotRVApp.swift in Sources */,
 				27D1C3812986B9D100D34DAC /* WidgetAttributes.swift in Sources */,
-				276004BB298D373000D26ACF /* Trips.swift in Sources */,
+				276004BB298D373000D26ACF /* TripsSeedData.swift in Sources */,
 				274DBC4F299FAAD2007866BD /* LogRowView.swift in Sources */,
 				27C50B562997C67500EF9DB5 /* Publishing.swift in Sources */,
 				2742240429D0781100DD08C2 /* ChecklistData.swift in Sources */,
@@ -1217,6 +1220,7 @@
 				2703E98F29EB32B5002BA7A0 /* TripSection.swift in Sources */,
 				27040AD529E023BA002BAB52 /* Maintenance.swift in Sources */,
 				272FC2E7297D59BE005C6D43 /* PowerView.swift in Sources */,
+				2777D97B29F3F79F005CB9D6 /* TripsModel.swift in Sources */,
 				276270CA297C20E500844645 /* ChecklistRowView.swift in Sources */,
 				27040AD929E325DB002BAB52 /* AddChecklistView.swift in Sources */,
 				273FCCEA29A0F769002DB4A2 /* MockMQTTManager.swift in Sources */,
